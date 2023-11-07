@@ -16,21 +16,34 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 )
 ##fetching libraries
 ##
+message("Downloading spdlog")
 include(FetchContent)
 FetchContent_Declare(
   spdlog
   GIT_REPOSITORY https://github.com/gabime/spdlog.git
-  GIT_TAG        v1.12.0)
+  GIT_TAG        v1.12.0
+  GIT_SHALLOW TRUE)
 FetchContent_GetProperties(spdlog)
-if(NOT extern_spdlog_POPULATED)
+if(NOT spdlog_POPULATED)
     FetchContent_Populate(spdlog)
     add_subdirectory(
         ${spdlog_SOURCE_DIR}
         ${spdlog_BINARY_DIR}
     )
 endif()
-target_link_libraries(${PROJECT_NAME} spdlog::spdlog)
-target_include_directories(${PROJECT_NAME} PRIVATE spdlog::spdlog)
+
+message("Downloading boost")
+set(BOOST_ENABLE_CMAKE ON)
+set(BOOST_INCLUDE_LIBRARIES filesystem system asio date_time thread beast)
+FetchContent_Declare(
+  Boost
+  GIT_REPOSITORY https://github.com/boostorg/boost.git
+  GIT_TAG boost-1.83.0
+  GIT_SHALLOW TRUE
+)
+FetchContent_MakeAvailable(Boost)
+target_link_libraries(${PROJECT_NAME} PRIVATE spdlog::spdlog Boost::asio Boost::beast Boost::filesystem)
+target_include_directories(${PROJECT_NAME} PRIVATE spdlog::spdlog Boost::asio Boost::beast Boost::filesystem)
 ##
 ##end fecthing libraries
 
