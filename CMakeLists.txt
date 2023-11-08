@@ -7,7 +7,7 @@ set(PROJECT_NAME protei_cov)
 
 project(${PROJECT_NAME} VERSION ${PROJECT_VESRION})
 
-add_executable(${PROJECT_NAME} src/main.cpp)
+add_executable(${PROJECT_NAME} src/main.cpp src/jsonParser.cpp)
 target_include_directories(${PROJECT_NAME} PUBLIC include)
 set_target_properties(${PROJECT_NAME} PROPERTIES
         CXX_STANDARD 17
@@ -34,7 +34,7 @@ endif()
 
 message("Downloading boost")
 set(BOOST_ENABLE_CMAKE ON)
-set(BOOST_INCLUDE_LIBRARIES filesystem system asio date_time thread beast)
+set(BOOST_INCLUDE_LIBRARIES filesystem system asio date_time thread beast property_tree)
 FetchContent_Declare(
   Boost
   GIT_REPOSITORY https://github.com/boostorg/boost.git
@@ -42,8 +42,8 @@ FetchContent_Declare(
   GIT_SHALLOW TRUE
 )
 FetchContent_MakeAvailable(Boost)
-target_link_libraries(${PROJECT_NAME} PRIVATE spdlog::spdlog Boost::asio Boost::beast Boost::filesystem)
-target_include_directories(${PROJECT_NAME} PRIVATE spdlog::spdlog Boost::asio Boost::beast Boost::filesystem)
+target_link_libraries(${PROJECT_NAME} PRIVATE spdlog::spdlog Boost::asio Boost::beast Boost::filesystem Boost::property_tree)
+target_include_directories(${PROJECT_NAME} PRIVATE spdlog::spdlog Boost::asio Boost::beast Boost::filesystem Boost::property_tree)
 ##
 ##end fecthing libraries
 

@@ -1,12 +1,17 @@
+#include <fstream>
 #include <spdlog/spdlog.h>
 #include <boost/filesystem.hpp>
 #include <boost/beast.hpp>
 #include <boost/asio/connect.hpp>
 #include <boost/asio/ip/tcp.hpp>
-
 #include <iostream>
+#include <string>
+
+#include "jsonParser.hpp"
+
 namespace http = boost::beast::http;
 using std::string_literals::operator""s;
+
 std::string getIp() {
     const std::string host = "ifconfig.co";
     boost::asio::io_context ioc;
@@ -25,6 +30,13 @@ std::string getIp() {
 }
 
 int main([[maybe_unused]]int argc, [[maybe_unused]]char* argv[]) { 
+    JsonPareser parser;
+    std::string path = "config.json"s;
+    parser.parse(path);
+    //std::cout << parser.output();
+    for(auto el : parser.outputConfig()) {
+        std::cout << el.first << ":" << el.second << std::endl;
+    }
     spdlog::info(boost::filesystem::system_complete(argv[0]).c_str());
     spdlog::info("My ip: "s+getIp());
     return 0;
