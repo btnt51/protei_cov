@@ -7,45 +7,26 @@ set(PROJECT_NAME protei_cov)
 
 project(${PROJECT_NAME} VERSION ${PROJECT_VESRION})
 
-add_executable(${PROJECT_NAME} src/main.cpp src/jsonParser.cpp)
+set(SOURCES src/main.cpp src/jsonParser.cpp src/threadpool.cpp)
+set(HEADERS include/baseConfig.hpp include/commonStructures.hpp
+        include/jsonParser.hpp include/recorder.hpp include/threadpool.hpp)
+add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 target_include_directories(${PROJECT_NAME} PUBLIC include)
 set_target_properties(${PROJECT_NAME} PROPERTIES
         CXX_STANDARD 17
         CXX_STANDARD_REQUIRED ON
         CXX_EXTENSIONS ON
 )
-##fetching libraries
-##
-message("Downloading spdlog")
-include(FetchContent)
-FetchContent_Declare(
-  spdlog
-  GIT_REPOSITORY https://github.com/gabime/spdlog.git
-  GIT_TAG        v1.12.0
-  GIT_SHALLOW TRUE)
-FetchContent_GetProperties(spdlog)
-if(NOT spdlog_POPULATED)
-    FetchContent_Populate(spdlog)
-    add_subdirectory(
-        ${spdlog_SOURCE_DIR}
-        ${spdlog_BINARY_DIR}
-    )
-endif()
 
-message("Downloading boost")
-set(BOOST_ENABLE_CMAKE ON)
-set(BOOST_INCLUDE_LIBRARIES filesystem system asio date_time thread beast property_tree)
-FetchContent_Declare(
-  Boost
-  GIT_REPOSITORY https://github.com/boostorg/boost.git
-  GIT_TAG boost-1.83.0
-  GIT_SHALLOW TRUE
-)
-FetchContent_MakeAvailable(Boost)
-target_link_libraries(${PROJECT_NAME} PRIVATE spdlog::spdlog Boost::asio Boost::beast Boost::filesystem Boost::property_tree)
-target_include_directories(${PROJECT_NAME} PRIVATE spdlog::spdlog Boost::asio Boost::beast Boost::filesystem Boost::property_tree)
+##download libraries and include them
 ##
-##end fecthing libraries
+include(cmake/LibsConfig.cmake)
+DownloadAndUseLibs()
+message(${LinkLibraries})
+target_link_libraries(${PROJECT_NAME} PRIVATE ${LinkLibraries})
+target_include_directories(${PROJECT_NAME} PRIVATE ${LinkInclude})
+##
+##end of downloading libraries and including them
 
 ##fetching tests
 ##
