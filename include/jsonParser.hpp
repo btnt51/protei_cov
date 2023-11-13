@@ -4,10 +4,9 @@
 #include "baseConfig.hpp"
 #include <boost/property_tree/ptree.hpp>
 
-class JsonPareser{
-private:
-    boost::property_tree::ptree data;
 
+namespace utility {
+class JsonPareser{
 public:
     JsonPareser();
 
@@ -16,4 +15,8 @@ public:
     std::string output();
 
     std::map<std::string, int> outputConfig();
+
+private:
+    boost::property_tree::ptree data_;
 };
+}
