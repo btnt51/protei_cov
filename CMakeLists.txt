@@ -22,12 +22,10 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 ##
 include(cmake/LibsConfig.cmake)
 DownloadAndUseLibs()
-message(${LinkLibraries})
 target_link_libraries(${PROJECT_NAME} PRIVATE ${LinkLibraries})
 target_include_directories(${PROJECT_NAME} PRIVATE ${LinkInclude})
 ##
 ##end of downloading libraries and including them
-
 ##fetching tests
 ##
 if(WITH_TESTS)
