@@ -20,4 +20,5 @@ struct CDR {
     CallStatus status;
     std::thread::id operatorID;
     std::chrono::duration<int> callDuration;
+    long long number;
 };
