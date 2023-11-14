@@ -1,43 +1,50 @@
-#include <fstream>
-#include <spdlog/spdlog.h>
-#include <boost/filesystem.hpp>
+#include <boost/asio.hpp>
 #include <boost/beast.hpp>
-#include <boost/asio/connect.hpp>
-#include <boost/asio/ip/tcp.hpp>
 #include <iostream>
 #include <string>
+#include <uuid/uuid.h>
+namespace asio = boost::asio;
+namespace beast = boost::beast;
+using tcp = asio::ip::tcp;
 
-#include "jsonParser.hpp"
+void DoHttpServer(tcp::socket socket) {
+    try {
+        beast::tcp_stream stream(std::move(socket));
 
-namespace http = boost::beast::http;
-using std::string_literals::operator""s;
-
-std::string getIp() {
-    const std::string host = "ifconfig.co";
-    boost::asio::io_context ioc;
-    boost::asio::ip::tcp::resolver resolver(ioc);
-    boost::asio::ip::tcp::socket socket(ioc);
-    boost::asio::connect(socket, resolver.resolve(host, "80"));
-    http::request<http::string_body> req(http::verb::get, "/", 11);
-    req.set(http::field::host, host);
-    req.set(http::field::user_agent, "curl/7.88.1");
-    http::write(socket, req);
-    boost::beast::flat_buffer buffer;
-    http::response<http::string_body> res;
-    http::read(socket, buffer, res);   
-    socket.shutdown(boost::asio::ip::tcp::socket::shutdown_both);
-    return res.body().data();
+        beast::flat_buffer buffer;
+        beast::http::request<beast::http::string_body> req;
+        beast::http::read(stream, buffer, req);
+        if (req.method() == beast::http::verb::get) {
+            beast::http::response<beast::http::string_body> res;
+            res.version(11);
+            res.result(beast::http::status::ok);
+            res.set(beast::http::field::server, "Boost.Beast HTTP Server");
+            res.body() = "Hello, World!";
+            res.prepare_payload();
+            beast::http::write(stream, res);
+        }
+    } catch (const beast::system_error& e) {
+        std::cerr << "Boost.Beast Error: " << e.what() << ", Code: " << e.code() << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
 }
 
-int main([[maybe_unused]]int argc, [[maybe_unused]]char* argv[]) { 
-    JsonPareser parser;
-    std::string path = "config.json"s;
-    parser.parse(path);
-    //std::cout << parser.output();
-    for(auto el : parser.outputConfig()) {
-        std::cout << el.first << ":" << el.second << std::endl;
+int main() {
+    try {
+        asio::io_context io_context;
+        tcp::acceptor acceptor(io_context, {tcp::v4(), 8080});
+
+        while (true) {
+            tcp::socket socket(io_context);
+            acceptor.accept(socket);
+            std::thread(DoHttpServer, std::move(socket)).detach();
+        }
+
+        io_context.run();
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
     }
-    spdlog::info(boost::filesystem::system_complete(argv[0]).c_str());
-    spdlog::info("My ip: "s+getIp());
+
     return 0;
 }
