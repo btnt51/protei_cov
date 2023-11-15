@@ -1,0 +1,43 @@
+name: 'C++ CI'
+
+on:
+  push:
+    branches:
+      - git-workflow
+
+jobs:
+  build-ubuntu-with-system-libs:
+    name: Build on Ubuntu
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name: Prepare build.sh
+        run: chmod +x build.sh
+      - name: Test
+        run: |
+          ./build.sh ${{ github.run_number }} Debug ON ON test 
+          cd build
+          ./test
+      - name: Build
+        run: ./build.sh ${{ github.run_number }} Release OFF ON package
+      - name: Install program on linux
+        run: |
+          sudo apt install -y ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/release/protei_cov-0.0.${{ github.run_number }}-Linux.deb
+      - name: Release deb
+        uses: softprops/action-gh-release@v1
+        with:
+          files: build/release/*
+          tag_name: ${{ github.run_number }}
+          name: Release ${{ github.run_number }}
+      - name: Build executable
+        run: ./build.sh ${{ github.run_number }} Release OFF ON protei_cov protei_cov-0.0.${{ github.run_number }}-Linux
+      - name: Release deb
+        uses: softprops/action-gh-release@v1
+        with:
+          files: build/protei_cov.zip
+          tag_name: ${{ github.run_number }}
+          name: Release ${{ github.run_number }}
+
