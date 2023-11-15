@@ -43,7 +43,7 @@ function(DownloadAndUseLibs LIGHTWEIGHTBABY)
         message("Using system spdlog library")
     endif()
 
-    find_package(Boost COMPONENTS system date_time QUIET)
+    find_package(Boost COMPONENTS system date_time REQUIRED)
     if(NOT Boost_FOUND)
         set(GIT_TAG boost-1.83.0)
         if(LIGHTWEIGHTBABY)
