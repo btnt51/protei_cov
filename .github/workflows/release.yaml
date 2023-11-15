@@ -18,7 +18,7 @@ jobs:
         run: chmod +x build.sh
       - name: Prepare system
         run: |
-          sudo apt update && sudo apt install -y libspdlog-dev libboost-dev && sudo apt upgrade cmake
+          sudo apt update && sudo apt install -y libspdlog-dev libboost-dev
       - name: Test
         run: |
           ./build.sh ${{ github.run_number }} Debug ON ON test 
