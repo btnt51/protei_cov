@@ -21,7 +21,7 @@ function(DownloadBoostLightWeight GIT_TAG libraries)
 endfunction()
 
 
-function(DownloadAndUseLibs)
+function(DownloadAndUseLibs LIGHTWEIGHTBABY)
     find_package(spdlog REQUIRED)
     if(NOT spdlog_FOUND)
         message("Downloading spdlog")
@@ -46,7 +46,7 @@ function(DownloadAndUseLibs)
     find_package(Boost COMPONENTS system date_time REQUIRED)
     if(NOT Boost_FOUND)
         set(GIT_TAG boost-1.83.0)
-        if(LightWeightBaby)
+        if(LIGHTWEIGHTBABY)
             message("Light Weight Baby")
             set(libraries
                 "boost_mp11|https://github.com/boostorg/mp11"

@@ -21,7 +21,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 ##download libraries and include them
 ##
 include(cmake/LibsConfig.cmake)
-DownloadAndUseLibs()
+DownloadAndUseLibs(LIGHTWEIGHTBABY)
 target_link_libraries(${PROJECT_NAME} PRIVATE ${LinkLibraries})
 target_include_directories(${PROJECT_NAME} PRIVATE ${LinkInclude})
 ##
@@ -33,11 +33,11 @@ if(WITH_TESTS)
     FetchContent_Declare(
             googletest
             GIT_REPOSITORY https://github.com/google/googletest.git
-            GIT_TAG release-1.14.0
+            GIT_TAG v1.14.0
     )
     FetchContent_MakeAvailable(googletest)
 
-    add_executable(test tests/integer.cpp tests/containers.cpp tests/strings.cpp)
+    add_executable(test tests/example.cpp)
     target_compile_features(test PUBLIC cxx_std_17)
     target_link_libraries(test GTest::gtest_main)
     target_include_directories(test PRIVATE include)
