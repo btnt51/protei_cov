@@ -10,42 +10,47 @@ jobs:
     name: Build on Ubuntu
     environment: env
     runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, macos-latest, windows-latest ]
+        arch: [ x64, arm64 ]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          submodules: true
-      - name: Prepare build.sh
-        run: chmod +x build.sh
-      - name: Prepare system
-        run: |
-          sudo apt update && sudo apt install -y libspdlog-dev libboost-all-dev
-      - name: Test
-        run: |
-          ./build.sh ${{ github.run_number }} Debug ON ON test 
-          cd build
-          ./test
-      - name: Build
-        run: ./build.sh ${{ github.run_number }} Release OFF ON package
-#      - name: Install program on linux
-#        run: |
-#          sudo apt install -y ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/release/protei_cov-0.0.${{ github.run_number }}-Linux.deb
-#      - name: Release deb
-#        uses: softprops/action-gh-release@v1
-#        with:
-#          files: build/release/*
-#          tag_name: ${{ github.run_number }}
-#          name: Release ${{ github.run_number }}
-      - name: Build executable
-        run: |
-          ./build.sh ${{ github.run_number }} Release OFF ON protei_cov protei_cov-0.0.${{ github.run_number }}-Linux
-          ls build
-          pwd
-      - name: Release app
-        uses: softprops/action-gh-release@v1
-        with:
-          files: build/protei_cov-0.0.${{ github.run_number }}-Linux.zip
-          tag_name: ${{ github.run_number }}
-          name: Release ${{ github.run_number }}
-          token: ${{ secrets.ACTION_TOKEN }}
+      - name: Build and test
+        runs-on: ${{ matrix.os }}
+        strategy:
+          matrix:
+            include:
+              - os: ubuntu-latest
+                arch: x64
+                type: build-linux
+              - os: ubuntu-latest
+                arch: arm64
+                type: build-linux
+          fail-fast: false
+          max-parallel: 2
+          steps:
+            - name: Prepare build.sh
+              run: chmod +x build.sh
+            - name: Prepare system
+              run: |
+                sudo apt update && sudo apt install -y libspdlog-dev libboost-all-dev
+            - name: Test
+              run: |
+                ./build.sh ${{ github.run_number }} Debug ON ON test 
+                cd build
+                ./test
+            - name: Build
+              run: ./build.sh ${{ github.run_number }} Release OFF ON package
+            - name: Build executable
+              run: |
+                ./build.sh ${{ github.run_number }} Release OFF ON protei_cov protei_cov-0.0.${{ github.run_number }}-${{ matrix.os }}-${{ matrix.arch }}
+                ls build
+                pwd
+            - name: Release app
+              uses: softprops/action-gh-release@v1
+              with:
+                files: build/protei_cov-0.0.${{ github.run_number }}-${{ matrix.os }}-${{ matrix.arch }}.zip
+                tag_name: ${{ github.run_number }}
+                name: Release ${{ github.run_number }}
+                token: ${{ secrets.ACTION_TOKEN }}
 
