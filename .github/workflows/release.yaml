@@ -21,25 +21,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      # - name: Build and test
-      #   uses: ${{matrix.os}}
-      #   with:
-      #     runs-on: ${{ matrix.os }}
-      #     # strategy:
-
-      #       # matrix:
-      #       #   include:
-      #       #     - os: ubuntu-latest
-      #       #       arch: x64
-      #       #       type: build-linux
-      #       #     - os: ubuntu-latest
-      #       #       arch: arm64
-      #       #       type: build-linux
-        
       - name: Print info
         run: |
           echo "OS:" ${{ matrix.os }} "Arch: " ${{ matrix.arch }}
-          echo "Real sys: $uname -a"
+          echo "Real sys: $(uname -a)"
       - name: Prepare build.sh
         run: chmod +x build.sh
       - name: Prepare system
