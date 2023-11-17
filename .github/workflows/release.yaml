@@ -42,6 +42,10 @@ jobs:
           ./build.sh ${{ github.run_number }} Release OFF ON protei_cov protei_cov-0.0.${{ github.run_number }}-${{ matrix.os }}-${{ matrix.arch }}
           ls build
           pwd
+      - name: Run executable
+        run: |
+          sudo chmod +x protei_cov-0.0.${{ github.run_number }}-${{ matrix.os }}-${{ matrix.arch }}
+          ./protei_cov-0.0.${{ github.run_number }}-${{ matrix.os }}-${{ matrix.arch }}
       - name: Release app
         uses: softprops/action-gh-release@v1
         with:
