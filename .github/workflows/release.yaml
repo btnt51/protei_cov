@@ -10,7 +10,7 @@ jobs:
     environment: env
     strategy:
       matrix:
-        os: [ ubuntu-latest, macos-latest]
+        os: [ ubuntu-latest]
         arch: [ x64, arm64 ]
       fail-fast: false
       max-parallel: 2
@@ -38,7 +38,8 @@ jobs:
         
       - name: Print info
         run: |
-          echo "OS:" ${{ matrix.os }}
+          echo "OS:" ${{ matrix.os }} "Arch: " ${{ matrix.arch }}
+          echo "Real sys: $uname -a"
       - name: Prepare build.sh
         run: chmod +x build.sh
       - name: Prepare system
