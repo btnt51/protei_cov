@@ -44,8 +44,8 @@ jobs:
           pwd
       - name: Run executable
         run: |
-          sudo chmod +x protei_cov-0.0.${{ github.run_number }}-${{ matrix.os }}-${{ matrix.arch }}
-          ./protei_cov-0.0.${{ github.run_number }}-${{ matrix.os }}-${{ matrix.arch }}
+          sudo chmod +x build/protei_cov-0.0.${{ github.run_number }}-${{ matrix.os }}-${{ matrix.arch }}
+          build/protei_cov-0.0.${{ github.run_number }}-${{ matrix.os }}-${{ matrix.arch }}
       - name: Release app
         uses: softprops/action-gh-release@v1
         with:
