@@ -36,7 +36,10 @@ jobs:
 #          tag_name: ${{ github.run_number }}
 #          name: Release ${{ github.run_number }}
       - name: Build executable
-        run: ./build.sh ${{ github.run_number }} Release OFF ON protei_cov protei_cov-0.0.${{ github.run_number }}-Linux
+        run: |
+          ./build.sh ${{ github.run_number }} Release OFF ON protei_cov protei_cov-0.0.${{ github.run_number }}-Linux
+          ls
+          pwd
       - name: Release deb
         uses: softprops/action-gh-release@v1
         with:
