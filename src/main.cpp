@@ -30,7 +30,14 @@ void DoHttpServer(tcp::socket socket) {
     }
 }
 
-int main() {
+int main(int argc, const char* argv[]) {
+    std::cout << argc << std::endl;
+    if(argc == 2) {
+        if(!strcmp(argv[1], "test")) {
+            std::cout << "Normal test run!" << std::endl;
+            return 0;
+        }
+    }
     try {
         asio::io_context io_context;
         tcp::acceptor acceptor(io_context, {tcp::v4(), 8080});
