@@ -38,12 +38,13 @@ jobs:
       - name: Build executable
         run: |
           ./build.sh ${{ github.run_number }} Release OFF ON protei_cov protei_cov-0.0.${{ github.run_number }}-Linux
-          ls
+          ls build
           pwd
-      - name: Release deb
+      - name: Release app
         uses: softprops/action-gh-release@v1
         with:
           files: build/protei_cov.zip
           tag_name: ${{ github.run_number }}
           name: Release ${{ github.run_number }}
+          token: ${{ secrets.ACTION_TOKEN }}
 
