@@ -1,0 +1,37 @@
+DOXYFILE_ENCODING      = UTF-8
+PROJECT_NAME           = "Protei COV"
+OUTPUT_DIRECTORY       = ./doc/
+ABBREVIATE_BRIEF       = "The $name class" \
+                         "The $name widget" \
+                         "The $name file" \
+                         is \
+                         provides \
+                         specifies \
+                         contains \
+                         represents \
+                         a \
+                         an \
+                         the
+FULL_PATH_NAMES        = YES
+TAB_SIZE               = 4
+EXTRACT_ALL            = YES
+EXTRACT_LOCAL_CLASSES  = YES
+RESOLVE_UNNAMED_PARAMS = YES
+INPUT                  = .
+INPUT_ENCODING         = UTF-8
+RECURSIVE              = YES
+EXCLUDE                = build\* \
+                         .vscode\* \
+                         .idea\* \
+                         .github\* \
+EXAMPLE_PATTERNS       = *
+USE_HTAGS              = NO
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+HTML_FILE_EXTENSION    = .html
+HTML_DYNAMIC_SECTIONS  = YES
+GENERATE_DOCSET        = NO
+HTML_FORMULA_FORMAT    = png
+SEARCHENGINE           = YES
+GENERATE_LATEX         = YES
+HAVE_DOT 			   = YES
