@@ -1,0 +1,62 @@
+name: 'C++ CI'
+
+on:
+  push:
+    branches:
+      - git-workflow
+
+jobs:
+  build-ubuntu-with-system-libs:
+    environment: env
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        arch: [ 'x64', 'arm64' ]
+      fail-fast: false
+      max-parallel: 2
+    runs-on: ${{ matrix.os }}
+    name: Build on ${{ matrix.os }}-${{matrix.arch}}
+
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Print info
+        run: |
+          echo "OS:" ${{ matrix.os }} "Arch: " ${{ matrix.arch }}
+          echo "Real sys: $(uname -a)"
+      - name: Prepare build.sh
+        run: chmod +x build.sh
+      - name: Prepare system
+        run: |
+          sudo apt update && sudo apt install -y libspdlog-dev libboost-all-dev
+      - if: matrix.arch == 'arm64'
+        name: Prepare system arm part
+        run: sudo apt install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+      - if: matrix.arch == 'x64'
+        name: Test
+        run: |
+          ./build.sh ${{ github.run_number }} Debug ON ON test 
+          cd build
+          ./test
+      - if: matrix.arch == 'x64'
+        name: Build executable
+        run: |
+          ./build.sh ${{ github.run_number }} Release OFF ON protei_cov protei_cov-0.0.${{ github.run_number }}-${{ matrix.os }}-${{ matrix.arch }}
+      - if: matrix.arch == 'arm64'
+        name: Build executable arm
+        run: |
+          ./build.sh ${{ github.run_number }} Release OFF ON protei_cov protei_cov-0.0.${{ github.run_number }}-${{ matrix.os }}-${{ matrix.arch }} /usr/bin/aarch64-linux-gnu-g++
+      - if: matrix.arch == 'x64'
+        name: Test run executable
+        run: |
+          sudo chmod +x build/protei_cov
+          build/protei_cov test
+      - name: Release app
+        uses: softprops/action-gh-release@v1
+        with:
+          files: build/protei_cov-0.0.${{ github.run_number }}-${{ matrix.os }}-${{ matrix.arch }}.zip
+          tag_name: ${{ github.run_number }}
+          name: Release ${{ github.run_number }}
+          token: ${{ secrets.ACTION_TOKEN }}
+
