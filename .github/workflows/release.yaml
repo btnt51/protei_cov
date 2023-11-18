@@ -39,18 +39,10 @@ jobs:
           ./build.sh ${{ github.run_number }} Debug ON ON test 
           cd build
           ./test
-#      - name: Build
-#
-#        run: ./build.sh ${{ github.run_number }} Release OFF ON package
-#      - name: Build
-#        if: ${{ matrix.arch }} == arm64
-#        run: ./build.sh ${{ github.run_number }} Release OFF ON package  /usr/bin/aarch64-linux-gnu-g++
       - if: matrix.arch == 'x64'
         name: Build executable
         run: |
           ./build.sh ${{ github.run_number }} Release OFF ON protei_cov protei_cov-0.0.${{ github.run_number }}-${{ matrix.os }}-${{ matrix.arch }}
-          ls build
-          pwd
       - if: matrix.arch == 'arm64'
         name: Build executable arm
         run: |
