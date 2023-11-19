@@ -9,10 +9,12 @@ using namespace utility;
 
 JsonParser::JsonParser() {}
 
-void JsonParser::parse(std::string& pathToFile) {
+void JsonParser::parse(const std::filesystem::path& pathToFile) {
     std::ifstream file(pathToFile);
     std::stringstream ss;
     ss << file.rdbuf();
+    std::string str = ss.str();
+    //std::cout << ss.str() << std::endl;
     boost::property_tree::read_json(ss, data_);
 }
 
