@@ -9,7 +9,8 @@
 
 /**
  * @namespace TP
- * @brief Пространство имен TP, содержащее объявление типа CallID.
+ * @brief Пространство имен TP, содержащее объявление типа CallID,
+ * а также объявление и определение классов Task, Operator, ThreadPool
  */
 namespace TP {
 using CallID = long long;
