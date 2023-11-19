@@ -1,7 +1,3 @@
-//
-// Created by Евгений Байлов on 19.11.2023.
-//
-
 #ifndef PROTEI_COV_MANAGER_HPP
 #define PROTEI_COV_MANAGER_HPP
 #include <filesystem>
@@ -16,28 +12,55 @@
  */
 class Manager {
 public:
-    Manager(std::string_view pathToConfig);
+    /**
+     * @brief Конструктор класса Manager.
+     * @param pathToConfig Путь к файлу конфигурации.
+     */
+    Manager(const std::string& pathToConfig);
 
-    void startMonitoringConfigFile() {
-        stopMonitoring = false;
-        monitorThread = std::thread([this] { monitorConfigFile(); });
-    }
+    /**
+     * @brief Запуск мониторинга файла конфигурации.
+     */
+    void startMonitoringConfigFile();
 
-    void stopMonitoringConfigFile() {
-        stopMonitoring = true;
-        if (monitorThread.joinable()) {
-            monitorThread.join();
-        }
-    }
+    /**
+     * @brief Остановка мониторинга файла конфигурации.
+     */
+    void stopMonitoringConfigFile();
 
-    std::future<Result> addTask(std::string_view number);
+    /**
+     * @brief Добавление задачи в тредпул.
+     * @param number Номер вызова.
+     * @return Пара, содержащая уникальный идентификатор вызова и будущий результат выполнения задачи.
+     */
+    std::pair<TP::CallID, std::future<Result>> addTask(std::string_view number);
+
 private:
+    /**
+     * @brief Метод для мониторинга файла конфигурации. На данный момент заглушка
+     */
     void monitorConfigFile();
 
-    const std::filesystem::path& pathToConfigFile;
-    TP::ThreadPool threadPool;
-    std::atomic<bool> stopMonitoring;
-    std::thread monitorThread;
+    /**
+     * @brief Метод для обновления тредпула. На данный момент заглушка
+     */
+    void updateThreadPool();
+
+    const std::filesystem::path pathToConfigFile; ///< Путь к файлу конфигурации.
+
+    std::shared_ptr<TP::ThreadPool> threadPool; ///< Указатель на объект тредпула.
+
+    std::atomic<bool> stopMonitoring; ///< Флаг остановки мониторинга файла.
+
+    std::thread monitorThread; ///< Поток для мониторинга файла конфигурации.
+
+    /// @brief Верхняя граница.
+    int RMin_;
+
+    /// @brief Нижняя граница.
+    int RMax_;
+
+    utility::JsonParser parser; ///< Объект парсера JSON.
 };
 
 #endif // PROTEI_COV_MANAGER_HPP

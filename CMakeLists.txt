@@ -7,9 +7,9 @@ set(PROJECT_NAME protei_cov)
 
 project(${PROJECT_NAME} VERSION ${PROJECT_VESRION})
 
-set(SOURCES src/main.cpp src/jsonParser.cpp src/threadpool.cpp)
+set(SOURCES src/main.cpp src/jsonParser.cpp src/threadpool.cpp src/manager.cpp)
 set(HEADERS include/baseConfig.hpp include/commonStructures.hpp
-        include/jsonParser.hpp include/recorder.hpp include/threadpool.hpp)
+        include/jsonParser.hpp include/recorder.hpp include/threadpool.hpp include/manager.hpp)
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 target_include_directories(${PROJECT_NAME} PUBLIC include)
 set_target_properties(${PROJECT_NAME} PROPERTIES
