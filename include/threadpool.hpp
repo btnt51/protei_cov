@@ -29,7 +29,7 @@ public:
      * @param number номер звонящего
      * @param time время создания задачи
      */
-    Task(int RMin, int RMax, long long number, std::time_t& time);
+    Task(int RMin, int RMax, std::string_view number, std::time_t& time);
 
     /// @brief Отправка сигнала потоку.
     void sendSignalToThread();
@@ -51,8 +51,6 @@ private:
     int RMin_;
     /// @brief Нижняя граница.
     int RMax_;
-    /// @brief Номер вызова.
-    long long number_;
     /// @brief Итоговый статус звонка.
     CallStatus status_;
     /// @brief Пул потоков.

@@ -8,9 +8,9 @@
 
 using namespace TP;
 
-Task::Task(int RMin, int RMax, long long number, std::time_t& startTime): RMin_(RMin), RMax_(RMax), number_(number) {
+Task::Task(int RMin, int RMax, std::string_view number, std::time_t& startTime): RMin_(RMin), RMax_(RMax) {
     cdr.startTime = startTime;
-    cdr.number = number_;
+    cdr.number = number;
     status_ = CallStatus::awaiting;
     pool_ = nullptr;
 }
