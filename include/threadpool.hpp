@@ -4,6 +4,7 @@
 #include <thread>
 #include <unordered_map>
 #include <vector>
+#include <future>
 #include <tuple>
 
 #include "commonStructures.hpp"
@@ -35,15 +36,26 @@ public:
     void sendSignalToThread();
 
     /// @brief Обработка вызова.
-    void doTask();
+    Result doTask();
 
-    /// @brief Установка ID вызова.
-    /// @param id ID вызова.
+    /**
+     * @brief Установка ID вызова.
+     * @param id ID вызова.
+     */
     void setCallID(CallID& id);
 
-    /// @brief Установка ID потока.
-    /// @param id ID потока.
+    /**
+     * @brief Установка ID потока.
+     * @param id ID потока.
+     */
     void setThreadID(std::thread::id& id);
+
+    /**
+     * @brief Функция добавления promise в задачу
+     * @param promise промис для уведомления о выполнения задачи
+     */
+    void addPromise(std::shared_ptr<std::promise<Result>> promise);
+
 private:
     /// @brief ID вызова.
     CallID taskId_{};
@@ -58,6 +70,7 @@ private:
     /// @brief CDR звонка.
     CDR cdr;
 
+    std::shared_ptr<std::promise<Result>> promise_;
     /// @brief Отправка CDR на запись.
     void sendCDR();
 
@@ -67,7 +80,8 @@ private:
      */
     [[nodiscard]] CallID getCallID() const;
 
-    /** @brief Определение длительности заглушки.
+    /**
+     * @brief Определение длительности заглушки.
      * @return Длительность заглушки.
      */
     std::chrono::seconds getDuration();
@@ -92,7 +106,8 @@ struct Operator {
  */
 class ThreadPool {
 public:
-    /** @brief Конструктор.
+    /**
+     * @brief Конструктор.
      *  @param amountOfThreads Количество потоков в пуле.
      */
     explicit ThreadPool(unsigned amountOfThreads);
@@ -100,13 +115,15 @@ public:
     /// @brief дестркутор
     ~ThreadPool();
 
-    /** @brief Добавление задачи.
+    /**
+     * @brief Добавление задачи.
      *  @param task Задача для выполнения.
      *  @return ID вызова задачи.
      */
-    CallID add_task(const Task& task);
+    std::pair<CallID, std::future<Result>> add_task(const Task& task);
 
-    /** @brief Ожидание сигнала.
+    /**
+     * @brief Ожидание сигнала.
      *  @return ID вызова сигнала.
      */
     CallID wait_signal();
@@ -120,16 +137,11 @@ public:
     /// @brief запуск пула
     void start();
 
-    /** @brief Получение результата по ID вызова.
-     *  @param id ID вызова.
-     *  @return Указатель на результат задачи.
-     */
-    std::shared_ptr<Task> get_result(CallID id);
-
     /// @brief очистка выполненых
     void clear_completed();
 
-    /** @brief Обновление пула.
+    /**
+     * @brief Обновление пула.
      *  @param amountOfThreads Новое количество потоков в пуле.
      */
     void updateThreadPool(int amountOfThreads);
