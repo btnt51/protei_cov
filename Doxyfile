@@ -1,6 +1,8 @@
 DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = "Protei COV"
+PROJECT_BRIEF          = "Студенческий проект для стажировки в НТЦ Протей"
 OUTPUT_DIRECTORY       = ./doc/
+OUTPUT_LANGUAGE 	   = Russian
 ABBREVIATE_BRIEF       = "The $name class" \
                          "The $name widget" \
                          "The $name file" \

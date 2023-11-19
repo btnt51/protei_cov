@@ -9,155 +9,211 @@
 #include "commonStructures.hpp"
 #include "recorder.hpp"
 
-// TP - thread pool namespace
+/**
+ * @namespace TP
+ * @breif Базовое простраснтво имён
+ */
 namespace TP {
 class ThreadPool;
+
+/**
+ * @class Task
+ * @brief Класс задачи – вызова, который обрабаытывает поток (оператор)
+ */
 class Task {
 public:
-    //конструктор
-    Task(int RMin, int RMax, long long number, std::time_t&);
+    /**
+     * @brief конструктор
+     * @param RMin нижняя граница времени
+     * @param RMax верхняя граница времени
+     * @param number номер звонящего
+     * @param time время создания задачи
+     */
+    Task(int RMin, int RMax, long long number, std::time_t& time);
 
-    // уведомление оператора
+    /// @brief Отправка сигнала потоку.
     void sendSignalToThread();
 
-    // обработка вызова
+    /// @brief Обработка вызова.
     void doTask();
 
-    // сохранение id вызова
+    /// @brief Установка ID вызова.
+    /// @param id ID вызова.
     void setCallID(CallID& id);
 
-    // запись номер оператора
+    /// @brief Установка ID потока.
+    /// @param id ID потока.
     void setThreadID(std::thread::id& id);
-
 private:
-    // id вызова
+    /// @brief ID вызова.
     CallID taskId_{};
-    // верхняя граница
+    /// @brief Верхняя граница.
     int RMin_;
-    // нижняя граница
+    /// @brief Нижняя граница.
     int RMax_;
-    // номер вызова
+    /// @brief Номер вызова.
     long long number_;
-    // итоговый статус звонка
+    /// @brief Итоговый статус звонка.
     CallStatus status_;
-    // пул потоков
+    /// @brief Пул потоков.
     ThreadPool* pool_{};
-    //CDR звонка
+    /// @brief CDR звонка.
     CDR cdr;
 
-    // оптравка CDR на запись
+    /// @brief Отправка CDR на запись.
     void sendCDR();
 
-    // получение id вызова
+    /**
+     * @brief Получение ID вызова.
+     * @return ID вызова.
+     */
     [[nodiscard]] CallID getCallID() const;
 
-    // пределение заглушки
+    /** @brief Определение длительности заглушки.
+     * @return Длительность заглушки.
+     */
     std::chrono::seconds getDuration();
 
-    // дружественный класс
+    /// @brief Дружественный класс.
     friend class ThreadPool;
 };
 
-// представление оператора цода
+/**
+ * @struct Operator
+ * @brief Структура, представляющая оператора ЦОВ.
+ */
 struct Operator {
-    std::thread _thread;
-    std::atomic<bool> is_working;
-    int operatorID;
+    std::thread _thread; ///< Поток оператора.
+    std::atomic<bool> is_working; ///< Флаг, указывающий, работает ли оператор.
+    int operatorID; ///< ID оператора.
 };
 
+/**
+ * @class ThreadPool
+ * @brief Класс, реализующий пул потоков (операторов).
+ */
 class ThreadPool {
 public:
-    //конструктор
+    /** @brief Конструктор.
+     *  @param amountOfThreads Количество потоков в пуле.
+     */
     explicit ThreadPool(unsigned amountOfThreads);
 
-    //деструктор
+    /// @brief дестркутор
     ~ThreadPool();
 
-    // добавление задачи
+    /** @brief Добавление задачи.
+     *  @param task Задача для выполнения.
+     *  @return ID вызова задачи.
+     */
     CallID add_task(const Task& task);
 
-    // ожидание сигнала
+    /** @brief Ожидание сигнала.
+     *  @return ID вызова сигнала.
+     */
     CallID wait_signal();
 
-    // остановка пула
+    /// @brief остановка пула
     void wait();
 
-    // остановка пула
+    /// @brief остановка пула
     void stop();
 
-    // запуск пула
+    /// @brief запуск пула
     void start();
 
-    // получения запроса
+    /** @brief Получение результата по ID вызова.
+     *  @param id ID вызова.
+     *  @return Указатель на результат задачи.
+     */
     std::shared_ptr<Task> get_result(CallID id);
 
-    // очистка выполненых
+    /// @brief очистка выполненых
     void clear_completed();
 
-    // обновление пула
+    /** @brief Обновление пула.
+     *  @param amountOfThreads Новое количество потоков в пуле.
+     */
     void updateThreadPool(int amountOfThreads);
 
 private:
-    // мьютексы для очереди
-    std::mutex task_queue_mutex;
-    std::mutex completed_tasks_mutex;
-    std::mutex signal_queue_mutex;
+    /// @brief Мьютексы для управления доступом к различным ресурсам в пуле потоков.
+    std::mutex task_queue_mutex; ///< Мьютекс для очереди задач.
+    std::mutex completed_tasks_mutex; ///< Мьютекс для доступа к выполненным задачам.
+    std::mutex signal_queue_mutex; ///< Мьютекс для очереди сигналов.
 
-    // служебные мьютексы
-    std::mutex cdr_mutex;
-    std::mutex log_mutex;
-    std::mutex wait_mutex;
+    /// @brief Служебные мьютексы для специфических операций в пуле потоков.
+    std::mutex cdr_mutex; ///< Мьютекс для операций с CDR (Call Detail Record).
+    std::mutex log_mutex; ///< Мьютекс для записи логов.
+    std::mutex wait_mutex; ///< Мьютекс для ожидания.
 
-    // условные переменные для управления задачами
-    std::condition_variable tasks_access;
-    std::condition_variable wait_access;
+    /// @brief Условные переменные для управления задачами в пуле потоков.
+    std::condition_variable tasks_access; ///< Условная переменная для доступа к задачам.
+    std::condition_variable wait_access; ///< Условная переменная для ожидания доступа.
 
-    // вектор операторов
-    std::vector<Operator*> threads;
+    ///@brief Вектор операторов в пуле потоков.
+    std::vector<Operator*> threads; ///< Вектор операторов.
 
-    // вектор средстав записи
-    std::vector<IRecoreder> recorders;
+    /// @brief Вектор средств записи в пуле потоков.
+    std::vector<IRecoreder> recorders; ///< Вектор средств записи.
 
-    //очередь задач
-    std::queue<std::pair<std::shared_ptr<Task>, CallID>> task_queue;
+    /// @brief Очередь задач в пуле потоков.
+    std::queue<std::pair<std::shared_ptr<Task>, CallID>> task_queue; ///< Очередь задач.
 
-    // массив выполненных задач в виде хэш-таблицы
-    std::unordered_map<CallID, std::shared_ptr<Task>> completed_tasks;
-    unsigned long long completed_task_count;
+    /// @brief Массив выполненных задач в виде хэш-таблицы.
+    std::unordered_map<CallID, std::shared_ptr<Task>> completed_tasks; ///< Хэш-таблица выполненных задач.
+    unsigned long long completed_task_count; ///< Количество выполненных задач.
 
-    std::atomic<CallID> last_callID_in_work;
-    //очередь сигналов
-    std::queue<CallID> signal_queue;
+    std::atomic<CallID> last_callID_in_work; ///< Атомарная переменная для последнего обрабатываемого вызова.
 
-    // флаг остановки работы пула
-    std::atomic<bool> stopped;
+    /// @brief Очередь сигналов в пуле потоков.
+    std::queue<CallID> signal_queue; ///< Очередь сигналов.
 
-    // флаг приостановки работы
-    std::atomic<bool> paused;
-    std::atomic<bool> ignore_signals;
+    /// @brief Флаг остановки работы пула.
+    std::atomic<bool> stopped; ///< Атомарный флаг для остановки работы пула.
 
-    // обработка вызова
+    /// @brief Флаг приостановки работы пула.
+    std::atomic<bool> paused; ///< Атомарный флаг для приостановки работы пула.
+
+    std::atomic<bool> ignore_signals; ///< Атомарный флаг для игнорирования сигналов.
+
+    /** @brief Обработка вызова в потоке оператора.
+     *  @param pOperator Указатель на оператора, обрабатывающего вызов.
+     */
     void run(Operator* pOperator);
 
-    // обработка сигнала
+    /** @brief Обработка сигнала в пуле потоков.
+     *  @param id ID вызова, на который поступил сигнал.
+     */
     void receive_signal(CallID id);
 
-    // разрешение запуска очередного потока
+    /** @brief Проверка, разрешен ли запуск нового потока в пуле.
+     *  @return true, если запуск разрешен, false в противном случае.
+     */
     bool run_allowed() const;
 
-    // проверка выполнения всех задач из очереди
+    /** @brief Проверка выполнения всех задач в очереди.
+     *  @return true, если все задачи выполнены, false в противном случае.
+     */
     bool is_completed() const;
 
-    // проверка, занятости хотя бы одного потока
+    /** @brief Проверка, занят ли хотя бы один поток в пуле.
+     *  @return true, если хотя бы один поток занят, false в противном случае.
+     */
     bool is_standby() const;
 
-    // создание уникального CallID
+
+    /** @brief Создание уникального CallID.
+     *  @return Уникальный CallID.
+     */
     static CallID generateCallID();
 
-    // создание записи
+    /** @brief Создание записи.
+     *  @param cdr CDR запись.
+     */
     void writeCDR(CDR& cdr);
 
-    // дружественные функции для работы с пуллом
+    /// @brief дружественные функции для работы с пуллом
     friend void Task::sendSignalToThread();
     friend void Task::sendCDR();
 };
