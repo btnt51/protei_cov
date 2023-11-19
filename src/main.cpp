@@ -3,9 +3,42 @@
 #include <iostream>
 #include <string>
 #include <uuid/uuid.h>
+#include "manager.hpp"
 namespace asio = boost::asio;
 namespace beast = boost::beast;
 using tcp = asio::ip::tcp;
+
+Manager manager("base.json");
+
+
+void HandleHttpRequest(const std::string& path, beast::http::response<beast::http::string_body>& res) {
+    if (path.find("/phone=") == 0) {
+        // Извлечь значение "name" из параметра запроса
+        std::string phone = path.substr(7); // 11 - длина "/user?name="
+        auto [callID, future] = manager.addTask(phone);
+        // Далее вы можете использовать значение "name" в ответе
+
+        res.result(beast::http::status::ok);
+        auto result = future.get();
+        auto seconds = std::chrono::duration_cast<std::chrono::seconds>(result.callDuration);
+        res.body() = "CallID: " + std::to_string(callID) + " call duration: " + std::to_string(seconds.count())+"s";
+        std::string status;
+        if(result.status == CallStatus::completed)
+            status = "completed";
+        if(result.status == CallStatus::rejected)
+            status = "rejected";
+        if(result.status == CallStatus::awaiting)
+            status = "awaiting";
+        res.body() += "\n Status: " + status + "\n";
+    } else {
+        res.result(beast::http::status::not_found);
+        res.body() = "Not Found";
+    }
+    res.version(11);
+    res.set(beast::http::field::server, "Boost.Beast HTTP Server");
+    res.prepare_payload();
+}
+
 
 void DoHttpServer(tcp::socket socket) {
     try {
@@ -14,13 +47,9 @@ void DoHttpServer(tcp::socket socket) {
         beast::flat_buffer buffer;
         beast::http::request<beast::http::string_body> req;
         beast::http::read(stream, buffer, req);
+        beast::http::response<beast::http::string_body> res;
         if (req.method() == beast::http::verb::get) {
-            beast::http::response<beast::http::string_body> res;
-            res.version(11);
-            res.result(beast::http::status::ok);
-            res.set(beast::http::field::server, "Boost.Beast HTTP Server");
-            res.body() = "Hello, World!";
-            res.prepare_payload();
+            HandleHttpRequest(req.target(), res);
             beast::http::write(stream, res);
         }
     } catch (const beast::system_error& e) {
