@@ -7,19 +7,16 @@
 
 using namespace utility;
 
-JsonPareser::JsonPareser() {
+JsonParser::JsonParser() {}
 
-}
-
-void JsonPareser::parse(std::string& pathToFile) {
+void JsonParser::parse(std::string& pathToFile) {
     std::ifstream file(pathToFile);
     std::stringstream ss;
     ss << file.rdbuf();
-   // std::cout << ss.str() << std::endl;
     boost::property_tree::read_json(ss, data_);
 }
 
-std::string JsonPareser::output() {
+std::string JsonParser::output() {
     std::string res("");
     res += "RMin: " + std::to_string(data_.get<int>("RMin")) + "\n";
     res += "RMax: " + std::to_string(data_.get<int>("RMax"))+ "\n";
@@ -28,7 +25,7 @@ std::string JsonPareser::output() {
     return res;
 }
 
-std::map<std::string, int> JsonPareser::outputConfig() {
+std::map<std::string, int> JsonParser::outputConfig() {
     std::map<std::string, int> res;
     boost::property_tree::basic_ptree<std::string, std::string>::const_iterator iter=data_.begin(), iterEnd = data_.end();
     for(;iter != iterEnd;++iter) {
