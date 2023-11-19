@@ -1,11 +1,11 @@
-name: Documentation
+name: 'Documentation on approved PR'
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
-  push:
-    branches:
-      - git-workflow-docs
+  pull_request:
+    types:
+      - closed
 
 jobs:
   build-documentation:
@@ -13,7 +13,7 @@ jobs:
     environment: env
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Prepare system
         run: sudo apt install graphviz
       - name: Doxygen Action
