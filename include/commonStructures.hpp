@@ -38,3 +38,13 @@ struct CDR {
     std::chrono::duration<int> callDuration; ///< Продолжительность вызова в секундах.
     long long number;                     ///< Номер вызова.
 };
+
+/**
+ * @struct Result
+ * @brief Структура Result представляет результат обработки вызова.
+ */
+struct Result {
+    CallStatus status; ///< Статус вызова.
+    std::chrono::duration<int> callDuration; ///< Продолжительность вызова в секундах.
+    TP::CallID callID; ///< Уникальный идентификатор вызова.
+};
