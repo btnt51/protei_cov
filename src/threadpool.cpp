@@ -29,9 +29,7 @@ void Task::setThreadID(std::thread::id& id) {
 void Task::addPromise(std::shared_ptr<std::promise<Result>> t) {
     promise_ = std::move(t);
 }
-void Task::sendSignalToThread() {
-    pool_->receive_signal(taskId_);
-}
+
 
 void Task::sendCDR() {
     pool_->writeCDR(cdr);
@@ -120,10 +118,10 @@ void ThreadPool::run(Operator* pOperator) {
             } catch (...) {
                 elem->promise_->set_exception(std::current_exception());
             }
+            if (waitForCompletion && task_queue.empty()) {
+                break;
+            }
 
-
-            std::lock_guard<std::mutex> lg(completed_tasks_mutex);
-            completed_tasks[callID] = elem;
             completed_task_count++;
         }
         wait_access.notify_all();
@@ -133,19 +131,14 @@ void ThreadPool::run(Operator* pOperator) {
 void ThreadPool::start() {
     if (paused) {
         paused = false;
+        waitForCompletion = false;
         tasks_access.notify_all();
     }
 }
 
 void ThreadPool::stop() {
     paused = true;
-}
-
-void ThreadPool::receive_signal(CallID id) {
-    std::lock_guard<std::mutex> lock(signal_queue_mutex);
-    signal_queue.emplace(id);
-    if (!ignore_signals)
-        stop();
+    waitForCompletion = true;
 }
 
 std::pair<CallID, std::future<Result>> ThreadPool::add_task(const Task& task) {
@@ -159,62 +152,6 @@ std::pair<CallID, std::future<Result>> ThreadPool::add_task(const Task& task) {
     return {callID, std::move(future)};
 }
 
-
-bool ThreadPool::is_completed() const {
-    return completed_task_count == static_cast<unsigned long long>(last_callID_in_work);
-}
-
-bool ThreadPool::is_standby() const {
-    if (!paused)
-        return false;
-    return std::all_of(threads.begin(), threads.end(),
-                       [](const Operator* thread) { return !thread->is_working; });
-}
-
-void ThreadPool::wait() {
-    std::lock_guard<std::mutex> lock_wait(wait_mutex);
-
-    start();
-
-    std::unique_lock<std::mutex> lock(task_queue_mutex);
-    wait_access.wait(lock, [this]() -> bool { return is_completed(); });
-
-    stop();
-}
-
-CallID ThreadPool::wait_signal() {
-    std::lock_guard<std::mutex> lock_wait(wait_mutex);
-
-    ignore_signals = false;
-
-    signal_queue_mutex.lock();
-    if (signal_queue.empty())
-        start();
-    else
-        stop();
-    signal_queue_mutex.unlock();
-
-    std::unique_lock<std::mutex> lock(task_queue_mutex);
-    wait_access.wait(lock, [this]() -> bool { return is_completed() || is_standby(); });
-
-    ignore_signals = true;
-
-    std::lock_guard<std::mutex> lock_signals(signal_queue_mutex);
-    if (signal_queue.empty())
-        return 0;
-    else {
-        CallID signal = signal_queue.front();
-        signal_queue.pop();
-        return signal;
-    }
-}
-
-void ThreadPool::clear_completed() {
-    std::scoped_lock lock(completed_tasks_mutex, signal_queue_mutex);
-    completed_tasks.clear();
-    while (!signal_queue.empty())
-        signal_queue.pop();
-}
 
 void ThreadPool::writeCDR(CDR& cdr) {
     std::lock_guard<std::mutex> lg(cdr_mutex);
@@ -231,9 +168,6 @@ ThreadPool::~ThreadPool() {
     }
 }
 
-void ThreadPool::updateThreadPool(int amountOfThreads) {
-    amountOfThreads -= amountOfThreads;
-}
 
 CallID ThreadPool::generateCallID() {
     return CallID{0};

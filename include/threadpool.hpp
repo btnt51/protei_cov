@@ -32,8 +32,6 @@ public:
      */
     Task(int RMin, int RMax, std::string_view number, std::time_t& time);
 
-    /// @brief Отправка сигнала потоку.
-    void sendSignalToThread();
 
     /// @brief Обработка вызова.
     Result doTask();
@@ -122,40 +120,20 @@ public:
      */
     std::pair<CallID, std::future<Result>> add_task(const Task& task);
 
-    /**
-     * @brief Ожидание сигнала.
-     *  @return ID вызова сигнала.
-     */
-    CallID wait_signal();
-
-    /// @brief остановка пула
-    void wait();
-
     /// @brief остановка пула
     void stop();
 
     /// @brief запуск пула
     void start();
 
-    /// @brief очистка выполненых
-    void clear_completed();
-
-    /**
-     * @brief Обновление пула.
-     *  @param amountOfThreads Новое количество потоков в пуле.
-     */
-    void updateThreadPool(int amountOfThreads);
 
 private:
     /// @brief Мьютексы для управления доступом к различным ресурсам в пуле потоков.
     std::mutex task_queue_mutex; ///< Мьютекс для очереди задач.
-    std::mutex completed_tasks_mutex; ///< Мьютекс для доступа к выполненным задачам.
-    std::mutex signal_queue_mutex; ///< Мьютекс для очереди сигналов.
 
     /// @brief Служебные мьютексы для специфических операций в пуле потоков.
     std::mutex cdr_mutex; ///< Мьютекс для операций с CDR (Call Detail Record).
     std::mutex log_mutex; ///< Мьютекс для записи логов.
-    std::mutex wait_mutex; ///< Мьютекс для ожидания.
 
     /// @brief Условные переменные для управления задачами в пуле потоков.
     std::condition_variable tasks_access; ///< Условная переменная для доступа к задачам.
@@ -184,34 +162,17 @@ private:
 
     /// @brief Флаг приостановки работы пула.
     std::atomic<bool> paused; ///< Атомарный флаг для приостановки работы пула.
-
-    std::atomic<bool> ignore_signals; ///< Атомарный флаг для игнорирования сигналов.
+    std::atomic<bool> waitForCompletion;
 
     /** @brief Обработка вызова в потоке оператора.
      *  @param pOperator Указатель на оператора, обрабатывающего вызов.
      */
     void run(Operator* pOperator);
 
-    /** @brief Обработка сигнала в пуле потоков.
-     *  @param id ID вызова, на который поступил сигнал.
-     */
-    void receive_signal(CallID id);
-
     /** @brief Проверка, разрешен ли запуск нового потока в пуле.
      *  @return true, если запуск разрешен, false в противном случае.
      */
     bool run_allowed() const;
-
-    /** @brief Проверка выполнения всех задач в очереди.
-     *  @return true, если все задачи выполнены, false в противном случае.
-     */
-    bool is_completed() const;
-
-    /** @brief Проверка, занят ли хотя бы один поток в пуле.
-     *  @return true, если хотя бы один поток занят, false в противном случае.
-     */
-    bool is_standby() const;
-
 
     /** @brief Создание уникального CallID.
      *  @return Уникальный CallID.
@@ -223,8 +184,7 @@ private:
      */
     void writeCDR(CDR& cdr);
 
-    /// @brief дружественные функции для работы с пуллом
-    friend void Task::sendSignalToThread();
+    /// @brief дружественная функции для работы с пуллом
     friend void Task::sendCDR();
 };
 } // namespace TP
