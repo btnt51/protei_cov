@@ -13,7 +13,7 @@ set(HEADERS include/baseConfig.hpp include/commonStructures.hpp
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 target_include_directories(${PROJECT_NAME} PUBLIC include)
 set_target_properties(${PROJECT_NAME} PROPERTIES
-        CXX_STANDARD 17
+        CXX_STANDARD 20
         CXX_STANDARD_REQUIRED ON
         CXX_EXTENSIONS ON
 )
@@ -38,7 +38,7 @@ if(WITH_TESTS)
     FetchContent_MakeAvailable(googletest)
 
     add_executable(test tests/example.cpp)
-    target_compile_features(test PUBLIC cxx_std_17)
+    target_compile_features(test PUBLIC cxx_std_20)
     target_link_libraries(test GTest::gtest_main)
     target_include_directories(test PRIVATE include)
 
