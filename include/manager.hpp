@@ -16,7 +16,7 @@ public:
      * @brief Конструктор класса Manager.
      * @param pathToConfig Путь к файлу конфигурации.
      */
-    Manager(const std::string& pathToConfig);
+    explicit Manager(const std::string& pathToConfig);
 
     /**
      * @brief Запуск мониторинга файла конфигурации.
@@ -41,6 +41,9 @@ private:
      */
     void monitorConfigFile();
 
+    /// @brief Метод, для получения времени последнего изменения файла.
+    std::time_t getLastModificationTime();
+
     /**
      * @brief Метод для обновления тредпула. На данный момент заглушка
      */
@@ -61,6 +64,8 @@ private:
     int RMax_;
 
     utility::JsonParser parser; ///< Объект парсера JSON.
+
+    std::time_t lastFileModificationTime; ///< Переменная последнего обновления файла конфигурации
 };
 
 #endif // PROTEI_COV_MANAGER_HPP
