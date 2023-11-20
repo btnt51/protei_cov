@@ -3,6 +3,7 @@
 #include "spdlog/spdlog.h"
 #include <iostream>
 #include <random>
+#include <utility>
 
 // #include <boost/uuid/>
 
@@ -26,7 +27,7 @@ void Task::setThreadID(std::thread::id& id) {
 }
 
 void Task::addPromise(std::shared_ptr<std::promise<Result>> t) {
-    promise_ = t;
+    promise_ = std::move(t);
 }
 void Task::sendSignalToThread() {
     pool_->receive_signal(taskId_);
