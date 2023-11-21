@@ -137,6 +137,15 @@ void ThreadPool::stop() {
     waitForCompletion = true;
 }
 
+void ThreadPool::transferTaskQueue(const std::shared_ptr<ThreadPool>& oldThreadPool) {
+    std::lock_guard<std::mutex> oldPoolLock(oldThreadPool->task_queue_mutex);
+    std::lock_guard<std::mutex> thisPoolLock(task_queue_mutex);
+
+    if(this != oldThreadPool.get()) {
+        this->task_queue = std::move(oldThreadPool->task_queue);
+    }
+}
+
 std::pair<CallID, std::future<Result>> ThreadPool::add_task(const Task& task) {
     // TODO: тут должно быть лог сообщение
     std::lock_guard<std::mutex> lock(task_queue_mutex);
@@ -167,3 +176,4 @@ ThreadPool::~ThreadPool() {
 CallID ThreadPool::generateCallID() {
     return CallID{0};
 }
+
