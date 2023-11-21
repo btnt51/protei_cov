@@ -126,6 +126,7 @@ public:
     /// @brief запуск пула
     void start();
 
+    void transferTaskQueue(const std::shared_ptr<ThreadPool>& oldThreadPool);
 
 private:
     /// @brief Мьютексы для управления доступом к различным ресурсам в пуле потоков.
