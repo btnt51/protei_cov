@@ -55,4 +55,9 @@ void Manager::updateThreadPool() {
     auto json = parser.outputConfig();
     RMin_ = json["RMin"];
     RMax_ = json["RMax"];
+    threadPool->stop();
+    auto newThreadPool = std::make_shared<TP::ThreadPool>(json["AmountOfOperators"]);
+    newThreadPool->transferTaskQueue(threadPool);
+    threadPool = std::move(newThreadPool);
+    threadPool->start();
 }
