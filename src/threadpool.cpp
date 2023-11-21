@@ -1,11 +1,8 @@
 #include "threadpool.hpp"
-#include "commonStructures.hpp"
 #include "spdlog/spdlog.h"
 #include <iostream>
 #include <random>
-#include <utility>
 
-// #include <boost/uuid/>
 
 using namespace TP;
 
@@ -85,7 +82,6 @@ ThreadPool::ThreadPool(unsigned amountOfThreads) {
     paused = true;
 
     completed_task_count = 0;
-    ignore_signals = true;
     for (unsigned int i = 0; i < amountOfThreads; i++) {
         auto* th = new Operator;
         th->_thread = std::thread{&ThreadPool::run, this, th};
@@ -167,7 +163,6 @@ ThreadPool::~ThreadPool() {
         delete thread;
     }
 }
-
 
 CallID ThreadPool::generateCallID() {
     return CallID{0};
