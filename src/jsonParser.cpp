@@ -10,12 +10,17 @@ using namespace utility;
 JsonParser::JsonParser() {}
 
 void JsonParser::parse(const std::filesystem::path& pathToFile) {
-    std::ifstream file(pathToFile);
-    std::stringstream ss;
-    ss << file.rdbuf();
-    std::string str = ss.str();
-    //std::cout << ss.str() << std::endl;
-    boost::property_tree::read_json(ss, data_);
+    try {
+        std::ifstream file(pathToFile);
+        std::stringstream ss;
+        ss << file.rdbuf();
+        std::string str = ss.str();
+        // std::cout << ss.str() << std::endl;
+        boost::property_tree::read_json(ss, data_);
+    } catch (std::exception& e) {
+        std::cout << e.what() << std::endl;
+        throw e;
+    }
 }
 
 std::string JsonParser::output() {
@@ -28,10 +33,16 @@ std::string JsonParser::output() {
 }
 
 std::map<std::string, int> JsonParser::outputConfig() {
+
     std::map<std::string, int> res;
-    boost::property_tree::basic_ptree<std::string, std::string>::const_iterator iter=data_.begin(), iterEnd = data_.end();
-    for(;iter != iterEnd;++iter) {
-        res[iter->first] = iter->second.get_value<int>();
+    try {
+        boost::property_tree::basic_ptree<std::string, std::string>::const_iterator iter = data_.begin(),
+                                                                                    iterEnd = data_.end();
+        for (; iter != iterEnd; ++iter) {
+            res[iter->first] = iter->second.get_value<int>();
+        }
+    } catch (std::exception& e) {
+        throw e;
     }
     return res;
 }

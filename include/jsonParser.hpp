@@ -1,3 +1,5 @@
+#ifndef PROTEI_COV_JSONPARSER_HPP
+#define PROTEI_COV_JSONPARSER_HPP
 /**
  * \file jsonParser.hpp
  * \brief Содержит объявление класса JsonParser, предназначенного для парсинга и обработки JSON данных.
@@ -8,13 +10,13 @@
 #include <string>
 #include <boost/property_tree/ptree.hpp>
 
-#include "baseConfig.hpp"
+
 
 
 
 /**
  * @namespace utility
- * @brief Пространство имен utility, содержащее функционал для обработки JSON данных.
+ * @brief Пространство имен utility, содержащее функционал для работы с конфигами.
  */
 namespace utility {
 
@@ -50,3 +52,4 @@ private:
 };
 
 } // namespace utility
+#endif
