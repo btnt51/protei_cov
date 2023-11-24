@@ -7,10 +7,12 @@
 using namespace TP;
 
 Task::Task(int RMin, int RMax, std::string_view number, std::time_t& startTime): RMin_(RMin), RMax_(RMax) {
+    std::cout << "From Task() RMin:" << RMin_ << " RMax: " << RMax_ << std::endl;
     cdr.startTime = startTime;
     cdr.number = number;
     status_ = CallStatus::awaiting;
     pool_ = nullptr;
+    promise_ = std::make_shared<std::promise<Result>>();
 }
 
 void Task::setCallID(TP::CallID& id) {
@@ -24,7 +26,7 @@ void Task::setThreadID(std::thread::id& id) {
 }
 
 void Task::addPromise(std::shared_ptr<std::promise<Result>> t) {
-    promise_ = std::move(t);
+    promise_ = t;
 }
 
 
@@ -46,38 +48,46 @@ std::chrono::seconds Task::getDuration() {
 }
 
 Result Task::doTask() {
-    std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-    if (now - cdr.startTime < RMax_) {
-        // TODO: тут должно быть лог сообщение
-        std::chrono::seconds randomSeconds = getDuration();
-        cdr.callDuration = randomSeconds;
-        std::this_thread::sleep_for(randomSeconds);
-        cdr.endTime = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-        status_ = CallStatus::completed;
-        cdr.status = CallStatus::completed;
-        sendCDR();
-        Result r;
-        r.status = CallStatus::completed;
-        r.callDuration = randomSeconds;
-        r.callID = taskId_;
-        // TODO: тут должно быть лог сообщение
-        return r;
-    } else {
-        // TODO: тут должно быть лог сообщение
-        cdr.endTime = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-        cdr.callDuration = std::chrono::seconds{0};
-        cdr.status = CallStatus::rejected;
-        sendCDR();
-        Result r;
-        r.status = CallStatus::rejected;
-        r.callDuration = std::chrono::seconds{0};
-        r.callID = taskId_;
-        return r;
+    try {
+        std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+        if (now - cdr.startTime < RMax_) {
+            // TODO: тут должно быть лог сообщение
+            std::chrono::seconds randomSeconds = getDuration();
+            cdr.callDuration = randomSeconds;
+            std::cout << "Call with number: " << cdr.number << " will sleep for " << randomSeconds.count() << "s" << std::endl;
+            std::this_thread::sleep_for(randomSeconds);
+            cdr.endTime = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+            status_ = CallStatus::completed;
+            cdr.status = CallStatus::completed;
+            sendCDR();
+            Result r;
+            r.status = CallStatus::completed;
+            r.callDuration = randomSeconds;
+            r.callID = taskId_;
+            // TODO: тут должно быть лог сообщение
+            return r;
+        } else {
+            // TODO: тут должно быть лог сообщение
+            cdr.endTime = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+            cdr.callDuration = std::chrono::seconds{0};
+            cdr.status = CallStatus::rejected;
+            sendCDR();
+            Result r;
+            r.status = CallStatus::rejected;
+            r.callDuration = std::chrono::seconds{0};
+            r.callID = taskId_;
+            return r;
+        }
+    } catch(std::exception& e) {
+        std::cerr << e.what() << std::endl;
+        this->promise_->set_exception(std::current_exception());
+        throw e;
     }
 }
 
 
-ThreadPool::ThreadPool(unsigned amountOfThreads) {
+ThreadPool::ThreadPool(unsigned amountOfThreads):
+    IThreadPool(amountOfThreads) {
     stopped = false;
     paused = true;
 
@@ -101,7 +111,6 @@ void ThreadPool::run(Operator* pOperator) {
         pOperator->is_working = false;
         tasks_access.wait(lock, [this]() -> bool { return run_allowed() || stopped; });
         pOperator->is_working = true;
-
         if (run_allowed()) {
             // TODO: тут должно быть лог сообщение
             auto [elem, callID] = std::move(task_queue.front());
@@ -126,6 +135,7 @@ void ThreadPool::run(Operator* pOperator) {
 
 void ThreadPool::start() {
     if (paused) {
+        stopped = false;
         paused = false;
         waitForCompletion = false;
         tasks_access.notify_all();
@@ -137,7 +147,7 @@ void ThreadPool::stop() {
     waitForCompletion = true;
 }
 
-void ThreadPool::transferTaskQueue(const std::shared_ptr<ThreadPool>& oldThreadPool) {
+void ThreadPool::transferTaskQueue(const std::shared_ptr<IThreadPool>& oldThreadPool) {
     std::lock_guard<std::mutex> oldPoolLock(oldThreadPool->task_queue_mutex);
     std::lock_guard<std::mutex> thisPoolLock(task_queue_mutex);
 
@@ -149,12 +159,12 @@ void ThreadPool::transferTaskQueue(const std::shared_ptr<ThreadPool>& oldThreadP
 std::pair<CallID, std::future<Result>> ThreadPool::add_task(const Task& task) {
     // TODO: тут должно быть лог сообщение
     std::lock_guard<std::mutex> lock(task_queue_mutex);
-    auto callID = generateCallID();;
+    auto callID = generateCallID();
     auto future = task.promise_->get_future();
     task_queue.push(std::make_pair(std::make_shared<Task>(task), callID));
     task_queue.back().first->pool_ = this;
     tasks_access.notify_one();
-    return {callID, std::move(future)};
+    return std::make_pair(callID, std::move(future));
 }
 
 

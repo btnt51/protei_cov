@@ -8,6 +8,7 @@
 #include <tuple>
 
 #include "commonStructures.hpp"
+#include "interfaces.hpp"
 #include "recorder.hpp"
 
 /**
@@ -98,11 +99,13 @@ struct Operator {
     int operatorID; ///< ID оператора.
 };
 
+
+
 /**
  * @class ThreadPool
  * @brief Класс, реализующий пул потоков (операторов).
  */
-class ThreadPool {
+class ThreadPool : public TP::IThreadPool {
 public:
     /**
      * @brief Конструктор.
@@ -111,22 +114,24 @@ public:
     explicit ThreadPool(unsigned amountOfThreads);
 
     /// @brief дестркутор
-    ~ThreadPool();
+    ~ThreadPool() override;
 
     /**
      * @brief Добавление задачи.
      *  @param task Задача для выполнения.
      *  @return ID вызова задачи.
      */
-    std::pair<CallID, std::future<Result>> add_task(const Task& task);
+    std::pair<CallID, std::future<Result>> add_task(const Task& task) override;
 
     /// @brief остановка пула
-    void stop();
+    void stop() override;
 
     /// @brief запуск пула
-    void start();
+    void start() override;
 
-    void transferTaskQueue(const std::shared_ptr<ThreadPool>& oldThreadPool);
+    void transferTaskQueue(const std::shared_ptr<IThreadPool>& oldThreadPool) override;
+
+
 
 private:
     /// @brief Мьютексы для управления доступом к различным ресурсам в пуле потоков.
