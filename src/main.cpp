@@ -1,35 +1,48 @@
 #include <boost/asio.hpp>
 #include <boost/beast.hpp>
 #include <iostream>
+#include <memory>
 #include <string>
 #include <uuid/uuid.h>
+#include "config.hpp"
 #include "manager.hpp"
+#include "threadpool.hpp"
 namespace asio = boost::asio;
 namespace beast = boost::beast;
 using tcp = asio::ip::tcp;
 
-Manager manager("base.json");
+
+auto config = std::make_shared<utility::ThreadSafeConfig>("base.json");
+auto pool = std::make_shared<TP::ThreadPool>(config->getAmountOfOperators());
+auto manager = std::make_shared<Manager>(config, pool);
 
 
 void HandleHttpRequest(const std::string& path, beast::http::response<beast::http::string_body>& res) {
     if (path.find("/phone=") == 0) {
         // Извлечь значение "name" из параметра запроса
-        std::string phone = path.substr(7); // 11 - длина "/user?name="
-        auto [callID, future] = manager.addTask(phone);
-        // Далее вы можете использовать значение "name" в ответе
+        try {
+            std::string phone = path.substr(7); // 11 - длина "/user?name="
+            std::cout << "Thread id: " << std::this_thread::get_id() << " phone: " << phone << std::endl;
+            auto [callID, future] = manager->addTask(phone);
+            // Далее вы можете использовать значение "name" в ответе
 
-        res.result(beast::http::status::ok);
-        auto result = future.get();
-        auto seconds = std::chrono::duration_cast<std::chrono::seconds>(result.callDuration);
-        res.body() = "CallID: " + std::to_string(callID) + " call duration: " + std::to_string(seconds.count())+"s";
-        std::string status;
-        if(result.status == CallStatus::completed)
-            status = "completed";
-        if(result.status == CallStatus::rejected)
-            status = "rejected";
-        if(result.status == CallStatus::awaiting)
-            status = "awaiting";
-        res.body() += "\n Status: " + status + "\n";
+            res.result(beast::http::status::ok);
+            auto result = future.get();
+            auto seconds = std::chrono::duration_cast<std::chrono::seconds>(result.callDuration);
+            res.body() =
+                "CallID: " + std::to_string(callID) + " call duration: " + std::to_string(seconds.count()) + "s";
+            std::string status;
+            if (result.status == CallStatus::completed)
+                status = "completed";
+            if (result.status == CallStatus::rejected)
+                status = "rejected";
+            if (result.status == CallStatus::awaiting)
+                status = "awaiting";
+            res.body() += "\n Status: " + status + "\n";
+        } catch (const std::future_error &e) {
+            // Ловим исключение, если произошла ошибка с future
+            std::cerr << "Caught a future_error: " << e.what() << std::endl;
+        }
     } else {
         res.result(beast::http::status::not_found);
         res.body() = "Not Found";
@@ -61,6 +74,8 @@ void DoHttpServer(tcp::socket socket) {
 
 int main(int argc, const char* argv[]) {
     std::cout << argc << std::endl;
+    config->setManager(manager);
+    manager->startThreadPool();
     if(argc == 2) {
         if(!strcmp(argv[1], "test")) {
             std::cout << "Normal test run!" << std::endl;

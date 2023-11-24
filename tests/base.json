@@ -1,0 +1,6 @@
+{
+	"RMin": 10,
+	"RMax": 15,
+	"AmountOfOperators": 5,
+	"SizeOfQueue": 13
+}

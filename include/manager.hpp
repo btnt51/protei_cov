@@ -1,61 +1,44 @@
 #ifndef PROTEI_COV_MANAGER_HPP
 #define PROTEI_COV_MANAGER_HPP
-#include <filesystem>
-#include <future>
+#include "interfaces.hpp"
+#include <shared_mutex>
 
-#include "commonStructures.hpp"
-#include "jsonParser.hpp"
-#include "threadpool.hpp"
 /**
  * @class Manager
  * @brief Класс управляющей тредпулом (центром обратки вызовов)
  */
-class Manager {
+class Manager : public IManager, std::enable_shared_from_this<Manager> {
 public:
     /**
      * @brief Конструктор класса Manager.
      * @param pathToConfig Путь к файлу конфигурации.
      */
-    explicit Manager(const std::string& pathToConfig);
+    explicit Manager(std::shared_ptr<utility::IConfig> conf, std::shared_ptr<TP::IThreadPool>);
 
-    /**
-     * @brief Запуск мониторинга файла конфигурации.
-     */
-    void startMonitoringConfigFile();
-
-    /**
-     * @brief Остановка мониторинга файла конфигурации.
-     */
-    void stopMonitoringConfigFile();
 
     /**
      * @brief Добавление задачи в тредпул.
      * @param number Номер вызова.
      * @return Пара, содержащая уникальный идентификатор вызова и будущий результат выполнения задачи.
      */
-    std::pair<TP::CallID, std::future<Result>> addTask(std::string_view number);
+    std::pair<TP::CallID, std::future<Result>> addTask(std::string_view number) override;
 
-private:
-    /**
-     * @brief Метод для мониторинга файла конфигурации. На данный момент заглушка
-     */
-    void monitorConfigFile();
+    void startThreadPool() override;
 
-    /// @brief Метод, для получения времени последнего изменения файла.
-    std::time_t getLastModificationTime();
+    void stopThreadPool() override;
+
+    void setNewConfig(std::shared_ptr<utility::IConfig> config) override;
+
+    void setNewThreadPool(std::shared_ptr<TP::IThreadPool> pool) override;
 
     /**
      * @brief Метод для обновления тредпула. На данный момент заглушка
      */
-    void updateThreadPool();
+    void update() override;
 
-    const std::filesystem::path pathToConfigFile; ///< Путь к файлу конфигурации.
+private:
 
-    std::shared_ptr<TP::ThreadPool> threadPool; ///< Указатель на объект тредпула.
-
-    std::atomic<bool> stopMonitoring; ///< Флаг остановки мониторинга файла.
-
-    std::thread monitorThread; ///< Поток для мониторинга файла конфигурации.
+    std::shared_mutex updateMtx;
 
     /// @brief Верхняя граница.
     int RMin_;
@@ -63,9 +46,8 @@ private:
     /// @brief Нижняя граница.
     int RMax_;
 
-    utility::JsonParser parser; ///< Объект парсера JSON.
-
-    std::time_t lastFileModificationTime; ///< Переменная последнего обновления файла конфигурации
+    std::shared_ptr<utility::IConfig> config_;
+    std::shared_ptr<TP::IThreadPool> threadPool_; ///< Указатель на объект тредпула.
 };
 
 #endif // PROTEI_COV_MANAGER_HPP

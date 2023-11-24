@@ -1,63 +1,50 @@
 
 #include "manager.hpp"
+#include "threadpool.hpp"
 #include <iostream>
+#include <memory>
+#include <utility>
 
-Manager::Manager(const std::string& pathToConfig): pathToConfigFile(std::filesystem::path(pathToConfig)) {
-    parser.parse(pathToConfigFile);
-    lastFileModificationTime = getLastModificationTime();
-    auto json = parser.outputConfig();
-    RMin_ = json["RMin"];
-    RMax_ = json["RMax"];
-    threadPool = std::make_shared<TP::ThreadPool>(json["AmountOfOperators"]);
-    threadPool->start();
-    startMonitoringConfigFile();
+Manager::Manager(std::shared_ptr<utility::IConfig> conf, std::shared_ptr<TP::IThreadPool> pool)  :
+    IManager(conf, pool), config_(conf), threadPool_(pool) {
+
+    std::tie(RMin_, RMax_) = config_->getMinMax();
 }
 
-void Manager::startMonitoringConfigFile() {
-    stopMonitoring = false;
-    monitorThread = std::thread([this] { monitorConfigFile(); });
-}
-
-void Manager::stopMonitoringConfigFile() {
-    stopMonitoring = true;
-    if (monitorThread.joinable()) {
-        monitorThread.join();
-    }
-}
 
 std::pair<TP::CallID, std::future<Result>> Manager::addTask(std::string_view number) {
+    std::shared_lock<std::shared_mutex> lc(updateMtx);
     std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
     // TODO: тут должно быть лог сообщение
+    std::cout << "Create task with RMin_ " << RMin_ << " RMax_ " << RMax_ << std::endl;
     TP::Task task = TP::Task(RMin_, RMax_, number, now);
-    task.addPromise(std::make_shared<std::promise<Result>>());
-    return threadPool->add_task(task);
+    return threadPool_->add_task(task);
 }
 
-void Manager::monitorConfigFile() {
-    while (!stopMonitoring) {
-        std::this_thread::sleep_for(std::chrono::seconds(1));
 
-        auto currentModificationTime = getLastModificationTime();
-            if (currentModificationTime != lastFileModificationTime) {
-                updateThreadPool();
-                lastFileModificationTime = currentModificationTime;
-        }
-    }
+void Manager::update() {
+    std::unique_lock<std::shared_mutex> lc(updateMtx);
+    std::tie(this->RMin_, this->RMax_) = config_->getMinMax();
+    std::cout << "New RMin_ " << RMin_ << " RMax_ " << RMax_ << std::endl;
+    auto newThreadPool = std::make_shared<TP::ThreadPool>(config_->getAmountOfOperators());
+    this->threadPool_->stop();
+    newThreadPool->transferTaskQueue(this->threadPool_);
+    this->threadPool_ = std::move(newThreadPool);
+    this->threadPool_->start();
 }
 
-std::time_t Manager::getLastModificationTime() {
-    auto time = std::chrono::file_clock::to_sys(std::filesystem::last_write_time(pathToConfigFile));
-    return std::chrono::system_clock::to_time_t(time);
+void Manager::setNewConfig(std::shared_ptr<utility::IConfig> config) {
+    config_ = config;
 }
 
-void Manager::updateThreadPool() {
-    parser.parse(pathToConfigFile);
-    auto json = parser.outputConfig();
-    RMin_ = json["RMin"];
-    RMax_ = json["RMax"];
-    threadPool->stop();
-    auto newThreadPool = std::make_shared<TP::ThreadPool>(json["AmountOfOperators"]);
-    newThreadPool->transferTaskQueue(threadPool);
-    threadPool = std::move(newThreadPool);
-    threadPool->start();
+void Manager::setNewThreadPool(std::shared_ptr<TP::IThreadPool> pool) {
+    threadPool_ = pool;
+}
+
+void Manager::startThreadPool() {
+    threadPool_->start();
+}
+
+void Manager::stopThreadPool() {
+    threadPool_->stop();
 }
