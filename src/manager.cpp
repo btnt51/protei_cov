@@ -27,18 +27,19 @@ void Manager::update() {
     std::tie(this->RMin_, this->RMax_) = config_->getMinMax();
     std::cout << "New RMin_ " << RMin_ << " RMax_ " << RMax_ << std::endl;
     auto newThreadPool = std::make_shared<TP::ThreadPool>(config_->getAmountOfOperators());
-    this->threadPool_->stop();
-    newThreadPool->transferTaskQueue(this->threadPool_);
-    this->threadPool_ = std::move(newThreadPool);
-    this->threadPool_->start();
+    setNewThreadPool(newThreadPool);
 }
 
 void Manager::setNewConfig(std::shared_ptr<utility::IConfig> config) {
     config_ = config;
+    update();
 }
 
 void Manager::setNewThreadPool(std::shared_ptr<TP::IThreadPool> pool) {
-    threadPool_ = pool;
+    stopThreadPool();
+    pool->transferTaskQueue(this->threadPool_);
+    this->threadPool_ = pool;
+    startThreadPool();
 }
 
 void Manager::startThreadPool() {
