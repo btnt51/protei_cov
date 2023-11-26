@@ -45,11 +45,13 @@ if(WITH_TESTS)
     target_compile_features(test PUBLIC cxx_std_20)
     target_link_libraries(test GTest::GTest ${LinkLibraries})
     target_include_directories(test PRIVATE include)
+    message("base.json file was moved")
     add_custom_command(
-            TARGET ${PROJECT_NAME}  POST_BUILD
+            TARGET test  POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy
             ${CMAKE_CURRENT_SOURCE_DIR}/tests/base.json
-            ${CMAKE_CURRENT_BINARY_DIR}/)
+            ${CMAKE_CURRENT_BINARY_DIR}/
+    )
 
     include(GoogleTest)
     gtest_discover_tests(test)
