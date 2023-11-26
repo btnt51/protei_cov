@@ -158,8 +158,6 @@ private:
     std::unordered_map<CallID, std::shared_ptr<Task>> completed_tasks; ///< Хэш-таблица выполненных задач.
     unsigned long long completed_task_count; ///< Количество выполненных задач.
 
-    std::atomic<CallID> last_callID_in_work; ///< Атомарная переменная для последнего обрабатываемого вызова.
-
     /// @brief Очередь сигналов в пуле потоков.
     std::queue<CallID> signal_queue; ///< Очередь сигналов.
 
