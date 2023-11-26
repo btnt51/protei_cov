@@ -115,7 +115,6 @@ void ThreadPool::run(Operator* pOperator) {
             // TODO: тут должно быть лог сообщение
             auto [elem, callID] = std::move(task_queue.front());
             task_queue.pop();
-            last_callID_in_work = callID;
             lock.unlock();
             try {
                 auto res = elem->doTask();
