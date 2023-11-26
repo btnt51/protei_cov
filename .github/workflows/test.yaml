@@ -23,4 +23,7 @@ jobs:
         run: |
           ./build.sh ${{ github.run_number }} Debug ON ON test test /usr/bin/g++-13
           cd build
+          echo "======================"
+          ls
+          echo "======================"
           ./test
