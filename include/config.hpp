@@ -3,7 +3,7 @@
 #define PROTEI_COV_CONFIG_HPP
 #include <filesystem>
 #include <thread>
-#include <boost/filesystem.hpp>
+#include <chrono>
 
 #include "interfaces.hpp"
 
