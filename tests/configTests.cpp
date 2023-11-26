@@ -84,3 +84,20 @@ TEST_F(ThreadSafeConfigTest, GetSizeOfQueueUpdate) {
     int expectedOperators = 13;
     ASSERT_EQ(result, expectedOperators);
 }
+
+TEST_F(ThreadSafeConfigTest, IsUpdatedWithoutUpdate) {
+    auto result = config->isUpdated();
+    ASSERT_TRUE(!result);
+}
+
+TEST_F(ThreadSafeConfigTest, IsUpdatedWithUpdate) {
+    config->updateConfig();
+    auto result = config->isUpdated();
+    ASSERT_TRUE(result);
+}
+
+TEST_F(ThreadSafeConfigTest, GetPath) {
+    auto result = config->getPath();
+    std::filesystem::path expectedPath = std::filesystem::current_path()/"base.json";
+    ASSERT_EQ(result, expectedPath);
+}
