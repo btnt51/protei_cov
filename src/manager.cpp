@@ -1,9 +1,6 @@
-
 #include "manager.hpp"
 #include "threadpool.hpp"
 #include <iostream>
-#include <memory>
-#include <utility>
 
 Manager::Manager(std::shared_ptr<utility::IConfig> conf, std::shared_ptr<TP::IThreadPool> pool)  :
     IManager(conf, pool), config_(conf), threadPool_(pool) {
