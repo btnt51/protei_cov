@@ -62,7 +62,7 @@ void DoHttpServer(tcp::socket socket) {
         beast::http::read(stream, buffer, req);
         beast::http::response<beast::http::string_body> res;
         if (req.method() == beast::http::verb::get) {
-            HandleHttpRequest(req.target(), res);
+            HandleHttpRequest(static_cast<std::string>(req.target()), res);
             beast::http::write(stream, res);
         }
     } catch (const beast::system_error& e) {
