@@ -53,16 +53,16 @@ public:
 class IManager {
 public:
     /**
- * @brief Конструктор класса Manager.
- * @param pathToConfig Путь к файлу конфигурации.
+     * @brief Конструктор класса Manager.
+     * @param pathToConfig Путь к файлу конфигурации.
      */
     IManager([[maybe_unused]] std::shared_ptr<utility::IConfig> conf, [[maybe_unused]] std::shared_ptr<TP::IThreadPool>) {}
 
 
     /**
- * @brief Добавление задачи в тредпул.
- * @param number Номер вызова.
- * @return Пара, содержащая уникальный идентификатор вызова и будущий результат выполнения задачи.
+     * @brief Добавление задачи в тредпул.
+     * @param number Номер вызова.
+     * @return Пара, содержащая уникальный идентификатор вызова и будущий результат выполнения задачи.
      */
     virtual std::pair<TP::CallID, std::future<Result>> addTask(std::string_view number) = 0;
 
