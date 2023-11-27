@@ -76,6 +76,7 @@ int main(int argc, const char* argv[]) {
     std::cout << argc << std::endl;
     config->setManager(manager);
     manager->startThreadPool();
+    config->RunMonitoring();
     if(argc == 2) {
         if(!strcmp(argv[1], "test")) {
             std::cout << "Normal test run!" << std::endl;
