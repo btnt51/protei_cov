@@ -6,8 +6,8 @@ on:
       - closed
 jobs:
   buildOnUbuntuX64:
-    runs-on: ubuntu22.04
-    name: Build on ubuntu22.04-x64
+    runs-on: ubuntu-latest
+    name: Build on ubuntu:latest-x64
     environment: env
 
     steps:
@@ -40,7 +40,7 @@ jobs:
           token: ${{ secrets.ACTION_TOKEN }}
 
   buildOnUbuntuArm64:
-    runs-on: ubuntu22.04
+    runs-on: [self-hosted, linux, ARM64]
     name: Build on ubuntu22.04-aarch64
     environment: env
 
