@@ -61,7 +61,7 @@ ThreadSafeConfig::ThreadSafeConfig(const std::filesystem::path &path) :
     std::cout << parser.output() << std::endl;
     data_ = parser.outputConfig();
     stopThread = false;
-    updateThread = std::thread(&ThreadSafeConfig::updateConfigThread, this);
+
 }
 
 ThreadSafeConfig::~ThreadSafeConfig() {
@@ -133,10 +133,8 @@ std::time_t lastTime(const std::filesystem::path &filePath) {
 
 void ThreadSafeConfig::updateConfigThread() {
     try {
-
         lastWriteTime = lastTime(path_);
         while (!stopThread) {
-            // Периодически обновляем конфигурацию (например, каждые 5 секунд)
             std::this_thread::sleep_for(std::chrono::seconds(5));
             std::time_t currentWriteTime = lastTime(path_);
 
@@ -148,11 +146,16 @@ void ThreadSafeConfig::updateConfigThread() {
                 notify();
                 lastWriteTime = currentWriteTime;
             }
-            // Защищаем доступ к конфигурации мьютексом
-
-            // Вызываем функцию обновления конфигурации
         }
-    } catch (std::exception &e) {
+    } catch (std::exception& e) {
         std::cerr << e.what() << std::endl;
     }
+}
+
+void ThreadSafeConfig::RunMonitoring() {
+    updateThread = std::thread(&ThreadSafeConfig::updateConfigThread, this);
+}
+
+bool ThreadSafeConfig::isMonitoring() const {
+    return updateThread.joinable();
 }
