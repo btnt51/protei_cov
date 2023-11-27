@@ -28,10 +28,11 @@ jobs:
         run: chmod +x build.sh
       - name: Prepare system
         run: |
-          sudo apt update && sudo apt install -y libspdlog-dev libboost-all-dev
+          sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+          sudo apt update && sudo apt install -y libspdlog-dev libboost-all-dev g++-13
       - if: matrix.arch == 'arm64'
         name: Prepare system arm part
-        run: sudo apt install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+        run: sudo apt install -y gcc-13-aarch64-linux-gnu g++-13-aarch64-linux-gnu
       - if: matrix.arch == 'x64'
         name: Test
         run: |
@@ -41,11 +42,11 @@ jobs:
       - if: matrix.arch == 'x64'
         name: Build executable
         run: |
-          ./build.sh ${{ github.run_number }} Release OFF ON protei_cov protei_cov-0.0.${{ github.run_number }}-${{ matrix.os }}-${{ matrix.arch }}
+          ./build.sh ${{ github.run_number }} Release OFF ON protei_cov protei_cov-0.0.${{ github.run_number }}-${{ matrix.os }}-${{ matrix.arch }} /usr/bin/g++-13
       - if: matrix.arch == 'arm64'
         name: Build executable arm
         run: |
-          ./build.sh ${{ github.run_number }} Release OFF ON protei_cov protei_cov-0.0.${{ github.run_number }}-${{ matrix.os }}-${{ matrix.arch }} /usr/bin/aarch64-linux-gnu-g++
+          ./build.sh ${{ github.run_number }} Release OFF ON protei_cov protei_cov-0.0.${{ github.run_number }}-${{ matrix.os }}-${{ matrix.arch }} /usr/bin/aarch64-linux-gnu-g++-13
       - if: matrix.arch == 'x64'
         name: Test run executable
         run: |
