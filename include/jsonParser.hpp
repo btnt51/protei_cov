@@ -1,19 +1,22 @@
+#ifndef PROTEI_COV_JSONPARSER_HPP
+#define PROTEI_COV_JSONPARSER_HPP
 /**
  * \file jsonParser.hpp
  * \brief Содержит объявление класса JsonParser, предназначенного для парсинга и обработки JSON данных.
  */
 #include <any>
+#include <filesystem>
 #include <map>
 #include <string>
 #include <boost/property_tree/ptree.hpp>
 
-#include "baseConfig.hpp"
+
 
 
 
 /**
  * @namespace utility
- * @brief Пространство имен utility, содержащее функционал для обработки JSON данных.
+ * @brief Пространство имен utility, содержащее функционал для работы с конфигами.
  */
 namespace utility {
 
@@ -27,10 +30,10 @@ public:
     JsonParser();
 
     /**
-     * @brief Метод для парсинга переданной строки с JSON данными.
-     * @param jsonString Строка с JSON данными для парсинга.
+     * @brief Метод для парсинга файла.
+     * @param pathToFile Путь до файла, который необходимо распарсить.
      */
-    void parse(std::string& jsonString);
+    void parse(const std::filesystem::path& pathToFile);
 
     /**
      *  @brief Метод для вывода JSON данных в виде строки.
@@ -49,3 +52,4 @@ private:
 };
 
 } // namespace utility
+#endif

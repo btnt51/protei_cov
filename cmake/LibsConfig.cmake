@@ -43,7 +43,7 @@ function(DownloadAndUseLibs LIGHTWEIGHTBABY)
         message("Using system spdlog library")
     endif()
 
-    find_package(Boost COMPONENTS REQUIRED)
+    find_package(Boost COMPONENTS filesystem REQUIRED)
     if(NOT Boost_FOUND)
         set(GIT_TAG boost-1.83.0)
         if(LIGHTWEIGHTBABY)
@@ -110,12 +110,13 @@ function(DownloadAndUseLibs LIGHTWEIGHTBABY)
                 "boost_random|https://github.com/boostorg/random"
                 "boost_tti|https://github.com/boostorg/tti"
                 "boost_uuid|https://github.com/boostorg/uuid"
+                "boost_filesystem|https://github.com/boostorg/filesystem"
             )
             DownloadBoostLightWeight(${GIT_TAG} "${libraries}")
         else()
             message("Heavy build")
             set(BOOST_ENABLE_CMAKE ON)
-            set(BOOST_INCLUDE_LIBRARIES system asio date_time beast property_tree uuid)
+            set(BOOST_INCLUDE_LIBRARIES filesystem system asio date_time beast property_tree uuid)
             FetchContent_Declare(
                 Boost
                 GIT_REPOSITORY https://github.com/boostorg/boost.git
@@ -124,11 +125,11 @@ function(DownloadAndUseLibs LIGHTWEIGHTBABY)
             )
             FetchContent_MakeAvailable(Boost)
         endif()
-        set(LinkLibraries spdlog::spdlog Boost::asio Boost::beast Boost::property_tree Boost::uuid PARENT_SCOPE)
+        set(LinkLibraries spdlog::spdlog Boost::asio Boost::beast Boost::property_tree Boost::uuid Boost::filesystem PARENT_SCOPE)
     else()
         message("Using system Boost libraries.")
-        set(LinkLibraries spdlog::spdlog PARENT_SCOPE)
+        set(LinkLibraries spdlog::spdlog Boost::filesystem PARENT_SCOPE)
     endif()
 
-    set(LinkInclude spdlog::spdlog Boost::asio Boost::beast Boost::property_tree Boost::uuid PARENT_SCOPE)
+    set(LinkInclude spdlog::spdlog Boost::asio Boost::beast Boost::property_tree Boost::filesystem Boost::uuid PARENT_SCOPE)
 endfunction()

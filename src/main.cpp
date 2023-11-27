@@ -1,11 +1,57 @@
 #include <boost/asio.hpp>
 #include <boost/beast.hpp>
 #include <iostream>
+#include <memory>
 #include <string>
 #include <uuid/uuid.h>
+#include "config.hpp"
+#include "manager.hpp"
+#include "threadpool.hpp"
 namespace asio = boost::asio;
 namespace beast = boost::beast;
 using tcp = asio::ip::tcp;
+
+
+auto config = std::make_shared<utility::ThreadSafeConfig>("base.json");
+auto pool = std::make_shared<TP::ThreadPool>(config->getAmountOfOperators());
+auto manager = std::make_shared<Manager>(config, pool);
+
+
+void HandleHttpRequest(const std::string& path, beast::http::response<beast::http::string_body>& res) {
+    if (path.find("/phone=") == 0) {
+        // Извлечь значение "name" из параметра запроса
+        try {
+            std::string phone = path.substr(7); // 11 - длина "/user?name="
+            std::cout << "Thread id: " << std::this_thread::get_id() << " phone: " << phone << std::endl;
+            auto [callID, future] = manager->addTask(phone);
+            // Далее вы можете использовать значение "name" в ответе
+
+            res.result(beast::http::status::ok);
+            auto result = future.get();
+            auto seconds = std::chrono::duration_cast<std::chrono::seconds>(result.callDuration);
+            res.body() =
+                "CallID: " + std::to_string(callID) + " call duration: " + std::to_string(seconds.count()) + "s";
+            std::string status;
+            if (result.status == CallStatus::completed)
+                status = "completed";
+            if (result.status == CallStatus::rejected)
+                status = "rejected";
+            if (result.status == CallStatus::awaiting)
+                status = "awaiting";
+            res.body() += "\n Status: " + status + "\n";
+        } catch (const std::future_error &e) {
+            // Ловим исключение, если произошла ошибка с future
+            std::cerr << "Caught a future_error: " << e.what() << std::endl;
+        }
+    } else {
+        res.result(beast::http::status::not_found);
+        res.body() = "Not Found";
+    }
+    res.version(11);
+    res.set(beast::http::field::server, "Boost.Beast HTTP Server");
+    res.prepare_payload();
+}
+
 
 void DoHttpServer(tcp::socket socket) {
     try {
@@ -14,13 +60,9 @@ void DoHttpServer(tcp::socket socket) {
         beast::flat_buffer buffer;
         beast::http::request<beast::http::string_body> req;
         beast::http::read(stream, buffer, req);
+        beast::http::response<beast::http::string_body> res;
         if (req.method() == beast::http::verb::get) {
-            beast::http::response<beast::http::string_body> res;
-            res.version(11);
-            res.result(beast::http::status::ok);
-            res.set(beast::http::field::server, "Boost.Beast HTTP Server");
-            res.body() = "Hello, World!";
-            res.prepare_payload();
+            HandleHttpRequest(static_cast<std::string>(req.target()), res);
             beast::http::write(stream, res);
         }
     } catch (const beast::system_error& e) {
@@ -32,6 +74,9 @@ void DoHttpServer(tcp::socket socket) {
 
 int main(int argc, const char* argv[]) {
     std::cout << argc << std::endl;
+    config->setManager(manager);
+    manager->startThreadPool();
+    config->RunMonitoring();
     if(argc == 2) {
         if(!strcmp(argv[1], "test")) {
             std::cout << "Normal test run!" << std::endl;

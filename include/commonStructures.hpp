@@ -9,7 +9,8 @@
 
 /**
  * @namespace TP
- * @brief Пространство имен TP, содержащее объявление типа CallID.
+ * @brief Пространство имен TP, содержащее объявление типа CallID,
+ * а также объявление и определение классов Task, Operator, ThreadPool
  */
 namespace TP {
 using CallID = long long;
@@ -36,5 +37,15 @@ struct CDR {
     CallStatus status;                    ///< Статус вызова (ожидание, завершено, отклонено).
     std::thread::id operatorID;           ///< Идентификатор потока оператора, обработавшего вызов.
     std::chrono::duration<int> callDuration; ///< Продолжительность вызова в секундах.
-    long long number;                     ///< Номер вызова.
+    std::string_view number;                     ///< Номер вызова.
+};
+
+/**
+ * @struct Result
+ * @brief Структура Result представляет результат обработки вызова.
+ */
+struct Result {
+    CallStatus status; ///< Статус вызова.
+    std::chrono::duration<int> callDuration; ///< Продолжительность вызова в секундах.
+    TP::CallID callID; ///< Уникальный идентификатор вызова.
 };
