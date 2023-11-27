@@ -1,0 +1,4 @@
+#ifndef PROTEI_COV_QUEUE_HPP
+#define PROTEI_COV_QUEUE_HPP
+
+#endif // PROTEI_COV_QUEUE_HPP
