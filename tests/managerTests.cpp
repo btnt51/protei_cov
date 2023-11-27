@@ -22,10 +22,11 @@ class MockThreadPool : public TP::IThreadPool {
 public:
     MockThreadPool(unsigned amountOfThreads) : TP::IThreadPool(amountOfThreads) {}
 
-    MOCK_METHOD((std::pair<TP::CallID, std::future<Result>>), add_task, (const TP::Task& task), (override));
+    MOCK_METHOD((std::pair<TP::CallID, std::future<Result>>), add_task, (std::shared_ptr<TP::ITask> task), (override));
     MOCK_METHOD(void, stop, (), (override));
     MOCK_METHOD(void, start, (), (override));
     MOCK_METHOD(void, transferTaskQueue, (const std::shared_ptr<TP::IThreadPool>& oldThreadPool), (override));
+    MOCK_METHOD(void, writeCDR,(CDR& cdr), (override));
 };
 
 class ManagerTest : public testing::Test {

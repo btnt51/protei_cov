@@ -6,7 +6,8 @@
 
 using namespace TP;
 
-Task::Task(int RMin, int RMax, std::string_view number, std::time_t& startTime): RMin_(RMin), RMax_(RMax) {
+Task::Task(int RMin, int RMax, std::string_view number, std::time_t& startTime) : ITask(RMin, RMax, number, startTime),
+    RMin_(RMin), RMax_(RMax), number_(number) {
     std::cout << "From Task() RMin:" << RMin_ << " RMax: " << RMax_ << std::endl;
     cdr.startTime = startTime;
     cdr.number = number;
@@ -36,6 +37,10 @@ void Task::sendCDR() {
 
 CallID Task::getCallID() const {
     return this->taskId_;
+}
+
+std::string_view Task::getNumber() {
+    return this->number_;
 }
 
 std::chrono::seconds Task::getDuration() {
@@ -155,13 +160,13 @@ void ThreadPool::transferTaskQueue(const std::shared_ptr<IThreadPool>& oldThread
     }
 }
 
-std::pair<CallID, std::future<Result>> ThreadPool::add_task(const Task& task) {
+std::pair<CallID, std::future<Result>> ThreadPool::add_task(std::shared_ptr<ITask> task) {
     // TODO: тут должно быть лог сообщение
     std::lock_guard<std::mutex> lock(task_queue_mutex);
     auto callID = generateCallID();
-    auto future = task.promise_->get_future();
-    task_queue.push(std::make_pair(std::make_shared<Task>(task), callID));
-    task_queue.back().first->pool_ = this;
+    auto future = task->promise_->get_future();
+    task_queue.push(std::make_pair(task, callID));
+    task_queue.back().first->pool_ = shared_from_this();
     tasks_access.notify_one();
     return std::make_pair(callID, std::move(future));
 }

@@ -22,7 +22,7 @@ class ThreadPool;
  * @class Task
  * @brief Класс задачи – вызова, который обрабаытывает поток (оператор)
  */
-class Task {
+class Task : public ITask {
 public:
     /**
      * @brief конструктор
@@ -55,6 +55,10 @@ public:
      */
     void addPromise(std::shared_ptr<std::promise<Result>> promise);
 
+    std::string_view getNumber();
+
+    /// @brief Отправка CDR на запись.
+    void sendCDR();
 private:
     /// @brief ID вызова.
     CallID taskId_{};
@@ -62,16 +66,16 @@ private:
     int RMin_;
     /// @brief Нижняя граница.
     int RMax_;
+    /// @brief Номер вызова
+    std::string_view number_;
     /// @brief Итоговый статус звонка.
     CallStatus status_;
-    /// @brief Пул потоков.
-    ThreadPool* pool_{};
+
     /// @brief CDR звонка.
     CDR cdr;
 
-    std::shared_ptr<std::promise<Result>> promise_;
-    /// @brief Отправка CDR на запись.
-    void sendCDR();
+
+
 
     /**
      * @brief Получение ID вызова.
@@ -85,8 +89,7 @@ private:
      */
     std::chrono::seconds getDuration();
 
-    /// @brief Дружественный класс.
-    friend class ThreadPool;
+
 };
 
 /**
@@ -106,7 +109,7 @@ struct Operator {
  *
  * @copydoc TP::IThreadPool
  */
-class ThreadPool : public TP::IThreadPool {
+class ThreadPool : public TP::IThreadPool, public std::enable_shared_from_this<ThreadPool> {
 public:
     /**
      * @brief Конструктор.
@@ -124,7 +127,7 @@ public:
     /**
      * @copydoc TP::IThreadPool::add_task
      */
-    std::pair<CallID, std::future<Result>> add_task(const Task& task) override;
+    std::pair<CallID, std::future<Result>> add_task(std::shared_ptr<ITask> task) override;
 
     /**
      * @brief Остановка пула.
@@ -147,6 +150,12 @@ public:
      * @copydoc TP::IThreadPool::transferTaskQueue
      */
     void transferTaskQueue(const std::shared_ptr<IThreadPool>& oldThreadPool) override;
+
+    /**
+     * @brief Создание записи.
+     * @param cdr CDR запись.
+     */
+    void writeCDR(CDR& cdr);
 
 private:
     /**
@@ -172,10 +181,6 @@ private:
      */
     std::vector<IRecoreder> recorders; ///< Вектор средств записи.
 
-    /**
-     * @brief Очередь задач в пуле потоков.
-     */
-    std::queue<std::pair<std::shared_ptr<Task>, CallID>> task_queue; ///< Очередь задач.
 
     /**
      * @brief Массив выполненных задач в виде хэш-таблицы.
@@ -216,16 +221,5 @@ private:
      * @return Уникальный CallID.
      */
     static CallID generateCallID();
-
-    /**
-     * @brief Создание записи.
-     * @param cdr CDR запись.
-     */
-    void writeCDR(CDR& cdr);
-
-    /**
-     * @brief Дружественная функция для работы с пулом.
-     */
-    friend void Task::sendCDR();
 };
 } // namespace TP

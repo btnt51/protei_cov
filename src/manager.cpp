@@ -14,7 +14,7 @@ std::pair<TP::CallID, std::future<Result>> Manager::addTask(std::string_view num
     std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
     // TODO: тут должно быть лог сообщение
     std::cout << "Create task with RMin_ " << RMin_ << " RMax_ " << RMax_ << std::endl;
-    TP::Task task = TP::Task(RMin_, RMax_, number, now);
+    auto task = std::make_shared<TP::Task>(RMin_, RMax_, number, now);
     return threadPool_->add_task(task);
 }
 
