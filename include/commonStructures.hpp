@@ -23,7 +23,8 @@ using CallID = long long;
 enum class CallStatus {
     awaiting,   ///< Ожидание обработки вызова.
     completed,  ///< Вызов успешно завершен.
-    rejected    ///< Вызов отклонен.
+    rejected,   ///< Вызов отклонен.
+    Duplication ///< Повторный вызов.
 };
 
 /**
