@@ -100,95 +100,132 @@ struct Operator {
 };
 
 
-
 /**
  * @class ThreadPool
  * @brief Класс, реализующий пул потоков (операторов).
+ *
+ * @copydoc TP::IThreadPool
  */
 class ThreadPool : public TP::IThreadPool {
 public:
     /**
      * @brief Конструктор.
-     *  @param amountOfThreads Количество потоков в пуле.
+     * @param amountOfThreads Количество потоков в пуле.
      */
     explicit ThreadPool(unsigned amountOfThreads);
 
-    /// @brief дестркутор
+    /**
+     * @brief Деструктор.
+     *
+     * @copydoc TP::IThreadPool::~IThreadPool
+     */
     ~ThreadPool() override;
 
     /**
-     * @brief Добавление задачи.
-     *  @param task Задача для выполнения.
-     *  @return ID вызова задачи.
+     * @copydoc TP::IThreadPool::add_task
      */
     std::pair<CallID, std::future<Result>> add_task(const Task& task) override;
 
-    /// @brief остановка пула
+    /**
+     * @brief Остановка пула.
+     *
+     * @copydoc TP::IThreadPool::stop
+     */
     void stop() override;
 
-    /// @brief запуск пула
+    /**
+     * @brief Запуск пула.
+     *
+     * @copydoc TP::IThreadPool::start
+     */
     void start() override;
 
+    /**
+     * @brief Передача очереди задач из старого пула в текущий.
+     * @param oldThreadPool Указатель на старый пул потоков.
+     *
+     * @copydoc TP::IThreadPool::transferTaskQueue
+     */
     void transferTaskQueue(const std::shared_ptr<IThreadPool>& oldThreadPool) override;
 
-
-
 private:
-    /// @brief Мьютексы для управления доступом к различным ресурсам в пуле потоков.
+    /**
+     * @brief Мьютексы для управления доступом к различным ресурсам в пуле потоков.
+     */
     std::mutex task_queue_mutex; ///< Мьютекс для очереди задач.
-
-    /// @brief Служебные мьютексы для специфических операций в пуле потоков.
     std::mutex cdr_mutex; ///< Мьютекс для операций с CDR (Call Detail Record).
     std::mutex log_mutex; ///< Мьютекс для записи логов.
 
-    /// @brief Условные переменные для управления задачами в пуле потоков.
+    /**
+     * @brief Условные переменные для управления задачами в пуле потоков.
+     */
     std::condition_variable tasks_access; ///< Условная переменная для доступа к задачам.
     std::condition_variable wait_access; ///< Условная переменная для ожидания доступа.
 
-    ///@brief Вектор операторов в пуле потоков.
+    /**
+     * @brief Вектор операторов в пуле потоков.
+     */
     std::vector<Operator*> threads; ///< Вектор операторов.
 
-    /// @brief Вектор средств записи в пуле потоков.
+    /**
+     * @brief Вектор средств записи в пуле потоков.
+     */
     std::vector<IRecoreder> recorders; ///< Вектор средств записи.
 
-    /// @brief Очередь задач в пуле потоков.
+    /**
+     * @brief Очередь задач в пуле потоков.
+     */
     std::queue<std::pair<std::shared_ptr<Task>, CallID>> task_queue; ///< Очередь задач.
 
-    /// @brief Массив выполненных задач в виде хэш-таблицы.
+    /**
+     * @brief Массив выполненных задач в виде хэш-таблицы.
+     */
     std::unordered_map<CallID, std::shared_ptr<Task>> completed_tasks; ///< Хэш-таблица выполненных задач.
     unsigned long long completed_task_count; ///< Количество выполненных задач.
 
-    /// @brief Очередь сигналов в пуле потоков.
+    /**
+     * @brief Очередь сигналов в пуле потоков.
+     */
     std::queue<CallID> signal_queue; ///< Очередь сигналов.
 
-    /// @brief Флаг остановки работы пула.
+    /**
+     * @brief Флаг остановки работы пула.
+     */
     std::atomic<bool> stopped; ///< Атомарный флаг для остановки работы пула.
 
-    /// @brief Флаг приостановки работы пула.
+    /**
+     * @brief Флаг приостановки работы пула.
+     */
     std::atomic<bool> paused; ///< Атомарный флаг для приостановки работы пула.
     std::atomic<bool> waitForCompletion;
 
-    /** @brief Обработка вызова в потоке оператора.
-     *  @param pOperator Указатель на оператора, обрабатывающего вызов.
+    /**
+     * @brief Обработка вызова в потоке оператора.
+     * @param pOperator Указатель на оператора, обрабатывающего вызов.
      */
     void run(Operator* pOperator);
 
-    /** @brief Проверка, разрешен ли запуск нового потока в пуле.
-     *  @return true, если запуск разрешен, false в противном случае.
+    /**
+     * @brief Проверка, разрешен ли запуск нового потока в пуле.
+     * @return true, если запуск разрешен, false в противном случае.
      */
     bool run_allowed() const;
 
-    /** @brief Создание уникального CallID.
-     *  @return Уникальный CallID.
+    /**
+     * @brief Создание уникального CallID.
+     * @return Уникальный CallID.
      */
     static CallID generateCallID();
 
-    /** @brief Создание записи.
-     *  @param cdr CDR запись.
+    /**
+     * @brief Создание записи.
+     * @param cdr CDR запись.
      */
     void writeCDR(CDR& cdr);
 
-    /// @brief дружественная функции для работы с пуллом
+    /**
+     * @brief Дружественная функция для работы с пулом.
+     */
     friend void Task::sendCDR();
 };
 } // namespace TP

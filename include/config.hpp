@@ -9,75 +9,163 @@
 
 namespace utility {
 
+/**
+ * @brief Класс Config представляет собой реализацию интерфейса IConfig.
+ *
+ * @copydoc utility::IConfig
+ */
 class Config : public utility::IConfig {
 public:
-    explicit Config(const std::filesystem::path &path);
+    /**
+     * @copydoc IConfig::IConfig
+     */
+    explicit Config(const std::filesystem::path& path);
 
-    std::pair<int, int> getMinMax();
+    /**
+     * @copydoc IConfig::getMinMax
+     */
+    std::pair<int, int> getMinMax() override;
 
-    int getAmountOfOperators();
+    /**
+     * @copydoc IConfig::getAmountOfOperators
+     */
+    int getAmountOfOperators() override;
 
-    int getSizeOfQueue();
-    
-    std::filesystem::path getPath();
+    /**
+     * @copydoc IConfig::getSizeOfQueue
+     */
+    int getSizeOfQueue() override;
 
-    void updateConfig();
+    /**
+     * @copydoc IConfig::getPath
+     */
+    std::filesystem::path getPath() override;
 
-    bool isUpdated();
+    /**
+     * @copydoc IConfig::updateConfig
+     */
+    void updateConfig() override;
 
-    void notify();
+    /**
+     * @copydoc IConfig::isUpdated
+     */
+    bool isUpdated() override;
 
-    void setManager(std::shared_ptr<IManager> manager);
+    /**
+     * @copydoc IConfig::notify
+     */
+    void notify() override;
+
+    /**
+     * @copydoc IConfig::setManager
+     */
+    void setManager(std::shared_ptr<IManager> manager) override;
+
 private:
+    /**
+     * @brief Приводит путь к нормальному виду для корректной обработки.
+     * @param pathToFile Путь к файлу.
+     * @return Нормализованный путь.
+     */
     static std::filesystem::path makeNormalPath(const std::filesystem::path& pathToFile);
 
-    JsonParser parser;
-
-    std::filesystem::path path_;
-
-    std::map<std::string, int> data_;
-
-    std::shared_ptr<IManager> manager;
+    JsonParser parser; ///< Парсер JSON-файлов для обработки конфигурации.
+    std::filesystem::path path_; ///< Путь к файлу конфигурации.
+    std::map<std::string, int> data_; ///< Данные конфигурации.
+    std::shared_ptr<IManager> manager; ///< Указатель на объект менеджера для обработки изменений конфигурации.
 };
 
+/**
+ * @brief Класс ThreadSafeConfig представляет собой потокобезопасную реализацию интерфейса IConfig.
+ *
+ * @copydoc utility::IConfig
+ */
 class ThreadSafeConfig : public utility::IConfig {
 public:
-    explicit ThreadSafeConfig(const std::filesystem::path &path);
+    /**
+     * @copydoc IConfig::IConfig
+     */
+    explicit ThreadSafeConfig(const std::filesystem::path& path);
 
+    /**
+     * @copydoc IConfig::~IConfig
+     */
     ~ThreadSafeConfig();
 
-    std::pair<int, int> getMinMax();
+    /**
+     * @copydoc IConfig::getMinMax
+     */
+    std::pair<int, int> getMinMax() override;
 
-    int getAmountOfOperators();
+    /**
+     * @copydoc IConfig::getAmountOfOperators
+     */
+    int getAmountOfOperators() override;
 
-    int getSizeOfQueue();
+    /**
+     * @copydoc IConfig::getSizeOfQueue
+     */
+    int getSizeOfQueue() override;
 
-    std::filesystem::path getPath();
+    /**
+     * @copydoc IConfig::getPath
+     */
+    std::filesystem::path getPath() override;
 
-    void updateConfig();
+    /**
+     * @copydoc IConfig::updateConfig
+     */
+    void updateConfig() override;
 
-    bool isUpdated();
+    /**
+     * @copydoc IConfig::isUpdated
+     */
+    bool isUpdated() override;
 
+    /**
+     * @copydoc IConfig::updateConfigThread
+     */
     void updateConfigThread();
 
-    void notify();
+    /**
+     * @copydoc IConfig::notify
+     */
+    void notify() override;
 
-    void setManager(std::shared_ptr<IManager> manager);
+    /**
+     * @copydoc IConfig::setManager
+     */
+    void setManager(std::shared_ptr<IManager> manager) override;
+
+    /**
+     * @brief Запускает мониторинг конфигурации в отдельном потоке.
+     */
+    void RunMonitoring();
+
+    /**
+     * @brief Проверяет, выполняется ли мониторинг конфигурации.
+     * @return true, если мониторинг выполняется, в противном случае - false.
+     */
+    bool isMonitoring() const;
+
 private:
+    /**
+     * @brief Приводит путь к нормальному виду для корректной обработки.
+     * @param pathToFile Путь к файлу.
+     * @return Нормализованный путь.
+     */
     static std::filesystem::path makeNormalPath(const std::filesystem::path& pathToFile);
 
-    JsonParser parser;
-
-    std::filesystem::path path_;
-
-    std::map<std::string, int> data_;
-
-    std::thread updateThread; // Поток для обновления конфигурации
-    std::mutex configMutex; // Мьютекс для защиты доступа к конфигурации
-    bool stopThread; // Флаг для остановки потока
-    bool updated; // Флаг, указывающий на обновление конфигурации
-    std::time_t lastWriteTime;
-    std::shared_ptr<IManager> manager;
+    JsonParser parser; ///< Парсер JSON-файлов для обработки конфигурации.
+    std::filesystem::path path_; ///< Путь к файлу конфигурации.
+    std::map<std::string, int> data_; ///< Данные конфигурации.
+    std::thread updateThread; ///< Поток для асинхронного обновления конфигурации.
+    std::mutex configMutex; ///< Мьютекс для защиты доступа к конфигурации.
+    bool stopThread; ///< Флаг для остановки потока обновления конфигурации.
+    bool updated; ///< Флаг, указывающий на обновление конфигурации.
+    std::time_t lastWriteTime; ///< Время последнего изменения файла конфигурации.
+    std::shared_ptr<IManager> manager; ///< Указатель на объект менеджера для обработки изменений конфигурации.
 };
+
 }
 #endif
