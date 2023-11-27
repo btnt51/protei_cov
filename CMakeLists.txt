@@ -19,6 +19,12 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
         CXX_EXTENSIONS ON
 )
 
+add_custom_command(
+        TARGET ${PROJECT_NAME} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy
+        ${CMAKE_CURRENT_SOURCE_DIR}/tests/base.json
+        ${CMAKE_CURRENT_BINARY_DIR}/
+)
 ##download libraries and include them
 ##
 include(cmake/LibsConfig.cmake)
