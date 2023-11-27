@@ -61,7 +61,7 @@ ThreadSafeConfig::ThreadSafeConfig(const std::filesystem::path &path) :
     std::cout << parser.output() << std::endl;
     data_ = parser.outputConfig();
     stopThread = false;
-
+    updated = false;
 }
 
 ThreadSafeConfig::~ThreadSafeConfig() {
