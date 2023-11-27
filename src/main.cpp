@@ -3,7 +3,6 @@
 #include <iostream>
 #include <memory>
 #include <string>
-#include <uuid/uuid.h>
 #include "config.hpp"
 #include "manager.hpp"
 #include "threadpool.hpp"
