@@ -23,7 +23,18 @@ jobs:
         run: |
           ./build.sh ${{ github.run_number }} Debug ON ON test test /usr/bin/g++-13
           cd build
-          echo "======================"
-          ls
-          echo "======================"
+          ./test
+
+  testsOnAarch64:
+    runs-on: [self-hosted, linux, ARM64]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Prepare build.sh
+        run: chmod +x build.sh
+      - name: Test
+        run: |
+          ./build.sh ${{ github.run_number }} Debug ON ON test test /usr/bin/g++-13
+          cd build
           ./test
