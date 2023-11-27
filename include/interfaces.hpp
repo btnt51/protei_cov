@@ -78,7 +78,71 @@ public:
 
 
 namespace TP {
-class Task;
+class IThreadPool;
+class ITask {
+public:
+    /**
+     * @brief конструктор
+     * @param RMin нижняя граница времени
+     * @param RMax верхняя граница времени
+     * @param number номер звонящего
+     * @param time время создания задачи
+     */
+    ITask([[maybe_unused]] int RMin, [[maybe_unused]] int RMax, [[maybe_unused]] std::string_view number,
+          [[maybe_unused]] std::time_t& time) {}
+
+
+    /// @brief Обработка вызова.
+    virtual Result doTask() = 0;
+
+    /**
+     * @brief Установка ID вызова.
+     * @param id ID вызова.
+     */
+    virtual void setCallID(CallID& id) = 0;
+
+    /**
+     * @brief Установка ID потока.
+     * @param id ID потока.
+     */
+    virtual void setThreadID(std::thread::id& id) = 0;
+
+    /**
+     * @brief Функция добавления promise в задачу
+     * @param promise промис для уведомления о выполнения задачи
+     */
+    virtual void addPromise(std::shared_ptr<std::promise<Result>> promise) = 0;
+
+    virtual void sendCDR() = 0;
+
+    virtual std::string_view getNumber() = 0;
+
+    /// @brief Дружественный класс.
+    friend class IThreadPool;
+
+    std::shared_ptr<std::promise<Result>> promise_;
+
+    /// @brief Пул потоков.
+    std::shared_ptr<IThreadPool> pool_;
+};
+
+class IQueue {
+public:
+    IQueue([[maybe_unused]] int size) {}
+
+    virtual std::pair<std::shared_ptr<ITask>, CallID> back() = 0;
+
+    virtual std::pair<std::shared_ptr<ITask>, CallID> front() = 0;
+
+    virtual bool empty() const = 0;
+
+    virtual bool push(std::pair<std::shared_ptr<ITask>, CallID>& taskPair) = 0;
+
+    virtual void pop() = 0;
+
+    virtual void update(int size) = 0;
+};
+
 /**
  * @brief Абстрактный интерфейс для управления пулом потоков.
  */
@@ -88,19 +152,19 @@ public:
      * @brief Конструктор класса IThreadPool.
      * @param amountOfThreads Количество потоков в пуле.
      */
-    IThreadPool([[maybe_unused]] unsigned amountOfThreads) {}
+    IThreadPool([[maybe_unused]] unsigned amountOfThreads) { }
 
     /**
      * @brief Виртуальный деструктор класса IThreadPool.
      */
-    virtual ~IThreadPool() {}
+    virtual ~IThreadPool() { }
 
     /**
      * @brief Добавляет задачу в пул потоков.
      * @param task Задача для выполнения в потоке.
      * @return Пара, содержащая уникальный идентификатор вызова и будущий результат выполнения задачи.
      */
-    virtual std::pair<CallID, std::future<Result>> add_task(const Task& task) = 0;
+    virtual std::pair<CallID, std::future<Result>> add_task(std::shared_ptr<ITask> task) = 0;
 
     /**
      * @brief Останавливает выполнение задач в пуле потоков.
@@ -118,11 +182,17 @@ public:
      */
     virtual void transferTaskQueue(const std::shared_ptr<IThreadPool>& oldThreadPool) = 0;
 
+    /**
+     * @brief Создание записи.
+     * @param cdr CDR запись.
+     */
+    virtual void writeCDR(CDR& cdr) = 0;
+
     /// Мьютекс для защиты доступа к очереди задач.
     std::mutex task_queue_mutex;
 
     /// Очередь задач в формате пар (задача, идентификатор вызова).
-    std::queue<std::pair<std::shared_ptr<Task>, CallID>> task_queue;
+    std::queue<std::pair<std::shared_ptr<ITask>, CallID>> task_queue;
 };
 }
 
