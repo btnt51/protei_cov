@@ -17,14 +17,25 @@ public:
     MOCK_METHOD(void, update,(), (override));
 };
 
+
+class MockThreadSafeConfig : public utility::ThreadSafeConfig {
+public:
+    explicit MockThreadSafeConfig(const std::filesystem::path& path)
+        : ThreadSafeConfig(path) {}
+
+    MOCK_METHOD(void, updateConfigThread, ());
+};
+
 // Ваши тесты для ThreadSafeConfig
 class ThreadSafeConfigTest : public ::testing::Test {
 protected:
     void SetUp() override {
         config = std::make_shared<utility::ThreadSafeConfig>("base.json");
+      //  configUpdateThread = std::make_shared<MockThreadSafeConfig>("base.json");
         threadPool = std::make_shared<TP::ThreadPool>(config->getAmountOfOperators());
         mockManager = std::make_shared<MockManager>(config, threadPool);
         config->setManager(mockManager);
+       // configUpdateThread->setManager(mockManager);
     }
 
     void TearDown() override {
@@ -33,6 +44,7 @@ protected:
     std::shared_ptr<MockManager> mockManager;
     std::shared_ptr<utility::ThreadSafeConfig> config;
     std::shared_ptr<TP::IThreadPool> threadPool;
+    //std::shared_ptr<MockThreadSafeConfig> configUpdateThread;
 };
 
 TEST_F(ThreadSafeConfigTest, GetMinMax) {
@@ -60,6 +72,11 @@ TEST_F(ThreadSafeConfigTest, Notify) {
     config->notify();
 }
 
+TEST_F(ThreadSafeConfigTest, GetPath) {
+    auto result = config->getPath();
+    std::filesystem::path expectedPath = std::filesystem::current_path()/"base.json";
+    ASSERT_EQ(result, expectedPath);
+}
 
 TEST_F(ThreadSafeConfigTest, GetMinMaxUpdate) {
     config->updateConfig();
@@ -96,8 +113,11 @@ TEST_F(ThreadSafeConfigTest, IsUpdatedWithUpdate) {
     ASSERT_TRUE(result);
 }
 
-TEST_F(ThreadSafeConfigTest, GetPath) {
-    auto result = config->getPath();
-    std::filesystem::path expectedPath = std::filesystem::current_path()/"base.json";
-    ASSERT_EQ(result, expectedPath);
+
+TEST_F(ThreadSafeConfigTest, RunMonitoringStartsThread) {
+    auto configUpdateThread = std::make_shared<MockThreadSafeConfig>("base.json");
+    configUpdateThread->setManager(mockManager);
+    configUpdateThread->RunMonitoring();
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+    ASSERT_TRUE(configUpdateThread->isMonitoring());
 }
