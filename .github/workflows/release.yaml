@@ -39,7 +39,8 @@ jobs:
       - name: Test run executable
         run: |
           sudo chmod +x build/protei_cov
-          build/protei_cov test
+          cd build
+          ./protei_cov test
       - name: Release app
         uses: softprops/action-gh-release@v1
         with:
