@@ -23,7 +23,8 @@ void Manager::update() {
     std::unique_lock<std::shared_mutex> lc(updateMtx);
     std::tie(this->RMin_, this->RMax_) = config_->getMinMax();
     std::cout << "New RMin_ " << RMin_ << " RMax_ " << RMax_ << std::endl;
-    auto newThreadPool = std::make_shared<TP::ThreadPool>(config_->getAmountOfOperators());
+    threadPool_->task_queue->update(config_->getSizeOfQueue());
+    auto newThreadPool = std::make_shared<TP::ThreadPool>(config_->getAmountOfOperators(), config_->getSizeOfQueue());
     setNewThreadPool(newThreadPool);
 }
 
@@ -36,7 +37,6 @@ void Manager::setNewThreadPool(std::shared_ptr<TP::IThreadPool> pool) {
     stopThreadPool();
     pool->transferTaskQueue(this->threadPool_);
     this->threadPool_ = pool;
-    startThreadPool();
 }
 
 void Manager::startThreadPool() {
