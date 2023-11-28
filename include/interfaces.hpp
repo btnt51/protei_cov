@@ -130,9 +130,9 @@ class IQueue {
 public:
     IQueue([[maybe_unused]] int size) {}
 
-    virtual std::pair<std::shared_ptr<ITask>, CallID> back() = 0;
+    virtual std::pair<std::shared_ptr<ITask>, CallID>& back() = 0;
 
-    virtual std::pair<std::shared_ptr<ITask>, CallID> front() = 0;
+    virtual std::pair<std::shared_ptr<ITask>, CallID>& front() = 0;
 
     [[nodiscard]] virtual bool empty() const = 0;
 
