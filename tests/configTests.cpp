@@ -31,11 +31,9 @@ class ThreadSafeConfigTest : public ::testing::Test {
 protected:
     void SetUp() override {
         config = std::make_shared<utility::ThreadSafeConfig>("base.json");
-      //  configUpdateThread = std::make_shared<MockThreadSafeConfig>("base.json");
-        threadPool = std::make_shared<TP::ThreadPool>(config->getAmountOfOperators());
+        threadPool = std::make_shared<TP::ThreadPool>(config->getAmountOfOperators(), config->getSizeOfQueue());
         mockManager = std::make_shared<MockManager>(config, threadPool);
         config->setManager(mockManager);
-       // configUpdateThread->setManager(mockManager);
     }
 
     void TearDown() override {
@@ -44,7 +42,6 @@ protected:
     std::shared_ptr<MockManager> mockManager;
     std::shared_ptr<utility::ThreadSafeConfig> config;
     std::shared_ptr<TP::IThreadPool> threadPool;
-    //std::shared_ptr<MockThreadSafeConfig> configUpdateThread;
 };
 
 TEST_F(ThreadSafeConfigTest, GetMinMax) {
