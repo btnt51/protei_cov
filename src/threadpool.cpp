@@ -172,10 +172,11 @@ std::pair<CallID, std::future<Result>> ThreadPool::add_task(std::shared_ptr<ITas
         task_queue->push(std::make_pair(task, callID));
         task_queue->back().first->pool_ = shared_from_this();
         tasks_access.notify_one();
-        return std::make_pair(callID, std::move(future));
+
     } else {
         // TODO: тут должно быть лог сообщение
     }
+    return std::make_pair(callID, std::move(future));
 }
 
 
