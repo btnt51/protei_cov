@@ -1,8 +1,8 @@
 #include "threadpool.hpp"
+#include "queue.hpp"
 #include "spdlog/spdlog.h"
 #include <iostream>
 #include <random>
-
 
 using namespace TP;
 
@@ -91,11 +91,11 @@ Result Task::doTask() {
 }
 
 
-ThreadPool::ThreadPool(unsigned amountOfThreads):
-    IThreadPool(amountOfThreads) {
-    stopped = false;
+ThreadPool::ThreadPool(unsigned amountOfThreads, unsigned sizeOfQueue):
+    IThreadPool(amountOfThreads, sizeOfQueue) {
+    stopped = true;
     paused = true;
-
+    task_queue = std::make_shared<Queue>(sizeOfQueue);
     completed_task_count = 0;
     for (unsigned int i = 0; i < amountOfThreads; i++) {
         auto* th = new Operator;
@@ -106,7 +106,10 @@ ThreadPool::ThreadPool(unsigned amountOfThreads):
 }
 
 bool ThreadPool::run_allowed() const {
-    return (!task_queue.empty() && !paused);
+    if(task_queue)
+        return (!task_queue->empty() && !paused);
+    // TODO: тут должно быть лог сообщение
+    return false;
 }
 
 void ThreadPool::run(Operator* pOperator) {
@@ -118,8 +121,8 @@ void ThreadPool::run(Operator* pOperator) {
         pOperator->is_working = true;
         if (run_allowed()) {
             // TODO: тут должно быть лог сообщение
-            auto [elem, callID] = std::move(task_queue.front());
-            task_queue.pop();
+            auto [elem, callID] = std::move(task_queue->front());
+            task_queue->pop();
             lock.unlock();
             try {
                 auto res = elem->doTask();
@@ -127,7 +130,7 @@ void ThreadPool::run(Operator* pOperator) {
             } catch (...) {
                 elem->promise_->set_exception(std::current_exception());
             }
-            if (waitForCompletion && task_queue.empty()) {
+            if (waitForCompletion && task_queue->empty()) {
                 break;
             }
 
@@ -138,7 +141,7 @@ void ThreadPool::run(Operator* pOperator) {
 }
 
 void ThreadPool::start() {
-    if (paused) {
+    if (paused||stopped) {
         stopped = false;
         paused = false;
         waitForCompletion = false;
@@ -165,10 +168,14 @@ std::pair<CallID, std::future<Result>> ThreadPool::add_task(std::shared_ptr<ITas
     std::lock_guard<std::mutex> lock(task_queue_mutex);
     auto callID = generateCallID();
     auto future = task->promise_->get_future();
-    task_queue.push(std::make_pair(task, callID));
-    task_queue.back().first->pool_ = shared_from_this();
-    tasks_access.notify_one();
-    return std::make_pair(callID, std::move(future));
+    if(task_queue) {
+        task_queue->push(std::make_pair(task, callID));
+        task_queue->back().first->pool_ = shared_from_this();
+        tasks_access.notify_one();
+        return std::make_pair(callID, std::move(future));
+    } else {
+        // TODO: тут должно быть лог сообщение
+    }
 }
 
 
@@ -185,6 +192,11 @@ ThreadPool::~ThreadPool() {
         thread->_thread.join();
         delete thread;
     }
+}
+
+void ThreadPool::setTaskQueue(std::shared_ptr<IQueue> task_queue) {
+    std::lock_guard<std::mutex> thisPoolLock(task_queue_mutex);
+    this->task_queue = task_queue;
 }
 
 CallID ThreadPool::generateCallID() {

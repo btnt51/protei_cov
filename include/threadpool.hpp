@@ -74,9 +74,6 @@ private:
     /// @brief CDR звонка.
     CDR cdr;
 
-
-
-
     /**
      * @brief Получение ID вызова.
      * @return ID вызова.
@@ -115,7 +112,7 @@ public:
      * @brief Конструктор.
      * @param amountOfThreads Количество потоков в пуле.
      */
-    explicit ThreadPool(unsigned amountOfThreads);
+    explicit ThreadPool(unsigned amountOfThreads, unsigned sizeOfQueue);
 
     /**
      * @brief Деструктор.
@@ -154,8 +151,18 @@ public:
     /**
      * @brief Создание записи.
      * @param cdr CDR запись.
+     *
+     * @copydoc TP::IThreadPool::writeCDR
      */
-    void writeCDR(CDR& cdr);
+    void writeCDR(CDR& cdr) override;
+
+    /**
+     * @brief Установка новой очереди задачи
+     * @param task_queue новая очередь задач
+     *
+     * @copydoc TP::IThreadPool::setTaskQueue
+     */
+    void setTaskQueue(std::shared_ptr<IQueue> task_queue) override;
 
 private:
     /**
