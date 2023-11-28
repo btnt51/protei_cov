@@ -204,3 +204,6 @@ CallID ThreadPool::generateCallID() {
     return CallID{0};
 }
 
+void ThreadPool::setLogger(std::shared_ptr<spdlog::logger> logger) {
+    this->logger_ = logger;
+}

@@ -14,6 +14,7 @@ public:
     MOCK_METHOD(bool, push, ((std::pair<std::shared_ptr<TP::ITask>, TP::CallID>&& taskPair)), (override));
     MOCK_METHOD(void, pop, (), (override));
     MOCK_METHOD(void, update, (int size), (override));
+    MOCK_METHOD(void, setLogger, ((std::shared_ptr<spdlog::logger>)), (override));
 
 };
 
@@ -28,6 +29,7 @@ public:
     MOCK_METHOD(bool, isUpdated, (), (override));
     MOCK_METHOD(void, notify, (), (override));
     MOCK_METHOD(void, setManager, (std::shared_ptr<IManager> manager), (override));
+    MOCK_METHOD(void, setLogger, ((std::shared_ptr<spdlog::logger>)), (override));
 };
 
 // Mock для IThreadPool
@@ -41,6 +43,7 @@ public:
     MOCK_METHOD(void, transferTaskQueue, (const std::shared_ptr<TP::IThreadPool>& oldThreadPool), (override));
     MOCK_METHOD(void, writeCDR, (CDR& cdr), (override));
     MOCK_METHOD(void, setTaskQueue, (std::shared_ptr<TP::IQueue> task_queue), (override));
+    MOCK_METHOD(void, setLogger, ((std::shared_ptr<spdlog::logger>)), (override));
 };
 
 class ManagerTest : public testing::Test {

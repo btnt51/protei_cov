@@ -14,6 +14,7 @@ public:
     MOCK_METHOD(void, stopThreadPool, (), (override));
     MOCK_METHOD(void, setNewConfig,(std::shared_ptr<utility::IConfig> config), (override));
     MOCK_METHOD(void, setNewThreadPool, (std::shared_ptr<TP::IThreadPool> pool), (override));
+    MOCK_METHOD(void, setLogger, ((std::shared_ptr<spdlog::logger> logger)), (override));
     MOCK_METHOD(void, update,(), (override));
 };
 

@@ -164,6 +164,11 @@ public:
      */
     void setTaskQueue(std::shared_ptr<IQueue> task_queue) override;
 
+    /**
+     * @brief Устанавливает асинхронный логгер.
+     * @param logger Указатель на объект логгера.
+     */
+    void setLogger(std::shared_ptr<spdlog::logger> logger);
 private:
     /**
      * @brief Мьютексы для управления доступом к различным ресурсам в пуле потоков.
@@ -211,6 +216,8 @@ private:
     std::atomic<bool> paused; ///< Атомарный флаг для приостановки работы пула.
     std::atomic<bool> waitForCompletion;
 
+    std::shared_ptr<spdlog::logger> logger_; ///< указатель на асинхронный логгер
+
     /**
      * @brief Обработка вызова в потоке оператора.
      * @param pOperator Указатель на оператора, обрабатывающего вызов.
@@ -228,5 +235,7 @@ private:
      * @return Уникальный CallID.
      */
     static CallID generateCallID();
+
+
 };
 } // namespace TP

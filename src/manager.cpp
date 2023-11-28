@@ -47,3 +47,6 @@ void Manager::startThreadPool() {
 void Manager::stopThreadPool() {
     threadPool_->stop();
 }
+void Manager::setLogger(std::shared_ptr<spdlog::logger> logger) {
+    this->logger_ = logger;
+}

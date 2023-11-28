@@ -52,3 +52,7 @@ void Queue::pop() {
 void Queue::update(int size) {
     sizeOfQueue = size;
 }
+
+void Queue::setLogger(std::shared_ptr<spdlog::logger> logger) {
+    this->logger_ = logger;
+}

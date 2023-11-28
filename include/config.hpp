@@ -61,6 +61,9 @@ public:
      */
     void setManager(std::shared_ptr<IManager> manager) override;
 
+
+    void setLogger(std::shared_ptr<spdlog::logger> logger) override;
+
 private:
     /**
      * @brief Приводит путь к нормальному виду для корректной обработки.
@@ -73,6 +76,7 @@ private:
     std::filesystem::path path_; ///< Путь к файлу конфигурации.
     std::map<std::string, int> data_; ///< Данные конфигурации.
     std::shared_ptr<IManager> manager; ///< Указатель на объект менеджера для обработки изменений конфигурации.
+    std::shared_ptr<spdlog::logger> logger_; ///< указатель на асинхронный логгер
 };
 
 /**
@@ -148,6 +152,12 @@ public:
      */
     bool isMonitoring() const;
 
+    /**
+     * @brief Устанавливает асинхронный логгер.
+     * @param logger Указатель на объект логгера.
+     */
+    void setLogger(std::shared_ptr<spdlog::logger> logger) override;
+
 private:
     /**
      * @brief Приводит путь к нормальному виду для корректной обработки.
@@ -165,6 +175,7 @@ private:
     bool updated; ///< Флаг, указывающий на обновление конфигурации.
     std::time_t lastWriteTime; ///< Время последнего изменения файла конфигурации.
     std::shared_ptr<IManager> manager; ///< Указатель на объект менеджера для обработки изменений конфигурации.
+    std::shared_ptr<spdlog::logger> logger_; ///< указатель на асинхронный логгер
 };
 
 }

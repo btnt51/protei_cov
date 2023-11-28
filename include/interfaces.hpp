@@ -5,6 +5,7 @@
 #include <future>
 #include <memory>
 #include <queue>
+#include <spdlog/logger.h>
 
 #include "commonStructures.hpp"
 #include "jsonParser.hpp"
@@ -72,6 +73,12 @@ public:
      * @param manager Указатель на объект менеджера.
      */
     virtual void setManager(std::shared_ptr<IManager> manager) = 0;
+
+    /**
+     * @brief Устанавливает асинхронный логгер.
+     * @param logger Указатель на объект логгера.
+     */
+    virtual void setLogger(std::shared_ptr<spdlog::logger> logger) = 0;
 };
 
 }
@@ -141,6 +148,12 @@ public:
     virtual void pop() = 0;
 
     virtual void update(int size) = 0;
+
+    /**
+     * @brief Устанавливает асинхронный логгер.
+     * @param logger Указатель на объект логгера.
+     */
+    virtual void setLogger(std::shared_ptr<spdlog::logger> logger) = 0;
 };
 
 /**
@@ -193,6 +206,12 @@ public:
      * @param task_queue новая очередь задач
      */
     virtual void setTaskQueue(std::shared_ptr<IQueue> task_queue) = 0;
+
+    /**
+     * @brief Устанавливает асинхронный логгер.
+     * @param logger Указатель на объект логгера.
+     */
+    virtual void setLogger(std::shared_ptr<spdlog::logger> logger) = 0;
 
     /// Мьютекс для защиты доступа к очереди задач.
     std::mutex task_queue_mutex;
@@ -248,5 +267,11 @@ public:
      * @brief Выполняет обновление состояния менеджера.
      */
     virtual void update() = 0;
+
+    /**
+     * @brief Устанавливает асинхронный логгер.
+     * @param logger Указатель на объект логгера.
+     */
+    virtual void setLogger(std::shared_ptr<spdlog::logger> logger) = 0;
 };
 #endif // PROTEI_COV_INTERFACES_HPP

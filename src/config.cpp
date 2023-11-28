@@ -52,6 +52,9 @@ std::filesystem::path Config::makeNormalPath(const std::filesystem::path& pathTo
     }
 }
 
+void Config::setLogger(std::shared_ptr<spdlog::logger> logger) {
+    this->logger_ = logger;
+}
 
 ThreadSafeConfig::ThreadSafeConfig(const std::filesystem::path &path) :
     IConfig(path) {
@@ -158,4 +161,8 @@ void ThreadSafeConfig::RunMonitoring() {
 
 bool ThreadSafeConfig::isMonitoring() const {
     return updateThread.joinable();
+}
+
+void ThreadSafeConfig::setLogger(std::shared_ptr<spdlog::logger> logger) {
+    this->logger_ = logger;
 }

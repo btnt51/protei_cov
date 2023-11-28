@@ -65,6 +65,12 @@ public:
      */
     void update() override;
 
+    /**
+     * @brief Устанавливает асинхронный логгер.
+     * @param logger Указатель на объект логгера.
+     */
+    void setLogger(std::shared_ptr<spdlog::logger> logger) override;
+
 private:
     std::shared_mutex updateMtx; ///< Мьютекс для обеспечения безопасного доступа к обновлению.
 
@@ -76,6 +82,7 @@ private:
 
     std::shared_ptr<utility::IConfig> config_; ///< Указатель на объект конфигурации.
     std::shared_ptr<TP::IThreadPool> threadPool_; ///< Указатель на объект тредпула.
+    std::shared_ptr<spdlog::logger> logger_; ///< указатель на асинхронный логгер.
 };
 
 
