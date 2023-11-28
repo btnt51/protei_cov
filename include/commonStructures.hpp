@@ -24,7 +24,8 @@ enum class CallStatus {
     awaiting,   ///< Ожидание обработки вызова.
     completed,  ///< Вызов успешно завершен.
     rejected,   ///< Вызов отклонен.
-    Duplication ///< Повторный вызов.
+    Duplication, ///< Повторный вызов.
+    Overloaded ///< очередь перегружена
 };
 
 /**
