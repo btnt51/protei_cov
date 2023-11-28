@@ -8,8 +8,8 @@
 class MockQueue : public TP::IQueue {
 public:
     MockQueue(int size) : TP::IQueue(size) { }
-    MOCK_METHOD((std::pair<std::shared_ptr<TP::ITask>, TP::CallID>), back, (),(override));
-    MOCK_METHOD((std::pair<std::shared_ptr<TP::ITask>, TP::CallID>), front, (),(override));
+    MOCK_METHOD((std::pair<std::shared_ptr<TP::ITask>, TP::CallID>&), back, (),(override));
+    MOCK_METHOD((std::pair<std::shared_ptr<TP::ITask>, TP::CallID>&), front, (),(override));
     MOCK_METHOD(bool, empty, (), (const, override));
     MOCK_METHOD(bool, push, ((std::pair<std::shared_ptr<TP::ITask>, TP::CallID>&& taskPair)), (override));
     MOCK_METHOD(void, pop, (), (override));
@@ -100,6 +100,7 @@ TEST_F(ManagerTest, UpdateFunction) {
     EXPECT_CALL(*mockConfig, getMinMax()).WillOnce(::testing::Return(std::make_pair(10,20)));
     EXPECT_CALL(*mockConfig, getAmountOfOperators()).WillOnce(::testing::Return(2));
     EXPECT_CALL(*mockConfig, getSizeOfQueue()).Times(2).WillRepeatedly(::testing::Return(4));
+    EXPECT_CALL(*mockQueue, empty()).Times(::testing::AnyNumber()).WillRepeatedly(::testing::Return(true));
     EXPECT_CALL(*mockQueue, update(::testing::_)).Times(1);
     auto threadPool = std::make_shared<TP::ThreadPool>(2, 4);
     manager->setNewThreadPool(threadPool);
