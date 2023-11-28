@@ -11,9 +11,9 @@ class Queue : public IQueue {
 public:
     explicit Queue(int size);
 
-    std::pair<std::shared_ptr<ITask>, CallID> back() override;
+    std::pair<std::shared_ptr<ITask>, CallID>& back() override;
 
-    std::pair<std::shared_ptr<ITask>, CallID> front() override;
+    std::pair<std::shared_ptr<ITask>, CallID>& front() override;
 
     [[nodiscard]] bool empty() const override;
 
