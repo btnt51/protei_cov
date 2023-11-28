@@ -152,7 +152,7 @@ public:
      * @brief Конструктор класса IThreadPool.
      * @param amountOfThreads Количество потоков в пуле.
      */
-    IThreadPool([[maybe_unused]] unsigned amountOfThreads) { }
+    IThreadPool([[maybe_unused]] unsigned amountOfThreads, [[maybe_unused]] unsigned sizeOfQueue) { }
 
     /**
      * @brief Виртуальный деструктор класса IThreadPool.
@@ -188,11 +188,17 @@ public:
      */
     virtual void writeCDR(CDR& cdr) = 0;
 
+    /**
+     * @brief Установка новой очереди задачи
+     * @param task_queue новая очередь задач
+     */
+    virtual void setTaskQueue(std::shared_ptr<IQueue> task_queue) = 0;
+
     /// Мьютекс для защиты доступа к очереди задач.
     std::mutex task_queue_mutex;
 
     /// Очередь задач в формате пар (задача, идентификатор вызова).
-    std::queue<std::pair<std::shared_ptr<ITask>, CallID>> task_queue;
+    std::shared_ptr<IQueue> task_queue;
 };
 }
 
