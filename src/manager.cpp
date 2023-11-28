@@ -37,6 +37,7 @@ void Manager::setNewThreadPool(std::shared_ptr<TP::IThreadPool> pool) {
     stopThreadPool();
     pool->transferTaskQueue(this->threadPool_);
     this->threadPool_ = pool;
+    startThreadPool();
 }
 
 void Manager::startThreadPool() {
