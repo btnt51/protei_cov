@@ -134,9 +134,9 @@ public:
 
     virtual std::pair<std::shared_ptr<ITask>, CallID> front() = 0;
 
-    virtual bool empty() const = 0;
+    [[nodiscard]] virtual bool empty() const = 0;
 
-    virtual bool push(std::pair<std::shared_ptr<ITask>, CallID>& taskPair) = 0;
+    virtual bool push(std::pair<std::shared_ptr<ITask>, CallID>&& taskPair) = 0;
 
     virtual void pop() = 0;
 
