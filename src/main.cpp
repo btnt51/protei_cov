@@ -12,7 +12,7 @@ using tcp = asio::ip::tcp;
 
 
 auto config = std::make_shared<utility::ThreadSafeConfig>("base.json");
-auto pool = std::make_shared<TP::ThreadPool>(config->getAmountOfOperators());
+auto pool = std::make_shared<TP::ThreadPool>(config->getAmountOfOperators(), config->getSizeOfQueue());
 auto manager = std::make_shared<Manager>(config, pool);
 
 
@@ -25,18 +25,27 @@ void HandleHttpRequest(const std::string& path, beast::http::response<beast::htt
             auto [callID, future] = manager->addTask(phone);
             // Далее вы можете использовать значение "name" в ответе
 
-            res.result(beast::http::status::ok);
+
             auto result = future.get();
             auto seconds = std::chrono::duration_cast<std::chrono::seconds>(result.callDuration);
             res.body() =
                 "CallID: " + std::to_string(callID) + " call duration: " + std::to_string(seconds.count()) + "s";
             std::string status;
-            if (result.status == CallStatus::completed)
+            if (result.status == CallStatus::completed) {
+                res.result(beast::http::status::ok);
                 status = "completed";
-            if (result.status == CallStatus::rejected)
+            }
+            if (result.status == CallStatus::rejected) {
                 status = "rejected";
-            if (result.status == CallStatus::awaiting)
-                status = "awaiting";
+            }
+            if (result.status == CallStatus::Duplication) {
+                res.result(beast::http::status::conflict);
+                status = "Duplication";
+            }
+            if (result.status == CallStatus::Overloaded) {
+                res.result(beast::http::status::too_many_requests);
+                status = "Duplication";
+            }
             res.body() += "\n Status: " + status + "\n";
         } catch (const std::future_error &e) {
             // Ловим исключение, если произошла ошибка с future
@@ -84,12 +93,19 @@ int main(int argc, const char* argv[]) {
     }
     try {
         asio::io_context io_context;
+
         tcp::acceptor acceptor(io_context, {tcp::v4(), 8080});
 
         while (true) {
             tcp::socket socket(io_context);
-            acceptor.accept(socket);
-            std::thread(DoHttpServer, std::move(socket)).detach();
+            boost::system::error_code ec;
+            acceptor.accept(socket, ec);
+            if (ec) {
+                std::cerr << "Error accepting connection: " << ec.message() << std::endl;
+                break;
+            } else {
+                std::thread(DoHttpServer, std::move(socket)).detach();
+            }
         }
 
         io_context.run();
