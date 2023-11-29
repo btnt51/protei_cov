@@ -22,6 +22,26 @@ endfunction()
 
 
 function(DownloadAndUseLibs LIGHTWEIGHTBABY)
+    find_package(fmt QUIET)
+    if(NOT fmt_FOUND)
+        message("Downloading spdlog")
+        FetchContent_Declare(
+                fmt
+                GIT_REPOSITORY https://github.com/fmtlib/fmt
+                GIT_TAG        10.1.1
+                GIT_SHALLOW TRUE
+        )
+        FetchContent_GetProperties(fmt)
+        if(NOT fmt_POPULATED)
+            FetchContent_Populate(fmt)
+            add_subdirectory(
+                    ${fmt_SOURCE_DIR}
+                    ${fmt_BINARY_DIR}
+            )
+        endif()
+    else()
+        message("Using system fmt library")
+    endif()
     find_package(spdlog QUIET)
     if(NOT spdlog_FOUND)
         message("Downloading spdlog")
@@ -125,11 +145,11 @@ function(DownloadAndUseLibs LIGHTWEIGHTBABY)
             )
             FetchContent_MakeAvailable(Boost)
         endif()
-        set(LinkLibraries spdlog::spdlog Boost::asio Boost::beast Boost::property_tree Boost::uuid Boost::filesystem PARENT_SCOPE)
+        set(LinkLibraries fmt::fmt-header-only spdlog::spdlog_header_only Boost::asio Boost::beast Boost::property_tree Boost::uuid Boost::filesystem PARENT_SCOPE)
     else()
         message("Using system Boost libraries.")
-        set(LinkLibraries spdlog::spdlog Boost::filesystem PARENT_SCOPE)
+        set(LinkLibraries fmt::fmt-header-only spdlog::spdlog_header_only  Boost::filesystem PARENT_SCOPE)
     endif()
 
-    set(LinkInclude spdlog::spdlog Boost::asio Boost::beast Boost::property_tree Boost::filesystem Boost::uuid PARENT_SCOPE)
+    set(LinkInclude fmt::fmt spdlog::spdlog Boost::asio Boost::beast Boost::property_tree Boost::filesystem Boost::uuid PARENT_SCOPE)
 endfunction()
