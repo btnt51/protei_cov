@@ -206,4 +206,5 @@ CallID ThreadPool::generateCallID() {
 
 void ThreadPool::setLogger(std::shared_ptr<spdlog::logger> logger) {
     this->logger_ = logger;
+    task_queue->setLogger(logger);
 }

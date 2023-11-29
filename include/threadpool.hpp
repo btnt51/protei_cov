@@ -165,8 +165,10 @@ public:
     void setTaskQueue(std::shared_ptr<IQueue> task_queue) override;
 
     /**
-     * @brief Устанавливает асинхронный логгер.
+     * @brief Устанавливает асинхронный логгер пулу потоков, а также очереди.
      * @param logger Указатель на объект логгера.
+     *
+     * @copydoc TP::IThreadPool::setLogger
      */
     void setLogger(std::shared_ptr<spdlog::logger> logger);
 private:
