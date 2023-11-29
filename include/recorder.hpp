@@ -1,3 +1,5 @@
+#ifndef PROTEI_COV_RECORDER_HPP
+#define PROTEI_COV_RECORDER_HPP
 #include "commonStructures.hpp"
 
 /**
@@ -35,3 +37,5 @@ public:
      */
     void MakeRecord(CDR& cdr);
 };
+
+#endif

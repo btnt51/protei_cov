@@ -1,3 +1,6 @@
+#ifndef PROTEI_COV_THREADPOOL_HPP
+#define PROTEI_COV_THREADPOOL_HPP
+
 #include <atomic>
 #include <condition_variable>
 #include <queue>
@@ -241,3 +244,5 @@ private:
 
 };
 } // namespace TP
+
+#endif
