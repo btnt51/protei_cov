@@ -18,12 +18,10 @@ protected:
 TEST_F(ManagerBuilderTest, BuildLoggerTest) {
     spdlog::init_thread_pool(8192, 1);
     ASSERT_NE(managerBuilder->BuildLogger(), nullptr);
-
 }
 
 TEST_F(ManagerBuilderTest, BuildConfigTest) {
     spdlog::init_thread_pool(8192, 1);
-    // Аналогично, напишите тест для метода BuildConfig
     managerBuilder->BuildLogger();
     ASSERT_NE(managerBuilder->BuildConfig("base.json"), nullptr);
 }
