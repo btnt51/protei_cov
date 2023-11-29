@@ -8,10 +8,10 @@ set(PROJECT_NAME protei_cov)
 project(${PROJECT_NAME} VERSION ${PROJECT_VESRION})
 
 set(SOURCES src/jsonParser.cpp src/config.cpp src/threadpool.cpp src/manager.cpp
-            src/queue.cpp)
+            src/queue.cpp src/builder.cpp)
 set(HEADERS include/config.hpp include/commonStructures.hpp
         include/jsonParser.hpp include/recorder.hpp include/threadpool.hpp
-        include/manager.hpp include/interfaces.hpp include/queue.hpp)
+        include/manager.hpp include/interfaces.hpp include/queue.hpp include/builder.hpp)
 
 add_executable(${PROJECT_NAME} src/main.cpp ${SOURCES} ${HEADERS})
 target_include_directories(${PROJECT_NAME} PUBLIC include)
@@ -49,7 +49,8 @@ if(WITH_TESTS)
     add_library(GTest::GTest INTERFACE IMPORTED)
     target_link_libraries(GTest::GTest INTERFACE gtest_main gmock_main)
     add_executable(test tests/managerTests.cpp tests/configTests.cpp
-            tests/queueTests.cpp ${SOURCES})
+            tests/queueTests.cpp ${SOURCES}
+            tests/builderTests.cpp)
     target_compile_features(test PUBLIC cxx_std_20)
     target_link_libraries(test GTest::GTest ${LinkLibraries})
     target_include_directories(test PRIVATE include)
