@@ -1,29 +1,24 @@
 #include <boost/asio.hpp>
 #include <boost/beast.hpp>
 #include <iostream>
-#include <memory>
-#include <string>
-#include "config.hpp"
-#include "manager.hpp"
-#include "threadpool.hpp"
+#include <spdlog/async.h>
+#include "builder.hpp"
+
 namespace asio = boost::asio;
 namespace beast = boost::beast;
 using tcp = asio::ip::tcp;
 
 
-auto config = std::make_shared<utility::ThreadSafeConfig>("base.json");
-auto pool = std::make_shared<TP::ThreadPool>(config->getAmountOfOperators(), config->getSizeOfQueue());
-auto manager = std::make_shared<Manager>(config, pool);
+
+std::shared_ptr<Manager> manager;
 
 
 void HandleHttpRequest(const std::string& path, beast::http::response<beast::http::string_body>& res) {
     if (path.find("/phone=") == 0) {
-        // Извлечь значение "name" из параметра запроса
         try {
-            std::string phone = path.substr(7); // 11 - длина "/user?name="
+            std::string phone = path.substr(7);
             std::cout << "Thread id: " << std::this_thread::get_id() << " phone: " << phone << std::endl;
             auto [callID, future] = manager->addTask(phone);
-            // Далее вы можете использовать значение "name" в ответе
 
 
             auto result = future.get();
@@ -48,7 +43,6 @@ void HandleHttpRequest(const std::string& path, beast::http::response<beast::htt
             }
             res.body() += "\n Status: " + status + "\n";
         } catch (const std::future_error &e) {
-            // Ловим исключение, если произошла ошибка с future
             std::cerr << "Caught a future_error: " << e.what() << std::endl;
         }
     } else {
@@ -81,10 +75,13 @@ void DoHttpServer(tcp::socket socket) {
 }
 
 int main(int argc, const char* argv[]) {
+    spdlog::init_thread_pool(8192, 1);
+    ManagerBuilder builder = ManagerBuilder();
+    manager = builder.Construct("base.json");
     std::cout << argc << std::endl;
-    config->setManager(manager);
+    //config->setManager(manager);
     manager->startThreadPool();
-    config->RunMonitoring();
+    //config->RunMonitoring();
     if(argc == 2) {
         if(!strcmp(argv[1], "test")) {
             std::cout << "Normal test run!" << std::endl;
