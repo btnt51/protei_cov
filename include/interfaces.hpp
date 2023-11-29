@@ -133,20 +133,51 @@ public:
     std::shared_ptr<IThreadPool> pool_;
 };
 
+/**
+ * @brief Интерфейс IQueue представляет общие методы для работы с очередью задач.
+ */
 class IQueue {
 public:
+    /**
+     * @brief Конструктор интерфейса IQueue.
+     * @param size Максимальный размер очереди.
+     */
     IQueue([[maybe_unused]] int size) {}
 
+    /**
+     * @brief Возвращает ссылку на задачу в конце очереди.
+     * @return Ссылка на пару, содержащую задачу и ее уникальный идентификатор вызова.
+     */
     virtual std::pair<std::shared_ptr<ITask>, CallID>& back() = 0;
 
+    /**
+     * @brief Возвращает ссылку на задачу в начале очереди.
+     * @return Ссылка на пару, содержащую задачу и ее уникальный идентификатор вызова.
+     */
     virtual std::pair<std::shared_ptr<ITask>, CallID>& front() = 0;
 
+    /**
+     * @brief Проверяет, является ли очередь пустой.
+     * @return true, если очередь пуста, false в противном случае.
+     */
     [[nodiscard]] virtual bool empty() const = 0;
 
+    /**
+     * @brief Добавляет задачу в конец очереди.
+     * @param taskPair Пара, содержащая задачу и ее уникальный идентификатор вызова.
+     * @return true, если задача успешно добавлена, false в противном случае.
+     */
     virtual bool push(std::pair<std::shared_ptr<ITask>, CallID>&& taskPair) = 0;
 
+    /**
+     * @brief Удаляет задачу из начала очереди.
+     */
     virtual void pop() = 0;
 
+    /**
+     * @brief Обновляет максимальный размер очереди.
+     * @param size Новый размер очереди.
+     */
     virtual void update(int size) = 0;
 
     /**
