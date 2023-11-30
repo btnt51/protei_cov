@@ -38,7 +38,7 @@ struct CDR {
     std::time_t endTime;                   ///< Время окончания вызова.
     TP::CallID callID;                    ///< Уникальный идентификатор вызова.
     CallStatus status;                    ///< Статус вызова (ожидание, завершено, отклонено).
-    std::thread::id operatorID;           ///< Идентификатор потока оператора, обработавшего вызов.
+    std::size_t operatorID;           ///< Идентификатор потока оператора, обработавшего вызов.
     std::chrono::duration<int> callDuration; ///< Продолжительность вызова в секундах.
     std::string_view number;                     ///< Номер вызова.
 };
