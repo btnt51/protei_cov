@@ -33,6 +33,14 @@ jobs:
           ./build.sh ${{ github.run_number }} Debug ON ON test test /usr/bin/g++-13 ${{steps.install-boost.outputs.BOOST_ROOT}}/include ${{steps.install-boost.outputs.BOOST_ROOT}}/lib ${{ steps.install-boost.outputs.BOOST_ROOT }}
           cd build
           ./test
+      - name: Build executable
+        run: |
+          ./build.sh ${{ github.run_number }} Release OFF ON protei_cov protei_cov-0.0.${{ github.run_number }}-ubuntu22.04-x64 /usr/bin/g++-13 ${{steps.install-boost.outputs.BOOST_ROOT}}/include ${{steps.install-boost.outputs.BOOST_ROOT}}/lib ${{ steps.install-boost.outputs.BOOST_ROOT }}
+      - name: Test run executable
+        run: |
+          sudo chmod +x build/protei_cov
+          cd build
+          ./protei_cov test
 
   testsOnAarch64:
     runs-on: [self-hosted, linux, ARM64]
@@ -47,3 +55,11 @@ jobs:
           ./build.sh ${{ github.run_number }} Debug ON ON test test /usr/bin/g++-13
           cd build
           ./test
+      - name: Build executable
+        run: |
+          ./build.sh ${{ github.run_number }} Release OFF ON protei_cov protei_cov-0.0.${{ github.run_number }}-ubuntu22.04-arch64 /usr/bin/g++-13
+      - name: Test run executable
+        run: |
+          sudo chmod +x build/protei_cov
+          cd build
+          ./protei_cov test
