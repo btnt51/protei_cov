@@ -34,7 +34,7 @@ public:
      * @param number номер звонящего
      * @param time время создания задачи
      */
-    Task(int RMin, int RMax, std::string_view number, std::time_t& time);
+    Task(int RMin, int RMax, std::string_view number, std::time_t& time, std::shared_ptr<spdlog::logger> logger);
 
 
     /// @brief Обработка вызова.
@@ -73,7 +73,7 @@ private:
     std::string_view number_;
     /// @brief Итоговый статус звонка.
     CallStatus status_;
-
+    std::shared_ptr<spdlog::logger> logger_;
     /// @brief CDR звонка.
     CDR cdr;
 
@@ -239,7 +239,7 @@ private:
      * @brief Создание уникального CallID.
      * @return Уникальный CallID.
      */
-    static CallID generateCallID();
+    CallID generateCallID(long long number);
 
 
 };
