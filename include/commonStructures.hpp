@@ -13,7 +13,7 @@
  * а также объявление и определение классов Task, Operator, ThreadPool
  */
 namespace TP {
-using CallID = long long;
+using CallID = unsigned long long;
 }
 
 /**
@@ -23,6 +23,7 @@ using CallID = long long;
 enum class CallStatus {
     awaiting,   ///< Ожидание обработки вызова.
     completed,  ///< Вызов успешно завершен.
+    timeout, ///< Вызов не был обслужен.
     rejected,   ///< Вызов отклонен.
     Duplication, ///< Повторный вызов.
     Overloaded ///< очередь перегружена
