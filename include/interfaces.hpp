@@ -112,7 +112,7 @@ public:
      * @brief Установка ID потока.
      * @param id ID потока.
      */
-    virtual void setThreadID(std::thread::id& id) = 0;
+    virtual void setThreadID(std::size_t& id) = 0;
 
     /**
      * @brief Функция добавления promise в задачу
