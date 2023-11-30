@@ -96,7 +96,7 @@ public:
      * @param time время создания задачи
      */
     ITask([[maybe_unused]] int RMin, [[maybe_unused]] int RMax, [[maybe_unused]] std::string_view number,
-          [[maybe_unused]] std::time_t& time) {}
+          [[maybe_unused]] std::time_t& time, [[maybe_unused]] std::shared_ptr<spdlog::logger> logger) {}
 
 
     /// @brief Обработка вызова.
