@@ -9,6 +9,7 @@
 #include <map>
 #include <string>
 #include <boost/property_tree/ptree.hpp>
+#include <spdlog/spdlog.h>
 
 
 
@@ -27,7 +28,7 @@ namespace utility {
 class JsonParser {
 public:
     /// @brief Конструктор класса JsonParser.
-    JsonParser();
+    JsonParser(std::shared_ptr<spdlog::logger>);
 
     /**
      * @brief Метод для парсинга файла.
@@ -47,8 +48,11 @@ public:
      */
     std::map<std::string, int> outputConfig();
 
+    void setLogger(std::shared_ptr<spdlog::logger>);
+
 private:
     boost::property_tree::ptree data_; ///< Объект property_tree для хранения и обработки данных.
+    std::shared_ptr<spdlog::logger> logger_;
 };
 
 } // namespace utility
