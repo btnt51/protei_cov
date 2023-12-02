@@ -50,7 +50,8 @@ if(WITH_TESTS)
     target_link_libraries(GTest::GTest INTERFACE gtest_main gmock_main)
     add_executable(test tests/managerTests.cpp tests/configTests.cpp
             tests/queueTests.cpp ${SOURCES}
-            tests/builderTests.cpp)
+            tests/builderTests.cpp
+            tests/jsonParserTests.cpp)
     target_compile_features(test PUBLIC cxx_std_20)
     target_link_libraries(test GTest::GTest ${LinkLibraries})
     target_include_directories(test PRIVATE include)
