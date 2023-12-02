@@ -5,10 +5,14 @@
 #include <random>
 
 using namespace TP;
+using std::string_literals::operator""s;
 
-Task::Task(int RMin, int RMax, std::string_view number, std::time_t& startTime) : ITask(RMin, RMax, number, startTime),
-    RMin_(RMin), RMax_(RMax), number_(number) {
-    std::cout << "From Task() RMin:" << RMin_ << " RMax: " << RMax_ << std::endl;
+Task::Task(int RMin, int RMax, std::string_view number, std::time_t& startTime, std::shared_ptr<spdlog::logger> logger)
+    : ITask(RMin, RMax, number, startTime, logger), RMin_(RMin), RMax_(RMax), number_(number), logger_(logger) {
+    if(logger_) {
+        logger_->info("Creating Task with RMin: {} RMax: {}", std::to_string(RMin_), std::to_string(RMax_));
+        logger_->debug("Task initialized with number: {}", std::string{number_});
+    }
     cdr.startTime = startTime;
     cdr.number = number;
     status_ = CallStatus::awaiting;
@@ -19,15 +23,18 @@ Task::Task(int RMin, int RMax, std::string_view number, std::time_t& startTime) 
 void Task::setCallID(TP::CallID& id) {
     this->taskId_ = id;
     cdr.callID = id;
+    logger_->info("Setting CallID to task with number {}: {} ", std::string{number_}, std::to_string(id));
 }
 
 
-void Task::setThreadID(std::thread::id& id) {
+void Task::setThreadID(std::size_t& id) {
     cdr.operatorID = id;
+    logger_->info("Setting ThreadID to task with number {}: {}", std::string{number_}, std::to_string(id));
 }
 
 void Task::addPromise(std::shared_ptr<std::promise<Result>> t) {
     promise_ = t;
+    logger_->debug("Added promise for Task");
 }
 
 
@@ -54,37 +61,45 @@ std::chrono::seconds Task::getDuration() {
 
 Result Task::doTask() {
     try {
+        Result r;
         std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
         if (now - cdr.startTime < RMax_) {
-            // TODO: тут должно быть лог сообщение
             std::chrono::seconds randomSeconds = getDuration();
             cdr.callDuration = randomSeconds;
-            std::cout << "Call with number: " << cdr.number << " will sleep for " << randomSeconds.count() << "s" << std::endl;
+            logger_->info("Call with number: {} will sleep for {} seconds", std::string{cdr.number},
+                          std::to_string(randomSeconds.count()));
+            logger_->debug("Sleeping for {} seconds", std::to_string(randomSeconds.count()));
             std::this_thread::sleep_for(randomSeconds);
             cdr.endTime = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
             status_ = CallStatus::completed;
             cdr.status = CallStatus::completed;
+            logger_->info("Writing CDR for task with number:"s + std::string{cdr.number});
             sendCDR();
-            Result r;
+            logger_->info("Filling result variable");
+            logger_->debug("Call with number {}  and callID {} completed successfully", std::string{cdr.number}, std::to_string(taskId_));
             r.status = CallStatus::completed;
             r.callDuration = randomSeconds;
             r.callID = taskId_;
             // TODO: тут должно быть лог сообщение
-            return r;
         } else {
-            // TODO: тут должно быть лог сообщение
+            logger_->info("Call with number: "s + std::string{cdr.number} + " was timed out"s);
             cdr.endTime = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
             cdr.callDuration = std::chrono::seconds{0};
-            cdr.status = CallStatus::rejected;
+            cdr.status = CallStatus::timeout;
+            logger_->info("Writing CDR for task with number: {}", std::string{cdr.number});
+
             sendCDR();
-            Result r;
-            r.status = CallStatus::rejected;
+            logger_->info("Filling result variable");
+            logger_->debug("Call with number {}  and callID {} timed out", std::string{cdr.number},
+                           std::to_string(taskId_));
+            r.status = CallStatus::timeout;
             r.callDuration = std::chrono::seconds{0};
             r.callID = taskId_;
-            return r;
+
         }
+        return r;
     } catch(std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        logger_->error("Exception in doTask: {}", e.what());
         this->promise_->set_exception(std::current_exception());
         throw e;
     }
@@ -108,7 +123,8 @@ ThreadPool::ThreadPool(unsigned amountOfThreads, unsigned sizeOfQueue):
 bool ThreadPool::run_allowed() const {
     if(task_queue)
         return (!task_queue->empty() && !paused);
-    // TODO: тут должно быть лог сообщение
+    if(logger_)
+        logger_->critical("There is no task_queue set up");
     return false;
 }
 
@@ -122,14 +138,24 @@ void ThreadPool::run(Operator* pOperator) {
         if (run_allowed()) {
             // TODO: тут должно быть лог сообщение
             auto [elem, callID] = std::move(task_queue->front());
+            auto threadId =  std::hash<std::thread::id>{}(std::this_thread::get_id());
+            elem->setThreadID(threadId);
+            if(logger_)
+                logger_->info("Task with CallID: " + std::to_string(callID) + " in work");
             task_queue->pop();
             lock.unlock();
             try {
                 auto res = elem->doTask();
+                if(logger_)
+                    logger_->info("Task with CallID: " + std::to_string(callID) + " was successfully completed");
                 elem->promise_->set_value(res);
             } catch (...) {
+                if(logger_)
+                    logger_->error("Task with CallID: " + std::to_string(callID) +
+                                   " was terminated with an exception thrown");
                 elem->promise_->set_exception(std::current_exception());
             }
+
             if (waitForCompletion && task_queue->empty()) {
                 break;
             }
@@ -141,6 +167,8 @@ void ThreadPool::run(Operator* pOperator) {
 }
 
 void ThreadPool::start() {
+    if(logger_)
+        logger_->info("Starting threadpool");
     if (paused||stopped) {
         stopped = false;
         paused = false;
@@ -150,6 +178,8 @@ void ThreadPool::start() {
 }
 
 void ThreadPool::stop() {
+    if(logger_)
+        logger_->info("Stopping thread pool");
     paused = true;
     waitForCompletion = true;
 }
@@ -157,16 +187,18 @@ void ThreadPool::stop() {
 void ThreadPool::transferTaskQueue(const std::shared_ptr<IThreadPool>& oldThreadPool) {
     std::lock_guard<std::mutex> oldPoolLock(oldThreadPool->task_queue_mutex);
     std::lock_guard<std::mutex> thisPoolLock(task_queue_mutex);
-
+    if(logger_)
+        logger_->info("Transfering code task queue");
     if(this != oldThreadPool.get()) {
-        this->task_queue = std::move(oldThreadPool->task_queue);
+        this->task_queue = oldThreadPool->task_queue;
     }
 }
 
 std::pair<CallID, std::future<Result>> ThreadPool::add_task(std::shared_ptr<ITask> task) {
     // TODO: тут должно быть лог сообщение
     std::lock_guard<std::mutex> lock(task_queue_mutex);
-    auto callID = generateCallID();
+    auto callID = generateCallID(std::stoll(std::string{task->getNumber()}));
+    task->setCallID(callID);
     auto future = task->promise_->get_future();
     if(task_queue) {
         if(task_queue->push(std::make_pair(task, callID))) {
@@ -174,7 +206,8 @@ std::pair<CallID, std::future<Result>> ThreadPool::add_task(std::shared_ptr<ITas
             tasks_access.notify_one();
         }
     } else {
-        // TODO: тут должно быть лог сообщение
+        if(logger_)
+            logger_->critical("There is no task_queue set up");
     }
     return std::make_pair(callID, std::move(future));
 }
@@ -197,14 +230,23 @@ ThreadPool::~ThreadPool() {
 
 void ThreadPool::setTaskQueue(std::shared_ptr<IQueue> task_queue) {
     std::lock_guard<std::mutex> thisPoolLock(task_queue_mutex);
+    if(logger_)
+        logger_->info("Thread pool set up task queue");
     this->task_queue = task_queue;
 }
 
-CallID ThreadPool::generateCallID() {
-    return CallID{0};
+CallID ThreadPool::generateCallID(long long number) {
+    auto threadID = std::hash<std::thread::id>{}(std::this_thread::get_id());
+    CallID res{threadID+number};
+    if(logger_)
+        logger_->info("Generated CallID: " + std::to_string(res) + " for call with number: " + std::to_string(number));
+    return res;
 }
 
 void ThreadPool::setLogger(std::shared_ptr<spdlog::logger> logger) {
     this->logger_ = logger;
-    task_queue->setLogger(logger);
+    if(logger_) {
+        task_queue->setLogger(logger);
+        logger_->info("ThreadPoll set up logger");
+    }
 }
