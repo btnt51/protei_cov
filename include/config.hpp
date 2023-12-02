@@ -66,7 +66,9 @@ public:
      */
     void setManager(std::shared_ptr<IManager> manager) override;
 
-
+    /**
+     * @copydoc IConfig::setLogger
+     */
     void setLogger(std::shared_ptr<spdlog::logger> logger) override;
 
 private:
@@ -152,6 +154,11 @@ public:
     void setManager(std::shared_ptr<IManager> manager) override;
 
     /**
+     * @copydoc IConfig::setLogger
+     */
+    void setLogger(std::shared_ptr<spdlog::logger> logger) override;
+
+    /**
      * @brief Запускает мониторинг конфигурации в отдельном потоке.
      */
     void RunMonitoring();
@@ -161,12 +168,6 @@ public:
      * @return true, если мониторинг выполняется, в противном случае - false.
      */
     bool isMonitoring() const;
-
-    /**
-     * @brief Устанавливает асинхронный логгер.
-     * @param logger Указатель на объект логгера.
-     */
-    void setLogger(std::shared_ptr<spdlog::logger> logger) override;
 
 private:
     /**

@@ -68,9 +68,15 @@ public:
     /**
      * @brief Устанавливает асинхронный логгер.
      * @param logger Указатель на объект логгера.
+     * @copydoc IManager::setLogger
      */
     void setLogger(std::shared_ptr<spdlog::logger> logger) override;
 
+    /**
+     * @brief Обрабатывает запрос на обновление конфигурации
+     * @return true, если конфигурация была обновлена, в противном случае - false.
+     * @copydoc IManager::processRequestForUpdate
+     */
     bool processRequestForUpdate() override;
 
 private:

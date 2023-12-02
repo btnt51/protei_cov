@@ -125,17 +125,24 @@ public:
      */
     virtual void addPromise(std::shared_ptr<std::promise<Result>> promise) = 0;
 
+    /**
+     * @brief Отправляет CDR на запись.
+     */
     virtual void sendCDR() = 0;
 
+    /**
+     * @brief Функция получения номер звонящего
+     * @return возвращает number_
+     */
     virtual std::string_view getNumber() = 0;
 
     /// @brief Дружественный класс.
     friend class IThreadPool;
 
-    std::shared_ptr<std::promise<Result>> promise_;
+    std::shared_ptr<std::promise<Result>> promise_;///< Промис с результатом.
 
-    /// @brief Пул потоков.
-    std::shared_ptr<IThreadPool> pool_;
+
+    std::shared_ptr<IThreadPool> pool_;///< Пул потоков.
 };
 
 /**
@@ -310,6 +317,10 @@ public:
      */
     virtual void setLogger(std::shared_ptr<spdlog::logger> logger) = 0;
 
+    /**
+     * @brief Обрабатывает запрос на обновление конфигурации
+     * @return true, если конфигурация была обновлена, в противном случае - false.
+     */
     virtual bool processRequestForUpdate() = 0;
 };
 #endif // PROTEI_COV_INTERFACES_HPP

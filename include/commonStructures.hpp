@@ -26,7 +26,7 @@ enum class CallStatus {
     timeout, ///< Вызов не был обслужен.
     rejected,   ///< Вызов отклонен.
     Duplication, ///< Повторный вызов.
-    Overloaded ///< очередь перегружена
+    Overloaded ///< Очередь перегружена.
 };
 
 /**

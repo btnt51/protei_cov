@@ -58,10 +58,17 @@ public:
      */
     void addPromise(std::shared_ptr<std::promise<Result>> promise);
 
+    /**
+     * @brief Отправляет CDR на запись.
+     */
+    void sendCDR();
+
+    /**
+     * @brief Функция получения номер звонящего
+     * @return возвращает number_
+     */
     std::string_view getNumber();
 
-    /// @brief Отправка CDR на запись.
-    void sendCDR();
 private:
     /// @brief ID вызова.
     CallID taskId_{};
@@ -178,9 +185,8 @@ private:
     /**
      * @brief Мьютексы для управления доступом к различным ресурсам в пуле потоков.
      */
-    std::mutex task_queue_mutex; ///< Мьютекс для очереди задач.
+   // std::mutex task_queue_mutex; ///< Мьютекс для очереди задач.
     std::mutex cdr_mutex; ///< Мьютекс для операций с CDR (Call Detail Record).
-    std::mutex log_mutex; ///< Мьютекс для записи логов.
 
     /**
      * @brief Условные переменные для управления задачами в пуле потоков.
