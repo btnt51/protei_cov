@@ -19,7 +19,7 @@ public:
     /**
      * @copydoc IConfig::IConfig
      */
-    explicit Config(const std::filesystem::path& path);
+    explicit Config(const std::filesystem::path& path, std::shared_ptr<spdlog::logger> logger);
 
     /**
      * @copydoc IConfig::getMinMax
@@ -47,6 +47,11 @@ public:
     void updateConfig() override;
 
     /**
+     * @copydoc IConfig::updateViaRequest
+     */
+    void updateWithRequest() override;
+
+    /**
      * @copydoc IConfig::isUpdated
      */
     bool isUpdated() override;
@@ -72,7 +77,7 @@ private:
      */
     static std::filesystem::path makeNormalPath(const std::filesystem::path& pathToFile);
 
-    JsonParser parser; ///< Парсер JSON-файлов для обработки конфигурации.
+    std::shared_ptr<JsonParser> parser; ///< Парсер JSON-файлов для обработки конфигурации.
     std::filesystem::path path_; ///< Путь к файлу конфигурации.
     std::map<std::string, int> data_; ///< Данные конфигурации.
     std::shared_ptr<IManager> manager; ///< Указатель на объект менеджера для обработки изменений конфигурации.
@@ -89,7 +94,7 @@ public:
     /**
      * @copydoc IConfig::IConfig
      */
-    explicit ThreadSafeConfig(const std::filesystem::path& path);
+    explicit ThreadSafeConfig(const std::filesystem::path& path, std::shared_ptr<spdlog::logger> logger);
 
     /**
      * @copydoc IConfig::~IConfig
@@ -120,6 +125,11 @@ public:
      * @copydoc IConfig::updateConfig
      */
     void updateConfig() override;
+
+    /**
+     * @copydoc IConfig::updateViaRequest
+     */
+    void updateWithRequest() override;
 
     /**
      * @copydoc IConfig::isUpdated
@@ -166,7 +176,7 @@ private:
      */
     static std::filesystem::path makeNormalPath(const std::filesystem::path& pathToFile);
 
-    JsonParser parser; ///< Парсер JSON-файлов для обработки конфигурации.
+    std::shared_ptr<JsonParser> parser; ///< Парсер JSON-файлов для обработки конфигурации.
     std::filesystem::path path_; ///< Путь к файлу конфигурации.
     std::map<std::string, int> data_; ///< Данные конфигурации.
     std::thread updateThread; ///< Поток для асинхронного обновления конфигурации.

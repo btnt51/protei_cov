@@ -21,7 +21,7 @@ public:
      * @brief Конструктор класса IConfig.
      * @param path Путь к файлу конфигурации.
      */
-    IConfig([[maybe_unused]] const std::filesystem::path& path) {}
+    IConfig([[maybe_unused]] const std::filesystem::path& path, [[maybe_unused]] std::shared_ptr<spdlog::logger>) {}
 
     /**
      * @brief Виртуальный деструктор класса IConfig.
@@ -56,6 +56,11 @@ public:
      * @brief Обновляет данные конфигурации.
      */
     virtual void updateConfig() = 0;
+
+    /**
+     * @brief Принимает запрос на обновление конфигурации.
+     */
+    virtual void updateWithRequest() = 0;
 
     /**
      * @brief Проверяет, была ли конфигурация обновлена.
@@ -304,5 +309,7 @@ public:
      * @param logger Указатель на объект логгера.
      */
     virtual void setLogger(std::shared_ptr<spdlog::logger> logger) = 0;
+
+    virtual bool processRequestForUpdate() = 0;
 };
 #endif // PROTEI_COV_INTERFACES_HPP
