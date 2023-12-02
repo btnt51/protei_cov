@@ -16,13 +16,14 @@ public:
     MOCK_METHOD(void, setNewThreadPool, (std::shared_ptr<TP::IThreadPool> pool), (override));
     MOCK_METHOD(void, setLogger, ((std::shared_ptr<spdlog::logger> logger)), (override));
     MOCK_METHOD(void, update,(), (override));
+    MOCK_METHOD(bool, processRequestForUpdate, (), (override));
 };
 
 
 class MockThreadSafeConfig : public utility::ThreadSafeConfig {
 public:
-    explicit MockThreadSafeConfig(const std::filesystem::path& path)
-        : ThreadSafeConfig(path) {}
+    explicit MockThreadSafeConfig(const std::filesystem::path& path, std::shared_ptr<spdlog::logger> logger)
+        : ThreadSafeConfig(path, logger) {}
 
     MOCK_METHOD(void, updateConfigThread, ());
 };
@@ -31,7 +32,7 @@ public:
 class ThreadSafeConfigTest : public ::testing::Test {
 protected:
     void SetUp() override {
-        config = std::make_shared<utility::ThreadSafeConfig>("base.json");
+        config = std::make_shared<utility::ThreadSafeConfig>("base.json", nullptr);
         threadPool = std::make_shared<TP::ThreadPool>(config->getAmountOfOperators(), config->getSizeOfQueue());
         mockManager = std::make_shared<MockManager>(config, threadPool);
         config->setManager(mockManager);
@@ -61,7 +62,7 @@ TEST_F(ThreadSafeConfigTest, GetAmountOfOperators) {
 
 TEST_F(ThreadSafeConfigTest, GetSizeOfQueue) {
     auto result = config->getSizeOfQueue();
-    int expectedOperators = 13;
+    int expectedOperators = 7;
     ASSERT_EQ(result, expectedOperators);
 }
 
@@ -96,7 +97,7 @@ TEST_F(ThreadSafeConfigTest, GetSizeOfQueueUpdate) {
     // Предположим, что у вас есть данные в конфигурации
     config->updateConfig();
     auto result = config->getSizeOfQueue();
-    int expectedOperators = 13;
+    int expectedOperators = 7;
     ASSERT_EQ(result, expectedOperators);
 }
 
@@ -113,7 +114,7 @@ TEST_F(ThreadSafeConfigTest, IsUpdatedWithUpdate) {
 
 
 TEST_F(ThreadSafeConfigTest, RunMonitoringStartsThread) {
-    auto configUpdateThread = std::make_shared<MockThreadSafeConfig>("base.json");
+    auto configUpdateThread = std::make_shared<MockThreadSafeConfig>("base.json", nullptr);
     configUpdateThread->setManager(mockManager);
     configUpdateThread->RunMonitoring();
     std::this_thread::sleep_for(std::chrono::seconds(1));

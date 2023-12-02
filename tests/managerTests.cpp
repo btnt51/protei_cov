@@ -15,12 +15,11 @@ public:
     MOCK_METHOD(void, pop, (), (override));
     MOCK_METHOD(void, update, (int size), (override));
     MOCK_METHOD(void, setLogger, ((std::shared_ptr<spdlog::logger>)), (override));
-
 };
 
 class MockConfig : public utility::IConfig {
 public:
-    MockConfig(const std::filesystem::path& path) : IConfig(path) { }
+    MockConfig(const std::filesystem::path& path, std::shared_ptr<spdlog::logger> logger) : IConfig(path, logger) { }
     MOCK_METHOD((std::pair<int, int>), getMinMax, (), (override));
     MOCK_METHOD(int, getAmountOfOperators, (), (override));
     MOCK_METHOD(int, getSizeOfQueue, (), (override));
@@ -30,6 +29,7 @@ public:
     MOCK_METHOD(void, notify, (), (override));
     MOCK_METHOD(void, setManager, (std::shared_ptr<IManager> manager), (override));
     MOCK_METHOD(void, setLogger, ((std::shared_ptr<spdlog::logger>)), (override));
+    MOCK_METHOD(void, updateWithRequest, (), (override));
 };
 
 // Mock для IThreadPool
@@ -49,7 +49,7 @@ public:
 class ManagerTest : public testing::Test {
 protected:
     void SetUp() override {
-        mockConfig = std::make_shared<MockConfig>("base.json");
+        mockConfig = std::make_shared<MockConfig>("base.json", nullptr);
         mockThreadPool = std::make_shared<MockThreadPool>(2, 4);
         mockQueue = std::make_shared<MockQueue>(4);
         mockThreadPool->setTaskQueue(mockQueue);
@@ -109,6 +109,13 @@ TEST_F(ManagerTest, UpdateFunction) {
     manager->setNewThreadPool(threadPool);
     threadPool->setTaskQueue(mockQueue);
     manager->update();
+}
+
+TEST_F(ManagerTest, updateViaRequest) {
+    EXPECT_CALL(*mockConfig, updateWithRequest()).Times(1);
+    EXPECT_CALL(*mockConfig, isUpdated()).Times(1).WillOnce(::testing::Return(true));
+    auto res = manager->processRequestForUpdate();
+    ASSERT_TRUE(res);
 }
 
 
