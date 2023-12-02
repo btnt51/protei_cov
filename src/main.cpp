@@ -1,48 +1,66 @@
 #include <boost/asio.hpp>
 #include <boost/beast.hpp>
 #include <iostream>
-#include <memory>
-#include <string>
-#include "config.hpp"
-#include "manager.hpp"
-#include "threadpool.hpp"
+#include <spdlog/async.h>
+#include "builder.hpp"
+
 namespace asio = boost::asio;
 namespace beast = boost::beast;
 using tcp = asio::ip::tcp;
 
 
-auto config = std::make_shared<utility::ThreadSafeConfig>("base.json");
-auto pool = std::make_shared<TP::ThreadPool>(config->getAmountOfOperators());
-auto manager = std::make_shared<Manager>(config, pool);
+
+std::shared_ptr<Manager> manager;
 
 
 void HandleHttpRequest(const std::string& path, beast::http::response<beast::http::string_body>& res) {
     if (path.find("/phone=") == 0) {
-        // Извлечь значение "name" из параметра запроса
         try {
-            std::string phone = path.substr(7); // 11 - длина "/user?name="
+            std::string phone = path.substr(7);
             std::cout << "Thread id: " << std::this_thread::get_id() << " phone: " << phone << std::endl;
             auto [callID, future] = manager->addTask(phone);
-            // Далее вы можете использовать значение "name" в ответе
 
-            res.result(beast::http::status::ok);
+
             auto result = future.get();
             auto seconds = std::chrono::duration_cast<std::chrono::seconds>(result.callDuration);
             res.body() =
                 "CallID: " + std::to_string(callID) + " call duration: " + std::to_string(seconds.count()) + "s";
             std::string status;
-            if (result.status == CallStatus::completed)
+            if (result.status == CallStatus::completed) {
+                res.result(beast::http::status::ok);
                 status = "completed";
-            if (result.status == CallStatus::rejected)
+            }
+            if (result.status == CallStatus::rejected) {
                 status = "rejected";
-            if (result.status == CallStatus::awaiting)
-                status = "awaiting";
+            }
+            if (result.status == CallStatus::timeout) {
+                status = "timeout";
+                res.result(beast::http::status::request_timeout);
+            }
+            if (result.status == CallStatus::Duplication) {
+                res.result(beast::http::status::conflict);
+                status = "Duplication";
+            }
+            if (result.status == CallStatus::Overloaded) {
+                res.result(beast::http::status::too_many_requests);
+                status = "Overloaded";
+            }
             res.body() += "\n Status: " + status + "\n";
         } catch (const std::future_error &e) {
-            // Ловим исключение, если произошла ошибка с future
             std::cerr << "Caught a future_error: " << e.what() << std::endl;
         }
-    } else {
+    } else if(path.find("/update") == 0) {
+        auto resUpd = manager->processRequestForUpdate();
+        if(resUpd) {
+            res.result(beast::http::status::ok);
+            res.body() = "Updated";
+        } else {
+            res.result(beast::http::status::forbidden);
+            res.body() = "Could not update";
+        }
+
+    }
+    else{
         res.result(beast::http::status::not_found);
         res.body() = "Not Found";
     }
@@ -72,10 +90,11 @@ void DoHttpServer(tcp::socket socket) {
 }
 
 int main(int argc, const char* argv[]) {
+    spdlog::init_thread_pool(8192, 1);
+    ManagerBuilder builder = ManagerBuilder();
+    manager = builder.Construct("base.json");
     std::cout << argc << std::endl;
-    config->setManager(manager);
     manager->startThreadPool();
-    config->RunMonitoring();
     if(argc == 2) {
         if(!strcmp(argv[1], "test")) {
             std::cout << "Normal test run!" << std::endl;
@@ -84,12 +103,19 @@ int main(int argc, const char* argv[]) {
     }
     try {
         asio::io_context io_context;
+
         tcp::acceptor acceptor(io_context, {tcp::v4(), 8080});
 
         while (true) {
             tcp::socket socket(io_context);
-            acceptor.accept(socket);
-            std::thread(DoHttpServer, std::move(socket)).detach();
+            boost::system::error_code ec;
+            acceptor.accept(socket, ec);
+            if (ec) {
+                std::cerr << "Error accepting connection: " << ec.message() << std::endl;
+                break;
+            } else {
+                std::thread(DoHttpServer, std::move(socket)).detach();
+            }
         }
 
         io_context.run();

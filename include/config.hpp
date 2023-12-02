@@ -19,7 +19,7 @@ public:
     /**
      * @copydoc IConfig::IConfig
      */
-    explicit Config(const std::filesystem::path& path);
+    explicit Config(const std::filesystem::path& path, std::shared_ptr<spdlog::logger> logger);
 
     /**
      * @copydoc IConfig::getMinMax
@@ -47,6 +47,11 @@ public:
     void updateConfig() override;
 
     /**
+     * @copydoc IConfig::updateViaRequest
+     */
+    void updateWithRequest() override;
+
+    /**
      * @copydoc IConfig::isUpdated
      */
     bool isUpdated() override;
@@ -61,6 +66,11 @@ public:
      */
     void setManager(std::shared_ptr<IManager> manager) override;
 
+    /**
+     * @copydoc IConfig::setLogger
+     */
+    void setLogger(std::shared_ptr<spdlog::logger> logger) override;
+
 private:
     /**
      * @brief Приводит путь к нормальному виду для корректной обработки.
@@ -69,10 +79,11 @@ private:
      */
     static std::filesystem::path makeNormalPath(const std::filesystem::path& pathToFile);
 
-    JsonParser parser; ///< Парсер JSON-файлов для обработки конфигурации.
+    std::shared_ptr<JsonParser> parser; ///< Парсер JSON-файлов для обработки конфигурации.
     std::filesystem::path path_; ///< Путь к файлу конфигурации.
     std::map<std::string, int> data_; ///< Данные конфигурации.
     std::shared_ptr<IManager> manager; ///< Указатель на объект менеджера для обработки изменений конфигурации.
+    std::shared_ptr<spdlog::logger> logger_; ///< указатель на асинхронный логгер
 };
 
 /**
@@ -85,7 +96,7 @@ public:
     /**
      * @copydoc IConfig::IConfig
      */
-    explicit ThreadSafeConfig(const std::filesystem::path& path);
+    explicit ThreadSafeConfig(const std::filesystem::path& path, std::shared_ptr<spdlog::logger> logger);
 
     /**
      * @copydoc IConfig::~IConfig
@@ -118,6 +129,11 @@ public:
     void updateConfig() override;
 
     /**
+     * @copydoc IConfig::updateViaRequest
+     */
+    void updateWithRequest() override;
+
+    /**
      * @copydoc IConfig::isUpdated
      */
     bool isUpdated() override;
@@ -138,6 +154,11 @@ public:
     void setManager(std::shared_ptr<IManager> manager) override;
 
     /**
+     * @copydoc IConfig::setLogger
+     */
+    void setLogger(std::shared_ptr<spdlog::logger> logger) override;
+
+    /**
      * @brief Запускает мониторинг конфигурации в отдельном потоке.
      */
     void RunMonitoring();
@@ -156,7 +177,7 @@ private:
      */
     static std::filesystem::path makeNormalPath(const std::filesystem::path& pathToFile);
 
-    JsonParser parser; ///< Парсер JSON-файлов для обработки конфигурации.
+    std::shared_ptr<JsonParser> parser; ///< Парсер JSON-файлов для обработки конфигурации.
     std::filesystem::path path_; ///< Путь к файлу конфигурации.
     std::map<std::string, int> data_; ///< Данные конфигурации.
     std::thread updateThread; ///< Поток для асинхронного обновления конфигурации.
@@ -165,6 +186,7 @@ private:
     bool updated; ///< Флаг, указывающий на обновление конфигурации.
     std::time_t lastWriteTime; ///< Время последнего изменения файла конфигурации.
     std::shared_ptr<IManager> manager; ///< Указатель на объект менеджера для обработки изменений конфигурации.
+    std::shared_ptr<spdlog::logger> logger_; ///< указатель на асинхронный логгер
 };
 
 }

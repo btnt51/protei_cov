@@ -13,7 +13,7 @@
  * а также объявление и определение классов Task, Operator, ThreadPool
  */
 namespace TP {
-using CallID = long long;
+using CallID = unsigned long long;
 }
 
 /**
@@ -23,7 +23,10 @@ using CallID = long long;
 enum class CallStatus {
     awaiting,   ///< Ожидание обработки вызова.
     completed,  ///< Вызов успешно завершен.
-    rejected    ///< Вызов отклонен.
+    timeout, ///< Вызов не был обслужен.
+    rejected,   ///< Вызов отклонен.
+    Duplication, ///< Повторный вызов.
+    Overloaded ///< Очередь перегружена.
 };
 
 /**
@@ -35,7 +38,7 @@ struct CDR {
     std::time_t endTime;                   ///< Время окончания вызова.
     TP::CallID callID;                    ///< Уникальный идентификатор вызова.
     CallStatus status;                    ///< Статус вызова (ожидание, завершено, отклонено).
-    std::thread::id operatorID;           ///< Идентификатор потока оператора, обработавшего вызов.
+    std::size_t operatorID;           ///< Идентификатор потока оператора, обработавшего вызов.
     std::chrono::duration<int> callDuration; ///< Продолжительность вызова в секундах.
     std::string_view number;                     ///< Номер вызова.
 };

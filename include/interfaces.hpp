@@ -5,6 +5,7 @@
 #include <future>
 #include <memory>
 #include <queue>
+#include <spdlog/logger.h>
 
 #include "commonStructures.hpp"
 #include "jsonParser.hpp"
@@ -20,7 +21,7 @@ public:
      * @brief Конструктор класса IConfig.
      * @param path Путь к файлу конфигурации.
      */
-    IConfig([[maybe_unused]] const std::filesystem::path& path) {}
+    IConfig([[maybe_unused]] const std::filesystem::path& path, [[maybe_unused]] std::shared_ptr<spdlog::logger>) {}
 
     /**
      * @brief Виртуальный деструктор класса IConfig.
@@ -57,6 +58,11 @@ public:
     virtual void updateConfig() = 0;
 
     /**
+     * @brief Принимает запрос на обновление конфигурации.
+     */
+    virtual void updateWithRequest() = 0;
+
+    /**
      * @brief Проверяет, была ли конфигурация обновлена.
      * @return true, если конфигурация была обновлена, в противном случае - false.
      */
@@ -72,13 +78,127 @@ public:
      * @param manager Указатель на объект менеджера.
      */
     virtual void setManager(std::shared_ptr<IManager> manager) = 0;
+
+    /**
+     * @brief Устанавливает асинхронный логгер.
+     * @param logger Указатель на объект логгера.
+     */
+    virtual void setLogger(std::shared_ptr<spdlog::logger> logger) = 0;
 };
 
 }
 
 
 namespace TP {
-class Task;
+class IThreadPool;
+class ITask {
+public:
+    /**
+     * @brief конструктор
+     * @param RMin нижняя граница времени
+     * @param RMax верхняя граница времени
+     * @param number номер звонящего
+     * @param time время создания задачи
+     */
+    ITask([[maybe_unused]] int RMin, [[maybe_unused]] int RMax, [[maybe_unused]] std::string_view number,
+          [[maybe_unused]] std::time_t& time, [[maybe_unused]] std::shared_ptr<spdlog::logger> logger) {}
+
+
+    /// @brief Обработка вызова.
+    virtual Result doTask() = 0;
+
+    /**
+     * @brief Установка ID вызова.
+     * @param id ID вызова.
+     */
+    virtual void setCallID(CallID& id) = 0;
+
+    /**
+     * @brief Установка ID потока.
+     * @param id ID потока.
+     */
+    virtual void setThreadID(std::size_t& id) = 0;
+
+    /**
+     * @brief Функция добавления promise в задачу
+     * @param promise промис для уведомления о выполнения задачи
+     */
+    virtual void addPromise(std::shared_ptr<std::promise<Result>> promise) = 0;
+
+    /**
+     * @brief Отправляет CDR на запись.
+     */
+    virtual void sendCDR() = 0;
+
+    /**
+     * @brief Функция получения номер звонящего
+     * @return возвращает number_
+     */
+    virtual std::string_view getNumber() = 0;
+
+    /// @brief Дружественный класс.
+    friend class IThreadPool;
+
+    std::shared_ptr<std::promise<Result>> promise_;///< Промис с результатом.
+
+
+    std::shared_ptr<IThreadPool> pool_;///< Пул потоков.
+};
+
+/**
+ * @brief Интерфейс IQueue представляет общие методы для работы с очередью задач.
+ */
+class IQueue {
+public:
+    /**
+     * @brief Конструктор интерфейса IQueue.
+     * @param size Максимальный размер очереди.
+     */
+    IQueue([[maybe_unused]] int size) {}
+
+    /**
+     * @brief Возвращает ссылку на задачу в конце очереди.
+     * @return Ссылка на пару, содержащую задачу и ее уникальный идентификатор вызова.
+     */
+    virtual std::pair<std::shared_ptr<ITask>, CallID>& back() = 0;
+
+    /**
+     * @brief Возвращает ссылку на задачу в начале очереди.
+     * @return Ссылка на пару, содержащую задачу и ее уникальный идентификатор вызова.
+     */
+    virtual std::pair<std::shared_ptr<ITask>, CallID>& front() = 0;
+
+    /**
+     * @brief Проверяет, является ли очередь пустой.
+     * @return true, если очередь пуста, false в противном случае.
+     */
+    [[nodiscard]] virtual bool empty() const = 0;
+
+    /**
+     * @brief Добавляет задачу в конец очереди.
+     * @param taskPair Пара, содержащая задачу и ее уникальный идентификатор вызова.
+     * @return true, если задача успешно добавлена, false в противном случае.
+     */
+    virtual bool push(std::pair<std::shared_ptr<ITask>, CallID>&& taskPair) = 0;
+
+    /**
+     * @brief Удаляет задачу из начала очереди.
+     */
+    virtual void pop() = 0;
+
+    /**
+     * @brief Обновляет максимальный размер очереди.
+     * @param size Новый размер очереди.
+     */
+    virtual void update(int size) = 0;
+
+    /**
+     * @brief Устанавливает асинхронный логгер.
+     * @param logger Указатель на объект логгера.
+     */
+    virtual void setLogger(std::shared_ptr<spdlog::logger> logger) = 0;
+};
+
 /**
  * @brief Абстрактный интерфейс для управления пулом потоков.
  */
@@ -88,19 +208,19 @@ public:
      * @brief Конструктор класса IThreadPool.
      * @param amountOfThreads Количество потоков в пуле.
      */
-    IThreadPool([[maybe_unused]] unsigned amountOfThreads) {}
+    IThreadPool([[maybe_unused]] unsigned amountOfThreads, [[maybe_unused]] unsigned sizeOfQueue) { }
 
     /**
      * @brief Виртуальный деструктор класса IThreadPool.
      */
-    virtual ~IThreadPool() {}
+    virtual ~IThreadPool() { }
 
     /**
      * @brief Добавляет задачу в пул потоков.
      * @param task Задача для выполнения в потоке.
      * @return Пара, содержащая уникальный идентификатор вызова и будущий результат выполнения задачи.
      */
-    virtual std::pair<CallID, std::future<Result>> add_task(const Task& task) = 0;
+    virtual std::pair<CallID, std::future<Result>> add_task(std::shared_ptr<ITask> task) = 0;
 
     /**
      * @brief Останавливает выполнение задач в пуле потоков.
@@ -118,11 +238,29 @@ public:
      */
     virtual void transferTaskQueue(const std::shared_ptr<IThreadPool>& oldThreadPool) = 0;
 
+    /**
+     * @brief Создание записи.
+     * @param cdr CDR запись.
+     */
+    virtual void writeCDR(CDR& cdr) = 0;
+
+    /**
+     * @brief Установка новой очереди задачи
+     * @param task_queue новая очередь задач
+     */
+    virtual void setTaskQueue(std::shared_ptr<IQueue> task_queue) = 0;
+
+    /**
+     * @brief Устанавливает асинхронный логгер.
+     * @param logger Указатель на объект логгера.
+     */
+    virtual void setLogger(std::shared_ptr<spdlog::logger> logger) = 0;
+
     /// Мьютекс для защиты доступа к очереди задач.
     std::mutex task_queue_mutex;
 
     /// Очередь задач в формате пар (задача, идентификатор вызова).
-    std::queue<std::pair<std::shared_ptr<Task>, CallID>> task_queue;
+    std::shared_ptr<IQueue> task_queue;
 };
 }
 
@@ -172,5 +310,17 @@ public:
      * @brief Выполняет обновление состояния менеджера.
      */
     virtual void update() = 0;
+
+    /**
+     * @brief Устанавливает асинхронный логгер.
+     * @param logger Указатель на объект логгера.
+     */
+    virtual void setLogger(std::shared_ptr<spdlog::logger> logger) = 0;
+
+    /**
+     * @brief Обрабатывает запрос на обновление конфигурации
+     * @return true, если конфигурация была обновлена, в противном случае - false.
+     */
+    virtual bool processRequestForUpdate() = 0;
 };
 #endif // PROTEI_COV_INTERFACES_HPP

@@ -1,3 +1,6 @@
+#ifndef PROTEI_COV_THREADPOOL_HPP
+#define PROTEI_COV_THREADPOOL_HPP
+
 #include <atomic>
 #include <condition_variable>
 #include <queue>
@@ -22,7 +25,7 @@ class ThreadPool;
  * @class Task
  * @brief Класс задачи – вызова, который обрабаытывает поток (оператор)
  */
-class Task {
+class Task : public ITask {
 public:
     /**
      * @brief конструктор
@@ -31,7 +34,7 @@ public:
      * @param number номер звонящего
      * @param time время создания задачи
      */
-    Task(int RMin, int RMax, std::string_view number, std::time_t& time);
+    Task(int RMin, int RMax, std::string_view number, std::time_t& time, std::shared_ptr<spdlog::logger> logger);
 
 
     /// @brief Обработка вызова.
@@ -47,13 +50,24 @@ public:
      * @brief Установка ID потока.
      * @param id ID потока.
      */
-    void setThreadID(std::thread::id& id);
+    void setThreadID(std::size_t& id);
 
     /**
      * @brief Функция добавления promise в задачу
      * @param promise промис для уведомления о выполнения задачи
      */
     void addPromise(std::shared_ptr<std::promise<Result>> promise);
+
+    /**
+     * @brief Отправляет CDR на запись.
+     */
+    void sendCDR();
+
+    /**
+     * @brief Функция получения номер звонящего
+     * @return возвращает number_
+     */
+    std::string_view getNumber();
 
 private:
     /// @brief ID вызова.
@@ -62,16 +76,13 @@ private:
     int RMin_;
     /// @brief Нижняя граница.
     int RMax_;
+    /// @brief Номер вызова
+    std::string_view number_;
     /// @brief Итоговый статус звонка.
     CallStatus status_;
-    /// @brief Пул потоков.
-    ThreadPool* pool_{};
+    std::shared_ptr<spdlog::logger> logger_;
     /// @brief CDR звонка.
     CDR cdr;
-
-    std::shared_ptr<std::promise<Result>> promise_;
-    /// @brief Отправка CDR на запись.
-    void sendCDR();
 
     /**
      * @brief Получение ID вызова.
@@ -85,8 +96,7 @@ private:
      */
     std::chrono::seconds getDuration();
 
-    /// @brief Дружественный класс.
-    friend class ThreadPool;
+
 };
 
 /**
@@ -106,13 +116,13 @@ struct Operator {
  *
  * @copydoc TP::IThreadPool
  */
-class ThreadPool : public TP::IThreadPool {
+class ThreadPool : public TP::IThreadPool, public std::enable_shared_from_this<ThreadPool> {
 public:
     /**
      * @brief Конструктор.
      * @param amountOfThreads Количество потоков в пуле.
      */
-    explicit ThreadPool(unsigned amountOfThreads);
+    explicit ThreadPool(unsigned amountOfThreads, unsigned sizeOfQueue);
 
     /**
      * @brief Деструктор.
@@ -124,7 +134,7 @@ public:
     /**
      * @copydoc TP::IThreadPool::add_task
      */
-    std::pair<CallID, std::future<Result>> add_task(const Task& task) override;
+    std::pair<CallID, std::future<Result>> add_task(std::shared_ptr<ITask> task) override;
 
     /**
      * @brief Остановка пула.
@@ -148,13 +158,35 @@ public:
      */
     void transferTaskQueue(const std::shared_ptr<IThreadPool>& oldThreadPool) override;
 
+    /**
+     * @brief Создание записи.
+     * @param cdr CDR запись.
+     *
+     * @copydoc TP::IThreadPool::writeCDR
+     */
+    void writeCDR(CDR& cdr) override;
+
+    /**
+     * @brief Установка новой очереди задачи
+     * @param task_queue новая очередь задач
+     *
+     * @copydoc TP::IThreadPool::setTaskQueue
+     */
+    void setTaskQueue(std::shared_ptr<IQueue> task_queue) override;
+
+    /**
+     * @brief Устанавливает асинхронный логгер пулу потоков, а также очереди.
+     * @param logger Указатель на объект логгера.
+     *
+     * @copydoc TP::IThreadPool::setLogger
+     */
+    void setLogger(std::shared_ptr<spdlog::logger> logger);
 private:
     /**
      * @brief Мьютексы для управления доступом к различным ресурсам в пуле потоков.
      */
-    std::mutex task_queue_mutex; ///< Мьютекс для очереди задач.
+   // std::mutex task_queue_mutex; ///< Мьютекс для очереди задач.
     std::mutex cdr_mutex; ///< Мьютекс для операций с CDR (Call Detail Record).
-    std::mutex log_mutex; ///< Мьютекс для записи логов.
 
     /**
      * @brief Условные переменные для управления задачами в пуле потоков.
@@ -172,10 +204,6 @@ private:
      */
     std::vector<IRecoreder> recorders; ///< Вектор средств записи.
 
-    /**
-     * @brief Очередь задач в пуле потоков.
-     */
-    std::queue<std::pair<std::shared_ptr<Task>, CallID>> task_queue; ///< Очередь задач.
 
     /**
      * @brief Массив выполненных задач в виде хэш-таблицы.
@@ -199,6 +227,8 @@ private:
     std::atomic<bool> paused; ///< Атомарный флаг для приостановки работы пула.
     std::atomic<bool> waitForCompletion;
 
+    std::shared_ptr<spdlog::logger> logger_; ///< указатель на асинхронный логгер
+
     /**
      * @brief Обработка вызова в потоке оператора.
      * @param pOperator Указатель на оператора, обрабатывающего вызов.
@@ -215,17 +245,10 @@ private:
      * @brief Создание уникального CallID.
      * @return Уникальный CallID.
      */
-    static CallID generateCallID();
+    CallID generateCallID(long long number);
 
-    /**
-     * @brief Создание записи.
-     * @param cdr CDR запись.
-     */
-    void writeCDR(CDR& cdr);
 
-    /**
-     * @brief Дружественная функция для работы с пулом.
-     */
-    friend void Task::sendCDR();
 };
 } // namespace TP
+
+#endif
