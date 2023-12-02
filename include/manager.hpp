@@ -71,6 +71,8 @@ public:
      */
     void setLogger(std::shared_ptr<spdlog::logger> logger) override;
 
+    bool processRequestForUpdate() override;
+
 private:
     std::shared_mutex updateMtx; ///< Мьютекс для обеспечения безопасного доступа к обновлению.
 
