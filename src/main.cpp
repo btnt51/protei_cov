@@ -33,19 +33,34 @@ void HandleHttpRequest(const std::string& path, beast::http::response<beast::htt
             if (result.status == CallStatus::rejected) {
                 status = "rejected";
             }
+            if (result.status == CallStatus::timeout) {
+                status = "timeout";
+                res.result(beast::http::status::request_timeout);
+            }
             if (result.status == CallStatus::Duplication) {
                 res.result(beast::http::status::conflict);
                 status = "Duplication";
             }
             if (result.status == CallStatus::Overloaded) {
                 res.result(beast::http::status::too_many_requests);
-                status = "Duplication";
+                status = "Overloaded";
             }
             res.body() += "\n Status: " + status + "\n";
         } catch (const std::future_error &e) {
             std::cerr << "Caught a future_error: " << e.what() << std::endl;
         }
-    } else {
+    } else if(path.find("/update") == 0) {
+        auto resUpd = manager->processRequestForUpdate();
+        if(resUpd) {
+            res.result(beast::http::status::ok);
+            res.body() = "Updated";
+        } else {
+            res.result(beast::http::status::forbidden);
+            res.body() = "Could not update";
+        }
+
+    }
+    else{
         res.result(beast::http::status::not_found);
         res.body() = "Not Found";
     }
