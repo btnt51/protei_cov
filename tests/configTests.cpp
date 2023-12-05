@@ -114,6 +114,7 @@ TEST_F(ThreadSafeConfigTest, IsUpdatedWithUpdate) {
 
 
 TEST_F(ThreadSafeConfigTest, RunMonitoringStartsThread) {
+    EXPECT_CALL(*mockManager, update()).Times(1);
     auto configUpdateThread = std::make_shared<MockThreadSafeConfig>("base.json", nullptr);
     configUpdateThread->setManager(mockManager);
     configUpdateThread->RunMonitoring();

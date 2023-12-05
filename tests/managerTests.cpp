@@ -15,6 +15,8 @@ public:
     MOCK_METHOD(void, pop, (), (override));
     MOCK_METHOD(void, update, (int size), (override));
     MOCK_METHOD(void, setLogger, ((std::shared_ptr<spdlog::logger>)), (override));
+    MOCK_METHOD(void, setRecorders, ((std::vector<std::shared_ptr<IRecorder>> recorders)), (override));
+    MOCK_METHOD(void, writeCDR, (const CDR& cdr), (override));
 };
 
 class MockConfig : public utility::IConfig {
@@ -40,7 +42,7 @@ public:
     MOCK_METHOD((std::pair<TP::CallID, std::future<Result>>), add_task, (std::shared_ptr<TP::ITask> task), (override));
     MOCK_METHOD(void, stop, (), (override));
     MOCK_METHOD(void, start, (), (override));
-    MOCK_METHOD(void, transferTaskQueue, (const std::shared_ptr<TP::IThreadPool>& oldThreadPool), (override));
+    MOCK_METHOD(void, transferObjects, (const std::shared_ptr<TP::IThreadPool>& oldThreadPool), (override));
     MOCK_METHOD(void, writeCDR, (CDR& cdr), (override));
     MOCK_METHOD(void, setTaskQueue, (std::shared_ptr<TP::IQueue> task_queue), (override));
     MOCK_METHOD(void, setLogger, ((std::shared_ptr<spdlog::logger>)), (override));
@@ -54,7 +56,7 @@ protected:
         mockQueue = std::make_shared<MockQueue>(4);
         mockThreadPool->setTaskQueue(mockQueue);
         manager = std::make_shared<Manager>(mockConfig, mockThreadPool);
-        mockConfig->setManager(manager);
+        //mockConfig->setManager(manager);
     }
 
     void TearDown() override {
@@ -79,7 +81,8 @@ TEST_F(ManagerTest, ConstructorTest) {
 }
 
 TEST_F(ManagerTest, SetThreadPool) {
-    EXPECT_CALL(*mockThreadPool, transferTaskQueue(::testing::_)).Times(1);
+    EXPECT_CALL(*mockThreadPool, transferObjects(::testing::_)).Times(1);
+    EXPECT_CALL(*mockThreadPool, start()).Times(1);
     EXPECT_CALL(*mockThreadPool, stop()).Times(1);
     manager->setNewThreadPool(mockThreadPool);
 }

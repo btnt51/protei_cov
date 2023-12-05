@@ -10,7 +10,7 @@ Manager::Manager(std::shared_ptr<utility::IConfig> conf, std::shared_ptr<TP::ITh
 
 std::pair<TP::CallID, std::future<Result>> Manager::addTask(std::string_view number) {
     std::shared_lock<std::shared_mutex> lc(updateMtx);
-    std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+    auto now = std::chrono::system_clock::now();
     if (logger_) {
         logger_->debug("Create task with number: " + std::string{number} + " with RMin_ " + std::to_string(RMin_) +
                        " RMax_ " + std::to_string(RMax_));
@@ -49,7 +49,7 @@ void Manager::setNewConfig(std::shared_ptr<utility::IConfig> config) {
 
 void Manager::setNewThreadPool(std::shared_ptr<TP::IThreadPool> pool) {
     stopThreadPool();
-    pool->transferTaskQueue(this->threadPool_);
+    pool->transferObjects(this->threadPool_);
     this->threadPool_ = pool;
     startThreadPool();
     if(logger_)

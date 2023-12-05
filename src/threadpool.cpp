@@ -7,7 +7,7 @@
 using namespace TP;
 using std::string_literals::operator""s;
 
-Task::Task(int RMin, int RMax, std::string_view number, std::time_t& startTime, std::shared_ptr<spdlog::logger> logger)
+Task::Task(int RMin, int RMax, std::string_view number, const std::chrono::system_clock::time_point& startTime, std::shared_ptr<spdlog::logger> logger)
     : ITask(RMin, RMax, number, startTime, logger), RMin_(RMin), RMax_(RMax), number_(number), logger_(logger) {
     if(logger_) {
         logger_->info("Creating Task with RMin: {} RMax: {}", std::to_string(RMin_), std::to_string(RMax_));
@@ -15,7 +15,7 @@ Task::Task(int RMin, int RMax, std::string_view number, std::time_t& startTime, 
     }
     cdr.startTime = startTime;
     cdr.number = number;
-    status_ = CallStatus::awaiting;
+    status_ = CallStatus::Awaiting;
     pool_ = nullptr;
     promise_ = std::make_shared<std::promise<Result>>();
 }
@@ -39,7 +39,8 @@ void Task::addPromise(std::shared_ptr<std::promise<Result>> t) {
 
 
 void Task::sendCDR() {
-    pool_->writeCDR(cdr);
+    if(pool_)
+        pool_->writeCDR(cdr);
 }
 
 CallID Task::getCallID() const {
@@ -63,36 +64,40 @@ Result Task::doTask() {
     try {
         Result r;
         std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-        if (now - cdr.startTime < RMax_) {
+        if (now - std::chrono::system_clock::to_time_t(cdr.startTime) < RMax_) {
+            cdr.operatorCallTime = std::chrono::system_clock::now();
             std::chrono::seconds randomSeconds = getDuration();
             cdr.callDuration = randomSeconds;
-            logger_->info("Call with number: {} will sleep for {} seconds", std::string{cdr.number},
-                          std::to_string(randomSeconds.count()));
-            logger_->debug("Sleeping for {} seconds", std::to_string(randomSeconds.count()));
-            std::this_thread::sleep_for(randomSeconds);
-            cdr.endTime = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-            status_ = CallStatus::completed;
-            cdr.status = CallStatus::completed;
+            if(logger_) {
+                logger_->info("Call with number: {} will sleep for {} seconds",
+                              std::string{cdr.number},
+                              std::to_string(randomSeconds.count()));
+                logger_->debug("Sleeping for {} seconds", std::to_string(randomSeconds.count()));
+                std::this_thread::sleep_for(randomSeconds);
+            }
+            cdr.endTime = std::chrono::system_clock::now();
+            status_ = CallStatus::Completed;
+            cdr.status = CallStatus::Completed;
             logger_->info("Writing CDR for task with number:"s + std::string{cdr.number});
             sendCDR();
             logger_->info("Filling result variable");
             logger_->debug("Call with number {}  and callID {} completed successfully", std::string{cdr.number}, std::to_string(taskId_));
-            r.status = CallStatus::completed;
+            r.status = CallStatus::Completed;
             r.callDuration = randomSeconds;
             r.callID = taskId_;
             // TODO: тут должно быть лог сообщение
         } else {
             logger_->info("Call with number: "s + std::string{cdr.number} + " was timed out"s);
-            cdr.endTime = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+            cdr.operatorCallTime = std::chrono::system_clock::now();
             cdr.callDuration = std::chrono::seconds{0};
-            cdr.status = CallStatus::timeout;
+            cdr.status = CallStatus::Timeout;
             logger_->info("Writing CDR for task with number: {}", std::string{cdr.number});
 
             sendCDR();
             logger_->info("Filling result variable");
             logger_->debug("Call with number {}  and callID {} timed out", std::string{cdr.number},
                            std::to_string(taskId_));
-            r.status = CallStatus::timeout;
+            r.status = CallStatus::Timeout;
             r.callDuration = std::chrono::seconds{0};
             r.callID = taskId_;
 
@@ -184,13 +189,14 @@ void ThreadPool::stop() {
     waitForCompletion = true;
 }
 
-void ThreadPool::transferTaskQueue(const std::shared_ptr<IThreadPool>& oldThreadPool) {
+void ThreadPool::transferObjects(const std::shared_ptr<IThreadPool>& oldThreadPool) {
     std::lock_guard<std::mutex> oldPoolLock(oldThreadPool->task_queue_mutex);
     std::lock_guard<std::mutex> thisPoolLock(task_queue_mutex);
     if(logger_)
         logger_->info("Transfering code task queue");
     if(this != oldThreadPool.get()) {
         this->task_queue = oldThreadPool->task_queue;
+        this->recorders_ = oldThreadPool->recorders_;
     }
 }
 
@@ -215,8 +221,8 @@ std::pair<CallID, std::future<Result>> ThreadPool::add_task(std::shared_ptr<ITas
 
 void ThreadPool::writeCDR(CDR& cdr) {
     std::lock_guard<std::mutex> lg(cdr_mutex);
-    for (auto& recorder: recorders)
-        recorder.makeRecord(cdr);
+    for (auto& recorder: recorders_)
+        recorder->makeRecord(cdr);
 }
 
 ThreadPool::~ThreadPool() {
@@ -249,4 +255,9 @@ void ThreadPool::setLogger(std::shared_ptr<spdlog::logger> logger) {
         task_queue->setLogger(logger);
         logger_->info("ThreadPoll set up logger");
     }
+}
+
+void ThreadPool::setRecorders(std::vector<std::shared_ptr<IRecorder>> recorders) {
+    recorders_ = recorders;
+    this->task_queue->setRecorders(recorders);
 }

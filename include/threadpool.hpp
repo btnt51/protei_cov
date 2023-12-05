@@ -34,7 +34,7 @@ public:
      * @param number номер звонящего
      * @param time время создания задачи
      */
-    Task(int RMin, int RMax, std::string_view number, std::time_t& time, std::shared_ptr<spdlog::logger> logger);
+    Task(int RMin, int RMax, std::string_view number, const std::chrono::system_clock::time_point& startTime, std::shared_ptr<spdlog::logger> logger);
 
 
     /// @brief Обработка вызова.
@@ -81,8 +81,7 @@ private:
     /// @brief Итоговый статус звонка.
     CallStatus status_;
     std::shared_ptr<spdlog::logger> logger_;
-    /// @brief CDR звонка.
-    CDR cdr;
+
 
     /**
      * @brief Получение ID вызова.
@@ -154,9 +153,9 @@ public:
      * @brief Передача очереди задач из старого пула в текущий.
      * @param oldThreadPool Указатель на старый пул потоков.
      *
-     * @copydoc TP::IThreadPool::transferTaskQueue
+     * @copydoc TP::IThreadPool::transferObjects
      */
-    void transferTaskQueue(const std::shared_ptr<IThreadPool>& oldThreadPool) override;
+    void transferObjects(const std::shared_ptr<IThreadPool>& oldThreadPool) override;
 
     /**
      * @brief Создание записи.
@@ -181,6 +180,12 @@ public:
      * @copydoc TP::IThreadPool::setLogger
      */
     void setLogger(std::shared_ptr<spdlog::logger> logger);
+
+    /**
+     * @brief Установка вектора разных объектов для записи cdr.
+     * @param recorders массив разных объектов для записи cdr
+     */
+    void setRecorders(std::vector<std::shared_ptr<IRecorder>> recorders);
 private:
     /**
      * @brief Мьютексы для управления доступом к различным ресурсам в пуле потоков.
@@ -198,11 +203,6 @@ private:
      * @brief Вектор операторов в пуле потоков.
      */
     std::vector<Operator*> threads; ///< Вектор операторов.
-
-    /**
-     * @brief Вектор средств записи в пуле потоков.
-     */
-    std::vector<IRecoreder> recorders; ///< Вектор средств записи.
 
 
     /**

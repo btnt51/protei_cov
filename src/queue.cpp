@@ -28,6 +28,12 @@ bool Queue::empty() const {
 bool Queue::push(std::pair<std::shared_ptr<ITask>, CallID>&& taskPair) {
     if(queue_.size() >= sizeOfQueue) {
         Result r;
+        taskPair.first->cdr.status = CallStatus::Overloaded;
+        taskPair.first->cdr.operatorID = 0;
+        taskPair.first->cdr.callDuration = std::chrono::seconds{0};
+        taskPair.first->cdr.endTime;
+        taskPair.first->cdr.operatorCallTime;
+        writeCDR(taskPair.first->cdr);
         r.callDuration = std::chrono::seconds{0};
         r.callID = taskPair.second;
         r.status = CallStatus::Overloaded;
@@ -40,6 +46,12 @@ bool Queue::push(std::pair<std::shared_ptr<ITask>, CallID>&& taskPair) {
         for(auto it = queue_.begin(); it != queue_.end(); it++) {
             if(it->first->getNumber() == taskPair.first->getNumber()) {
                 Result r;
+                it->first->cdr.status = CallStatus::Duplication;
+                it->first->cdr.operatorID = 0;
+                it->first->cdr.callDuration = std::chrono::seconds{0};
+                it->first->cdr.endTime;
+                it->first->cdr.operatorCallTime;
+                writeCDR(it->first->cdr);
                 r.callDuration = std::chrono::seconds{0};
                 r.callID = it->second;
                 r.status = CallStatus::Duplication;
@@ -76,4 +88,13 @@ void Queue::update(int size) {
 
 void Queue::setLogger(std::shared_ptr<spdlog::logger> logger) {
     this->logger_ = logger;
+}
+void Queue::setRecorders(std::vector<std::shared_ptr<IRecorder>> recorders) {
+    recorders_ = recorders;
+}
+
+void Queue::writeCDR(const CDR& cdr) {
+    std::lock_guard<std::mutex> lock(cdrMutex_);
+    for(const auto& recorder: recorders_)
+        recorder->makeRecord(cdr);
 }
