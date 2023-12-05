@@ -6,6 +6,7 @@
 
 #include "commonStructures.hpp"
 #include "interfaces.hpp"
+#include "recorder.hpp"
 namespace TP {
 /**
  * @brief Класс Queue представляет собой реализацию интерфейса IQueue.
@@ -74,10 +75,20 @@ public:
      */
     void setLogger(std::shared_ptr<spdlog::logger> logger) override;
 
+    /**
+     * @brief Установка вектора разных объектов для записи cdr.
+     * @param recorders массив разных объектов для записи cdr
+     */
+    void setRecorders(std::vector<std::shared_ptr<IRecorder>> recorders) override;
+
+    void writeCDR(const CDR& cdr) override;
+
 private:
     std::vector<std::pair<std::shared_ptr<ITask>, CallID>> queue_; ///< Вектор для хранения задач в очереди.
     std::size_t sizeOfQueue; ///< Максимальный размер очереди.
     std::shared_ptr<spdlog::logger> logger_; ///< указатель на асинхронный логгер
+    std::vector<std::shared_ptr<IRecorder>> recorders_;
+    std::mutex cdrMutex_;
 };
 }
 #endif // PROTEI_COV_QUEUE_HPP

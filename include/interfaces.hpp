@@ -9,6 +9,7 @@
 
 #include "commonStructures.hpp"
 #include "jsonParser.hpp"
+#include "recorder.hpp"
 
 class IManager;
 namespace utility {
@@ -101,7 +102,7 @@ public:
      * @param time время создания задачи
      */
     ITask([[maybe_unused]] int RMin, [[maybe_unused]] int RMax, [[maybe_unused]] std::string_view number,
-          [[maybe_unused]] std::time_t& time, [[maybe_unused]] std::shared_ptr<spdlog::logger> logger) {}
+          [[maybe_unused]] const std::chrono::system_clock::time_point& startTime, [[maybe_unused]] std::shared_ptr<spdlog::logger> logger) {}
 
 
     /// @brief Обработка вызова.
@@ -143,6 +144,10 @@ public:
 
 
     std::shared_ptr<IThreadPool> pool_;///< Пул потоков.
+
+
+    CDR cdr;///< CDR звонка
+
 };
 
 /**
@@ -197,6 +202,19 @@ public:
      * @param logger Указатель на объект логгера.
      */
     virtual void setLogger(std::shared_ptr<spdlog::logger> logger) = 0;
+
+    /**
+     * @brief Установка вектора разных объектов для записи cdr.
+     * @param recorders массив разных объектов для записи cdr
+     */
+    virtual void setRecorders(std::vector<std::shared_ptr<IRecorder>> recorders) = 0;
+
+    /**
+     * @brief Запись CDR при помощи IRecorders объектов.
+     * @param cdr CDR запись.
+     */
+    virtual void writeCDR(const CDR& cdr) = 0;
+
 };
 
 /**
@@ -236,10 +254,10 @@ public:
      * @brief Переносит очередь задач из старого пула потоков в текущий.
      * @param oldThreadPool Указатель на старый пул потоков.
      */
-    virtual void transferTaskQueue(const std::shared_ptr<IThreadPool>& oldThreadPool) = 0;
+    virtual void transferObjects(const std::shared_ptr<IThreadPool>& oldThreadPool) = 0;
 
     /**
-     * @brief Создание записи.
+     * @brief Запись CDR при помощи IRecorders объектов.
      * @param cdr CDR запись.
      */
     virtual void writeCDR(CDR& cdr) = 0;
@@ -261,6 +279,11 @@ public:
 
     /// Очередь задач в формате пар (задача, идентификатор вызова).
     std::shared_ptr<IQueue> task_queue;
+
+    /**
+     * @brief Вектор средств записи в пуле потоков.
+     */
+    std::vector<std::shared_ptr<IRecorder>> recorders_; ///< Вектор средств записи.
 };
 }
 

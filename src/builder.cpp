@@ -33,11 +33,30 @@ std::shared_ptr<utility::ThreadSafeConfig> ManagerBuilder::BuildConfig(const std
     }
 }
 
+std::vector<std::shared_ptr<IRecorder>> ManagerBuilder::BuildRecorders() {
+    try {
+        if(recorders.empty()) {
+            logger->info("Built recorders");
+            recorders = std::vector<std::shared_ptr<IRecorder>>{};
+            auto fileRecorder = std::make_shared<FileRecorder>("cdrFile.txt");
+            recorders.push_back(fileRecorder);
+
+            for(const auto& recorder: recorders)
+                recorder->setLogger(logger);
+        }
+        return recorders;
+    }  catch (std::exception& e) {
+        logger->critical("Critical error building config: {}", e.what());
+        throw e;
+    }
+}
+
 std::shared_ptr<TP::ThreadPool> ManagerBuilder::BuildThreadPool() {
     try {
         auto pool = std::make_shared<TP::ThreadPool>(config->getAmountOfOperators(), config->getSizeOfQueue());
         logger->info("Built thread pool");
         pool->setLogger(logger);
+        pool->setRecorders(recorders);
         return pool;
     } catch (std::exception& e) {
         logger->critical("Critical error building thread pool: {}", e.what());
@@ -49,6 +68,7 @@ std::shared_ptr<Manager> ManagerBuilder::Construct(const std::filesystem::path& 
     try {
         logger = BuildLogger();
         config = BuildConfig(pathToConfig);
+        BuildRecorders();
         auto pool = BuildThreadPool();
 
         auto manager = std::make_shared<Manager>(config, pool);
