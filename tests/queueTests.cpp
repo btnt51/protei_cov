@@ -4,7 +4,7 @@
 
 TEST(QueueTest, Push) {
     TP::Queue queue(3);
-    auto time = std::time_t{2};
+    std::chrono::system_clock::time_point time;
     std::shared_ptr<spdlog::logger> logger = nullptr;
     auto task1 = std::make_shared<TP::Task>(1, 2, "1", time, logger);
     auto task2 = std::make_shared<TP::Task>(1, 2, "2", time, logger);
@@ -18,7 +18,7 @@ TEST(QueueTest, Push) {
 
 TEST(QueueTest, FrontBack) {
     TP::Queue queue(3);
-    auto time = std::time_t{2};
+    std::chrono::system_clock::time_point time;
     std::shared_ptr<spdlog::logger> logger = nullptr;
     auto task1 = std::make_shared<TP::Task>(1, 2, "1", time, logger);
     auto task2 = std::make_shared<TP::Task>(1, 2, "2", time, logger);
@@ -36,7 +36,7 @@ TEST(QueueTest, FrontBack) {
 
 TEST(QueueTest, Pop) {
     TP::Queue queue(3);
-    auto time = std::time_t{2};
+    std::chrono::system_clock::time_point time;
     std::shared_ptr<spdlog::logger> logger = nullptr;
     auto task1 = std::make_shared<TP::Task>(1, 2, "1", time, logger);
     auto task2 = std::make_shared<TP::Task>(1, 2, "2", time, logger);
@@ -53,8 +53,7 @@ TEST(QueueTest, Empty) {
 }
 
 TEST(QueueTest, NotEmpty) {
-    TP::Queue queue(3);
-    auto time = std::time_t{2};
+    TP::Queue queue(3);std::chrono::system_clock::time_point time;
     std::shared_ptr<spdlog::logger> logger = nullptr;
     auto task1 = std::make_shared<TP::Task>(1, 2, "1", time, logger);
     auto task2 = std::make_shared<TP::Task>(1, 2, "2", time, logger);
@@ -65,7 +64,7 @@ TEST(QueueTest, NotEmpty) {
 
 TEST(QueueTest, Duplication) {
     TP::Queue queue(3);
-    auto time = std::time_t{2};
+    std::chrono::system_clock::time_point time;
     std::shared_ptr<spdlog::logger> logger = nullptr;
     auto task1 = std::make_shared<TP::Task>(1,2,"1", time, logger);
     auto task2 = std::make_shared<TP::Task>(1,2,"1", time, logger);
