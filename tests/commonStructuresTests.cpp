@@ -34,15 +34,17 @@ TEST(CommonStructures, CorrectlyWritesCDRToOfstream) {
     outFile << cdr;
     outFile.close();
 
-    // Open the file and read its contents for verification
+
     std::ifstream inFile("test_output.txt");
     std::string content((std::istreambuf_iterator<char>(inFile)), std::istreambuf_iterator<char>());
-    std::string expectedContent(
-        "2023-12-05 14:30:45.000;123456789;2134;2023-12-05 14:30:56.000;Completed;2023-12-05 14:30:46.000;12;10s");
-    // Assuming you know the expected content, perform the necessary checks
+    std::string expectedContent;
+    if(std::chrono::current_zone()->name() == "Europe/Moscow")
+        expectedContent = "2023-12-05 14:30:45.000;123456789;2134;2023-12-05 14:30:56.000;Completed;2023-12-05 14:30:46.000;12;10s";
+    else
+        expectedContent = "2023-12-05 11:30:45.000;123456789;2134;2023-12-05 11:30:56.000;Completed;2023-12-05 11:30:46.000;12;10s";
     EXPECT_EQ(content, expectedContent);
 
-    // Optionally, you can remove the test file after verification
+
     std::remove("test_output.txt");
 }
 
@@ -63,8 +65,12 @@ TEST(CommonStructures, CorrectlyWritesCDRToOfstreamWhenTimeout) {
 
     std::ifstream inFile("test_output.txt");
     std::string content((std::istreambuf_iterator<char>(inFile)), std::istreambuf_iterator<char>());
-    std::string expectedContent(
-        "2023-12-05 14:30:45.000;123456789;2134;;Timeout;2023-12-05 14:30:46.000;12;0s");
+    std::string expectedContent;
+    if(std::chrono::current_zone()->name() == "Europe/Moscow")
+        expectedContent = "2023-12-05 14:30:45.000;123456789;2134;;Timeout;2023-12-05 14:30:46.000;12;0s";
+    else
+        expectedContent = "2023-12-05 11:30:45.000;123456789;2134;;Timeout;2023-12-05 11:30:46.000;12;0s";
+
 
     EXPECT_EQ(content, expectedContent);
 
