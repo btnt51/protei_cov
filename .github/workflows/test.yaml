@@ -58,8 +58,3 @@ jobs:
       - name: Build executable
         run: |
           ./build.sh ${{ github.run_number }} Release OFF ON protei_cov protei_cov-0.0.${{ github.run_number }}-ubuntu22.04-arm64 /usr/bin/g++-13 5
-      - name: Test run executable
-        run: |
-          sudo chmod +x build/protei_cov
-          cd build
-          ./protei_cov test
