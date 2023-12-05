@@ -1,5 +1,6 @@
 #include "manager.hpp"
 #include "threadpool.hpp"
+#include "task.hpp"
 #include <iostream>
 
 Manager::Manager(std::shared_ptr<utility::IConfig> conf, std::shared_ptr<TP::IThreadPool> pool)  :
