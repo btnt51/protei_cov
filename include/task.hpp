@@ -65,8 +65,6 @@ private:
     int RMax_;
     /// @brief Номер вызова
     std::string_view number_;
-    /// @brief Итоговый статус звонка.
-    CallStatus status_;
     std::shared_ptr<spdlog::logger> logger_;
 
     /**
@@ -80,6 +78,23 @@ private:
      * @return Длительность заглушки.
      */
     std::chrono::seconds getDuration();
+
+    /**
+     * @brief Устанавливает значения CDR (Call Detail Record) на основе временной разницы.
+     * @param timeDiff Временная разница, используемая для установки значений CDR.
+     */
+    void setCdrValues(const std::chrono::seconds& timeDiff);
+
+    /**
+     * @brief логирование информации о вызове
+     */
+    void logCallDetails();
+
+    /**
+     * @brief Создает объект Result на основе текущих данных.
+     * @return Объект Result, представляющий результат вызова.
+     */
+    Result createResultObject() const;
 };
 }
 #endif // PROTEI_COV_TASK_HPP

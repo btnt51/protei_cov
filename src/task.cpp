@@ -13,7 +13,6 @@ Task::Task(int RMin, int RMax, std::string_view number, const std::chrono::syste
     }
     cdr.startTime = startTime;
     cdr.number = number;
-    status_ = CallStatus::Awaiting;
     pool_ = nullptr;
     promise_ = std::make_shared<std::promise<Result>>();
 }
@@ -58,52 +57,58 @@ std::chrono::seconds Task::getDuration() {
     return randomSeconds;
 }
 
+
+void Task::setCdrValues(const std::chrono::seconds& timeDiff) {
+    if(logger_) {
+        logger_->info("Setting cdr values for call with number: {} and callID: {}", number_, taskId_);
+    }
+    cdr.operatorCallTime = std::chrono::system_clock::now();
+    cdr.callDuration = (timeDiff.count() < RMax_) ? getDuration() : std::chrono::seconds{0};
+    cdr.status = (timeDiff.count() < RMax_) ? CallStatus::Completed : CallStatus::Timeout;
+
+}
+
+void Task::logCallDetails() {
+    if (logger_) {
+        logger_->info("Call with number: {} {} for {} seconds",
+                      cdr.number, (cdr.status == CallStatus::Completed) ? "will sleep" : "was timed out",
+                      cdr.callDuration.count());
+        logger_->debug("Sleeping for {} seconds", cdr.callDuration.count());
+        if (cdr.status == CallStatus::Completed)
+            std::this_thread::sleep_for(cdr.callDuration);
+    }
+
+    cdr.endTime = std::chrono::system_clock::now();
+
+    logger_->debug("Call with number {} and callID {} {}",
+                   cdr.number, taskId_, (cdr.status == CallStatus::Completed) ? "completed successfully" : "timed out");
+}
+
+Result Task::createResultObject() const {
+    logger_->info("Filling result variable");
+    Result r;
+    r.status = cdr.status;
+    r.callDuration = cdr.callDuration;
+    r.callID = taskId_;
+    return r;
+}
+
+
 Result Task::doTask() {
     try {
-        Result r;
-        std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-        if (now - std::chrono::system_clock::to_time_t(cdr.startTime) < RMax_) {
-            cdr.operatorCallTime = std::chrono::system_clock::now();
-            std::chrono::seconds randomSeconds = getDuration();
-            cdr.callDuration = randomSeconds;
-            if(logger_) {
-                logger_->info("Call with number: {} will sleep for {} seconds",
-                              std::string{cdr.number},
-                              std::to_string(randomSeconds.count()));
-                logger_->debug("Sleeping for {} seconds", std::to_string(randomSeconds.count()));
-                std::this_thread::sleep_for(randomSeconds);
-            }
-            cdr.endTime = std::chrono::system_clock::now();
-            status_ = CallStatus::Completed;
-            cdr.status = CallStatus::Completed;
-            logger_->info("Writing CDR for task with number:"s + std::string{cdr.number});
-            sendCDR();
-            logger_->info("Filling result variable");
-            logger_->debug("Call with number {}  and callID {} completed successfully", std::string{cdr.number}, std::to_string(taskId_));
-            r.status = CallStatus::Completed;
-            r.callDuration = randomSeconds;
-            r.callID = taskId_;
-            // TODO: тут должно быть лог сообщение
-        } else {
-            logger_->info("Call with number: "s + std::string{cdr.number} + " was timed out"s);
-            cdr.operatorCallTime = std::chrono::system_clock::now();
-            cdr.callDuration = std::chrono::seconds{0};
-            cdr.status = CallStatus::Timeout;
-            logger_->info("Writing CDR for task with number: {}", std::string{cdr.number});
+        auto now = std::chrono::system_clock::now();
+        auto timeDiff = std::chrono::duration_cast<std::chrono::seconds>(now - cdr.startTime);
 
-            sendCDR();
-            logger_->info("Filling result variable");
-            logger_->debug("Call with number {}  and callID {} timed out", std::string{cdr.number},
-                           std::to_string(taskId_));
-            r.status = CallStatus::Timeout;
-            r.callDuration = std::chrono::seconds{0};
-            r.callID = taskId_;
+        setCdrValues(timeDiff);
+        logCallDetails();
 
-        }
-        return r;
-    } catch(std::exception& e) {
+        logger_->info("Writing CDR for task with number: {}", cdr.number);
+        sendCDR();
+
+        return createResultObject();
+    } catch (const std::exception& e) {
         logger_->error("Exception in doTask: {}", e.what());
-        this->promise_->set_exception(std::current_exception());
-        throw e;
+        promise_->set_exception(std::current_exception());
+        throw;
     }
 }
