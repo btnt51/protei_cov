@@ -26,6 +26,7 @@ EXCLUDE                = build\* \
                          .vscode\* \
                          .idea\* \
                          .github\* \
+                         tools\load.py
 EXAMPLE_PATTERNS       = *
 USE_HTAGS              = NO
 GENERATE_HTML          = YES
