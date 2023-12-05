@@ -26,14 +26,14 @@ void HandleHttpRequest(const std::string& path, beast::http::response<beast::htt
             res.body() =
                 "CallID: " + std::to_string(callID) + " call duration: " + std::to_string(seconds.count()) + "s";
             std::string status;
-            if (result.status == CallStatus::completed) {
+            if (result.status == CallStatus::Completed) {
                 res.result(beast::http::status::ok);
                 status = "completed";
             }
-            if (result.status == CallStatus::rejected) {
+            if (result.status == CallStatus::Rejected) {
                 status = "rejected";
             }
-            if (result.status == CallStatus::timeout) {
+            if (result.status == CallStatus::Timeout) {
                 status = "timeout";
                 res.result(beast::http::status::request_timeout);
             }
