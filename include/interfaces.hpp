@@ -274,6 +274,8 @@ public:
      */
     virtual void setLogger(std::shared_ptr<spdlog::logger> logger) = 0;
 
+    virtual std::size_t getSize() = 0;
+
     /// Мьютекс для защиты доступа к очереди задач.
     std::mutex task_queue_mutex;
 

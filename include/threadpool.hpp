@@ -106,6 +106,8 @@ public:
      * @param recorders массив разных объектов для записи cdr
      */
     void setRecorders(std::vector<std::shared_ptr<IRecorder>> recorders);
+
+    std::size_t getSize() override;
 private:
     /**
      * @brief Мьютексы для управления доступом к различным ресурсам в пуле потоков.
@@ -157,13 +159,7 @@ private:
     /**
      * @brief Обрабатывает и подготовляет задачу из очереди пула потоков, к выполнению.
      */
-    void processTask();
-
-    /**
-     * @brief Выполняет задачу и обрабатывает результат.
-     * @param task Указатель на задачу, которая будет выполняться.
-     */
-    void executeTask(std::shared_ptr<ITask> task);
+    std::pair<std::shared_ptr<ITask>, CallID> processTask();
 
     /**
      * @brief Проверка, разрешен ли запуск нового потока в пуле.
@@ -176,8 +172,6 @@ private:
      * @return Уникальный CallID.
      */
     CallID generateCallID(long long number);
-
-
 };
 } // namespace TP
 
