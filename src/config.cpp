@@ -173,6 +173,8 @@ void ThreadSafeConfig::updateConfigThread() {
             std::time_t currentWriteTime = lastTime(path_);
 
             if (currentWriteTime >= lastWriteTime) {
+                if(logger_)
+                    logger_->debug("Updating configuration from with regular checking");
                 {
                     std::lock_guard<std::mutex> lock(configMutex);
                     updateConfig();
@@ -190,6 +192,8 @@ void ThreadSafeConfig::updateConfigThread() {
 }
 
 void ThreadSafeConfig::updateWithRequest() {
+    if(logger_)
+        logger_->debug("Updating configuration from with request");
     {
         std::lock_guard<std::mutex> lock(configMutex);
         updateConfig();
