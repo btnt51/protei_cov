@@ -35,36 +35,54 @@ void ThreadPool::run(Operator* pOperator) {
         pOperator->is_working = false;
         tasks_access.wait(lock, [this]() -> bool { return run_allowed() || stopped; });
         pOperator->is_working = true;
+        lock.unlock();
         if (run_allowed()) {
-            // TODO: тут должно быть лог сообщение
-            auto [elem, callID] = std::move(task_queue->front());
-            auto threadId =  std::hash<std::thread::id>{}(std::this_thread::get_id());
-            elem->setThreadID(threadId);
-            if(logger_)
-                logger_->info("Task with CallID: " + std::to_string(callID) + " in work");
-            task_queue->pop();
-            lock.unlock();
-            try {
-                auto res = elem->doTask();
-                if(logger_)
-                    logger_->info("Task with CallID: " + std::to_string(callID) + " was successfully completed");
-                elem->promise_->set_value(res);
-            } catch (...) {
-                if(logger_)
-                    logger_->error("Task with CallID: " + std::to_string(callID) +
-                                   " was terminated with an exception thrown");
-                elem->promise_->set_exception(std::current_exception());
-            }
-
-            if (waitForCompletion && task_queue->empty()) {
-                break;
-            }
-
-            completed_task_count++;
+            processTask();
+        }
+        if (waitForCompletion && task_queue->empty()) {
+            break;
         }
         wait_access.notify_all();
     }
 }
+
+void ThreadPool::processTask() {
+    task_queue_mutex.lock();
+    auto [elem, callID] = std::move(task_queue->front());
+    task_queue_mutex.unlock();
+    auto threadId = std::hash<std::thread::id>{}(std::this_thread::get_id());
+    elem->setThreadID(threadId);
+
+
+
+    task_queue->pop();
+    try {
+        if (logger_)
+            logger_->info("Task with CallID: " + std::to_string(callID) + " in work");
+        executeTask(elem);
+    } catch (...) {
+        if(logger_)
+            logger_->error("Task with CallID: " + std::to_string(callID) +
+                           " was terminated with an exception thrown");
+
+    }
+}
+
+void ThreadPool::executeTask(std::shared_ptr<ITask> task) {
+
+    try {
+        auto res = task->doTask();
+
+        task->promise_->set_value(res);
+        if (logger_)
+            logger_->info("Task with CallID: " + std::to_string(res.callID) + " was successfully completed");
+        completed_task_count++;
+    } catch(const std::exception& e) {
+        task->promise_->set_exception(std::current_exception());
+        throw e;
+    }
+}
+
 
 void ThreadPool::start() {
     if(logger_)
