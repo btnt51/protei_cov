@@ -96,6 +96,13 @@ private:
      */
     void handleTask(std::pair<std::shared_ptr<ITask>, CallID>& taskPair);
 
+    /**
+     * @brief Дополняет CDR и отправляет его на запись
+     * @param task Ссылка на задачу для которой будет обрабатываться cdr
+     * @param isDuplication тип статуса, если true,
+     * значит в CDR будет записано CallStatus::Duplication, иначе будет
+     * записано CallStatus::Overloaded
+     */
     void processCDR(std::shared_ptr<ITask> task, bool isDuplication);
 
     std::vector<std::pair<std::shared_ptr<ITask>, CallID>> queue_; ///< Вектор для хранения задач в очереди.
