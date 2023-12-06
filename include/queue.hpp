@@ -84,6 +84,20 @@ public:
     void writeCDR(const CDR& cdr) override;
 
 private:
+    /**
+     * @brief Обрабатывает задачу, когда очередь перегружена.
+     * @param taskPair Пара, содержащая указатель на задачу и идентификатор вызова.
+     */
+    void handleOverloadedTask(const std::pair<std::shared_ptr<ITask>, CallID>& taskPair);
+
+    /**
+     * @brief Обрабатывает задачу и проверяет на дубликат.
+     * @param taskPair Пара, содержащая указатель на задачу и идентификатор вызова.
+     */
+    void handleTask(std::pair<std::shared_ptr<ITask>, CallID>& taskPair);
+
+    void processCDR(std::shared_ptr<ITask> task, bool isDuplication);
+
     std::vector<std::pair<std::shared_ptr<ITask>, CallID>> queue_; ///< Вектор для хранения задач в очереди.
     std::size_t sizeOfQueue; ///< Максимальный размер очереди.
     std::shared_ptr<spdlog::logger> logger_; ///< указатель на асинхронный логгер
