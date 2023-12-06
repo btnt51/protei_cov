@@ -31,9 +31,12 @@ void Manager::update() {
         logger_->debug("Debug message for update: New RMin_ " + std::to_string(RMin_) + " RMax_ " + std::to_string(RMax_));
 
     threadPool_->task_queue->update(config_->getSizeOfQueue());
-    auto newThreadPool = std::make_shared<TP::ThreadPool>(config_->getAmountOfOperators(), config_->getSizeOfQueue());
-    newThreadPool->setLogger(logger_);
-    setNewThreadPool(newThreadPool);
+    if(static_cast<std::size_t>(config_->getAmountOfOperators()) != threadPool_->getSize()) {
+        auto newThreadPool = std::make_shared<TP::ThreadPool>(config_->getAmountOfOperators(),
+                                                              config_->getSizeOfQueue());
+        newThreadPool->setLogger(logger_);
+        setNewThreadPool(newThreadPool);
+    }
 }
 
 bool Manager::processRequestForUpdate() {
