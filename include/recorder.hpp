@@ -46,7 +46,7 @@ public:
     void makeRecord(const CDR& cdr) override;
 
 
-    void setLogger(std::shared_ptr<spdlog::logger> logger);
+    void setLogger(std::shared_ptr<spdlog::logger> logger) override;
 
 
 private:
