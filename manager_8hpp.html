@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Файл include/manager.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a>  </div>
+  <div class="headertitle"><div class="title">Файл manager.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Содержит объявление класса <a class="el" href="classManager.html" title="Класс управляющей тредпулом (центром обратки вызовов)">Manager</a>, который реализует интерфейс <a class="el" href="classIManager.html" title="Абстрактный интерфейс для управления задачами в тредпуле.">IManager</a>.  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="interfaces_8hpp_source.html">interfaces.hpp</a>&quot;</code><br />
+<code>#include &lt;shared_mutex&gt;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Граф включаемых заголовочных файлов для manager.hpp:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="manager_8hpp__incl.png" border="0" usemap="#ainclude_2manager_8hpp" alt=""/></div>
+<map name="ainclude_2manager_8hpp" id="ainclude_2manager_8hpp">
+<area shape="rect" title="Содержит объявление класса Manager, который реализует интерфейс IManager." alt="" coords="567,5,707,31"/>
+<area shape="rect" href="interfaces_8hpp.html" title="Содержит интерфейсы IConfig, ITask, IQueue, IThreadPool, IManager." alt="" coords="523,79,626,105"/>
+<area shape="poly" title=" " alt="" coords="629,33,597,69,593,65,625,29"/>
+<area shape="rect" title=" " alt="" coords="650,79,752,105"/>
+<area shape="poly" title=" " alt="" coords="650,29,682,66,678,69,646,33"/>
+<area shape="rect" title=" " alt="" coords="336,234,415,260"/>
+<area shape="poly" title=" " alt="" coords="544,108,502,127,459,155,423,189,395,223,391,220,419,185,455,151,499,123,542,103"/>
+<area shape="rect" title=" " alt="" coords="601,153,655,178"/>
+<area shape="poly" title=" " alt="" coords="585,103,612,138,607,142,581,106"/>
+<area shape="rect" title=" " alt="" coords="679,153,747,178"/>
+<area shape="poly" title=" " alt="" coords="599,103,677,143,675,147,597,108"/>
+<area shape="rect" title=" " alt="" coords="770,153,827,178"/>
+<area shape="poly" title=" " alt="" coords="613,103,756,148,755,153,612,108"/>
+<area shape="rect" title=" " alt="" coords="851,153,959,178"/>
+<area shape="poly" title=" " alt="" coords="627,102,836,147,835,152,625,107"/>
+<area shape="rect" href="commonStructures_8hpp.html" title="Содержит общие структуры и типы данных, а также функции необходимые для работы с этими структурами и ..." alt="" coords="106,234,261,260"/>
+<area shape="poly" title=" " alt="" coords="523,99,472,104,413,115,350,131,290,155,242,188,205,224,201,220,239,184,288,150,348,126,412,109,472,99,522,93"/>
+<area shape="rect" href="jsonParser_8hpp.html" title="Содержит объявление класса JsonParser, предназначенного для парсинга и обработки JSON данных." alt="" coords="469,153,576,178"/>
+<area shape="poly" title=" " alt="" coords="568,106,542,142,538,138,564,103"/>
+<area shape="rect" href="recorder_8hpp.html" title="Содержит объявления интерфейса IRecorder, и его реализации FileRecorder." alt="" coords="302,153,394,178"/>
+<area shape="poly" title=" " alt="" coords="537,108,402,150,400,145,535,103"/>
+<area shape="rect" title=" " alt="" coords="100,315,161,341"/>
+<area shape="poly" title=" " alt="" coords="178,261,149,303,145,300,173,258"/>
+<area shape="rect" title=" " alt="" coords="184,315,242,341"/>
+<area shape="poly" title=" " alt="" coords="191,259,206,300,201,301,186,261"/>
+<area shape="rect" title=" " alt="" coords="5,315,77,341"/>
+<area shape="poly" title=" " alt="" coords="163,262,77,310,75,305,161,258"/>
+<area shape="rect" title=" " alt="" coords="266,315,331,341"/>
+<area shape="poly" title=" " alt="" coords="203,258,270,304,267,308,200,262"/>
+<area shape="rect" title=" " alt="" coords="458,315,512,341"/>
+<area shape="poly" title=" " alt="" coords="231,258,444,313,443,318,229,263"/>
+<area shape="poly" title=" " alt="" coords="501,181,413,228,410,224,499,176"/>
+<area shape="poly" title=" " alt="" coords="536,177,550,195,563,217,571,243,566,268,549,291,526,309,523,305,545,288,561,266,565,243,559,219,546,198,532,180"/>
+<area shape="rect" title=" " alt="" coords="627,234,668,260"/>
+<area shape="poly" title=" " alt="" coords="543,176,617,223,614,228,540,181"/>
+<area shape="rect" title=" " alt="" coords="693,234,739,260"/>
+<area shape="poly" title=" " alt="" coords="560,176,614,196,682,224,680,229,612,201,558,181"/>
+<area shape="rect" title=" " alt="" coords="763,226,895,267"/>
+<area shape="poly" title=" " alt="" coords="570,176,748,222,747,227,569,182"/>
+<area shape="rect" title=" " alt="" coords="440,234,551,260"/>
+<area shape="poly" title=" " alt="" coords="521,180,507,220,502,218,516,178"/>
+<area shape="poly" title=" " alt="" coords="354,178,369,218,364,220,349,180"/>
+<area shape="poly" title=" " alt="" coords="324,181,224,229,221,224,321,177"/>
+<area shape="poly" title=" " alt="" coords="345,180,326,227,307,300,301,299,321,226,340,178"/>
+<area shape="poly" title=" " alt="" coords="371,176,461,224,459,229,369,181"/>
+</map>
+</div>
+</div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Граф файлов, в которые включается этот файл:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="manager_8hpp__dep__incl.png" border="0" usemap="#ainclude_2manager_8hppdep" alt=""/></div>
+<map name="ainclude_2manager_8hppdep" id="ainclude_2manager_8hppdep">
+<area shape="rect" title="Содержит объявление класса Manager, который реализует интерфейс IManager." alt="" coords="366,5,506,31"/>
+<area shape="rect" href="builder_8hpp.html" title="Содержит объявление класса ManagerBuilder, частично реализующий паттерн Строитель." alt="" coords="225,79,353,105"/>
+<area shape="poly" title=" " alt="" coords="398,41,315,81,313,76,396,36"/>
+<area shape="rect" href="manager_8cpp.html" title="Содержит определение класса Manager, который реализует интерфейс IManager." alt="" coords="377,79,494,105"/>
+<area shape="poly" title=" " alt="" coords="438,46,438,79,433,79,433,46"/>
+<area shape="rect" href="managerTests_8cpp.html" title=" " alt="" coords="519,79,680,105"/>
+<area shape="poly" title=" " alt="" coords="479,35,573,76,571,81,477,40"/>
+<area shape="rect" href="httpServer_8hpp.html" title="Содержит объявление класса HttpServer." alt="" coords="62,153,212,178"/>
+<area shape="poly" title=" " alt="" coords="251,114,164,154,162,150,248,109"/>
+<area shape="rect" href="builder_8cpp.html" title=" " alt="" coords="236,153,342,178"/>
+<area shape="poly" title=" " alt="" coords="292,120,292,152,286,152,286,120"/>
+<area shape="rect" href="builderTests_8cpp.html" title=" " alt="" coords="366,153,516,178"/>
+<area shape="poly" title=" " alt="" coords="330,109,416,150,414,154,327,114"/>
+<area shape="rect" href="httpServer_8cpp.html" title="Содержит определение класса HttpServer." alt="" coords="5,226,133,252"/>
+<area shape="poly" title=" " alt="" coords="117,191,82,228,79,224,113,188"/>
+<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="157,226,253,252"/>
+<area shape="poly" title=" " alt="" coords="161,188,195,224,192,228,157,191"/>
+</map>
+</div>
+</div>
+<p><a href="manager_8hpp_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManager.html">Manager</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Класс управляющей тредпулом (центром обратки вызовов)  <a href="classManager.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Содержит объявление класса <a class="el" href="classManager.html" title="Класс управляющей тредпулом (центром обратки вызовов)">Manager</a>, который реализует интерфейс <a class="el" href="classIManager.html" title="Абстрактный интерфейс для управления задачами в тредпуле.">IManager</a>. </p>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

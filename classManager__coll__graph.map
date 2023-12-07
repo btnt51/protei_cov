@@ -1,0 +1,7 @@
+<map id="Manager" name="Manager">
+<area shape="rect" id="Node000001" title="Класс управляющей тредпулом (центром обратки вызовов)" alt="" coords="77,94,148,120"/>
+<area shape="rect" id="Node000002" href="$classIManager.html" title="Абстрактный интерфейс для управления задачами в тредпуле." alt="" coords="5,13,81,39"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="66,49,104,92,100,95,62,52"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="105,5,259,46"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="156,60,125,95,121,92,152,56"/>
+</map>

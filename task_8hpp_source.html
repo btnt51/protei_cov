@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Исходный файл include/task.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">task.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="task_8hpp.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PROTEI_COV_TASK_HPP</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PROTEI_COV_TASK_HPP</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="commonStructures_8hpp.html">commonStructures.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="interfaces_8hpp.html">interfaces.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceTP.html">TP</a> {</div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classTP_1_1Task.html">   17</a></span><span class="keyword">class </span><a class="code hl_class" href="classTP_1_1Task.html">Task</a>: <span class="keyword">public</span> <a class="code hl_class" href="classTP_1_1ITask.html">ITask</a> {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_class" href="classTP_1_1Task.html">Task</a>(<span class="keywordtype">int</span> RMin,</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>         <span class="keywordtype">int</span> RMax,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>         std::string_view number,</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>         <span class="keyword">const</span> std::chrono::system_clock::time_point&amp; startTime,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>         std::shared_ptr&lt;spdlog::logger&gt; logger);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_struct" href="structResult.html">Result</a> <a class="code hl_function" href="classTP_1_1Task.html#a8336cb3e51ae9a3de3a2dcf93d8e1012">doTask</a>();</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1Task.html#aed9f0bdbe0a4a517f872faa3a84bf4ed">setCallID</a>(<a class="code hl_typedef" href="namespaceTP.html#a34116505f865df276a6696f975e74036">CallID</a>&amp; <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1Task.html#abd7e60e849fb9403a1b7c0e3076ec74f">setThreadID</a>(std::size_t&amp; <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1Task.html#a0d746fc9ff5ac85ea006cc0c1799eb5d">addPromise</a>(std::shared_ptr&lt;std::promise&lt;Result&gt;&gt; promise);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    std::string_view <a class="code hl_function" href="classTP_1_1Task.html#a2eb39a15683e46e6ff154ff9aca6388d">getNumber</a>();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <a class="code hl_typedef" href="namespaceTP.html#a34116505f865df276a6696f975e74036">CallID</a> taskId_{};</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">int</span> RMin_;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">int</span> RMax_;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    std::string_view number_;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    std::shared_ptr&lt;spdlog::logger&gt; logger_;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    [[nodiscard]] <a class="code hl_typedef" href="namespaceTP.html#a34116505f865df276a6696f975e74036">CallID</a> getCallID() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    std::chrono::seconds getDuration();</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">void</span> setCdrValues(<span class="keyword">const</span> std::chrono::seconds&amp; timeDiff);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">void</span> logCallDetails();</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <a class="code hl_struct" href="structResult.html">Result</a> createResultObject() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>};</div>
+</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>}</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#endif </span><span class="comment">// PROTEI_COV_TASK_HPP</span></div>
+<div class="ttc" id="aclassTP_1_1ITask_html"><div class="ttname"><a href="classTP_1_1ITask.html">TP::ITask</a></div><div class="ttdef"><b>Definition</b> interfaces.hpp:119</div></div>
+<div class="ttc" id="aclassTP_1_1Task_html"><div class="ttname"><a href="classTP_1_1Task.html">TP::Task</a></div><div class="ttdoc">Класс задачи – вызова, который обрабаытывает поток (оператор)</div><div class="ttdef"><b>Definition</b> task.hpp:17</div></div>
+<div class="ttc" id="aclassTP_1_1Task_html_a0d746fc9ff5ac85ea006cc0c1799eb5d"><div class="ttname"><a href="classTP_1_1Task.html#a0d746fc9ff5ac85ea006cc0c1799eb5d">TP::Task::addPromise</a></div><div class="ttdeci">void addPromise(std::shared_ptr&lt; std::promise&lt; Result &gt; &gt; promise)</div><div class="ttdoc">Функция добавления promise в задачу</div><div class="ttdef"><b>Definition</b> task.cpp:36</div></div>
+<div class="ttc" id="aclassTP_1_1Task_html_a2eb39a15683e46e6ff154ff9aca6388d"><div class="ttname"><a href="classTP_1_1Task.html#a2eb39a15683e46e6ff154ff9aca6388d">TP::Task::getNumber</a></div><div class="ttdeci">std::string_view getNumber()</div><div class="ttdoc">Функция получения номер звонящего</div><div class="ttdef"><b>Definition</b> task.cpp:46</div></div>
+<div class="ttc" id="aclassTP_1_1Task_html_a8336cb3e51ae9a3de3a2dcf93d8e1012"><div class="ttname"><a href="classTP_1_1Task.html#a8336cb3e51ae9a3de3a2dcf93d8e1012">TP::Task::doTask</a></div><div class="ttdeci">Result doTask()</div><div class="ttdoc">Обработка вызова.</div><div class="ttdef"><b>Definition</b> task.cpp:97</div></div>
+<div class="ttc" id="aclassTP_1_1Task_html_abd7e60e849fb9403a1b7c0e3076ec74f"><div class="ttname"><a href="classTP_1_1Task.html#abd7e60e849fb9403a1b7c0e3076ec74f">TP::Task::setThreadID</a></div><div class="ttdeci">void setThreadID(std::size_t &amp;id)</div><div class="ttdoc">Установка ID потока.</div><div class="ttdef"><b>Definition</b> task.cpp:31</div></div>
+<div class="ttc" id="aclassTP_1_1Task_html_aed9f0bdbe0a4a517f872faa3a84bf4ed"><div class="ttname"><a href="classTP_1_1Task.html#aed9f0bdbe0a4a517f872faa3a84bf4ed">TP::Task::setCallID</a></div><div class="ttdeci">void setCallID(CallID &amp;id)</div><div class="ttdoc">Установка ID вызова.</div><div class="ttdef"><b>Definition</b> task.cpp:24</div></div>
+<div class="ttc" id="acommonStructures_8hpp_html"><div class="ttname"><a href="commonStructures_8hpp.html">commonStructures.hpp</a></div><div class="ttdoc">Содержит общие структуры и типы данных, а также функции необходимые для работы с этими структурами и ...</div></div>
+<div class="ttc" id="ainterfaces_8hpp_html"><div class="ttname"><a href="interfaces_8hpp.html">interfaces.hpp</a></div><div class="ttdoc">Содержит интерфейсы IConfig, ITask, IQueue, IThreadPool, IManager.</div></div>
+<div class="ttc" id="anamespaceTP_html"><div class="ttname"><a href="namespaceTP.html">TP</a></div><div class="ttdoc">Пространство имен TP, содержащее объявление типа CallID, а также объявление и определение классов Tas...</div></div>
+<div class="ttc" id="anamespaceTP_html_a34116505f865df276a6696f975e74036"><div class="ttname"><a href="namespaceTP.html#a34116505f865df276a6696f975e74036">TP::CallID</a></div><div class="ttdeci">unsigned long long CallID</div><div class="ttdef"><b>Definition</b> commonStructures.hpp:20</div></div>
+<div class="ttc" id="astructResult_html"><div class="ttname"><a href="structResult.html">Result</a></div><div class="ttdoc">Структура Result представляет результат обработки вызова.</div><div class="ttdef"><b>Definition</b> commonStructures.hpp:75</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

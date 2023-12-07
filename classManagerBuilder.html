@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Класс ManagerBuilder</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="classManagerBuilder-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс ManagerBuilder</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="builder_8hpp_source.html">builder.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:aefe8131ff09dc9bb98eccf376f0007c3" id="r_aefe8131ff09dc9bb98eccf376f0007c3"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagerBuilder.html#aefe8131ff09dc9bb98eccf376f0007c3">BuildLogger</a> ()</td></tr>
+<tr class="memdesc:aefe8131ff09dc9bb98eccf376f0007c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод для создания и настройки асинхронного логгера, сохраняет логгер в локальную переменную.  <br /></td></tr>
+<tr class="separator:aefe8131ff09dc9bb98eccf376f0007c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e65db9ac6acecc0e562c87d2ad90d0f" id="r_a4e65db9ac6acecc0e562c87d2ad90d0f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classutility_1_1ThreadSafeConfig.html">utility::ThreadSafeConfig</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagerBuilder.html#a4e65db9ac6acecc0e562c87d2ad90d0f">BuildConfig</a> (const std::filesystem::path &amp;pathToConfig)</td></tr>
+<tr class="memdesc:a4e65db9ac6acecc0e562c87d2ad90d0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод для создания и настройки объекта конфигурации, сохраняет объект конфигурации в переменную класса, устанавливает логгер конфигу.  <br /></td></tr>
+<tr class="separator:a4e65db9ac6acecc0e562c87d2ad90d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cbdef2ef6788f94deeb1e8d1c19bc75" id="r_a6cbdef2ef6788f94deeb1e8d1c19bc75"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="classIRecorder.html">IRecorder</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagerBuilder.html#a6cbdef2ef6788f94deeb1e8d1c19bc75">BuildRecorders</a> ()</td></tr>
+<tr class="memdesc:a6cbdef2ef6788f94deeb1e8d1c19bc75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод для создания и настройки объектов записи данных <a class="el" href="structCDR.html" title="Структура CDR (Call Detail Record), представляющая запись о вызове.">CDR</a>, сохраняет вектор писателей в переменную класса.  <br /></td></tr>
+<tr class="separator:a6cbdef2ef6788f94deeb1e8d1c19bc75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80bfc5bf753c17275a054afd01533555" id="r_a80bfc5bf753c17275a054afd01533555"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classTP_1_1ThreadPool.html">TP::ThreadPool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagerBuilder.html#a80bfc5bf753c17275a054afd01533555">BuildThreadPool</a> ()</td></tr>
+<tr class="memdesc:a80bfc5bf753c17275a054afd01533555"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод для создания и настройки объекта пула потоков, устанавливает логгер пулу объектов.  <br /></td></tr>
+<tr class="separator:a80bfc5bf753c17275a054afd01533555"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e3959ed594f9cc3f17e546befe97afb" id="r_a1e3959ed594f9cc3f17e546befe97afb"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classManager.html">Manager</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagerBuilder.html#a1e3959ed594f9cc3f17e546befe97afb">Construct</a> (const std::filesystem::path &amp;pathToConfig)</td></tr>
+<tr class="memdesc:a1e3959ed594f9cc3f17e546befe97afb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод для конструирования объекта <a class="el" href="classManager.html" title="Класс управляющей тредпулом (центром обратки вызовов)">Manager</a> с использованием созданных ранее компонентов, подписывает менеджера на обновление конфигурации, устанавливает логгер менджеру.  <br /></td></tr>
+<tr class="separator:a1e3959ed594f9cc3f17e546befe97afb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Методы</h2>
+<a id="a4e65db9ac6acecc0e562c87d2ad90d0f" name="a4e65db9ac6acecc0e562c87d2ad90d0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e65db9ac6acecc0e562c87d2ad90d0f">&#9670;&#160;</a></span>BuildConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classutility_1_1ThreadSafeConfig.html">utility::ThreadSafeConfig</a> &gt; ManagerBuilder::BuildConfig </td>
+          <td>(</td>
+          <td class="paramtype">const std::filesystem::path &amp;&#160;</td>
+          <td class="paramname"><em>pathToConfig</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Метод для создания и настройки объекта конфигурации, сохраняет объект конфигурации в переменную класса, устанавливает логгер конфигу. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pathToConfig</td><td>Путь к файлу конфигурации. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Указатель на объект конфигурации. </dd></dl>
+
+</div>
+</div>
+<a id="aefe8131ff09dc9bb98eccf376f0007c3" name="aefe8131ff09dc9bb98eccf376f0007c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefe8131ff09dc9bb98eccf376f0007c3">&#9670;&#160;</a></span>BuildLogger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; spdlog::logger &gt; ManagerBuilder::BuildLogger </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Метод для создания и настройки асинхронного логгера, сохраняет логгер в локальную переменную. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Указатель на асинхронный логгер. </dd></dl>
+
+</div>
+</div>
+<a id="a6cbdef2ef6788f94deeb1e8d1c19bc75" name="a6cbdef2ef6788f94deeb1e8d1c19bc75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cbdef2ef6788f94deeb1e8d1c19bc75">&#9670;&#160;</a></span>BuildRecorders()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::shared_ptr&lt; <a class="el" href="classIRecorder.html">IRecorder</a> &gt; &gt; ManagerBuilder::BuildRecorders </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Метод для создания и настройки объектов записи данных <a class="el" href="structCDR.html" title="Структура CDR (Call Detail Record), представляющая запись о вызове.">CDR</a>, сохраняет вектор писателей в переменную класса. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>возвращает массив указателей на объекты писателей </dd></dl>
+
+</div>
+</div>
+<a id="a80bfc5bf753c17275a054afd01533555" name="a80bfc5bf753c17275a054afd01533555"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80bfc5bf753c17275a054afd01533555">&#9670;&#160;</a></span>BuildThreadPool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classTP_1_1ThreadPool.html">TP::ThreadPool</a> &gt; ManagerBuilder::BuildThreadPool </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Метод для создания и настройки объекта пула потоков, устанавливает логгер пулу объектов. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Указатель на объект пула потоков. </dd></dl>
+
+</div>
+</div>
+<a id="a1e3959ed594f9cc3f17e546befe97afb" name="a1e3959ed594f9cc3f17e546befe97afb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e3959ed594f9cc3f17e546befe97afb">&#9670;&#160;</a></span>Construct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classManager.html">Manager</a> &gt; ManagerBuilder::Construct </td>
+          <td>(</td>
+          <td class="paramtype">const std::filesystem::path &amp;&#160;</td>
+          <td class="paramname"><em>pathToConfig</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Метод для конструирования объекта <a class="el" href="classManager.html" title="Класс управляющей тредпулом (центром обратки вызовов)">Manager</a> с использованием созданных ранее компонентов, подписывает менеджера на обновление конфигурации, устанавливает логгер менджеру. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pathToConfig</td><td>Путь к файлу конфигурации. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Указатель на объект <a class="el" href="classManager.html" title="Класс управляющей тредпулом (центром обратки вызовов)">Manager</a>. </dd></dl>
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Граф вызовов:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classManagerBuilder_a1e3959ed594f9cc3f17e546befe97afb_cgraph.png" border="0" usemap="#aclassManagerBuilder_a1e3959ed594f9cc3f17e546befe97afb_cgraph" alt=""/></div>
+<map name="aclassManagerBuilder_a1e3959ed594f9cc3f17e546befe97afb_cgraph" id="aclassManagerBuilder_a1e3959ed594f9cc3f17e546befe97afb_cgraph">
+<area shape="rect" title="Метод для конструирования объекта Manager с использованием созданных ранее компонентов,..." alt="" coords="5,80,179,106"/>
+<area shape="rect" href="classManagerBuilder.html#a4e65db9ac6acecc0e562c87d2ad90d0f" title="Метод для создания и настройки объекта конфигурации, сохраняет объект конфигурации в переменную класс..." alt="" coords="242,5,424,31"/>
+<area shape="poly" title=" " alt="" coords="124,77,226,40,251,33,253,38,227,45,126,82"/>
+<area shape="rect" href="classManagerBuilder.html#aefe8131ff09dc9bb98eccf376f0007c3" title="Метод для создания и настройки асинхронного логгера, сохраняет логгер в локальную переменную." alt="" coords="240,55,426,80"/>
+<area shape="poly" title=" " alt="" coords="179,81,224,76,225,82,180,86"/>
+<area shape="rect" href="classManagerBuilder.html#a6cbdef2ef6788f94deeb1e8d1c19bc75" title="Метод для создания и настройки объектов записи данных CDR, сохраняет вектор писателей в переменную кл..." alt="" coords="230,104,436,130"/>
+<area shape="poly" title=" " alt="" coords="180,99,215,102,214,108,179,104"/>
+<area shape="rect" href="classManagerBuilder.html#a80bfc5bf753c17275a054afd01533555" title="Метод для создания и настройки объекта пула потоков, устанавливает логгер пулу объектов." alt="" coords="227,153,439,179"/>
+<area shape="poly" title=" " alt="" coords="127,104,227,140,253,147,252,152,226,145,125,109"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>include/<a class="el" href="builder_8hpp_source.html">builder.hpp</a></li>
+<li>src/<a class="el" href="builder_8cpp.html">builder.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

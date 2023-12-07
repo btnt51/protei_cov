@@ -1,0 +1,847 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Класс utility::ThreadSafeConfig</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespaceutility.html">utility</a></li><li class="navelem"><a class="el" href="classutility_1_1ThreadSafeConfig.html">ThreadSafeConfig</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="classutility_1_1ThreadSafeConfig-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс utility::ThreadSafeConfig</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс <a class="el" href="classutility_1_1ThreadSafeConfig.html" title="Класс ThreadSafeConfig представляет собой потокобезопасную реализацию интерфейса IConfig.">ThreadSafeConfig</a> представляет собой потокобезопасную реализацию интерфейса <a class="el" href="classutility_1_1IConfig.html" title="Абстрактный интерфейс для работы с конфигурацией.">IConfig</a>.  
+ <a href="classutility_1_1ThreadSafeConfig.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="config_8hpp_source.html">config.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Граф наследования:utility::ThreadSafeConfig:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classutility_1_1ThreadSafeConfig__inherit__graph.png" border="0" usemap="#autility_1_1ThreadSafeConfig_inherit__map" alt="Inheritance graph"/></div>
+<map name="autility_1_1ThreadSafeConfig_inherit__map" id="autility_1_1ThreadSafeConfig_inherit__map">
+<area shape="rect" title="Класс ThreadSafeConfig представляет собой потокобезопасную реализацию интерфейса IConfig." alt="" coords="5,79,166,105"/>
+<area shape="rect" href="classMockThreadSafeConfig.html" title=" " alt="" coords="7,153,164,178"/>
+<area shape="poly" title=" " alt="" coords="88,120,88,152,83,152,83,120"/>
+<area shape="rect" href="classutility_1_1IConfig.html" title="Абстрактный интерфейс для работы с конфигурацией." alt="" coords="37,5,134,31"/>
+<area shape="poly" title=" " alt="" coords="88,46,88,79,83,79,83,46"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">см. легенду</a>]</span></center></div>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Граф связей класса utility::ThreadSafeConfig:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classutility_1_1ThreadSafeConfig__coll__graph.png" border="0" usemap="#autility_1_1ThreadSafeConfig_coll__map" alt="Collaboration graph"/></div>
+<map name="autility_1_1ThreadSafeConfig_coll__map" id="autility_1_1ThreadSafeConfig_coll__map">
+<area shape="rect" title="Класс ThreadSafeConfig представляет собой потокобезопасную реализацию интерфейса IConfig." alt="" coords="5,79,166,105"/>
+<area shape="rect" href="classutility_1_1IConfig.html" title="Абстрактный интерфейс для работы с конфигурацией." alt="" coords="37,5,134,31"/>
+<area shape="poly" title=" " alt="" coords="88,46,88,79,83,79,83,46"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a43f292f9fa7121167f45518385eb20a0" id="r_a43f292f9fa7121167f45518385eb20a0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1ThreadSafeConfig.html#a43f292f9fa7121167f45518385eb20a0">ThreadSafeConfig</a> (const std::filesystem::path &amp;path, std::shared_ptr&lt; spdlog::logger &gt; logger)</td></tr>
+<tr class="memdesc:a43f292f9fa7121167f45518385eb20a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор класса <a class="el" href="classutility_1_1IConfig.html" title="Абстрактный интерфейс для работы с конфигурацией.">IConfig</a>.    <br /></td></tr>
+<tr class="separator:a43f292f9fa7121167f45518385eb20a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2e165e995d7856c3688dff89d6774a6" id="r_af2e165e995d7856c3688dff89d6774a6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1ThreadSafeConfig.html#af2e165e995d7856c3688dff89d6774a6">~ThreadSafeConfig</a> ()</td></tr>
+<tr class="memdesc:af2e165e995d7856c3688dff89d6774a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Виртуальный деструктор класса <a class="el" href="classutility_1_1IConfig.html" title="Абстрактный интерфейс для работы с конфигурацией.">IConfig</a>.    <br /></td></tr>
+<tr class="separator:af2e165e995d7856c3688dff89d6774a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92e7851bcdd03dd9c7ff79ec066ff060" id="r_a92e7851bcdd03dd9c7ff79ec066ff060"><td class="memItemLeft" align="right" valign="top">std::pair&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1ThreadSafeConfig.html#a92e7851bcdd03dd9c7ff79ec066ff060">getMinMax</a> () override</td></tr>
+<tr class="memdesc:a92e7851bcdd03dd9c7ff79ec066ff060"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает пару значений - минимальное и максимальное количество операторов.    <br /></td></tr>
+<tr class="separator:a92e7851bcdd03dd9c7ff79ec066ff060"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4533a82dc9b2dc316a2fd7b0b19392de" id="r_a4533a82dc9b2dc316a2fd7b0b19392de"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1ThreadSafeConfig.html#a4533a82dc9b2dc316a2fd7b0b19392de">getAmountOfOperators</a> () override</td></tr>
+<tr class="memdesc:a4533a82dc9b2dc316a2fd7b0b19392de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает количество операторов из конфигурации.    <br /></td></tr>
+<tr class="separator:a4533a82dc9b2dc316a2fd7b0b19392de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeebb21120e22df182758c231b4edd8d6" id="r_aeebb21120e22df182758c231b4edd8d6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1ThreadSafeConfig.html#aeebb21120e22df182758c231b4edd8d6">getSizeOfQueue</a> () override</td></tr>
+<tr class="memdesc:aeebb21120e22df182758c231b4edd8d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает размер очереди из конфигурации.    <br /></td></tr>
+<tr class="separator:aeebb21120e22df182758c231b4edd8d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e96bf9ce6707942789f6a7ee2c6acfe" id="r_a5e96bf9ce6707942789f6a7ee2c6acfe"><td class="memItemLeft" align="right" valign="top">std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1ThreadSafeConfig.html#a5e96bf9ce6707942789f6a7ee2c6acfe">getPath</a> () override</td></tr>
+<tr class="memdesc:a5e96bf9ce6707942789f6a7ee2c6acfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает путь к файлу конфигурации.    <br /></td></tr>
+<tr class="separator:a5e96bf9ce6707942789f6a7ee2c6acfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adecfe991e19064ad2a0ed48bf2962c90" id="r_adecfe991e19064ad2a0ed48bf2962c90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1ThreadSafeConfig.html#adecfe991e19064ad2a0ed48bf2962c90">updateConfig</a> () override</td></tr>
+<tr class="memdesc:adecfe991e19064ad2a0ed48bf2962c90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обновляет данные конфигурации.    <br /></td></tr>
+<tr class="separator:adecfe991e19064ad2a0ed48bf2962c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3f2c095bbfe19a624be2470050e8c26" id="r_aa3f2c095bbfe19a624be2470050e8c26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1ThreadSafeConfig.html#aa3f2c095bbfe19a624be2470050e8c26">updateWithRequest</a> () override</td></tr>
+<tr class="separator:aa3f2c095bbfe19a624be2470050e8c26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af33919fedd8d5978804b90a2cca3c994" id="r_af33919fedd8d5978804b90a2cca3c994"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1ThreadSafeConfig.html#af33919fedd8d5978804b90a2cca3c994">isUpdated</a> () override</td></tr>
+<tr class="memdesc:af33919fedd8d5978804b90a2cca3c994"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет, была ли конфигурация обновлена.    <br /></td></tr>
+<tr class="separator:af33919fedd8d5978804b90a2cca3c994"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5070a8a0860e1ffde18c830ebeebfffb" id="r_a5070a8a0860e1ffde18c830ebeebfffb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1ThreadSafeConfig.html#a5070a8a0860e1ffde18c830ebeebfffb">updateConfigThread</a> ()</td></tr>
+<tr class="separator:a5070a8a0860e1ffde18c830ebeebfffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50283a3faf9e924ff79b94eb50a75702" id="r_a50283a3faf9e924ff79b94eb50a75702"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1ThreadSafeConfig.html#a50283a3faf9e924ff79b94eb50a75702">notify</a> () override</td></tr>
+<tr class="memdesc:a50283a3faf9e924ff79b94eb50a75702"><td class="mdescLeft">&#160;</td><td class="mdescRight">Уведомляет менеджера о необходимости обновления конфигурации.    <br /></td></tr>
+<tr class="separator:a50283a3faf9e924ff79b94eb50a75702"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c4f5864d267490a44db183bb9a166bf" id="r_a3c4f5864d267490a44db183bb9a166bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1ThreadSafeConfig.html#a3c4f5864d267490a44db183bb9a166bf">setManager</a> (std::shared_ptr&lt; <a class="el" href="classIManager.html">IManager</a> &gt; manager) override</td></tr>
+<tr class="memdesc:a3c4f5864d267490a44db183bb9a166bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает менеджера для обработки конфигурационных изменений.    <br /></td></tr>
+<tr class="separator:a3c4f5864d267490a44db183bb9a166bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fe56422ff5530ad66876a50f5f5ff2e" id="r_a9fe56422ff5530ad66876a50f5f5ff2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1ThreadSafeConfig.html#a9fe56422ff5530ad66876a50f5f5ff2e">setLogger</a> (std::shared_ptr&lt; spdlog::logger &gt; logger) override</td></tr>
+<tr class="memdesc:a9fe56422ff5530ad66876a50f5f5ff2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает асинхронный логгер.    <br /></td></tr>
+<tr class="separator:a9fe56422ff5530ad66876a50f5f5ff2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a668813ca37fadd1d1906c3eb56308cf4" id="r_a668813ca37fadd1d1906c3eb56308cf4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1ThreadSafeConfig.html#a668813ca37fadd1d1906c3eb56308cf4">RunMonitoring</a> ()</td></tr>
+<tr class="memdesc:a668813ca37fadd1d1906c3eb56308cf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запускает мониторинг конфигурации в отдельном потоке.  <br /></td></tr>
+<tr class="separator:a668813ca37fadd1d1906c3eb56308cf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9d67c39cd00c848fd8e9c48698cc39f" id="r_ac9d67c39cd00c848fd8e9c48698cc39f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1ThreadSafeConfig.html#ac9d67c39cd00c848fd8e9c48698cc39f">isMonitoring</a> () const</td></tr>
+<tr class="memdesc:ac9d67c39cd00c848fd8e9c48698cc39f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет, выполняется ли мониторинг конфигурации.  <br /></td></tr>
+<tr class="separator:ac9d67c39cd00c848fd8e9c48698cc39f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa64fdedf90eba0c7394b8443854cd024" id="r_aa64fdedf90eba0c7394b8443854cd024"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1ThreadSafeConfig.html#aa64fdedf90eba0c7394b8443854cd024">normalizeData</a> () override</td></tr>
+<tr class="memdesc:aa64fdedf90eba0c7394b8443854cd024"><td class="mdescLeft">&#160;</td><td class="mdescRight">Нормализует данные  <br /></td></tr>
+<tr class="separator:aa64fdedf90eba0c7394b8443854cd024"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea8423dbf3174bb136874b7ad1a9b9c0" id="r_aea8423dbf3174bb136874b7ad1a9b9c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1ThreadSafeConfig.html#aea8423dbf3174bb136874b7ad1a9b9c0">normalizeRMinRMax</a> () override</td></tr>
+<tr class="memdesc:aea8423dbf3174bb136874b7ad1a9b9c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Нормализует RMin и RMax.  <br /></td></tr>
+<tr class="separator:aea8423dbf3174bb136874b7ad1a9b9c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02a0d9852d2b8a28cafa274faac322a3" id="r_a02a0d9852d2b8a28cafa274faac322a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1ThreadSafeConfig.html#a02a0d9852d2b8a28cafa274faac322a3">normalizeAmountOfOperators</a> () override</td></tr>
+<tr class="memdesc:a02a0d9852d2b8a28cafa274faac322a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Нормализует AmountOfOperators.  <br /></td></tr>
+<tr class="separator:a02a0d9852d2b8a28cafa274faac322a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ef29031cf05705c75227ef6df340bf1" id="r_a1ef29031cf05705c75227ef6df340bf1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1ThreadSafeConfig.html#a1ef29031cf05705c75227ef6df340bf1">normalizeSizeOfQueue</a> () override</td></tr>
+<tr class="memdesc:a1ef29031cf05705c75227ef6df340bf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Нормализует SizeOfQueue.  <br /></td></tr>
+<tr class="separator:a1ef29031cf05705c75227ef6df340bf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classutility_1_1IConfig"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classutility_1_1IConfig')"><img src="closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="classutility_1_1IConfig.html">utility::IConfig</a></td></tr>
+<tr class="memitem:aea75170ec34e65e31218404e0467bec5 inherit pub_methods_classutility_1_1IConfig" id="r_aea75170ec34e65e31218404e0467bec5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#aea75170ec34e65e31218404e0467bec5">IConfig</a> (const std::filesystem::path &amp;path, std::shared_ptr&lt; spdlog::logger &gt;)</td></tr>
+<tr class="memdesc:aea75170ec34e65e31218404e0467bec5 inherit pub_methods_classutility_1_1IConfig"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор класса <a class="el" href="classutility_1_1IConfig.html" title="Абстрактный интерфейс для работы с конфигурацией.">IConfig</a>.  <br /></td></tr>
+<tr class="separator:aea75170ec34e65e31218404e0467bec5 inherit pub_methods_classutility_1_1IConfig"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40311b4abe6049551aab393c3a18fe36 inherit pub_methods_classutility_1_1IConfig" id="r_a40311b4abe6049551aab393c3a18fe36"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#a40311b4abe6049551aab393c3a18fe36">~IConfig</a> ()</td></tr>
+<tr class="memdesc:a40311b4abe6049551aab393c3a18fe36 inherit pub_methods_classutility_1_1IConfig"><td class="mdescLeft">&#160;</td><td class="mdescRight">Виртуальный деструктор класса <a class="el" href="classutility_1_1IConfig.html" title="Абстрактный интерфейс для работы с конфигурацией.">IConfig</a>.  <br /></td></tr>
+<tr class="separator:a40311b4abe6049551aab393c3a18fe36 inherit pub_methods_classutility_1_1IConfig"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс <a class="el" href="classutility_1_1ThreadSafeConfig.html" title="Класс ThreadSafeConfig представляет собой потокобезопасную реализацию интерфейса IConfig.">ThreadSafeConfig</a> представляет собой потокобезопасную реализацию интерфейса <a class="el" href="classutility_1_1IConfig.html" title="Абстрактный интерфейс для работы с конфигурацией.">IConfig</a>. </p>
+<p>Абстрактный интерфейс для работы с конфигурацией.  </p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a43f292f9fa7121167f45518385eb20a0" name="a43f292f9fa7121167f45518385eb20a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43f292f9fa7121167f45518385eb20a0">&#9670;&#160;</a></span>ThreadSafeConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ThreadSafeConfig::ThreadSafeConfig </td>
+          <td>(</td>
+          <td class="paramtype">const std::filesystem::path &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
+          <td class="paramname"><em>logger</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Конструктор класса <a class="el" href="classutility_1_1IConfig.html" title="Абстрактный интерфейс для работы с конфигурацией.">IConfig</a>.   </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>Путь к файлу конфигурации.   </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af2e165e995d7856c3688dff89d6774a6" name="af2e165e995d7856c3688dff89d6774a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2e165e995d7856c3688dff89d6774a6">&#9670;&#160;</a></span>~ThreadSafeConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ThreadSafeConfig::~ThreadSafeConfig </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Виртуальный деструктор класса <a class="el" href="classutility_1_1IConfig.html" title="Абстрактный интерфейс для работы с конфигурацией.">IConfig</a>.   </p>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a4533a82dc9b2dc316a2fd7b0b19392de" name="a4533a82dc9b2dc316a2fd7b0b19392de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4533a82dc9b2dc316a2fd7b0b19392de">&#9670;&#160;</a></span>getAmountOfOperators()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ThreadSafeConfig::getAmountOfOperators </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает количество операторов из конфигурации.   </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Количество операторов.   </dd></dl>
+
+<p>Замещает <a class="el" href="classutility_1_1IConfig.html#a621fd9e0531a4b9c2c7eae58f2100fa5">utility::IConfig</a>.</p>
+
+</div>
+</div>
+<a id="a92e7851bcdd03dd9c7ff79ec066ff060" name="a92e7851bcdd03dd9c7ff79ec066ff060"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92e7851bcdd03dd9c7ff79ec066ff060">&#9670;&#160;</a></span>getMinMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt; int, int &gt; ThreadSafeConfig::getMinMax </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает пару значений - минимальное и максимальное количество операторов.   </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Пара значений: (минимум, максимум).   </dd></dl>
+
+<p>Замещает <a class="el" href="classutility_1_1IConfig.html#a0e15dead40cd577ef103a21037ca6339">utility::IConfig</a>.</p>
+
+</div>
+</div>
+<a id="a5e96bf9ce6707942789f6a7ee2c6acfe" name="a5e96bf9ce6707942789f6a7ee2c6acfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e96bf9ce6707942789f6a7ee2c6acfe">&#9670;&#160;</a></span>getPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::filesystem::path ThreadSafeConfig::getPath </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает путь к файлу конфигурации.   </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Путь к файлу конфигурации.   </dd></dl>
+
+<p>Замещает <a class="el" href="classutility_1_1IConfig.html#a467af645859c3f09c4d26b8aa51819d3">utility::IConfig</a>.</p>
+
+</div>
+</div>
+<a id="aeebb21120e22df182758c231b4edd8d6" name="aeebb21120e22df182758c231b4edd8d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeebb21120e22df182758c231b4edd8d6">&#9670;&#160;</a></span>getSizeOfQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ThreadSafeConfig::getSizeOfQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает размер очереди из конфигурации.   </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Размер очереди.   </dd></dl>
+
+<p>Замещает <a class="el" href="classutility_1_1IConfig.html#af7544df7029afabbbab63124a9e48f57">utility::IConfig</a>.</p>
+
+</div>
+</div>
+<a id="ac9d67c39cd00c848fd8e9c48698cc39f" name="ac9d67c39cd00c848fd8e9c48698cc39f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9d67c39cd00c848fd8e9c48698cc39f">&#9670;&#160;</a></span>isMonitoring()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ThreadSafeConfig::isMonitoring </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Проверяет, выполняется ли мониторинг конфигурации. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>true, если мониторинг выполняется, в противном случае - false. </dd></dl>
+
+</div>
+</div>
+<a id="af33919fedd8d5978804b90a2cca3c994" name="af33919fedd8d5978804b90a2cca3c994"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af33919fedd8d5978804b90a2cca3c994">&#9670;&#160;</a></span>isUpdated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ThreadSafeConfig::isUpdated </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проверяет, была ли конфигурация обновлена.   </p>
+<dl class="section return"><dt>Возвращает</dt><dd>true, если конфигурация была обновлена, в противном случае - false.   </dd></dl>
+
+<p>Замещает <a class="el" href="classutility_1_1IConfig.html#a5d2703c7fb18af84d178800896f76249">utility::IConfig</a>.</p>
+
+</div>
+</div>
+<a id="a02a0d9852d2b8a28cafa274faac322a3" name="a02a0d9852d2b8a28cafa274faac322a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02a0d9852d2b8a28cafa274faac322a3">&#9670;&#160;</a></span>normalizeAmountOfOperators()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ThreadSafeConfig::normalizeAmountOfOperators </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Нормализует AmountOfOperators. </p>
+
+<p>Замещает <a class="el" href="classutility_1_1IConfig.html#ad3a281237bb48f66c7043b20c9ee44e7">utility::IConfig</a>.</p>
+
+</div>
+</div>
+<a id="aa64fdedf90eba0c7394b8443854cd024" name="aa64fdedf90eba0c7394b8443854cd024"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa64fdedf90eba0c7394b8443854cd024">&#9670;&#160;</a></span>normalizeData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ThreadSafeConfig::normalizeData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Нормализует данные </p>
+
+<p>Замещает <a class="el" href="classutility_1_1IConfig.html#ac4daacb8dcd69c89cc58fa4c923ef3c1">utility::IConfig</a>.</p>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Граф вызовов:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classutility_1_1ThreadSafeConfig_aa64fdedf90eba0c7394b8443854cd024_cgraph.png" border="0" usemap="#aclassutility_1_1ThreadSafeConfig_aa64fdedf90eba0c7394b8443854cd024_cgraph" alt=""/></div>
+<map name="aclassutility_1_1ThreadSafeConfig_aa64fdedf90eba0c7394b8443854cd024_cgraph" id="aclassutility_1_1ThreadSafeConfig_aa64fdedf90eba0c7394b8443854cd024_cgraph">
+<area shape="rect" title="Нормализует данные" alt="" coords="5,71,166,111"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#a02a0d9852d2b8a28cafa274faac322a3" title="Нормализует AmountOfOperators." alt="" coords="214,5,412,46"/>
+<area shape="poly" title=" " alt="" coords="158,68,224,48,226,53,159,73"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#aea8423dbf3174bb136874b7ad1a9b9c0" title="Нормализует RMin и RMax." alt="" coords="233,71,393,111"/>
+<area shape="poly" title=" " alt="" coords="166,88,217,88,217,94,166,94"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#a1ef29031cf05705c75227ef6df340bf1" title="Нормализует SizeOfQueue." alt="" coords="233,136,393,177"/>
+<area shape="poly" title=" " alt="" coords="159,109,226,129,224,134,158,114"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aea8423dbf3174bb136874b7ad1a9b9c0" name="aea8423dbf3174bb136874b7ad1a9b9c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea8423dbf3174bb136874b7ad1a9b9c0">&#9670;&#160;</a></span>normalizeRMinRMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ThreadSafeConfig::normalizeRMinRMax </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Нормализует RMin и RMax. </p>
+
+<p>Замещает <a class="el" href="classutility_1_1IConfig.html#aa9098951ac6bbb8943cc3f0c8d9091e6">utility::IConfig</a>.</p>
+
+</div>
+</div>
+<a id="a1ef29031cf05705c75227ef6df340bf1" name="a1ef29031cf05705c75227ef6df340bf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ef29031cf05705c75227ef6df340bf1">&#9670;&#160;</a></span>normalizeSizeOfQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ThreadSafeConfig::normalizeSizeOfQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Нормализует SizeOfQueue. </p>
+
+<p>Замещает <a class="el" href="classutility_1_1IConfig.html#ab1880e1c349ac8d5335df0960c35046e">utility::IConfig</a>.</p>
+
+</div>
+</div>
+<a id="a50283a3faf9e924ff79b94eb50a75702" name="a50283a3faf9e924ff79b94eb50a75702"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50283a3faf9e924ff79b94eb50a75702">&#9670;&#160;</a></span>notify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ThreadSafeConfig::notify </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Уведомляет менеджера о необходимости обновления конфигурации.   </p>
+
+<p>Замещает <a class="el" href="classutility_1_1IConfig.html#a7a879701159649c2f0312da3f9441a1e">utility::IConfig</a>.</p>
+
+</div>
+</div>
+<a id="a668813ca37fadd1d1906c3eb56308cf4" name="a668813ca37fadd1d1906c3eb56308cf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a668813ca37fadd1d1906c3eb56308cf4">&#9670;&#160;</a></span>RunMonitoring()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ThreadSafeConfig::RunMonitoring </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Запускает мониторинг конфигурации в отдельном потоке. </p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Граф вызовов:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classutility_1_1ThreadSafeConfig_a668813ca37fadd1d1906c3eb56308cf4_cgraph.png" border="0" usemap="#aclassutility_1_1ThreadSafeConfig_a668813ca37fadd1d1906c3eb56308cf4_cgraph" alt=""/></div>
+<map name="aclassutility_1_1ThreadSafeConfig_a668813ca37fadd1d1906c3eb56308cf4_cgraph" id="aclassutility_1_1ThreadSafeConfig_a668813ca37fadd1d1906c3eb56308cf4_cgraph">
+<area shape="rect" title="Запускает мониторинг конфигурации в отдельном потоке." alt="" coords="5,55,166,96"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#a5070a8a0860e1ffde18c830ebeebfffb" title=" " alt="" coords="214,55,374,96"/>
+<area shape="poly" title=" " alt="" coords="166,73,198,73,198,78,166,78"/>
+<area shape="rect" href="config_8cpp.html#ace5e75d45596d486b53a42a2060f55bd" title=" " alt="" coords="467,5,538,31"/>
+<area shape="poly" title=" " alt="" coords="369,52,451,29,452,35,371,57"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#a50283a3faf9e924ff79b94eb50a75702" title="Уведомляет менеджера о необходимости обновления конфигурации." alt="" coords="422,55,582,96"/>
+<area shape="poly" title=" " alt="" coords="374,73,406,73,406,78,374,78"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#adecfe991e19064ad2a0ed48bf2962c90" title="Обновляет данные конфигурации." alt="" coords="422,121,582,161"/>
+<area shape="poly" title=" " alt="" coords="362,94,421,113,420,118,360,99"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#aa64fdedf90eba0c7394b8443854cd024" title="Нормализует данные" alt="" coords="630,121,791,161"/>
+<area shape="poly" title=" " alt="" coords="582,138,615,138,615,144,582,144"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#a02a0d9852d2b8a28cafa274faac322a3" title="Нормализует AmountOfOperators." alt="" coords="839,55,1037,96"/>
+<area shape="poly" title=" " alt="" coords="783,117,849,98,851,103,784,123"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#aea8423dbf3174bb136874b7ad1a9b9c0" title="Нормализует RMin и RMax." alt="" coords="858,121,1018,161"/>
+<area shape="poly" title=" " alt="" coords="791,138,842,138,842,144,791,144"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#a1ef29031cf05705c75227ef6df340bf1" title="Нормализует SizeOfQueue." alt="" coords="858,186,1018,227"/>
+<area shape="poly" title=" " alt="" coords="784,159,851,178,849,184,783,164"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a9fe56422ff5530ad66876a50f5f5ff2e" name="a9fe56422ff5530ad66876a50f5f5ff2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fe56422ff5530ad66876a50f5f5ff2e">&#9670;&#160;</a></span>setLogger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ThreadSafeConfig::setLogger </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
+          <td class="paramname"><em>logger</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Устанавливает асинхронный логгер.   </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>Указатель на объект логгера.   </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classutility_1_1IConfig.html#afc8b85185ab384624e63dcb6c124cfbf">utility::IConfig</a>.</p>
+
+</div>
+</div>
+<a id="a3c4f5864d267490a44db183bb9a166bf" name="a3c4f5864d267490a44db183bb9a166bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c4f5864d267490a44db183bb9a166bf">&#9670;&#160;</a></span>setManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ThreadSafeConfig::setManager </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classIManager.html">IManager</a> &gt;&#160;</td>
+          <td class="paramname"><em>manager</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Устанавливает менеджера для обработки конфигурационных изменений.   </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">manager</td><td>Указатель на объект менеджера.   </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classutility_1_1IConfig.html#a6488d783a2fa88ad8da383782870aa06">utility::IConfig</a>.</p>
+
+</div>
+</div>
+<a id="adecfe991e19064ad2a0ed48bf2962c90" name="adecfe991e19064ad2a0ed48bf2962c90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adecfe991e19064ad2a0ed48bf2962c90">&#9670;&#160;</a></span>updateConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ThreadSafeConfig::updateConfig </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Обновляет данные конфигурации.   </p>
+
+<p>Замещает <a class="el" href="classutility_1_1IConfig.html#a59b9286e5eae61edf891ac66f0fe96f3">utility::IConfig</a>.</p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Граф вызовов:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classutility_1_1ThreadSafeConfig_adecfe991e19064ad2a0ed48bf2962c90_cgraph.png" border="0" usemap="#aclassutility_1_1ThreadSafeConfig_adecfe991e19064ad2a0ed48bf2962c90_cgraph" alt=""/></div>
+<map name="aclassutility_1_1ThreadSafeConfig_adecfe991e19064ad2a0ed48bf2962c90_cgraph" id="aclassutility_1_1ThreadSafeConfig_adecfe991e19064ad2a0ed48bf2962c90_cgraph">
+<area shape="rect" title="Обновляет данные конфигурации." alt="" coords="5,71,166,111"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#aa64fdedf90eba0c7394b8443854cd024" title="Нормализует данные" alt="" coords="214,71,374,111"/>
+<area shape="poly" title=" " alt="" coords="166,88,198,88,198,94,166,94"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#a02a0d9852d2b8a28cafa274faac322a3" title="Нормализует AmountOfOperators." alt="" coords="422,5,620,46"/>
+<area shape="poly" title=" " alt="" coords="366,68,433,48,434,53,368,73"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#aea8423dbf3174bb136874b7ad1a9b9c0" title="Нормализует RMin и RMax." alt="" coords="441,71,601,111"/>
+<area shape="poly" title=" " alt="" coords="374,88,425,88,425,94,374,94"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#a1ef29031cf05705c75227ef6df340bf1" title="Нормализует SizeOfQueue." alt="" coords="441,136,601,177"/>
+<area shape="poly" title=" " alt="" coords="368,109,434,129,433,134,366,114"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5070a8a0860e1ffde18c830ebeebfffb" name="a5070a8a0860e1ffde18c830ebeebfffb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5070a8a0860e1ffde18c830ebeebfffb">&#9670;&#160;</a></span>updateConfigThread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ThreadSafeConfig::updateConfigThread </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p></p>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Граф вызовов:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classutility_1_1ThreadSafeConfig_a5070a8a0860e1ffde18c830ebeebfffb_cgraph.png" border="0" usemap="#aclassutility_1_1ThreadSafeConfig_a5070a8a0860e1ffde18c830ebeebfffb_cgraph" alt=""/></div>
+<map name="aclassutility_1_1ThreadSafeConfig_a5070a8a0860e1ffde18c830ebeebfffb_cgraph" id="aclassutility_1_1ThreadSafeConfig_a5070a8a0860e1ffde18c830ebeebfffb_cgraph">
+<area shape="rect" title=" " alt="" coords="5,55,166,96"/>
+<area shape="rect" href="config_8cpp.html#ace5e75d45596d486b53a42a2060f55bd" title=" " alt="" coords="258,5,330,31"/>
+<area shape="poly" title=" " alt="" coords="161,52,242,29,244,35,162,57"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#a50283a3faf9e924ff79b94eb50a75702" title="Уведомляет менеджера о необходимости обновления конфигурации." alt="" coords="214,55,374,96"/>
+<area shape="poly" title=" " alt="" coords="166,73,198,73,198,78,166,78"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#adecfe991e19064ad2a0ed48bf2962c90" title="Обновляет данные конфигурации." alt="" coords="214,121,374,161"/>
+<area shape="poly" title=" " alt="" coords="153,94,213,113,211,118,152,99"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#aa64fdedf90eba0c7394b8443854cd024" title="Нормализует данные" alt="" coords="422,121,582,161"/>
+<area shape="poly" title=" " alt="" coords="374,138,406,138,406,144,374,144"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#a02a0d9852d2b8a28cafa274faac322a3" title="Нормализует AmountOfOperators." alt="" coords="630,55,829,96"/>
+<area shape="poly" title=" " alt="" coords="574,117,641,98,643,103,576,123"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#aea8423dbf3174bb136874b7ad1a9b9c0" title="Нормализует RMin и RMax." alt="" coords="649,121,810,161"/>
+<area shape="poly" title=" " alt="" coords="583,138,634,138,634,144,583,144"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#a1ef29031cf05705c75227ef6df340bf1" title="Нормализует SizeOfQueue." alt="" coords="649,186,810,227"/>
+<area shape="poly" title=" " alt="" coords="576,159,643,178,641,184,574,164"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa3f2c095bbfe19a624be2470050e8c26" name="aa3f2c095bbfe19a624be2470050e8c26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3f2c095bbfe19a624be2470050e8c26">&#9670;&#160;</a></span>updateWithRequest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ThreadSafeConfig::updateWithRequest </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p></p>
+
+<p>Замещает <a class="el" href="classutility_1_1IConfig.html#a94a6af46e974ec56e4278a18247e2186">utility::IConfig</a>.</p>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Граф вызовов:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classutility_1_1ThreadSafeConfig_aa3f2c095bbfe19a624be2470050e8c26_cgraph.png" border="0" usemap="#aclassutility_1_1ThreadSafeConfig_aa3f2c095bbfe19a624be2470050e8c26_cgraph" alt=""/></div>
+<map name="aclassutility_1_1ThreadSafeConfig_aa3f2c095bbfe19a624be2470050e8c26_cgraph" id="aclassutility_1_1ThreadSafeConfig_aa3f2c095bbfe19a624be2470050e8c26_cgraph">
+<area shape="rect" title=" " alt="" coords="5,39,166,79"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#a50283a3faf9e924ff79b94eb50a75702" title="Уведомляет менеджера о необходимости обновления конфигурации." alt="" coords="214,5,374,46"/>
+<area shape="poly" title=" " alt="" coords="165,44,198,38,198,44,166,49"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#adecfe991e19064ad2a0ed48bf2962c90" title="Обновляет данные конфигурации." alt="" coords="214,71,374,111"/>
+<area shape="poly" title=" " alt="" coords="166,69,198,74,198,79,165,74"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#aa64fdedf90eba0c7394b8443854cd024" title="Нормализует данные" alt="" coords="422,71,582,111"/>
+<area shape="poly" title=" " alt="" coords="374,88,406,88,406,94,374,94"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#a02a0d9852d2b8a28cafa274faac322a3" title="Нормализует AmountOfOperators." alt="" coords="630,5,829,46"/>
+<area shape="poly" title=" " alt="" coords="574,68,641,48,643,53,576,73"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#aea8423dbf3174bb136874b7ad1a9b9c0" title="Нормализует RMin и RMax." alt="" coords="649,71,810,111"/>
+<area shape="poly" title=" " alt="" coords="583,88,634,88,634,94,583,94"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html#a1ef29031cf05705c75227ef6df340bf1" title="Нормализует SizeOfQueue." alt="" coords="649,136,810,177"/>
+<area shape="poly" title=" " alt="" coords="576,109,643,129,641,134,574,114"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>include/<a class="el" href="config_8hpp_source.html">config.hpp</a></li>
+<li>src/<a class="el" href="config_8cpp.html">config.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

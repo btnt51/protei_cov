@@ -1,0 +1,5 @@
+<map id="TP::ThreadPool" name="TP::ThreadPool">
+<area shape="rect" id="Node000001" title="Класс, реализующий пул потоков." alt="" coords="7,79,118,105"/>
+<area shape="rect" id="Node000002" href="$classTP_1_1IThreadPool.html" title="Абстрактный интерфейс для управления пулом потоков." alt="" coords="5,5,120,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="65,46,65,79,60,79,60,46"/>
+</map>

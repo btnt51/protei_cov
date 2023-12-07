@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Исходный файл include/threadpool.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">threadpool.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="threadpool_8hpp.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PROTEI_COV_THREADPOOL_HPP</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PROTEI_COV_THREADPOOL_HPP</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;atomic&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;condition_variable&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;queue&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;thread&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;future&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;tuple&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="interfaces_8hpp.html">interfaces.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="recorder_8hpp.html">recorder.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceTP.html">TP</a> {</div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="structTP_1_1Thread.html">   29</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structTP_1_1Thread.html">Thread</a> {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structTP_1_1Thread.html#ae04c5e7bf541b1f7acc763da8e0726e8">   30</a></span>    std::thread <a class="code hl_variable" href="structTP_1_1Thread.html#ae04c5e7bf541b1f7acc763da8e0726e8">_thread</a>; </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structTP_1_1Thread.html#a75f57927ee654371b0132ed7f0987205">   31</a></span>    std::atomic&lt;bool&gt; <a class="code hl_variable" href="structTP_1_1Thread.html#a75f57927ee654371b0132ed7f0987205">is_working</a>; </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>};</div>
+</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="};">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classTP_1_1ThreadPool.html">   41</a></span><span class="keyword">class </span><a class="code hl_class" href="classTP_1_1ThreadPool.html">ThreadPool</a> : <span class="keyword">public</span> <a class="code hl_class" href="classTP_1_1IThreadPool.html">TP::IThreadPool</a> {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classTP_1_1ThreadPool.html">ThreadPool</a>(<span class="keywordtype">unsigned</span> amountOfThreads, <span class="keywordtype">unsigned</span> sizeOfQueue);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_function" href="classTP_1_1ThreadPool.html#a6a5b4cf74da230a04a3a78a4f13cdaf2">~ThreadPool</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    std::pair&lt;CallID, std::future&lt;Result&gt;&gt; <a class="code hl_function" href="classTP_1_1ThreadPool.html#a23782dbde31946872ec29132710b2391">add_task</a>(std::shared_ptr&lt;ITask&gt; task) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1ThreadPool.html#a73d31433b40c14d309f224aa899364c9">stop</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1ThreadPool.html#a550ecae4008fe2e1f432608eb8a35fa9">start</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1ThreadPool.html#a426299445bb844340f570988b3f8645c">transferObjects</a>(<span class="keyword">const</span> std::shared_ptr&lt;IThreadPool&gt;&amp; oldThreadPool) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1ThreadPool.html#a12d46b769fa6919f8664db16013900d2">setTaskQueue</a>(std::shared_ptr&lt;IQueue&gt; <a class="code hl_variable" href="classTP_1_1IThreadPool.html#afae4b08f4efc851a5d720cc1570e044c">task_queue</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1ThreadPool.html#ad077d6c9448536659a2f75dc6cc967c9">setLogger</a>(std::shared_ptr&lt;spdlog::logger&gt; logger);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    std::size_t <a class="code hl_function" href="classTP_1_1ThreadPool.html#a39912aaaf939472406a4846e55a54ee2">getSize</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    std::condition_variable tasks_access; </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    std::condition_variable wait_access; </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    std::vector&lt;Thread*&gt; threads; </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> completed_task_count; </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    std::queue&lt;CallID&gt; signal_queue; </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    std::atomic&lt;bool&gt; stopped; </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    std::atomic&lt;bool&gt; paused; </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    std::atomic&lt;bool&gt; waitForCompletion;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    std::shared_ptr&lt;spdlog::logger&gt; logger_; </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="keywordtype">void</span> run(<a class="code hl_struct" href="structTP_1_1Thread.html">Thread</a>* pOperator);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    std::pair&lt;std::shared_ptr&lt;ITask&gt;, <a class="code hl_typedef" href="namespaceTP.html#a34116505f865df276a6696f975e74036">CallID</a>&gt; processTask();</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keywordtype">bool</span> run_allowed() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <a class="code hl_typedef" href="namespaceTP.html#a34116505f865df276a6696f975e74036">CallID</a> generateCallID(<span class="keywordtype">long</span> <span class="keywordtype">long</span> number);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="keywordtype">void</span> executeTask(std::shared_ptr&lt;ITask&gt;&amp; task, <a class="code hl_typedef" href="namespaceTP.html#a34116505f865df276a6696f975e74036">CallID</a> callID);</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>};</div>
+</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>} <span class="comment">// namespace TP</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassTP_1_1IThreadPool_html"><div class="ttname"><a href="classTP_1_1IThreadPool.html">TP::IThreadPool</a></div><div class="ttdoc">Абстрактный интерфейс для управления пулом потоков.</div><div class="ttdef"><b>Definition</b> interfaces.hpp:235</div></div>
+<div class="ttc" id="aclassTP_1_1IThreadPool_html_afae4b08f4efc851a5d720cc1570e044c"><div class="ttname"><a href="classTP_1_1IThreadPool.html#afae4b08f4efc851a5d720cc1570e044c">TP::IThreadPool::task_queue</a></div><div class="ttdeci">std::shared_ptr&lt; IQueue &gt; task_queue</div><div class="ttdoc">Очередь задач в формате пар (задача, идентификатор вызова).</div><div class="ttdef"><b>Definition</b> interfaces.hpp:294</div></div>
+<div class="ttc" id="aclassTP_1_1ThreadPool_html"><div class="ttname"><a href="classTP_1_1ThreadPool.html">TP::ThreadPool</a></div><div class="ttdoc">Класс, реализующий пул потоков.</div><div class="ttdef"><b>Definition</b> threadpool.hpp:41</div></div>
+<div class="ttc" id="aclassTP_1_1ThreadPool_html_a12d46b769fa6919f8664db16013900d2"><div class="ttname"><a href="classTP_1_1ThreadPool.html#a12d46b769fa6919f8664db16013900d2">TP::ThreadPool::setTaskQueue</a></div><div class="ttdeci">void setTaskQueue(std::shared_ptr&lt; IQueue &gt; task_queue) override</div><div class="ttdoc">Установка новой очереди задачи</div><div class="ttdef"><b>Definition</b> threadpool.cpp:148</div></div>
+<div class="ttc" id="aclassTP_1_1ThreadPool_html_a23782dbde31946872ec29132710b2391"><div class="ttname"><a href="classTP_1_1ThreadPool.html#a23782dbde31946872ec29132710b2391">TP::ThreadPool::add_task</a></div><div class="ttdeci">std::pair&lt; CallID, std::future&lt; Result &gt; &gt; add_task(std::shared_ptr&lt; ITask &gt; task) override</div><div class="ttdoc">Добавляет задачу в пул потоков.</div><div class="ttdef"><b>Definition</b> threadpool.cpp:112</div></div>
+<div class="ttc" id="aclassTP_1_1ThreadPool_html_a39912aaaf939472406a4846e55a54ee2"><div class="ttname"><a href="classTP_1_1ThreadPool.html#a39912aaaf939472406a4846e55a54ee2">TP::ThreadPool::getSize</a></div><div class="ttdeci">std::size_t getSize() override</div><div class="ttdoc">Возвращает текущие количество потоков.</div><div class="ttdef"><b>Definition</b> threadpool.cpp:172</div></div>
+<div class="ttc" id="aclassTP_1_1ThreadPool_html_a426299445bb844340f570988b3f8645c"><div class="ttname"><a href="classTP_1_1ThreadPool.html#a426299445bb844340f570988b3f8645c">TP::ThreadPool::transferObjects</a></div><div class="ttdeci">void transferObjects(const std::shared_ptr&lt; IThreadPool &gt; &amp;oldThreadPool) override</div><div class="ttdoc">Передача очереди задач из старого пула в текущий.</div><div class="ttdef"><b>Definition</b> threadpool.cpp:102</div></div>
+<div class="ttc" id="aclassTP_1_1ThreadPool_html_a550ecae4008fe2e1f432608eb8a35fa9"><div class="ttname"><a href="classTP_1_1ThreadPool.html#a550ecae4008fe2e1f432608eb8a35fa9">TP::ThreadPool::start</a></div><div class="ttdeci">void start() override</div><div class="ttdoc">Запуск пула.</div><div class="ttdef"><b>Definition</b> threadpool.cpp:84</div></div>
+<div class="ttc" id="aclassTP_1_1ThreadPool_html_a6a5b4cf74da230a04a3a78a4f13cdaf2"><div class="ttname"><a href="classTP_1_1ThreadPool.html#a6a5b4cf74da230a04a3a78a4f13cdaf2">TP::ThreadPool::~ThreadPool</a></div><div class="ttdeci">~ThreadPool() override</div><div class="ttdoc">Деструктор.</div><div class="ttdef"><b>Definition</b> threadpool.cpp:134</div></div>
+<div class="ttc" id="aclassTP_1_1ThreadPool_html_a73d31433b40c14d309f224aa899364c9"><div class="ttname"><a href="classTP_1_1ThreadPool.html#a73d31433b40c14d309f224aa899364c9">TP::ThreadPool::stop</a></div><div class="ttdeci">void stop() override</div><div class="ttdoc">Остановка пула.</div><div class="ttdef"><b>Definition</b> threadpool.cpp:95</div></div>
+<div class="ttc" id="aclassTP_1_1ThreadPool_html_ad077d6c9448536659a2f75dc6cc967c9"><div class="ttname"><a href="classTP_1_1ThreadPool.html#ad077d6c9448536659a2f75dc6cc967c9">TP::ThreadPool::setLogger</a></div><div class="ttdeci">void setLogger(std::shared_ptr&lt; spdlog::logger &gt; logger)</div><div class="ttdoc">Устанавливает асинхронный логгер пулу потоков, а также очереди.</div><div class="ttdef"><b>Definition</b> threadpool.cpp:163</div></div>
+<div class="ttc" id="ainterfaces_8hpp_html"><div class="ttname"><a href="interfaces_8hpp.html">interfaces.hpp</a></div><div class="ttdoc">Содержит интерфейсы IConfig, ITask, IQueue, IThreadPool, IManager.</div></div>
+<div class="ttc" id="anamespaceTP_html"><div class="ttname"><a href="namespaceTP.html">TP</a></div><div class="ttdoc">Пространство имен TP, содержащее объявление типа CallID, а также объявление и определение классов Tas...</div></div>
+<div class="ttc" id="anamespaceTP_html_a34116505f865df276a6696f975e74036"><div class="ttname"><a href="namespaceTP.html#a34116505f865df276a6696f975e74036">TP::CallID</a></div><div class="ttdeci">unsigned long long CallID</div><div class="ttdef"><b>Definition</b> commonStructures.hpp:20</div></div>
+<div class="ttc" id="arecorder_8hpp_html"><div class="ttname"><a href="recorder_8hpp.html">recorder.hpp</a></div><div class="ttdoc">Содержит объявления интерфейса IRecorder, и его реализации FileRecorder.</div></div>
+<div class="ttc" id="astructTP_1_1Thread_html"><div class="ttname"><a href="structTP_1_1Thread.html">TP::Thread</a></div><div class="ttdoc">Структура-обертка над std::thread.</div><div class="ttdef"><b>Definition</b> threadpool.hpp:29</div></div>
+<div class="ttc" id="astructTP_1_1Thread_html_a75f57927ee654371b0132ed7f0987205"><div class="ttname"><a href="structTP_1_1Thread.html#a75f57927ee654371b0132ed7f0987205">TP::Thread::is_working</a></div><div class="ttdeci">std::atomic&lt; bool &gt; is_working</div><div class="ttdoc">Флаг, указывающий, обрабатывает ли поток задачу.</div><div class="ttdef"><b>Definition</b> threadpool.hpp:31</div></div>
+<div class="ttc" id="astructTP_1_1Thread_html_ae04c5e7bf541b1f7acc763da8e0726e8"><div class="ttname"><a href="structTP_1_1Thread.html#ae04c5e7bf541b1f7acc763da8e0726e8">TP::Thread::_thread</a></div><div class="ttdeci">std::thread _thread</div><div class="ttdoc">Поток.</div><div class="ttdef"><b>Definition</b> threadpool.hpp:30</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

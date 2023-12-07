@@ -1,0 +1,793 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Класс MockConfig</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="classMockConfig-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс MockConfig</div></div>
+</div><!--header-->
+<div class="contents">
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Граф наследования:MockConfig:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockConfig__inherit__graph.png" border="0" usemap="#aMockConfig_inherit__map" alt="Inheritance graph"/></div>
+<map name="aMockConfig_inherit__map" id="aMockConfig_inherit__map">
+<area shape="rect" title=" " alt="" coords="9,79,99,105"/>
+<area shape="rect" href="classutility_1_1IConfig.html" title="Абстрактный интерфейс для работы с конфигурацией." alt="" coords="5,5,103,31"/>
+<area shape="poly" title=" " alt="" coords="57,46,57,79,51,79,51,46"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">см. легенду</a>]</span></center></div>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Граф связей класса MockConfig:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockConfig__coll__graph.png" border="0" usemap="#aMockConfig_coll__map" alt="Collaboration graph"/></div>
+<map name="aMockConfig_coll__map" id="aMockConfig_coll__map">
+<area shape="rect" title=" " alt="" coords="9,79,99,105"/>
+<area shape="rect" href="classutility_1_1IConfig.html" title="Абстрактный интерфейс для работы с конфигурацией." alt="" coords="5,5,103,31"/>
+<area shape="poly" title=" " alt="" coords="57,46,57,79,51,79,51,46"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:ac9fa27abf45d4b1c52fb9182b9c18f1d" id="r_ac9fa27abf45d4b1c52fb9182b9c18f1d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockConfig.html#ac9fa27abf45d4b1c52fb9182b9c18f1d">MockConfig</a> (const std::filesystem::path &amp;path, std::shared_ptr&lt; spdlog::logger &gt; logger)</td></tr>
+<tr class="separator:ac9fa27abf45d4b1c52fb9182b9c18f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b7b1a5c9d0faee1ac84e96c826ab0bf" id="r_a9b7b1a5c9d0faee1ac84e96c826ab0bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockConfig.html#a9b7b1a5c9d0faee1ac84e96c826ab0bf">MOCK_METHOD</a> ((std::pair&lt; int, int &gt;), <a class="el" href="classutility_1_1IConfig.html#a0e15dead40cd577ef103a21037ca6339">getMinMax</a>,(),(override))</td></tr>
+<tr class="separator:a9b7b1a5c9d0faee1ac84e96c826ab0bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a924294268fc3e72b5d17310e38b2b8ab" id="r_a924294268fc3e72b5d17310e38b2b8ab"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockConfig.html#a924294268fc3e72b5d17310e38b2b8ab">MOCK_METHOD</a> (int, <a class="el" href="classutility_1_1IConfig.html#a621fd9e0531a4b9c2c7eae58f2100fa5">getAmountOfOperators</a>,(),(override))</td></tr>
+<tr class="separator:a924294268fc3e72b5d17310e38b2b8ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57f976ae80357244042eceb7d96cc8f0" id="r_a57f976ae80357244042eceb7d96cc8f0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockConfig.html#a57f976ae80357244042eceb7d96cc8f0">MOCK_METHOD</a> (int, <a class="el" href="classutility_1_1IConfig.html#af7544df7029afabbbab63124a9e48f57">getSizeOfQueue</a>,(),(override))</td></tr>
+<tr class="separator:a57f976ae80357244042eceb7d96cc8f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49a5d91f90daa27b3c12d6b99a35fcff" id="r_a49a5d91f90daa27b3c12d6b99a35fcff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockConfig.html#a49a5d91f90daa27b3c12d6b99a35fcff">MOCK_METHOD</a> (std::filesystem::path, <a class="el" href="classutility_1_1IConfig.html#a467af645859c3f09c4d26b8aa51819d3">getPath</a>,(),(override))</td></tr>
+<tr class="separator:a49a5d91f90daa27b3c12d6b99a35fcff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67cd5add43ad90fd15c5c6c70d3897bb" id="r_a67cd5add43ad90fd15c5c6c70d3897bb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockConfig.html#a67cd5add43ad90fd15c5c6c70d3897bb">MOCK_METHOD</a> (void, <a class="el" href="classutility_1_1IConfig.html#a59b9286e5eae61edf891ac66f0fe96f3">updateConfig</a>,(),(override))</td></tr>
+<tr class="separator:a67cd5add43ad90fd15c5c6c70d3897bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae48803fa46c350c1ac1d239133c9f953" id="r_ae48803fa46c350c1ac1d239133c9f953"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockConfig.html#ae48803fa46c350c1ac1d239133c9f953">MOCK_METHOD</a> (bool, <a class="el" href="classutility_1_1IConfig.html#a5d2703c7fb18af84d178800896f76249">isUpdated</a>,(),(override))</td></tr>
+<tr class="separator:ae48803fa46c350c1ac1d239133c9f953"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad290071cc8b5c83ffa90da2c3059c243" id="r_ad290071cc8b5c83ffa90da2c3059c243"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockConfig.html#ad290071cc8b5c83ffa90da2c3059c243">MOCK_METHOD</a> (void, <a class="el" href="classutility_1_1IConfig.html#a7a879701159649c2f0312da3f9441a1e">notify</a>,(),(override))</td></tr>
+<tr class="separator:ad290071cc8b5c83ffa90da2c3059c243"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20eef57700e170da200515450d114fbe" id="r_a20eef57700e170da200515450d114fbe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockConfig.html#a20eef57700e170da200515450d114fbe">MOCK_METHOD</a> (void, <a class="el" href="classutility_1_1IConfig.html#a6488d783a2fa88ad8da383782870aa06">setManager</a>,(std::shared_ptr&lt; <a class="el" href="classIManager.html">IManager</a> &gt; manager),(override))</td></tr>
+<tr class="separator:a20eef57700e170da200515450d114fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5194e83a0ff669bf2856ec9867b09c1" id="r_aa5194e83a0ff669bf2856ec9867b09c1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockConfig.html#aa5194e83a0ff669bf2856ec9867b09c1">MOCK_METHOD</a> (void, <a class="el" href="classutility_1_1IConfig.html#afc8b85185ab384624e63dcb6c124cfbf">setLogger</a>,((std::shared_ptr&lt; spdlog::logger &gt;)),(override))</td></tr>
+<tr class="separator:aa5194e83a0ff669bf2856ec9867b09c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e6cfe5467faa34c14976ce815500bc4" id="r_a0e6cfe5467faa34c14976ce815500bc4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockConfig.html#a0e6cfe5467faa34c14976ce815500bc4">MOCK_METHOD</a> (void, <a class="el" href="classutility_1_1IConfig.html#a94a6af46e974ec56e4278a18247e2186">updateWithRequest</a>,(),(override))</td></tr>
+<tr class="separator:a0e6cfe5467faa34c14976ce815500bc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abab1c5a88d65005cf130e8c2352ca4f0" id="r_abab1c5a88d65005cf130e8c2352ca4f0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockConfig.html#abab1c5a88d65005cf130e8c2352ca4f0">MOCK_METHOD</a> (void, <a class="el" href="classutility_1_1IConfig.html#ac4daacb8dcd69c89cc58fa4c923ef3c1">normalizeData</a>,(),(override))</td></tr>
+<tr class="separator:abab1c5a88d65005cf130e8c2352ca4f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaeb2ac5737785f661f0894e1d3269099" id="r_aaeb2ac5737785f661f0894e1d3269099"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockConfig.html#aaeb2ac5737785f661f0894e1d3269099">MOCK_METHOD</a> (void, <a class="el" href="classutility_1_1IConfig.html#aa9098951ac6bbb8943cc3f0c8d9091e6">normalizeRMinRMax</a>,(),(override))</td></tr>
+<tr class="separator:aaeb2ac5737785f661f0894e1d3269099"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad06fc915cf1570a6d338acb1803c094d" id="r_ad06fc915cf1570a6d338acb1803c094d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockConfig.html#ad06fc915cf1570a6d338acb1803c094d">MOCK_METHOD</a> (void, <a class="el" href="classutility_1_1IConfig.html#ad3a281237bb48f66c7043b20c9ee44e7">normalizeAmountOfOperators</a>,(),(override))</td></tr>
+<tr class="separator:ad06fc915cf1570a6d338acb1803c094d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d10cf6c83bc1fe9ebe77d99533f01c9" id="r_a5d10cf6c83bc1fe9ebe77d99533f01c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockConfig.html#a5d10cf6c83bc1fe9ebe77d99533f01c9">MOCK_METHOD</a> (void, <a class="el" href="classutility_1_1IConfig.html#ab1880e1c349ac8d5335df0960c35046e">normalizeSizeOfQueue</a>,(),(override))</td></tr>
+<tr class="separator:a5d10cf6c83bc1fe9ebe77d99533f01c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classutility_1_1IConfig"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classutility_1_1IConfig')"><img src="closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="classutility_1_1IConfig.html">utility::IConfig</a></td></tr>
+<tr class="memitem:aea75170ec34e65e31218404e0467bec5 inherit pub_methods_classutility_1_1IConfig" id="r_aea75170ec34e65e31218404e0467bec5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#aea75170ec34e65e31218404e0467bec5">IConfig</a> (const std::filesystem::path &amp;path, std::shared_ptr&lt; spdlog::logger &gt;)</td></tr>
+<tr class="memdesc:aea75170ec34e65e31218404e0467bec5 inherit pub_methods_classutility_1_1IConfig"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор класса <a class="el" href="classutility_1_1IConfig.html" title="Абстрактный интерфейс для работы с конфигурацией.">IConfig</a>.  <br /></td></tr>
+<tr class="separator:aea75170ec34e65e31218404e0467bec5 inherit pub_methods_classutility_1_1IConfig"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40311b4abe6049551aab393c3a18fe36 inherit pub_methods_classutility_1_1IConfig" id="r_a40311b4abe6049551aab393c3a18fe36"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#a40311b4abe6049551aab393c3a18fe36">~IConfig</a> ()</td></tr>
+<tr class="memdesc:a40311b4abe6049551aab393c3a18fe36 inherit pub_methods_classutility_1_1IConfig"><td class="mdescLeft">&#160;</td><td class="mdescRight">Виртуальный деструктор класса <a class="el" href="classutility_1_1IConfig.html" title="Абстрактный интерфейс для работы с конфигурацией.">IConfig</a>.  <br /></td></tr>
+<tr class="separator:a40311b4abe6049551aab393c3a18fe36 inherit pub_methods_classutility_1_1IConfig"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e15dead40cd577ef103a21037ca6339 inherit pub_methods_classutility_1_1IConfig" id="r_a0e15dead40cd577ef103a21037ca6339"><td class="memItemLeft" align="right" valign="top">virtual std::pair&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#a0e15dead40cd577ef103a21037ca6339">getMinMax</a> ()=0</td></tr>
+<tr class="memdesc:a0e15dead40cd577ef103a21037ca6339 inherit pub_methods_classutility_1_1IConfig"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает пару значений - минимальное и максимальное количество операторов.  <br /></td></tr>
+<tr class="separator:a0e15dead40cd577ef103a21037ca6339 inherit pub_methods_classutility_1_1IConfig"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a621fd9e0531a4b9c2c7eae58f2100fa5 inherit pub_methods_classutility_1_1IConfig" id="r_a621fd9e0531a4b9c2c7eae58f2100fa5"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#a621fd9e0531a4b9c2c7eae58f2100fa5">getAmountOfOperators</a> ()=0</td></tr>
+<tr class="memdesc:a621fd9e0531a4b9c2c7eae58f2100fa5 inherit pub_methods_classutility_1_1IConfig"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает количество операторов из конфигурации.  <br /></td></tr>
+<tr class="separator:a621fd9e0531a4b9c2c7eae58f2100fa5 inherit pub_methods_classutility_1_1IConfig"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7544df7029afabbbab63124a9e48f57 inherit pub_methods_classutility_1_1IConfig" id="r_af7544df7029afabbbab63124a9e48f57"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#af7544df7029afabbbab63124a9e48f57">getSizeOfQueue</a> ()=0</td></tr>
+<tr class="memdesc:af7544df7029afabbbab63124a9e48f57 inherit pub_methods_classutility_1_1IConfig"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает размер очереди из конфигурации.  <br /></td></tr>
+<tr class="separator:af7544df7029afabbbab63124a9e48f57 inherit pub_methods_classutility_1_1IConfig"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a467af645859c3f09c4d26b8aa51819d3 inherit pub_methods_classutility_1_1IConfig" id="r_a467af645859c3f09c4d26b8aa51819d3"><td class="memItemLeft" align="right" valign="top">virtual std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#a467af645859c3f09c4d26b8aa51819d3">getPath</a> ()=0</td></tr>
+<tr class="memdesc:a467af645859c3f09c4d26b8aa51819d3 inherit pub_methods_classutility_1_1IConfig"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает путь к файлу конфигурации.  <br /></td></tr>
+<tr class="separator:a467af645859c3f09c4d26b8aa51819d3 inherit pub_methods_classutility_1_1IConfig"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59b9286e5eae61edf891ac66f0fe96f3 inherit pub_methods_classutility_1_1IConfig" id="r_a59b9286e5eae61edf891ac66f0fe96f3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#a59b9286e5eae61edf891ac66f0fe96f3">updateConfig</a> ()=0</td></tr>
+<tr class="memdesc:a59b9286e5eae61edf891ac66f0fe96f3 inherit pub_methods_classutility_1_1IConfig"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обновляет данные конфигурации.  <br /></td></tr>
+<tr class="separator:a59b9286e5eae61edf891ac66f0fe96f3 inherit pub_methods_classutility_1_1IConfig"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94a6af46e974ec56e4278a18247e2186 inherit pub_methods_classutility_1_1IConfig" id="r_a94a6af46e974ec56e4278a18247e2186"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#a94a6af46e974ec56e4278a18247e2186">updateWithRequest</a> ()=0</td></tr>
+<tr class="memdesc:a94a6af46e974ec56e4278a18247e2186 inherit pub_methods_classutility_1_1IConfig"><td class="mdescLeft">&#160;</td><td class="mdescRight">Принимает запрос на обновление конфигурации.  <br /></td></tr>
+<tr class="separator:a94a6af46e974ec56e4278a18247e2186 inherit pub_methods_classutility_1_1IConfig"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d2703c7fb18af84d178800896f76249 inherit pub_methods_classutility_1_1IConfig" id="r_a5d2703c7fb18af84d178800896f76249"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#a5d2703c7fb18af84d178800896f76249">isUpdated</a> ()=0</td></tr>
+<tr class="memdesc:a5d2703c7fb18af84d178800896f76249 inherit pub_methods_classutility_1_1IConfig"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет, была ли конфигурация обновлена.  <br /></td></tr>
+<tr class="separator:a5d2703c7fb18af84d178800896f76249 inherit pub_methods_classutility_1_1IConfig"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a879701159649c2f0312da3f9441a1e inherit pub_methods_classutility_1_1IConfig" id="r_a7a879701159649c2f0312da3f9441a1e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#a7a879701159649c2f0312da3f9441a1e">notify</a> ()=0</td></tr>
+<tr class="memdesc:a7a879701159649c2f0312da3f9441a1e inherit pub_methods_classutility_1_1IConfig"><td class="mdescLeft">&#160;</td><td class="mdescRight">Уведомляет менеджера о необходимости обновления конфигурации.  <br /></td></tr>
+<tr class="separator:a7a879701159649c2f0312da3f9441a1e inherit pub_methods_classutility_1_1IConfig"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6488d783a2fa88ad8da383782870aa06 inherit pub_methods_classutility_1_1IConfig" id="r_a6488d783a2fa88ad8da383782870aa06"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#a6488d783a2fa88ad8da383782870aa06">setManager</a> (std::shared_ptr&lt; <a class="el" href="classIManager.html">IManager</a> &gt; manager)=0</td></tr>
+<tr class="memdesc:a6488d783a2fa88ad8da383782870aa06 inherit pub_methods_classutility_1_1IConfig"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает менеджера для обработки конфигурационных изменений.  <br /></td></tr>
+<tr class="separator:a6488d783a2fa88ad8da383782870aa06 inherit pub_methods_classutility_1_1IConfig"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc8b85185ab384624e63dcb6c124cfbf inherit pub_methods_classutility_1_1IConfig" id="r_afc8b85185ab384624e63dcb6c124cfbf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#afc8b85185ab384624e63dcb6c124cfbf">setLogger</a> (std::shared_ptr&lt; spdlog::logger &gt; logger)=0</td></tr>
+<tr class="memdesc:afc8b85185ab384624e63dcb6c124cfbf inherit pub_methods_classutility_1_1IConfig"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает асинхронный логгер.  <br /></td></tr>
+<tr class="separator:afc8b85185ab384624e63dcb6c124cfbf inherit pub_methods_classutility_1_1IConfig"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4daacb8dcd69c89cc58fa4c923ef3c1 inherit pub_methods_classutility_1_1IConfig" id="r_ac4daacb8dcd69c89cc58fa4c923ef3c1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#ac4daacb8dcd69c89cc58fa4c923ef3c1">normalizeData</a> ()=0</td></tr>
+<tr class="memdesc:ac4daacb8dcd69c89cc58fa4c923ef3c1 inherit pub_methods_classutility_1_1IConfig"><td class="mdescLeft">&#160;</td><td class="mdescRight">Нормализует данные  <br /></td></tr>
+<tr class="separator:ac4daacb8dcd69c89cc58fa4c923ef3c1 inherit pub_methods_classutility_1_1IConfig"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9098951ac6bbb8943cc3f0c8d9091e6 inherit pub_methods_classutility_1_1IConfig" id="r_aa9098951ac6bbb8943cc3f0c8d9091e6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#aa9098951ac6bbb8943cc3f0c8d9091e6">normalizeRMinRMax</a> ()=0</td></tr>
+<tr class="memdesc:aa9098951ac6bbb8943cc3f0c8d9091e6 inherit pub_methods_classutility_1_1IConfig"><td class="mdescLeft">&#160;</td><td class="mdescRight">Нормализует RMin и RMax.  <br /></td></tr>
+<tr class="separator:aa9098951ac6bbb8943cc3f0c8d9091e6 inherit pub_methods_classutility_1_1IConfig"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3a281237bb48f66c7043b20c9ee44e7 inherit pub_methods_classutility_1_1IConfig" id="r_ad3a281237bb48f66c7043b20c9ee44e7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#ad3a281237bb48f66c7043b20c9ee44e7">normalizeAmountOfOperators</a> ()=0</td></tr>
+<tr class="memdesc:ad3a281237bb48f66c7043b20c9ee44e7 inherit pub_methods_classutility_1_1IConfig"><td class="mdescLeft">&#160;</td><td class="mdescRight">Нормализует AmountOfOperators.  <br /></td></tr>
+<tr class="separator:ad3a281237bb48f66c7043b20c9ee44e7 inherit pub_methods_classutility_1_1IConfig"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1880e1c349ac8d5335df0960c35046e inherit pub_methods_classutility_1_1IConfig" id="r_ab1880e1c349ac8d5335df0960c35046e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#ab1880e1c349ac8d5335df0960c35046e">normalizeSizeOfQueue</a> ()=0</td></tr>
+<tr class="memdesc:ab1880e1c349ac8d5335df0960c35046e inherit pub_methods_classutility_1_1IConfig"><td class="mdescLeft">&#160;</td><td class="mdescRight">Нормализует SizeOfQueue.  <br /></td></tr>
+<tr class="separator:ab1880e1c349ac8d5335df0960c35046e inherit pub_methods_classutility_1_1IConfig"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Конструктор(ы)</h2>
+<a id="ac9fa27abf45d4b1c52fb9182b9c18f1d" name="ac9fa27abf45d4b1c52fb9182b9c18f1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9fa27abf45d4b1c52fb9182b9c18f1d">&#9670;&#160;</a></span>MockConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockConfig::MockConfig </td>
+          <td>(</td>
+          <td class="paramtype">const std::filesystem::path &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
+          <td class="paramname"><em>logger</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a9b7b1a5c9d0faee1ac84e96c826ab0bf" name="a9b7b1a5c9d0faee1ac84e96c826ab0bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b7b1a5c9d0faee1ac84e96c826ab0bf">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[1/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockConfig::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">(std::pair&lt; int, int &gt;)&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classutility_1_1IConfig.html#a0e15dead40cd577ef103a21037ca6339">getMinMax</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">()&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae48803fa46c350c1ac1d239133c9f953" name="ae48803fa46c350c1ac1d239133c9f953"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae48803fa46c350c1ac1d239133c9f953">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[2/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockConfig::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classutility_1_1IConfig.html#a5d2703c7fb18af84d178800896f76249">isUpdated</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">()&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a924294268fc3e72b5d17310e38b2b8ab" name="a924294268fc3e72b5d17310e38b2b8ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a924294268fc3e72b5d17310e38b2b8ab">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[3/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockConfig::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classutility_1_1IConfig.html#a621fd9e0531a4b9c2c7eae58f2100fa5">getAmountOfOperators</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">()&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a57f976ae80357244042eceb7d96cc8f0" name="a57f976ae80357244042eceb7d96cc8f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57f976ae80357244042eceb7d96cc8f0">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[4/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockConfig::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classutility_1_1IConfig.html#af7544df7029afabbbab63124a9e48f57">getSizeOfQueue</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">()&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a49a5d91f90daa27b3c12d6b99a35fcff" name="a49a5d91f90daa27b3c12d6b99a35fcff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49a5d91f90daa27b3c12d6b99a35fcff">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[5/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockConfig::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">std::filesystem::path&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classutility_1_1IConfig.html#a467af645859c3f09c4d26b8aa51819d3">getPath</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">()&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad06fc915cf1570a6d338acb1803c094d" name="ad06fc915cf1570a6d338acb1803c094d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad06fc915cf1570a6d338acb1803c094d">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[6/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockConfig::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classutility_1_1IConfig.html#ad3a281237bb48f66c7043b20c9ee44e7">normalizeAmountOfOperators</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">()&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abab1c5a88d65005cf130e8c2352ca4f0" name="abab1c5a88d65005cf130e8c2352ca4f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abab1c5a88d65005cf130e8c2352ca4f0">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[7/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockConfig::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classutility_1_1IConfig.html#ac4daacb8dcd69c89cc58fa4c923ef3c1">normalizeData</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">()&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaeb2ac5737785f661f0894e1d3269099" name="aaeb2ac5737785f661f0894e1d3269099"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaeb2ac5737785f661f0894e1d3269099">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[8/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockConfig::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classutility_1_1IConfig.html#aa9098951ac6bbb8943cc3f0c8d9091e6">normalizeRMinRMax</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">()&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d10cf6c83bc1fe9ebe77d99533f01c9" name="a5d10cf6c83bc1fe9ebe77d99533f01c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d10cf6c83bc1fe9ebe77d99533f01c9">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[9/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockConfig::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classutility_1_1IConfig.html#ab1880e1c349ac8d5335df0960c35046e">normalizeSizeOfQueue</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">()&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad290071cc8b5c83ffa90da2c3059c243" name="ad290071cc8b5c83ffa90da2c3059c243"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad290071cc8b5c83ffa90da2c3059c243">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[10/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockConfig::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classutility_1_1IConfig.html#a7a879701159649c2f0312da3f9441a1e">notify</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">()&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa5194e83a0ff669bf2856ec9867b09c1" name="aa5194e83a0ff669bf2856ec9867b09c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5194e83a0ff669bf2856ec9867b09c1">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[11/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockConfig::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classutility_1_1IConfig.html#afc8b85185ab384624e63dcb6c124cfbf">setLogger</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">((std::shared_ptr&lt; spdlog::logger &gt;))&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a20eef57700e170da200515450d114fbe" name="a20eef57700e170da200515450d114fbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20eef57700e170da200515450d114fbe">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[12/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockConfig::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classutility_1_1IConfig.html#a6488d783a2fa88ad8da383782870aa06">setManager</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(std::shared_ptr&lt; <a class="el" href="classIManager.html">IManager</a> &gt; manager)&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a67cd5add43ad90fd15c5c6c70d3897bb" name="a67cd5add43ad90fd15c5c6c70d3897bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67cd5add43ad90fd15c5c6c70d3897bb">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[13/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockConfig::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classutility_1_1IConfig.html#a59b9286e5eae61edf891ac66f0fe96f3">updateConfig</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">()&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0e6cfe5467faa34c14976ce815500bc4" name="a0e6cfe5467faa34c14976ce815500bc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e6cfe5467faa34c14976ce815500bc4">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[14/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockConfig::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classutility_1_1IConfig.html#a94a6af46e974ec56e4278a18247e2186">updateWithRequest</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">()&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>tests/<a class="el" href="managerTests_8cpp.html">managerTests.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

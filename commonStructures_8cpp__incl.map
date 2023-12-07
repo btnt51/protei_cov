@@ -1,0 +1,15 @@
+<map id="src/commonStructures.cpp" name="src/commonStructures.cpp">
+<area shape="rect" id="Node000001" title="Содержит определение функций необходимых для работы с CallStatus и CDR." alt="" coords="118,5,295,31"/>
+<area shape="rect" id="Node000002" href="$commonStructures_8hpp.html" title="Содержит общие структуры и типы данных, а также функции необходимые для работы с этими структурами и ..." alt="" coords="129,79,284,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,31,209,63,204,63,204,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,153,66,178"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="178,108,79,149,77,144,176,103"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="90,153,147,178"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="193,107,146,145,143,141,190,103"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="171,153,242,178"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="209,105,209,137,204,137,204,105"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="266,153,331,178"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="223,103,273,141,269,145,220,107"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="356,153,409,178"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="237,103,342,145,340,150,235,108"/>
+</map>

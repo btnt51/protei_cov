@@ -1,0 +1,5 @@
+<map id="TP::ITask" name="TP::ITask">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,94,83,120"/>
+<area shape="rect" id="Node000002" href="$structCDR.html" title="Структура CDR (Call Detail Record), представляющая запись о вызове." alt="" coords="20,5,68,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="47,47,47,94,41,94,41,47"/>
+</map>

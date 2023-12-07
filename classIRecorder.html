@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Класс IRecorder</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="classIRecorder-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс IRecorder<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Интерфейс для записи данных о вызове (<a class="el" href="structCDR.html" title="Структура CDR (Call Detail Record), представляющая запись о вызове.">CDR</a> - Call Detail Record).  
+ <a href="classIRecorder.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="recorder_8hpp_source.html">recorder.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Граф наследования:IRecorder:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classIRecorder__inherit__graph.png" border="0" usemap="#aIRecorder_inherit__map" alt="Inheritance graph"/></div>
+<map name="aIRecorder_inherit__map" id="aIRecorder_inherit__map">
+<area shape="rect" title="Интерфейс для записи данных о вызове (CDR &#45; Call Detail Record)." alt="" coords="14,5,91,31"/>
+<area shape="rect" href="classFileRecorder.html" title=" " alt="" coords="5,79,100,105"/>
+<area shape="poly" title=" " alt="" coords="55,46,55,79,50,79,50,46"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a3d7dcb1879fbab11de3dda2f37523b1a" id="r_a3d7dcb1879fbab11de3dda2f37523b1a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRecorder.html#a3d7dcb1879fbab11de3dda2f37523b1a">makeRecord</a> (const <a class="el" href="structCDR.html">CDR</a> &amp;cdr)=0</td></tr>
+<tr class="memdesc:a3d7dcb1879fbab11de3dda2f37523b1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чисто виртуальная функция для создания записи о вызове.  <br /></td></tr>
+<tr class="separator:a3d7dcb1879fbab11de3dda2f37523b1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45015e81bc5b22b6557891be15b72290" id="r_a45015e81bc5b22b6557891be15b72290"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRecorder.html#a45015e81bc5b22b6557891be15b72290">setLogger</a> (std::shared_ptr&lt; spdlog::logger &gt; logger)=0</td></tr>
+<tr class="separator:a45015e81bc5b22b6557891be15b72290"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dbed2012579d7ec3342a9b62cb81f6f" id="r_a7dbed2012579d7ec3342a9b62cb81f6f"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRecorder.html#a7dbed2012579d7ec3342a9b62cb81f6f">~IRecorder</a> ()</td></tr>
+<tr class="memdesc:a7dbed2012579d7ec3342a9b62cb81f6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Виртуальный деструктор интерфейса.  <br /></td></tr>
+<tr class="separator:a7dbed2012579d7ec3342a9b62cb81f6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:aa59e51edab06d6333eaee7f4662dd014" id="r_aa59e51edab06d6333eaee7f4662dd014"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRecorder.html#aa59e51edab06d6333eaee7f4662dd014">writeMutex_</a></td></tr>
+<tr class="separator:aa59e51edab06d6333eaee7f4662dd014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0d4a9cf115c8b2de3228f434cfc1259" id="r_ae0d4a9cf115c8b2de3228f434cfc1259"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRecorder.html#ae0d4a9cf115c8b2de3228f434cfc1259">logger_</a></td></tr>
+<tr class="separator:ae0d4a9cf115c8b2de3228f434cfc1259"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Интерфейс для записи данных о вызове (<a class="el" href="structCDR.html" title="Структура CDR (Call Detail Record), представляющая запись о вызове.">CDR</a> - Call Detail Record). </p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a7dbed2012579d7ec3342a9b62cb81f6f" name="a7dbed2012579d7ec3342a9b62cb81f6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dbed2012579d7ec3342a9b62cb81f6f">&#9670;&#160;</a></span>~IRecorder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual IRecorder::~IRecorder </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Виртуальный деструктор интерфейса. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a3d7dcb1879fbab11de3dda2f37523b1a" name="a3d7dcb1879fbab11de3dda2f37523b1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d7dcb1879fbab11de3dda2f37523b1a">&#9670;&#160;</a></span>makeRecord()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IRecorder::makeRecord </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structCDR.html">CDR</a> &amp;&#160;</td>
+          <td class="paramname"><em>cdr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Чисто виртуальная функция для создания записи о вызове. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cdr</td><td>Структура <a class="el" href="structCDR.html" title="Структура CDR (Call Detail Record), представляющая запись о вызове.">CDR</a> с данными о вызове. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещается в <a class="el" href="classFileRecorder.html#a27d000432f57deffe0b7f6fc72e9f9b2">FileRecorder</a>.</p>
+
+</div>
+</div>
+<a id="a45015e81bc5b22b6557891be15b72290" name="a45015e81bc5b22b6557891be15b72290"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45015e81bc5b22b6557891be15b72290">&#9670;&#160;</a></span>setLogger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IRecorder::setLogger </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
+          <td class="paramname"><em>logger</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="classFileRecorder.html#a92198a0f3641e43f98a889f47a2c71ff">FileRecorder</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="ae0d4a9cf115c8b2de3228f434cfc1259" name="ae0d4a9cf115c8b2de3228f434cfc1259"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0d4a9cf115c8b2de3228f434cfc1259">&#9670;&#160;</a></span>logger_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; IRecorder::logger_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa59e51edab06d6333eaee7f4662dd014" name="aa59e51edab06d6333eaee7f4662dd014"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa59e51edab06d6333eaee7f4662dd014">&#9670;&#160;</a></span>writeMutex_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex IRecorder::writeMutex_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>include/<a class="el" href="recorder_8hpp_source.html">recorder.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

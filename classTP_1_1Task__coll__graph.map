@@ -1,0 +1,7 @@
+<map id="TP::Task" name="TP::Task">
+<area shape="rect" id="Node000001" title="Класс задачи – вызова, который обрабаытывает поток (оператор)" alt="" coords="7,169,81,195"/>
+<area shape="rect" id="Node000002" href="$classTP_1_1ITask.html" title=" " alt="" coords="5,94,83,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="47,135,47,169,41,169,41,135"/>
+<area shape="rect" id="Node000003" href="$structCDR.html" title="Структура CDR (Call Detail Record), представляющая запись о вызове." alt="" coords="20,5,68,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="47,47,47,94,41,94,41,47"/>
+</map>

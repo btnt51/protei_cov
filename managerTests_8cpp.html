@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Файл tests/managerTests.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_59425e443f801f1f2fd8bbe4959a3ccf.html">tests</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a> &#124;
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">Файл managerTests.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;gtest/gtest.h&gt;</code><br />
+<code>#include &lt;gmock/gmock.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="manager_8hpp_source.html">manager.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="interfaces_8hpp_source.html">interfaces.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="threadpool_8hpp_source.html">threadpool.hpp</a>&quot;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Граф включаемых заголовочных файлов для managerTests.cpp:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="managerTests_8cpp__incl.png" border="0" usemap="#atests_2managerTests_8cpp" alt=""/></div>
+<map name="atests_2managerTests_8cpp" id="atests_2managerTests_8cpp">
+<area shape="rect" title=" " alt="" coords="227,5,389,31"/>
+<area shape="rect" title=" " alt="" coords="5,79,99,105"/>
+<area shape="poly" title=" " alt="" coords="265,34,111,77,109,72,264,29"/>
+<area shape="rect" title=" " alt="" coords="123,79,237,105"/>
+<area shape="poly" title=" " alt="" coords="288,34,216,73,214,69,285,29"/>
+<area shape="rect" href="manager_8hpp.html" title="Содержит объявление класса Manager, который реализует интерфейс IManager." alt="" coords="260,79,356,105"/>
+<area shape="poly" title=" " alt="" coords="311,31,311,63,305,63,305,31"/>
+<area shape="rect" href="interfaces_8hpp.html" title="Содержит интерфейсы IConfig, ITask, IQueue, IThreadPool, IManager." alt="" coords="300,153,402,178"/>
+<area shape="poly" title=" " alt="" coords="328,30,352,50,370,78,374,94,374,110,366,139,361,138,369,109,369,94,366,80,348,54,325,34"/>
+<area shape="rect" href="threadpool_8hpp.html" title="Содержит объявления структуры Thread и класса ThreadPool, который реализует интерфейс IThreadPool." alt="" coords="770,79,875,105"/>
+<area shape="poly" title=" " alt="" coords="389,28,755,78,754,84,389,33"/>
+<area shape="poly" title=" " alt="" coords="317,104,338,138,333,141,313,106"/>
+<area shape="rect" title=" " alt="" coords="173,153,275,178"/>
+<area shape="poly" title=" " alt="" coords="295,107,251,144,248,140,292,103"/>
+<area shape="rect" title=" " alt="" coords="447,308,526,333"/>
+<area shape="poly" title=" " alt="" coords="363,177,468,294,464,298,359,181"/>
+<area shape="rect" title=" " alt="" coords="656,226,710,252"/>
+<area shape="poly" title=" " alt="" coords="403,174,641,223,640,229,402,179"/>
+<area shape="rect" title=" " alt="" coords="484,226,551,252"/>
+<area shape="poly" title=" " alt="" coords="380,176,476,217,474,222,378,181"/>
+<area shape="rect" title=" " alt="" coords="575,226,631,252"/>
+<area shape="poly" title=" " alt="" coords="395,176,560,223,559,228,393,182"/>
+<area shape="rect" title=" " alt="" coords="119,226,228,252"/>
+<area shape="poly" title=" " alt="" coords="322,181,218,223,217,218,320,176"/>
+<area shape="rect" href="commonStructures_8hpp.html" title="Содержит общие структуры и типы данных, а также функции необходимые для работы с этими структурами и ..." alt="" coords="686,308,842,333"/>
+<area shape="poly" title=" " alt="" coords="368,177,423,217,473,250,694,301,693,306,471,254,420,222,365,181"/>
+<area shape="rect" href="jsonParser_8hpp.html" title="Содержит объявление класса JsonParser, предназначенного для парсинга и обработки JSON данных." alt="" coords="252,226,359,252"/>
+<area shape="poly" title=" " alt="" coords="345,180,323,215,319,212,341,177"/>
+<area shape="rect" href="recorder_8hpp.html" title="Содержит объявления интерфейса IRecorder, и его реализации FileRecorder." alt="" coords="734,226,826,252"/>
+<area shape="poly" title=" " alt="" coords="403,174,414,176,719,223,718,229,413,181,402,179"/>
+<area shape="rect" title=" " alt="" coords="650,389,710,414"/>
+<area shape="poly" title=" " alt="" coords="753,336,706,380,702,376,749,332"/>
+<area shape="rect" title=" " alt="" coords="987,389,1045,414"/>
+<area shape="poly" title=" " alt="" coords="804,331,973,384,972,389,802,336"/>
+<area shape="rect" title=" " alt="" coords="734,389,805,414"/>
+<area shape="poly" title=" " alt="" coords="767,333,770,373,765,373,762,334"/>
+<area shape="rect" title=" " alt="" coords="839,389,905,414"/>
+<area shape="poly" title=" " alt="" coords="782,331,845,377,842,381,779,336"/>
+<area shape="rect" title=" " alt="" coords="480,389,533,414"/>
+<area shape="poly" title=" " alt="" coords="725,336,549,390,548,385,724,331"/>
+<area shape="poly" title=" " alt="" coords="334,250,446,299,444,304,332,255"/>
+<area shape="poly" title=" " alt="" coords="323,251,386,298,482,377,479,381,382,302,320,255"/>
+<area shape="rect" title=" " alt="" coords="103,308,145,333"/>
+<area shape="poly" title=" " alt="" coords="273,255,159,303,157,298,271,250"/>
+<area shape="rect" title=" " alt="" coords="169,308,215,333"/>
+<area shape="poly" title=" " alt="" coords="290,255,223,301,220,296,287,250"/>
+<area shape="rect" title=" " alt="" coords="239,300,372,341"/>
+<area shape="poly" title=" " alt="" coords="308,252,308,285,303,285,303,252"/>
+<area shape="rect" title=" " alt="" coords="551,308,662,333"/>
+<area shape="poly" title=" " alt="" coords="355,250,539,297,550,300,549,305,538,303,353,255"/>
+<area shape="poly" title=" " alt="" coords="734,253,643,274,539,303,533,305,531,300,538,297,642,269,733,248"/>
+<area shape="poly" title=" " alt="" coords="780,253,772,293,767,292,775,252"/>
+<area shape="poly" title=" " alt="" coords="804,250,831,271,856,299,870,336,875,373,869,374,865,338,851,301,828,274,801,255"/>
+<area shape="poly" title=" " alt="" coords="754,255,648,303,646,298,752,250"/>
+<area shape="poly" title=" " alt="" coords="770,103,418,155,417,149,769,98"/>
+<area shape="poly" title=" " alt="" coords="876,99,923,110,964,127,980,137,990,150,992,164,983,180,965,194,938,204,868,216,792,222,725,229,725,224,792,217,868,211,936,199,962,190,979,177,986,163,985,152,976,141,962,131,921,115,875,104"/>
+<area shape="poly" title=" " alt="" coords="865,103,898,116,928,133,939,144,946,155,946,167,939,180,918,196,887,207,808,218,721,223,646,229,646,224,721,218,808,213,886,201,915,191,935,177,941,166,941,156,935,147,925,138,896,121,863,108"/>
+<area shape="poly" title=" " alt="" coords="876,97,981,116,1027,131,1045,140,1057,151,1072,178,1079,208,1080,240,1075,271,1056,331,1033,376,1028,374,1051,329,1070,270,1074,239,1074,209,1067,180,1053,154,1042,145,1025,136,979,121,875,102"/>
+<area shape="poly" title=" " alt="" coords="876,94,939,101,1000,116,1023,127,1039,141,1044,159,1034,180,1021,191,1003,200,954,216,842,235,841,229,953,211,1001,196,1018,187,1030,177,1038,159,1035,144,1020,132,998,121,938,107,875,99"/>
+<area shape="rect" title=" " alt="" coords="426,153,486,178"/>
+<area shape="poly" title=" " alt="" coords="770,104,651,125,502,155,501,150,650,120,769,99"/>
+<area shape="rect" title=" " alt="" coords="511,153,636,178"/>
+<area shape="poly" title=" " alt="" coords="781,108,631,151,629,145,780,103"/>
+<area shape="rect" title=" " alt="" coords="660,153,770,178"/>
+<area shape="poly" title=" " alt="" coords="806,107,747,146,744,141,803,103"/>
+<area shape="rect" title=" " alt="" coords="794,153,851,178"/>
+<area shape="poly" title=" " alt="" coords="825,105,825,137,820,137,820,105"/>
+<area shape="rect" title=" " alt="" coords="875,153,925,178"/>
+<area shape="poly" title=" " alt="" coords="838,103,878,140,874,144,834,107"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockQueue.html">MockQueue</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockConfig.html">MockConfig</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockThreadPool.html">MockThreadPool</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagerTest.html">ManagerTest</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:a52c196af391c96a16c420bdef56ed077" id="r_a52c196af391c96a16c420bdef56ed077"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="managerTests_8cpp.html#a52c196af391c96a16c420bdef56ed077">TEST_F</a> (<a class="el" href="classManagerTest.html">ManagerTest</a>, ConstructorTest)</td></tr>
+<tr class="separator:a52c196af391c96a16c420bdef56ed077"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87651e94d46e800cf3ccb9ff2431fb4b" id="r_a87651e94d46e800cf3ccb9ff2431fb4b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="managerTests_8cpp.html#a87651e94d46e800cf3ccb9ff2431fb4b">TEST_F</a> (<a class="el" href="classManagerTest.html">ManagerTest</a>, SetThreadPool)</td></tr>
+<tr class="separator:a87651e94d46e800cf3ccb9ff2431fb4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93c2aa53a4a13c8cf46b7170e714379a" id="r_a93c2aa53a4a13c8cf46b7170e714379a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="managerTests_8cpp.html#a93c2aa53a4a13c8cf46b7170e714379a">TEST_F</a> (<a class="el" href="classManagerTest.html">ManagerTest</a>, threadPoolStartTest)</td></tr>
+<tr class="separator:a93c2aa53a4a13c8cf46b7170e714379a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05aec214a7afe2af831495a8508493ef" id="r_a05aec214a7afe2af831495a8508493ef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="managerTests_8cpp.html#a05aec214a7afe2af831495a8508493ef">TEST_F</a> (<a class="el" href="classManagerTest.html">ManagerTest</a>, threadPoolStopTest)</td></tr>
+<tr class="separator:a05aec214a7afe2af831495a8508493ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacaec4886c8e80dadbd5617ffaf3ae71" id="r_aacaec4886c8e80dadbd5617ffaf3ae71"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="managerTests_8cpp.html#aacaec4886c8e80dadbd5617ffaf3ae71">TEST_F</a> (<a class="el" href="classManagerTest.html">ManagerTest</a>, AddTaskTest)</td></tr>
+<tr class="separator:aacaec4886c8e80dadbd5617ffaf3ae71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dfaddb2127880916d45aa283c3228ce" id="r_a2dfaddb2127880916d45aa283c3228ce"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="managerTests_8cpp.html#a2dfaddb2127880916d45aa283c3228ce">TEST_F</a> (<a class="el" href="classManagerTest.html">ManagerTest</a>, UpdateFunctionWhenThreadPoolSizeAreSame)</td></tr>
+<tr class="separator:a2dfaddb2127880916d45aa283c3228ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab311db4cc7ff91c0da0df01037846871" id="r_ab311db4cc7ff91c0da0df01037846871"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="managerTests_8cpp.html#ab311db4cc7ff91c0da0df01037846871">TEST_F</a> (<a class="el" href="classManagerTest.html">ManagerTest</a>, UpdateFunctionWhenThreadPoolSizeAreNotSame)</td></tr>
+<tr class="separator:ab311db4cc7ff91c0da0df01037846871"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d674569ea4cf71d342c4f2322d86ed5" id="r_a1d674569ea4cf71d342c4f2322d86ed5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="managerTests_8cpp.html#a1d674569ea4cf71d342c4f2322d86ed5">TEST_F</a> (<a class="el" href="classManagerTest.html">ManagerTest</a>, updateViaRequest)</td></tr>
+<tr class="separator:a1d674569ea4cf71d342c4f2322d86ed5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Функции</h2>
+<a id="aacaec4886c8e80dadbd5617ffaf3ae71" name="aacaec4886c8e80dadbd5617ffaf3ae71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacaec4886c8e80dadbd5617ffaf3ae71">&#9670;&#160;</a></span>TEST_F() <span class="overload">[1/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classManagerTest.html">ManagerTest</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AddTaskTest&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a52c196af391c96a16c420bdef56ed077" name="a52c196af391c96a16c420bdef56ed077"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52c196af391c96a16c420bdef56ed077">&#9670;&#160;</a></span>TEST_F() <span class="overload">[2/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classManagerTest.html">ManagerTest</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ConstructorTest&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a87651e94d46e800cf3ccb9ff2431fb4b" name="a87651e94d46e800cf3ccb9ff2431fb4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87651e94d46e800cf3ccb9ff2431fb4b">&#9670;&#160;</a></span>TEST_F() <span class="overload">[3/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classManagerTest.html">ManagerTest</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SetThreadPool&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a93c2aa53a4a13c8cf46b7170e714379a" name="a93c2aa53a4a13c8cf46b7170e714379a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93c2aa53a4a13c8cf46b7170e714379a">&#9670;&#160;</a></span>TEST_F() <span class="overload">[4/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classManagerTest.html">ManagerTest</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">threadPoolStartTest&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a05aec214a7afe2af831495a8508493ef" name="a05aec214a7afe2af831495a8508493ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05aec214a7afe2af831495a8508493ef">&#9670;&#160;</a></span>TEST_F() <span class="overload">[5/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classManagerTest.html">ManagerTest</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">threadPoolStopTest&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab311db4cc7ff91c0da0df01037846871" name="ab311db4cc7ff91c0da0df01037846871"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab311db4cc7ff91c0da0df01037846871">&#9670;&#160;</a></span>TEST_F() <span class="overload">[6/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classManagerTest.html">ManagerTest</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UpdateFunctionWhenThreadPoolSizeAreNotSame&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2dfaddb2127880916d45aa283c3228ce" name="a2dfaddb2127880916d45aa283c3228ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dfaddb2127880916d45aa283c3228ce">&#9670;&#160;</a></span>TEST_F() <span class="overload">[7/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classManagerTest.html">ManagerTest</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UpdateFunctionWhenThreadPoolSizeAreSame&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1d674569ea4cf71d342c4f2322d86ed5" name="a1d674569ea4cf71d342c4f2322d86ed5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d674569ea4cf71d342c4f2322d86ed5">&#9670;&#160;</a></span>TEST_F() <span class="overload">[8/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classManagerTest.html">ManagerTest</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">updateViaRequest&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

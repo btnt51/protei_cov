@@ -1,0 +1,667 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Класс utility::IConfig</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespaceutility.html">utility</a></li><li class="navelem"><a class="el" href="classutility_1_1IConfig.html">IConfig</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="classutility_1_1IConfig-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс utility::IConfig<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Абстрактный интерфейс для работы с конфигурацией.  
+ <a href="classutility_1_1IConfig.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="interfaces_8hpp_source.html">interfaces.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Граф наследования:utility::IConfig:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classutility_1_1IConfig__inherit__graph.png" border="0" usemap="#autility_1_1IConfig_inherit__map" alt="Inheritance graph"/></div>
+<map name="autility_1_1IConfig_inherit__map" id="autility_1_1IConfig_inherit__map">
+<area shape="rect" title="Абстрактный интерфейс для работы с конфигурацией." alt="" coords="117,5,215,31"/>
+<area shape="rect" href="classMockConfig.html" title=" " alt="" coords="5,79,95,105"/>
+<area shape="poly" title=" " alt="" coords="135,42,71,81,68,76,132,37"/>
+<area shape="rect" href="classutility_1_1Config.html" title="Класс Config представляет собой реализацию интерфейса IConfig." alt="" coords="119,79,213,105"/>
+<area shape="poly" title=" " alt="" coords="169,46,169,79,163,79,163,46"/>
+<area shape="rect" href="classutility_1_1ThreadSafeConfig.html" title="Класс ThreadSafeConfig представляет собой потокобезопасную реализацию интерфейса IConfig." alt="" coords="237,79,397,105"/>
+<area shape="poly" title=" " alt="" coords="206,36,292,76,290,81,204,40"/>
+<area shape="rect" href="classMockThreadSafeConfig.html" title=" " alt="" coords="239,153,395,178"/>
+<area shape="poly" title=" " alt="" coords="319,120,319,152,314,152,314,120"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:aea75170ec34e65e31218404e0467bec5" id="r_aea75170ec34e65e31218404e0467bec5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#aea75170ec34e65e31218404e0467bec5">IConfig</a> (const std::filesystem::path &amp;path, std::shared_ptr&lt; spdlog::logger &gt;)</td></tr>
+<tr class="memdesc:aea75170ec34e65e31218404e0467bec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор класса <a class="el" href="classutility_1_1IConfig.html" title="Абстрактный интерфейс для работы с конфигурацией.">IConfig</a>.  <br /></td></tr>
+<tr class="separator:aea75170ec34e65e31218404e0467bec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40311b4abe6049551aab393c3a18fe36" id="r_a40311b4abe6049551aab393c3a18fe36"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#a40311b4abe6049551aab393c3a18fe36">~IConfig</a> ()</td></tr>
+<tr class="memdesc:a40311b4abe6049551aab393c3a18fe36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Виртуальный деструктор класса <a class="el" href="classutility_1_1IConfig.html" title="Абстрактный интерфейс для работы с конфигурацией.">IConfig</a>.  <br /></td></tr>
+<tr class="separator:a40311b4abe6049551aab393c3a18fe36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e15dead40cd577ef103a21037ca6339" id="r_a0e15dead40cd577ef103a21037ca6339"><td class="memItemLeft" align="right" valign="top">virtual std::pair&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#a0e15dead40cd577ef103a21037ca6339">getMinMax</a> ()=0</td></tr>
+<tr class="memdesc:a0e15dead40cd577ef103a21037ca6339"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает пару значений - минимальное и максимальное количество операторов.  <br /></td></tr>
+<tr class="separator:a0e15dead40cd577ef103a21037ca6339"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a621fd9e0531a4b9c2c7eae58f2100fa5" id="r_a621fd9e0531a4b9c2c7eae58f2100fa5"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#a621fd9e0531a4b9c2c7eae58f2100fa5">getAmountOfOperators</a> ()=0</td></tr>
+<tr class="memdesc:a621fd9e0531a4b9c2c7eae58f2100fa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает количество операторов из конфигурации.  <br /></td></tr>
+<tr class="separator:a621fd9e0531a4b9c2c7eae58f2100fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7544df7029afabbbab63124a9e48f57" id="r_af7544df7029afabbbab63124a9e48f57"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#af7544df7029afabbbab63124a9e48f57">getSizeOfQueue</a> ()=0</td></tr>
+<tr class="memdesc:af7544df7029afabbbab63124a9e48f57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает размер очереди из конфигурации.  <br /></td></tr>
+<tr class="separator:af7544df7029afabbbab63124a9e48f57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a467af645859c3f09c4d26b8aa51819d3" id="r_a467af645859c3f09c4d26b8aa51819d3"><td class="memItemLeft" align="right" valign="top">virtual std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#a467af645859c3f09c4d26b8aa51819d3">getPath</a> ()=0</td></tr>
+<tr class="memdesc:a467af645859c3f09c4d26b8aa51819d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает путь к файлу конфигурации.  <br /></td></tr>
+<tr class="separator:a467af645859c3f09c4d26b8aa51819d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59b9286e5eae61edf891ac66f0fe96f3" id="r_a59b9286e5eae61edf891ac66f0fe96f3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#a59b9286e5eae61edf891ac66f0fe96f3">updateConfig</a> ()=0</td></tr>
+<tr class="memdesc:a59b9286e5eae61edf891ac66f0fe96f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обновляет данные конфигурации.  <br /></td></tr>
+<tr class="separator:a59b9286e5eae61edf891ac66f0fe96f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94a6af46e974ec56e4278a18247e2186" id="r_a94a6af46e974ec56e4278a18247e2186"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#a94a6af46e974ec56e4278a18247e2186">updateWithRequest</a> ()=0</td></tr>
+<tr class="memdesc:a94a6af46e974ec56e4278a18247e2186"><td class="mdescLeft">&#160;</td><td class="mdescRight">Принимает запрос на обновление конфигурации.  <br /></td></tr>
+<tr class="separator:a94a6af46e974ec56e4278a18247e2186"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d2703c7fb18af84d178800896f76249" id="r_a5d2703c7fb18af84d178800896f76249"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#a5d2703c7fb18af84d178800896f76249">isUpdated</a> ()=0</td></tr>
+<tr class="memdesc:a5d2703c7fb18af84d178800896f76249"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет, была ли конфигурация обновлена.  <br /></td></tr>
+<tr class="separator:a5d2703c7fb18af84d178800896f76249"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a879701159649c2f0312da3f9441a1e" id="r_a7a879701159649c2f0312da3f9441a1e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#a7a879701159649c2f0312da3f9441a1e">notify</a> ()=0</td></tr>
+<tr class="memdesc:a7a879701159649c2f0312da3f9441a1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Уведомляет менеджера о необходимости обновления конфигурации.  <br /></td></tr>
+<tr class="separator:a7a879701159649c2f0312da3f9441a1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6488d783a2fa88ad8da383782870aa06" id="r_a6488d783a2fa88ad8da383782870aa06"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#a6488d783a2fa88ad8da383782870aa06">setManager</a> (std::shared_ptr&lt; <a class="el" href="classIManager.html">IManager</a> &gt; manager)=0</td></tr>
+<tr class="memdesc:a6488d783a2fa88ad8da383782870aa06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает менеджера для обработки конфигурационных изменений.  <br /></td></tr>
+<tr class="separator:a6488d783a2fa88ad8da383782870aa06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc8b85185ab384624e63dcb6c124cfbf" id="r_afc8b85185ab384624e63dcb6c124cfbf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#afc8b85185ab384624e63dcb6c124cfbf">setLogger</a> (std::shared_ptr&lt; spdlog::logger &gt; logger)=0</td></tr>
+<tr class="memdesc:afc8b85185ab384624e63dcb6c124cfbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает асинхронный логгер.  <br /></td></tr>
+<tr class="separator:afc8b85185ab384624e63dcb6c124cfbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4daacb8dcd69c89cc58fa4c923ef3c1" id="r_ac4daacb8dcd69c89cc58fa4c923ef3c1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#ac4daacb8dcd69c89cc58fa4c923ef3c1">normalizeData</a> ()=0</td></tr>
+<tr class="memdesc:ac4daacb8dcd69c89cc58fa4c923ef3c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Нормализует данные  <br /></td></tr>
+<tr class="separator:ac4daacb8dcd69c89cc58fa4c923ef3c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9098951ac6bbb8943cc3f0c8d9091e6" id="r_aa9098951ac6bbb8943cc3f0c8d9091e6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#aa9098951ac6bbb8943cc3f0c8d9091e6">normalizeRMinRMax</a> ()=0</td></tr>
+<tr class="memdesc:aa9098951ac6bbb8943cc3f0c8d9091e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Нормализует RMin и RMax.  <br /></td></tr>
+<tr class="separator:aa9098951ac6bbb8943cc3f0c8d9091e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3a281237bb48f66c7043b20c9ee44e7" id="r_ad3a281237bb48f66c7043b20c9ee44e7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#ad3a281237bb48f66c7043b20c9ee44e7">normalizeAmountOfOperators</a> ()=0</td></tr>
+<tr class="memdesc:ad3a281237bb48f66c7043b20c9ee44e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Нормализует AmountOfOperators.  <br /></td></tr>
+<tr class="separator:ad3a281237bb48f66c7043b20c9ee44e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1880e1c349ac8d5335df0960c35046e" id="r_ab1880e1c349ac8d5335df0960c35046e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1IConfig.html#ab1880e1c349ac8d5335df0960c35046e">normalizeSizeOfQueue</a> ()=0</td></tr>
+<tr class="memdesc:ab1880e1c349ac8d5335df0960c35046e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Нормализует SizeOfQueue.  <br /></td></tr>
+<tr class="separator:ab1880e1c349ac8d5335df0960c35046e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Абстрактный интерфейс для работы с конфигурацией. </p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="aea75170ec34e65e31218404e0467bec5" name="aea75170ec34e65e31218404e0467bec5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea75170ec34e65e31218404e0467bec5">&#9670;&#160;</a></span>IConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">utility::IConfig::IConfig </td>
+          <td>(</td>
+          <td class="paramtype">const std::filesystem::path &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Конструктор класса <a class="el" href="classutility_1_1IConfig.html" title="Абстрактный интерфейс для работы с конфигурацией.">IConfig</a>. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>Путь к файлу конфигурации. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a40311b4abe6049551aab393c3a18fe36" name="a40311b4abe6049551aab393c3a18fe36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40311b4abe6049551aab393c3a18fe36">&#9670;&#160;</a></span>~IConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual utility::IConfig::~IConfig </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Виртуальный деструктор класса <a class="el" href="classutility_1_1IConfig.html" title="Абстрактный интерфейс для работы с конфигурацией.">IConfig</a>. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a621fd9e0531a4b9c2c7eae58f2100fa5" name="a621fd9e0531a4b9c2c7eae58f2100fa5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a621fd9e0531a4b9c2c7eae58f2100fa5">&#9670;&#160;</a></span>getAmountOfOperators()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int utility::IConfig::getAmountOfOperators </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает количество операторов из конфигурации. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Количество операторов. </dd></dl>
+
+<p>Замещается в <a class="el" href="classutility_1_1Config.html#a2dc79eac5a7845b9cf8887c5dc1d4873">utility::Config</a> и <a class="el" href="classutility_1_1ThreadSafeConfig.html#a4533a82dc9b2dc316a2fd7b0b19392de">utility::ThreadSafeConfig</a>.</p>
+
+</div>
+</div>
+<a id="a0e15dead40cd577ef103a21037ca6339" name="a0e15dead40cd577ef103a21037ca6339"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e15dead40cd577ef103a21037ca6339">&#9670;&#160;</a></span>getMinMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::pair&lt; int, int &gt; utility::IConfig::getMinMax </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает пару значений - минимальное и максимальное количество операторов. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Пара значений: (минимум, максимум). </dd></dl>
+
+<p>Замещается в <a class="el" href="classutility_1_1Config.html#a8c99a496dea58f87581110a20205880b">utility::Config</a> и <a class="el" href="classutility_1_1ThreadSafeConfig.html#a92e7851bcdd03dd9c7ff79ec066ff060">utility::ThreadSafeConfig</a>.</p>
+
+</div>
+</div>
+<a id="a467af645859c3f09c4d26b8aa51819d3" name="a467af645859c3f09c4d26b8aa51819d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a467af645859c3f09c4d26b8aa51819d3">&#9670;&#160;</a></span>getPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::filesystem::path utility::IConfig::getPath </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает путь к файлу конфигурации. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Путь к файлу конфигурации. </dd></dl>
+
+<p>Замещается в <a class="el" href="classutility_1_1Config.html#aad54964eb1335e40d6c1397b47322f38">utility::Config</a> и <a class="el" href="classutility_1_1ThreadSafeConfig.html#a5e96bf9ce6707942789f6a7ee2c6acfe">utility::ThreadSafeConfig</a>.</p>
+
+</div>
+</div>
+<a id="af7544df7029afabbbab63124a9e48f57" name="af7544df7029afabbbab63124a9e48f57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7544df7029afabbbab63124a9e48f57">&#9670;&#160;</a></span>getSizeOfQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int utility::IConfig::getSizeOfQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает размер очереди из конфигурации. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Размер очереди. </dd></dl>
+
+<p>Замещается в <a class="el" href="classutility_1_1Config.html#ab841010aeb12d85451a9092d00268209">utility::Config</a> и <a class="el" href="classutility_1_1ThreadSafeConfig.html#aeebb21120e22df182758c231b4edd8d6">utility::ThreadSafeConfig</a>.</p>
+
+</div>
+</div>
+<a id="a5d2703c7fb18af84d178800896f76249" name="a5d2703c7fb18af84d178800896f76249"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d2703c7fb18af84d178800896f76249">&#9670;&#160;</a></span>isUpdated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool utility::IConfig::isUpdated </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проверяет, была ли конфигурация обновлена. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>true, если конфигурация была обновлена, в противном случае - false. </dd></dl>
+
+<p>Замещается в <a class="el" href="classutility_1_1Config.html#a2112e8ba77ab619e37a82f9c78218d63">utility::Config</a> и <a class="el" href="classutility_1_1ThreadSafeConfig.html#af33919fedd8d5978804b90a2cca3c994">utility::ThreadSafeConfig</a>.</p>
+
+</div>
+</div>
+<a id="ad3a281237bb48f66c7043b20c9ee44e7" name="ad3a281237bb48f66c7043b20c9ee44e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3a281237bb48f66c7043b20c9ee44e7">&#9670;&#160;</a></span>normalizeAmountOfOperators()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void utility::IConfig::normalizeAmountOfOperators </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Нормализует AmountOfOperators. </p>
+
+<p>Замещается в <a class="el" href="classutility_1_1Config.html#ae1fe4b908c4b20bac4c39eed632130d3">utility::Config</a> и <a class="el" href="classutility_1_1ThreadSafeConfig.html#a02a0d9852d2b8a28cafa274faac322a3">utility::ThreadSafeConfig</a>.</p>
+
+</div>
+</div>
+<a id="ac4daacb8dcd69c89cc58fa4c923ef3c1" name="ac4daacb8dcd69c89cc58fa4c923ef3c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4daacb8dcd69c89cc58fa4c923ef3c1">&#9670;&#160;</a></span>normalizeData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void utility::IConfig::normalizeData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Нормализует данные </p>
+
+<p>Замещается в <a class="el" href="classutility_1_1Config.html#a770ff9dfb5eaa905b0e6c7aad1fdc27e">utility::Config</a> и <a class="el" href="classutility_1_1ThreadSafeConfig.html#aa64fdedf90eba0c7394b8443854cd024">utility::ThreadSafeConfig</a>.</p>
+
+</div>
+</div>
+<a id="aa9098951ac6bbb8943cc3f0c8d9091e6" name="aa9098951ac6bbb8943cc3f0c8d9091e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9098951ac6bbb8943cc3f0c8d9091e6">&#9670;&#160;</a></span>normalizeRMinRMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void utility::IConfig::normalizeRMinRMax </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Нормализует RMin и RMax. </p>
+
+<p>Замещается в <a class="el" href="classutility_1_1Config.html#a5da0542aca31039e3bb4410854bf1858">utility::Config</a> и <a class="el" href="classutility_1_1ThreadSafeConfig.html#aea8423dbf3174bb136874b7ad1a9b9c0">utility::ThreadSafeConfig</a>.</p>
+
+</div>
+</div>
+<a id="ab1880e1c349ac8d5335df0960c35046e" name="ab1880e1c349ac8d5335df0960c35046e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1880e1c349ac8d5335df0960c35046e">&#9670;&#160;</a></span>normalizeSizeOfQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void utility::IConfig::normalizeSizeOfQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Нормализует SizeOfQueue. </p>
+
+<p>Замещается в <a class="el" href="classutility_1_1Config.html#a179a8a38c3a38497999d2e6c9cda738c">utility::Config</a> и <a class="el" href="classutility_1_1ThreadSafeConfig.html#a1ef29031cf05705c75227ef6df340bf1">utility::ThreadSafeConfig</a>.</p>
+
+</div>
+</div>
+<a id="a7a879701159649c2f0312da3f9441a1e" name="a7a879701159649c2f0312da3f9441a1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a879701159649c2f0312da3f9441a1e">&#9670;&#160;</a></span>notify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void utility::IConfig::notify </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Уведомляет менеджера о необходимости обновления конфигурации. </p>
+
+<p>Замещается в <a class="el" href="classutility_1_1Config.html#a1b0248504b32187c1ecd8de012574109">utility::Config</a> и <a class="el" href="classutility_1_1ThreadSafeConfig.html#a50283a3faf9e924ff79b94eb50a75702">utility::ThreadSafeConfig</a>.</p>
+
+</div>
+</div>
+<a id="afc8b85185ab384624e63dcb6c124cfbf" name="afc8b85185ab384624e63dcb6c124cfbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc8b85185ab384624e63dcb6c124cfbf">&#9670;&#160;</a></span>setLogger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void utility::IConfig::setLogger </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
+          <td class="paramname"><em>logger</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Устанавливает асинхронный логгер. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>Указатель на объект логгера. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещается в <a class="el" href="classutility_1_1Config.html#aeb54bb7dd5f6bd4cd7f7168f1c39ddf4">utility::Config</a> и <a class="el" href="classutility_1_1ThreadSafeConfig.html#a9fe56422ff5530ad66876a50f5f5ff2e">utility::ThreadSafeConfig</a>.</p>
+
+</div>
+</div>
+<a id="a6488d783a2fa88ad8da383782870aa06" name="a6488d783a2fa88ad8da383782870aa06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6488d783a2fa88ad8da383782870aa06">&#9670;&#160;</a></span>setManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void utility::IConfig::setManager </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classIManager.html">IManager</a> &gt;&#160;</td>
+          <td class="paramname"><em>manager</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Устанавливает менеджера для обработки конфигурационных изменений. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">manager</td><td>Указатель на объект менеджера. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещается в <a class="el" href="classutility_1_1Config.html#aaffee92a1970d3c57b6eaa5d7f8d695a">utility::Config</a> и <a class="el" href="classutility_1_1ThreadSafeConfig.html#a3c4f5864d267490a44db183bb9a166bf">utility::ThreadSafeConfig</a>.</p>
+
+</div>
+</div>
+<a id="a59b9286e5eae61edf891ac66f0fe96f3" name="a59b9286e5eae61edf891ac66f0fe96f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59b9286e5eae61edf891ac66f0fe96f3">&#9670;&#160;</a></span>updateConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void utility::IConfig::updateConfig </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Обновляет данные конфигурации. </p>
+
+<p>Замещается в <a class="el" href="classutility_1_1Config.html#a720edee38947ba903538734e1ea2c6e7">utility::Config</a> и <a class="el" href="classutility_1_1ThreadSafeConfig.html#adecfe991e19064ad2a0ed48bf2962c90">utility::ThreadSafeConfig</a>.</p>
+
+</div>
+</div>
+<a id="a94a6af46e974ec56e4278a18247e2186" name="a94a6af46e974ec56e4278a18247e2186"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94a6af46e974ec56e4278a18247e2186">&#9670;&#160;</a></span>updateWithRequest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void utility::IConfig::updateWithRequest </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Принимает запрос на обновление конфигурации. </p>
+
+<p>Замещается в <a class="el" href="classutility_1_1Config.html#ac3d77caeb0123721ad380bc7e1b0e9b3">utility::Config</a> и <a class="el" href="classutility_1_1ThreadSafeConfig.html#aa3f2c095bbfe19a624be2470050e8c26">utility::ThreadSafeConfig</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>include/<a class="el" href="interfaces_8hpp_source.html">interfaces.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<map id="src/recorder.cpp" name="src/recorder.cpp">
+<area shape="rect" id="Node000001" title="Содержит определение FileRecorder." alt="" coords="344,5,458,31"/>
+<area shape="rect" id="Node000002" href="$recorder_8hpp.html" title="Содержит объявления интерфейса IRecorder, и его реализации FileRecorder." alt="" coords="355,79,447,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="404,31,404,63,398,63,398,31"/>
+<area shape="rect" id="Node000003" href="$commonStructures_8hpp.html" title="Содержит общие структуры и типы данных, а также функции необходимые для работы с этими структурами и ..." alt="" coords="157,153,312,178"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="374,108,278,149,275,144,372,103"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="344,226,410,252"/>
+<area shape="poly" id="edge9_Node000002_Node000007" title=" " alt="" coords="400,106,390,153,382,212,377,211,385,152,395,104"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="400,153,479,178"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="410,104,428,138,423,140,405,106"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="504,153,615,178"/>
+<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="429,103,520,144,518,148,427,108"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,226,66,252"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="201,181,81,224,79,219,200,176"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="90,226,147,252"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="216,181,152,220,149,216,213,177"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="171,226,242,252"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="232,180,219,213,214,211,227,178"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="260,176,340,217,338,221,257,181"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="266,226,320,252"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="246,177,275,213,271,216,242,180"/>
+</map>

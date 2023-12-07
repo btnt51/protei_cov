@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Исходный файл include/interfaces.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">interfaces.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="interfaces_8hpp.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PROTEI_COV_INTERFACES_HPP</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PROTEI_COV_INTERFACES_HPP</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;filesystem&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;future&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;queue&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;spdlog/logger.h&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="commonStructures_8hpp.html">commonStructures.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="jsonParser_8hpp.html">jsonParser.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="recorder_8hpp.html">recorder.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">class </span><a class="code hl_class" href="classIManager.html">IManager</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceutility.html">utility</a> {</div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classutility_1_1IConfig.html">   24</a></span><span class="keyword">class </span><a class="code hl_class" href="classutility_1_1IConfig.html">IConfig</a> {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classutility_1_1IConfig.html#aea75170ec34e65e31218404e0467bec5">   30</a></span>    <a class="code hl_function" href="classutility_1_1IConfig.html#aea75170ec34e65e31218404e0467bec5">IConfig</a>([[maybe_unused]] <span class="keyword">const</span> std::filesystem::path&amp; path, [[maybe_unused]] std::shared_ptr&lt;spdlog::logger&gt;) {}</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classutility_1_1IConfig.html#a40311b4abe6049551aab393c3a18fe36">   35</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classutility_1_1IConfig.html#a40311b4abe6049551aab393c3a18fe36">~IConfig</a>() {}</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classutility_1_1IConfig.html#a0e15dead40cd577ef103a21037ca6339">   41</a></span>    <span class="keyword">virtual</span> std::pair&lt;int, int&gt; <a class="code hl_function" href="classutility_1_1IConfig.html#a0e15dead40cd577ef103a21037ca6339">getMinMax</a>() = 0;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classutility_1_1IConfig.html#a621fd9e0531a4b9c2c7eae58f2100fa5">   47</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classutility_1_1IConfig.html#a621fd9e0531a4b9c2c7eae58f2100fa5">getAmountOfOperators</a>() = 0;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classutility_1_1IConfig.html#af7544df7029afabbbab63124a9e48f57">   53</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classutility_1_1IConfig.html#af7544df7029afabbbab63124a9e48f57">getSizeOfQueue</a>() = 0;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classutility_1_1IConfig.html#a467af645859c3f09c4d26b8aa51819d3">   59</a></span>    <span class="keyword">virtual</span> std::filesystem::path <a class="code hl_function" href="classutility_1_1IConfig.html#a467af645859c3f09c4d26b8aa51819d3">getPath</a>() = 0;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classutility_1_1IConfig.html#a59b9286e5eae61edf891ac66f0fe96f3">   64</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classutility_1_1IConfig.html#a59b9286e5eae61edf891ac66f0fe96f3">updateConfig</a>() = 0;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classutility_1_1IConfig.html#a94a6af46e974ec56e4278a18247e2186">   69</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classutility_1_1IConfig.html#a94a6af46e974ec56e4278a18247e2186">updateWithRequest</a>() = 0;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classutility_1_1IConfig.html#a5d2703c7fb18af84d178800896f76249">   75</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classutility_1_1IConfig.html#a5d2703c7fb18af84d178800896f76249">isUpdated</a>() = 0;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classutility_1_1IConfig.html#a7a879701159649c2f0312da3f9441a1e">   80</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classutility_1_1IConfig.html#a7a879701159649c2f0312da3f9441a1e">notify</a>() = 0;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="classutility_1_1IConfig.html#a6488d783a2fa88ad8da383782870aa06">   86</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classutility_1_1IConfig.html#a6488d783a2fa88ad8da383782870aa06">setManager</a>(std::shared_ptr&lt;IManager&gt; manager) = 0;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classutility_1_1IConfig.html#afc8b85185ab384624e63dcb6c124cfbf">   92</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classutility_1_1IConfig.html#afc8b85185ab384624e63dcb6c124cfbf">setLogger</a>(std::shared_ptr&lt;spdlog::logger&gt; logger) = 0;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classutility_1_1IConfig.html#ac4daacb8dcd69c89cc58fa4c923ef3c1">   97</a></span>     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classutility_1_1IConfig.html#ac4daacb8dcd69c89cc58fa4c923ef3c1">normalizeData</a>() = 0;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classutility_1_1IConfig.html#aa9098951ac6bbb8943cc3f0c8d9091e6">  102</a></span>     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classutility_1_1IConfig.html#aa9098951ac6bbb8943cc3f0c8d9091e6">normalizeRMinRMax</a>() = 0;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="classutility_1_1IConfig.html#ad3a281237bb48f66c7043b20c9ee44e7">  107</a></span>     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classutility_1_1IConfig.html#ad3a281237bb48f66c7043b20c9ee44e7">normalizeAmountOfOperators</a>() = 0;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="classutility_1_1IConfig.html#ab1880e1c349ac8d5335df0960c35046e">  112</a></span>     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classutility_1_1IConfig.html#ab1880e1c349ac8d5335df0960c35046e">normalizeSizeOfQueue</a>() = 0;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>};</div>
+</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>}</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceTP.html">TP</a> {</div>
+<div class="foldopen" id="foldopen00119" data-start="{" data-end="};">
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="classTP_1_1ITask.html">  119</a></span><span class="keyword">class </span><a class="code hl_class" href="classTP_1_1ITask.html">ITask</a> {</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00128" data-start="{" data-end="}">
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="classTP_1_1ITask.html#adad71dc441ae45f44c2ce1c5d88df2a5">  128</a></span>    <a class="code hl_function" href="classTP_1_1ITask.html#adad71dc441ae45f44c2ce1c5d88df2a5">ITask</a>([[maybe_unused]] <span class="keywordtype">int</span> RMin, [[maybe_unused]] <span class="keywordtype">int</span> RMax, [[maybe_unused]] std::string_view number,</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>          [[maybe_unused]] <span class="keyword">const</span> std::chrono::system_clock::time_point&amp; startTime, [[maybe_unused]] std::shared_ptr&lt;spdlog::logger&gt; logger) {}</div>
+</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="classTP_1_1ITask.html#a4f9f8972ed69cdd8a6cef0aed6009038">  133</a></span>    <span class="keyword">virtual</span> <a class="code hl_struct" href="structResult.html">Result</a> <a class="code hl_function" href="classTP_1_1ITask.html#a4f9f8972ed69cdd8a6cef0aed6009038">doTask</a>() = 0;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="classTP_1_1ITask.html#a398542df36d21c8602d87c74d119eb97">  139</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1ITask.html#a398542df36d21c8602d87c74d119eb97">setCallID</a>(<a class="code hl_typedef" href="namespaceTP.html#a34116505f865df276a6696f975e74036">CallID</a>&amp; <span class="keywordtype">id</span>) = 0;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="classTP_1_1ITask.html#aea9e52c28c53bd8dc9a91c50b1738900">  145</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1ITask.html#aea9e52c28c53bd8dc9a91c50b1738900">setThreadID</a>(std::size_t&amp; <span class="keywordtype">id</span>) = 0;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="classTP_1_1ITask.html#a3305cbae0ac78a5a2a292e9a253e962a">  151</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1ITask.html#a3305cbae0ac78a5a2a292e9a253e962a">addPromise</a>(std::shared_ptr&lt;std::promise&lt;Result&gt;&gt; promise) = 0;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="classTP_1_1ITask.html#ae90b196058623fb2e7e7bfe634233b02">  157</a></span>    <span class="keyword">virtual</span> std::string_view <a class="code hl_function" href="classTP_1_1ITask.html#ae90b196058623fb2e7e7bfe634233b02">getNumber</a>() = 0;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="classTP_1_1ITask.html#a07108eb2a572fcf6abe03902d97ca114">  159</a></span>    std::shared_ptr&lt;std::promise&lt;Result&gt;&gt; <a class="code hl_variable" href="classTP_1_1ITask.html#a07108eb2a572fcf6abe03902d97ca114">promise_</a>;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="classTP_1_1ITask.html#a8a8ea3e1e1f5c8ee1585fd1c2cc63a0f">  161</a></span>    <a class="code hl_struct" href="structCDR.html">CDR</a> <a class="code hl_variable" href="classTP_1_1ITask.html#a8a8ea3e1e1f5c8ee1585fd1c2cc63a0f">cdr</a>;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>};</div>
+</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="foldopen" id="foldopen00168" data-start="{" data-end="};">
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="classTP_1_1IQueue.html">  168</a></span><span class="keyword">class </span><a class="code hl_class" href="classTP_1_1IQueue.html">IQueue</a> {</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="classTP_1_1IQueue.html#ad059ca86fde968f322c2a25ae810e090">  174</a></span>    <a class="code hl_function" href="classTP_1_1IQueue.html#ad059ca86fde968f322c2a25ae810e090">IQueue</a>([[maybe_unused]] <span class="keywordtype">int</span> size) {}</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="classTP_1_1IQueue.html#a4de048f35493c7cfa01b1cf6b6ebf642">  180</a></span>    <span class="keyword">virtual</span> std::pair&lt;std::shared_ptr&lt;ITask&gt;, <a class="code hl_typedef" href="namespaceTP.html#a34116505f865df276a6696f975e74036">CallID</a>&gt;&amp; <a class="code hl_function" href="classTP_1_1IQueue.html#a4de048f35493c7cfa01b1cf6b6ebf642">back</a>() = 0;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="classTP_1_1IQueue.html#ab27bfedef69b4b9dd075049d4ccef013">  186</a></span>    <span class="keyword">virtual</span> std::pair&lt;std::shared_ptr&lt;ITask&gt;, <a class="code hl_typedef" href="namespaceTP.html#a34116505f865df276a6696f975e74036">CallID</a>&gt;&amp; <a class="code hl_function" href="classTP_1_1IQueue.html#ab27bfedef69b4b9dd075049d4ccef013">front</a>() = 0;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="classTP_1_1IQueue.html#ac31a57a7db9ab873a6e456cab8d06df5">  192</a></span>    [[nodiscard]] <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classTP_1_1IQueue.html#ac31a57a7db9ab873a6e456cab8d06df5">empty</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno"><a class="line" href="classTP_1_1IQueue.html#ada95e23a75a07c75493708a047948807">  199</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classTP_1_1IQueue.html#ada95e23a75a07c75493708a047948807">push</a>(std::pair&lt;std::shared_ptr&lt;ITask&gt;, <a class="code hl_typedef" href="namespaceTP.html#a34116505f865df276a6696f975e74036">CallID</a>&gt;&amp;&amp; taskPair) = 0;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="classTP_1_1IQueue.html#ae5472ec9666372cec2924b01e009f834">  204</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1IQueue.html#ae5472ec9666372cec2924b01e009f834">pop</a>() = 0;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="classTP_1_1IQueue.html#a64d733e9c314634719a64dd9d425aa9a">  210</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1IQueue.html#a64d733e9c314634719a64dd9d425aa9a">update</a>(<span class="keywordtype">int</span> size) = 0;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno"><a class="line" href="classTP_1_1IQueue.html#a00e27b1ecd90212b4ca97192a0b271f0">  216</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1IQueue.html#a00e27b1ecd90212b4ca97192a0b271f0">setLogger</a>(std::shared_ptr&lt;spdlog::logger&gt; logger) = 0;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="classTP_1_1IQueue.html#aca91803ab2cebe8ab1fc8cc27207f2e6">  222</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1IQueue.html#aca91803ab2cebe8ab1fc8cc27207f2e6">setRecorders</a>(std::vector&lt;std::shared_ptr&lt;IRecorder&gt;&gt; recorders) = 0;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno"><a class="line" href="classTP_1_1IQueue.html#a12aeaeacc2a109295910da628511f64a">  228</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1IQueue.html#a12aeaeacc2a109295910da628511f64a">writeCDR</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structCDR.html">CDR</a>&amp; cdr) = 0;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>};</div>
+</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="foldopen" id="foldopen00235" data-start="{" data-end="};">
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno"><a class="line" href="classTP_1_1IThreadPool.html">  235</a></span><span class="keyword">class </span><a class="code hl_class" href="classTP_1_1IThreadPool.html">IThreadPool</a> {</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno"><a class="line" href="classTP_1_1IThreadPool.html#a6dc749a7d0fc1015e80d76a8d2499ca7">  241</a></span>    <a class="code hl_function" href="classTP_1_1IThreadPool.html#a6dc749a7d0fc1015e80d76a8d2499ca7">IThreadPool</a>([[maybe_unused]] <span class="keywordtype">unsigned</span> amountOfThreads, [[maybe_unused]] <span class="keywordtype">unsigned</span> sizeOfQueue) { }</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno"><a class="line" href="classTP_1_1IThreadPool.html#a1e43458ac754959d3f4d7c628903827b">  246</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classTP_1_1IThreadPool.html#a1e43458ac754959d3f4d7c628903827b">~IThreadPool</a>() { }</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno"><a class="line" href="classTP_1_1IThreadPool.html#ab08f87de85c761f6f5702b04142c196c">  253</a></span>    <span class="keyword">virtual</span> std::pair&lt;CallID, std::future&lt;Result&gt;&gt; <a class="code hl_function" href="classTP_1_1IThreadPool.html#ab08f87de85c761f6f5702b04142c196c">add_task</a>(std::shared_ptr&lt;ITask&gt; task) = 0;</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno"><a class="line" href="classTP_1_1IThreadPool.html#a5bb528b4acf525834e0e55fada9aafab">  258</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1IThreadPool.html#a5bb528b4acf525834e0e55fada9aafab">stop</a>() = 0;</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno"><a class="line" href="classTP_1_1IThreadPool.html#a1f25c807fda7429db5477fbe5146ea61">  263</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1IThreadPool.html#a1f25c807fda7429db5477fbe5146ea61">start</a>() = 0;</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno"><a class="line" href="classTP_1_1IThreadPool.html#a9d9de8f7e02730671b6d9c02c287c775">  269</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1IThreadPool.html#a9d9de8f7e02730671b6d9c02c287c775">transferObjects</a>(<span class="keyword">const</span> std::shared_ptr&lt;IThreadPool&gt;&amp; oldThreadPool) = 0;</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno"><a class="line" href="classTP_1_1IThreadPool.html#a7fda0674c7a2d2c59ff916b6e3b19ad6">  276</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1IThreadPool.html#a7fda0674c7a2d2c59ff916b6e3b19ad6">setTaskQueue</a>(std::shared_ptr&lt;IQueue&gt; <a class="code hl_variable" href="classTP_1_1IThreadPool.html#afae4b08f4efc851a5d720cc1570e044c">task_queue</a>) = 0;</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno"><a class="line" href="classTP_1_1IThreadPool.html#a0816a41b6e9f2da01944f73c858c27ae">  282</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1IThreadPool.html#a0816a41b6e9f2da01944f73c858c27ae">setLogger</a>(std::shared_ptr&lt;spdlog::logger&gt; logger) = 0;</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno"><a class="line" href="classTP_1_1IThreadPool.html#af8ac7dadedb2890b307a7cec98860c18">  288</a></span>    <span class="keyword">virtual</span> std::size_t <a class="code hl_function" href="classTP_1_1IThreadPool.html#af8ac7dadedb2890b307a7cec98860c18">getSize</a>() = 0;</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno"><a class="line" href="classTP_1_1IThreadPool.html#a8df846140a56d3ff699d3c7ddeeed52f">  291</a></span>    std::mutex <a class="code hl_variable" href="classTP_1_1IThreadPool.html#a8df846140a56d3ff699d3c7ddeeed52f">task_queue_mutex</a>;</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno"><a class="line" href="classTP_1_1IThreadPool.html#afae4b08f4efc851a5d720cc1570e044c">  294</a></span>    std::shared_ptr&lt;IQueue&gt; <a class="code hl_variable" href="classTP_1_1IThreadPool.html#afae4b08f4efc851a5d720cc1570e044c">task_queue</a>;</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>};</div>
+</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>}</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
+<div class="foldopen" id="foldopen00301" data-start="{" data-end="};">
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno"><a class="line" href="classIManager.html">  301</a></span><span class="keyword">class </span><a class="code hl_class" href="classIManager.html">IManager</a> {</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00308" data-start="{" data-end="}">
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno"><a class="line" href="classIManager.html#ab3259fda11c2b79af28712d7fc3ffe87">  308</a></span>    <a class="code hl_function" href="classIManager.html#ab3259fda11c2b79af28712d7fc3ffe87">IManager</a>([[maybe_unused]] std::shared_ptr&lt;utility::IConfig&gt; conf,</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>             [[maybe_unused]] std::shared_ptr&lt;TP::IThreadPool&gt; pool) {}</div>
+</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno"><a class="line" href="classIManager.html#af1c8a1a0114136794a0bf5ac319f3ef0">  316</a></span>    <span class="keyword">virtual</span> std::pair&lt;TP::CallID, std::future&lt;Result&gt;&gt; <a class="code hl_function" href="classIManager.html#af1c8a1a0114136794a0bf5ac319f3ef0">addTask</a>(std::string_view number) = 0;</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno"><a class="line" href="classIManager.html#aba072620232a796598a2678d23a6844c">  321</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classIManager.html#aba072620232a796598a2678d23a6844c">startThreadPool</a>() = 0;</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span> </div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno"><a class="line" href="classIManager.html#a07822b6443a45f47a3606f2d2006c786">  326</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classIManager.html#a07822b6443a45f47a3606f2d2006c786">stopThreadPool</a>() = 0;</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span> </div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno"><a class="line" href="classIManager.html#ae0b45cdbf4f7c66627449b2454f4d410">  332</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classIManager.html#ae0b45cdbf4f7c66627449b2454f4d410">setNewConfig</a>(std::shared_ptr&lt;utility::IConfig&gt; config) = 0;</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno"><a class="line" href="classIManager.html#a43008df0bcd0472ea470928f4c5f82fc">  338</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classIManager.html#a43008df0bcd0472ea470928f4c5f82fc">setNewThreadPool</a>(std::shared_ptr&lt;TP::IThreadPool&gt; pool) = 0;</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span> </div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno"><a class="line" href="classIManager.html#a4806f9452c7a662c2cd3889dc66bfeed">  343</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classIManager.html#a4806f9452c7a662c2cd3889dc66bfeed">update</a>() = 0;</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span> </div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno"><a class="line" href="classIManager.html#acb9dce4f3f8c8073a0f8b04344570ab1">  349</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classIManager.html#acb9dce4f3f8c8073a0f8b04344570ab1">setLogger</a>(std::shared_ptr&lt;spdlog::logger&gt; logger) = 0;</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span> </div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno"><a class="line" href="classIManager.html#ad6b4043ee49d5b4d42d56ce642c79693">  355</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classIManager.html#ad6b4043ee49d5b4d42d56ce642c79693">processRequestForUpdate</a>() = 0;</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>};</div>
+</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span><span class="preprocessor">#endif </span><span class="comment">// PROTEI_COV_INTERFACES_HPP</span></div>
+<div class="ttc" id="aclassIManager_html"><div class="ttname"><a href="classIManager.html">IManager</a></div><div class="ttdoc">Абстрактный интерфейс для управления задачами в тредпуле.</div><div class="ttdef"><b>Definition</b> interfaces.hpp:301</div></div>
+<div class="ttc" id="aclassIManager_html_a07822b6443a45f47a3606f2d2006c786"><div class="ttname"><a href="classIManager.html#a07822b6443a45f47a3606f2d2006c786">IManager::stopThreadPool</a></div><div class="ttdeci">virtual void stopThreadPool()=0</div><div class="ttdoc">Останавливает выполнение задач в тредпуле.</div></div>
+<div class="ttc" id="aclassIManager_html_a43008df0bcd0472ea470928f4c5f82fc"><div class="ttname"><a href="classIManager.html#a43008df0bcd0472ea470928f4c5f82fc">IManager::setNewThreadPool</a></div><div class="ttdeci">virtual void setNewThreadPool(std::shared_ptr&lt; TP::IThreadPool &gt; pool)=0</div><div class="ttdoc">Устанавливает новый тредпул для менеджера.</div></div>
+<div class="ttc" id="aclassIManager_html_a4806f9452c7a662c2cd3889dc66bfeed"><div class="ttname"><a href="classIManager.html#a4806f9452c7a662c2cd3889dc66bfeed">IManager::update</a></div><div class="ttdeci">virtual void update()=0</div><div class="ttdoc">Выполняет обновление состояния менеджера.</div></div>
+<div class="ttc" id="aclassIManager_html_ab3259fda11c2b79af28712d7fc3ffe87"><div class="ttname"><a href="classIManager.html#ab3259fda11c2b79af28712d7fc3ffe87">IManager::IManager</a></div><div class="ttdeci">IManager(std::shared_ptr&lt; utility::IConfig &gt; conf, std::shared_ptr&lt; TP::IThreadPool &gt; pool)</div><div class="ttdoc">Конструктор класса IManager.</div><div class="ttdef"><b>Definition</b> interfaces.hpp:308</div></div>
+<div class="ttc" id="aclassIManager_html_aba072620232a796598a2678d23a6844c"><div class="ttname"><a href="classIManager.html#aba072620232a796598a2678d23a6844c">IManager::startThreadPool</a></div><div class="ttdeci">virtual void startThreadPool()=0</div><div class="ttdoc">Запускает выполнение задач в тредпуле.</div></div>
+<div class="ttc" id="aclassIManager_html_acb9dce4f3f8c8073a0f8b04344570ab1"><div class="ttname"><a href="classIManager.html#acb9dce4f3f8c8073a0f8b04344570ab1">IManager::setLogger</a></div><div class="ttdeci">virtual void setLogger(std::shared_ptr&lt; spdlog::logger &gt; logger)=0</div><div class="ttdoc">Устанавливает асинхронный логгер.</div></div>
+<div class="ttc" id="aclassIManager_html_ad6b4043ee49d5b4d42d56ce642c79693"><div class="ttname"><a href="classIManager.html#ad6b4043ee49d5b4d42d56ce642c79693">IManager::processRequestForUpdate</a></div><div class="ttdeci">virtual bool processRequestForUpdate()=0</div><div class="ttdoc">Обрабатывает запрос на обновление конфигурации</div></div>
+<div class="ttc" id="aclassIManager_html_ae0b45cdbf4f7c66627449b2454f4d410"><div class="ttname"><a href="classIManager.html#ae0b45cdbf4f7c66627449b2454f4d410">IManager::setNewConfig</a></div><div class="ttdeci">virtual void setNewConfig(std::shared_ptr&lt; utility::IConfig &gt; config)=0</div><div class="ttdoc">Устанавливает новую конфигурацию для менеджера.</div></div>
+<div class="ttc" id="aclassIManager_html_af1c8a1a0114136794a0bf5ac319f3ef0"><div class="ttname"><a href="classIManager.html#af1c8a1a0114136794a0bf5ac319f3ef0">IManager::addTask</a></div><div class="ttdeci">virtual std::pair&lt; TP::CallID, std::future&lt; Result &gt; &gt; addTask(std::string_view number)=0</div><div class="ttdoc">Добавляет задачу в тредпул.</div></div>
+<div class="ttc" id="aclassTP_1_1IQueue_html"><div class="ttname"><a href="classTP_1_1IQueue.html">TP::IQueue</a></div><div class="ttdoc">Интерфейс IQueue представляет общие методы для работы с очередью задач.</div><div class="ttdef"><b>Definition</b> interfaces.hpp:168</div></div>
+<div class="ttc" id="aclassTP_1_1IQueue_html_a00e27b1ecd90212b4ca97192a0b271f0"><div class="ttname"><a href="classTP_1_1IQueue.html#a00e27b1ecd90212b4ca97192a0b271f0">TP::IQueue::setLogger</a></div><div class="ttdeci">virtual void setLogger(std::shared_ptr&lt; spdlog::logger &gt; logger)=0</div><div class="ttdoc">Устанавливает асинхронный логгер.</div></div>
+<div class="ttc" id="aclassTP_1_1IQueue_html_a12aeaeacc2a109295910da628511f64a"><div class="ttname"><a href="classTP_1_1IQueue.html#a12aeaeacc2a109295910da628511f64a">TP::IQueue::writeCDR</a></div><div class="ttdeci">virtual void writeCDR(const CDR &amp;cdr)=0</div><div class="ttdoc">Запись CDR при помощи IRecorders объектов.</div></div>
+<div class="ttc" id="aclassTP_1_1IQueue_html_a4de048f35493c7cfa01b1cf6b6ebf642"><div class="ttname"><a href="classTP_1_1IQueue.html#a4de048f35493c7cfa01b1cf6b6ebf642">TP::IQueue::back</a></div><div class="ttdeci">virtual std::pair&lt; std::shared_ptr&lt; ITask &gt;, CallID &gt; &amp; back()=0</div><div class="ttdoc">Возвращает ссылку на задачу в конце очереди.</div></div>
+<div class="ttc" id="aclassTP_1_1IQueue_html_a64d733e9c314634719a64dd9d425aa9a"><div class="ttname"><a href="classTP_1_1IQueue.html#a64d733e9c314634719a64dd9d425aa9a">TP::IQueue::update</a></div><div class="ttdeci">virtual void update(int size)=0</div><div class="ttdoc">Обновляет максимальный размер очереди.</div></div>
+<div class="ttc" id="aclassTP_1_1IQueue_html_ab27bfedef69b4b9dd075049d4ccef013"><div class="ttname"><a href="classTP_1_1IQueue.html#ab27bfedef69b4b9dd075049d4ccef013">TP::IQueue::front</a></div><div class="ttdeci">virtual std::pair&lt; std::shared_ptr&lt; ITask &gt;, CallID &gt; &amp; front()=0</div><div class="ttdoc">Возвращает ссылку на задачу в начале очереди.</div></div>
+<div class="ttc" id="aclassTP_1_1IQueue_html_ac31a57a7db9ab873a6e456cab8d06df5"><div class="ttname"><a href="classTP_1_1IQueue.html#ac31a57a7db9ab873a6e456cab8d06df5">TP::IQueue::empty</a></div><div class="ttdeci">virtual bool empty() const =0</div><div class="ttdoc">Проверяет, является ли очередь пустой.</div></div>
+<div class="ttc" id="aclassTP_1_1IQueue_html_aca91803ab2cebe8ab1fc8cc27207f2e6"><div class="ttname"><a href="classTP_1_1IQueue.html#aca91803ab2cebe8ab1fc8cc27207f2e6">TP::IQueue::setRecorders</a></div><div class="ttdeci">virtual void setRecorders(std::vector&lt; std::shared_ptr&lt; IRecorder &gt; &gt; recorders)=0</div><div class="ttdoc">Установка вектора разных объектов для записи cdr.</div></div>
+<div class="ttc" id="aclassTP_1_1IQueue_html_ad059ca86fde968f322c2a25ae810e090"><div class="ttname"><a href="classTP_1_1IQueue.html#ad059ca86fde968f322c2a25ae810e090">TP::IQueue::IQueue</a></div><div class="ttdeci">IQueue(int size)</div><div class="ttdoc">Конструктор интерфейса IQueue.</div><div class="ttdef"><b>Definition</b> interfaces.hpp:174</div></div>
+<div class="ttc" id="aclassTP_1_1IQueue_html_ada95e23a75a07c75493708a047948807"><div class="ttname"><a href="classTP_1_1IQueue.html#ada95e23a75a07c75493708a047948807">TP::IQueue::push</a></div><div class="ttdeci">virtual bool push(std::pair&lt; std::shared_ptr&lt; ITask &gt;, CallID &gt; &amp;&amp;taskPair)=0</div><div class="ttdoc">Добавляет задачу в конец очереди.</div></div>
+<div class="ttc" id="aclassTP_1_1IQueue_html_ae5472ec9666372cec2924b01e009f834"><div class="ttname"><a href="classTP_1_1IQueue.html#ae5472ec9666372cec2924b01e009f834">TP::IQueue::pop</a></div><div class="ttdeci">virtual void pop()=0</div><div class="ttdoc">Удаляет задачу из начала очереди.</div></div>
+<div class="ttc" id="aclassTP_1_1ITask_html"><div class="ttname"><a href="classTP_1_1ITask.html">TP::ITask</a></div><div class="ttdef"><b>Definition</b> interfaces.hpp:119</div></div>
+<div class="ttc" id="aclassTP_1_1ITask_html_a07108eb2a572fcf6abe03902d97ca114"><div class="ttname"><a href="classTP_1_1ITask.html#a07108eb2a572fcf6abe03902d97ca114">TP::ITask::promise_</a></div><div class="ttdeci">std::shared_ptr&lt; std::promise&lt; Result &gt; &gt; promise_</div><div class="ttdoc">Промис с результатом.</div><div class="ttdef"><b>Definition</b> interfaces.hpp:159</div></div>
+<div class="ttc" id="aclassTP_1_1ITask_html_a3305cbae0ac78a5a2a292e9a253e962a"><div class="ttname"><a href="classTP_1_1ITask.html#a3305cbae0ac78a5a2a292e9a253e962a">TP::ITask::addPromise</a></div><div class="ttdeci">virtual void addPromise(std::shared_ptr&lt; std::promise&lt; Result &gt; &gt; promise)=0</div><div class="ttdoc">Функция добавления promise в задачу</div></div>
+<div class="ttc" id="aclassTP_1_1ITask_html_a398542df36d21c8602d87c74d119eb97"><div class="ttname"><a href="classTP_1_1ITask.html#a398542df36d21c8602d87c74d119eb97">TP::ITask::setCallID</a></div><div class="ttdeci">virtual void setCallID(CallID &amp;id)=0</div><div class="ttdoc">Установка ID вызова.</div></div>
+<div class="ttc" id="aclassTP_1_1ITask_html_a4f9f8972ed69cdd8a6cef0aed6009038"><div class="ttname"><a href="classTP_1_1ITask.html#a4f9f8972ed69cdd8a6cef0aed6009038">TP::ITask::doTask</a></div><div class="ttdeci">virtual Result doTask()=0</div><div class="ttdoc">Обработка вызова.</div></div>
+<div class="ttc" id="aclassTP_1_1ITask_html_a8a8ea3e1e1f5c8ee1585fd1c2cc63a0f"><div class="ttname"><a href="classTP_1_1ITask.html#a8a8ea3e1e1f5c8ee1585fd1c2cc63a0f">TP::ITask::cdr</a></div><div class="ttdeci">CDR cdr</div><div class="ttdoc">CDR звонка</div><div class="ttdef"><b>Definition</b> interfaces.hpp:161</div></div>
+<div class="ttc" id="aclassTP_1_1ITask_html_adad71dc441ae45f44c2ce1c5d88df2a5"><div class="ttname"><a href="classTP_1_1ITask.html#adad71dc441ae45f44c2ce1c5d88df2a5">TP::ITask::ITask</a></div><div class="ttdeci">ITask(int RMin, int RMax, std::string_view number, const std::chrono::system_clock::time_point &amp;startTime, std::shared_ptr&lt; spdlog::logger &gt; logger)</div><div class="ttdoc">конструктор</div><div class="ttdef"><b>Definition</b> interfaces.hpp:128</div></div>
+<div class="ttc" id="aclassTP_1_1ITask_html_ae90b196058623fb2e7e7bfe634233b02"><div class="ttname"><a href="classTP_1_1ITask.html#ae90b196058623fb2e7e7bfe634233b02">TP::ITask::getNumber</a></div><div class="ttdeci">virtual std::string_view getNumber()=0</div><div class="ttdoc">Функция получения номер звонящего</div></div>
+<div class="ttc" id="aclassTP_1_1ITask_html_aea9e52c28c53bd8dc9a91c50b1738900"><div class="ttname"><a href="classTP_1_1ITask.html#aea9e52c28c53bd8dc9a91c50b1738900">TP::ITask::setThreadID</a></div><div class="ttdeci">virtual void setThreadID(std::size_t &amp;id)=0</div><div class="ttdoc">Установка ID потока.</div></div>
+<div class="ttc" id="aclassTP_1_1IThreadPool_html"><div class="ttname"><a href="classTP_1_1IThreadPool.html">TP::IThreadPool</a></div><div class="ttdoc">Абстрактный интерфейс для управления пулом потоков.</div><div class="ttdef"><b>Definition</b> interfaces.hpp:235</div></div>
+<div class="ttc" id="aclassTP_1_1IThreadPool_html_a0816a41b6e9f2da01944f73c858c27ae"><div class="ttname"><a href="classTP_1_1IThreadPool.html#a0816a41b6e9f2da01944f73c858c27ae">TP::IThreadPool::setLogger</a></div><div class="ttdeci">virtual void setLogger(std::shared_ptr&lt; spdlog::logger &gt; logger)=0</div><div class="ttdoc">Устанавливает асинхронный логгер.</div></div>
+<div class="ttc" id="aclassTP_1_1IThreadPool_html_a1e43458ac754959d3f4d7c628903827b"><div class="ttname"><a href="classTP_1_1IThreadPool.html#a1e43458ac754959d3f4d7c628903827b">TP::IThreadPool::~IThreadPool</a></div><div class="ttdeci">virtual ~IThreadPool()</div><div class="ttdoc">Виртуальный деструктор класса IThreadPool.</div><div class="ttdef"><b>Definition</b> interfaces.hpp:246</div></div>
+<div class="ttc" id="aclassTP_1_1IThreadPool_html_a1f25c807fda7429db5477fbe5146ea61"><div class="ttname"><a href="classTP_1_1IThreadPool.html#a1f25c807fda7429db5477fbe5146ea61">TP::IThreadPool::start</a></div><div class="ttdeci">virtual void start()=0</div><div class="ttdoc">Запускает выполнение задач в пуле потоков.</div></div>
+<div class="ttc" id="aclassTP_1_1IThreadPool_html_a5bb528b4acf525834e0e55fada9aafab"><div class="ttname"><a href="classTP_1_1IThreadPool.html#a5bb528b4acf525834e0e55fada9aafab">TP::IThreadPool::stop</a></div><div class="ttdeci">virtual void stop()=0</div><div class="ttdoc">Останавливает выполнение задач в пуле потоков.</div></div>
+<div class="ttc" id="aclassTP_1_1IThreadPool_html_a6dc749a7d0fc1015e80d76a8d2499ca7"><div class="ttname"><a href="classTP_1_1IThreadPool.html#a6dc749a7d0fc1015e80d76a8d2499ca7">TP::IThreadPool::IThreadPool</a></div><div class="ttdeci">IThreadPool(unsigned amountOfThreads, unsigned sizeOfQueue)</div><div class="ttdoc">Конструктор класса IThreadPool.</div><div class="ttdef"><b>Definition</b> interfaces.hpp:241</div></div>
+<div class="ttc" id="aclassTP_1_1IThreadPool_html_a7fda0674c7a2d2c59ff916b6e3b19ad6"><div class="ttname"><a href="classTP_1_1IThreadPool.html#a7fda0674c7a2d2c59ff916b6e3b19ad6">TP::IThreadPool::setTaskQueue</a></div><div class="ttdeci">virtual void setTaskQueue(std::shared_ptr&lt; IQueue &gt; task_queue)=0</div><div class="ttdoc">Установка новой очереди задачи</div></div>
+<div class="ttc" id="aclassTP_1_1IThreadPool_html_a8df846140a56d3ff699d3c7ddeeed52f"><div class="ttname"><a href="classTP_1_1IThreadPool.html#a8df846140a56d3ff699d3c7ddeeed52f">TP::IThreadPool::task_queue_mutex</a></div><div class="ttdeci">std::mutex task_queue_mutex</div><div class="ttdoc">Мьютекс для защиты доступа к очереди задач.</div><div class="ttdef"><b>Definition</b> interfaces.hpp:291</div></div>
+<div class="ttc" id="aclassTP_1_1IThreadPool_html_a9d9de8f7e02730671b6d9c02c287c775"><div class="ttname"><a href="classTP_1_1IThreadPool.html#a9d9de8f7e02730671b6d9c02c287c775">TP::IThreadPool::transferObjects</a></div><div class="ttdeci">virtual void transferObjects(const std::shared_ptr&lt; IThreadPool &gt; &amp;oldThreadPool)=0</div><div class="ttdoc">Переносит очередь задач из старого пула потоков в текущий.</div></div>
+<div class="ttc" id="aclassTP_1_1IThreadPool_html_ab08f87de85c761f6f5702b04142c196c"><div class="ttname"><a href="classTP_1_1IThreadPool.html#ab08f87de85c761f6f5702b04142c196c">TP::IThreadPool::add_task</a></div><div class="ttdeci">virtual std::pair&lt; CallID, std::future&lt; Result &gt; &gt; add_task(std::shared_ptr&lt; ITask &gt; task)=0</div><div class="ttdoc">Добавляет задачу в пул потоков.</div></div>
+<div class="ttc" id="aclassTP_1_1IThreadPool_html_af8ac7dadedb2890b307a7cec98860c18"><div class="ttname"><a href="classTP_1_1IThreadPool.html#af8ac7dadedb2890b307a7cec98860c18">TP::IThreadPool::getSize</a></div><div class="ttdeci">virtual std::size_t getSize()=0</div><div class="ttdoc">Возвращает текущие количество потоков.</div></div>
+<div class="ttc" id="aclassTP_1_1IThreadPool_html_afae4b08f4efc851a5d720cc1570e044c"><div class="ttname"><a href="classTP_1_1IThreadPool.html#afae4b08f4efc851a5d720cc1570e044c">TP::IThreadPool::task_queue</a></div><div class="ttdeci">std::shared_ptr&lt; IQueue &gt; task_queue</div><div class="ttdoc">Очередь задач в формате пар (задача, идентификатор вызова).</div><div class="ttdef"><b>Definition</b> interfaces.hpp:294</div></div>
+<div class="ttc" id="aclassutility_1_1IConfig_html"><div class="ttname"><a href="classutility_1_1IConfig.html">utility::IConfig</a></div><div class="ttdoc">Абстрактный интерфейс для работы с конфигурацией.</div><div class="ttdef"><b>Definition</b> interfaces.hpp:24</div></div>
+<div class="ttc" id="aclassutility_1_1IConfig_html_a0e15dead40cd577ef103a21037ca6339"><div class="ttname"><a href="classutility_1_1IConfig.html#a0e15dead40cd577ef103a21037ca6339">utility::IConfig::getMinMax</a></div><div class="ttdeci">virtual std::pair&lt; int, int &gt; getMinMax()=0</div><div class="ttdoc">Возвращает пару значений - минимальное и максимальное количество операторов.</div></div>
+<div class="ttc" id="aclassutility_1_1IConfig_html_a40311b4abe6049551aab393c3a18fe36"><div class="ttname"><a href="classutility_1_1IConfig.html#a40311b4abe6049551aab393c3a18fe36">utility::IConfig::~IConfig</a></div><div class="ttdeci">virtual ~IConfig()</div><div class="ttdoc">Виртуальный деструктор класса IConfig.</div><div class="ttdef"><b>Definition</b> interfaces.hpp:35</div></div>
+<div class="ttc" id="aclassutility_1_1IConfig_html_a467af645859c3f09c4d26b8aa51819d3"><div class="ttname"><a href="classutility_1_1IConfig.html#a467af645859c3f09c4d26b8aa51819d3">utility::IConfig::getPath</a></div><div class="ttdeci">virtual std::filesystem::path getPath()=0</div><div class="ttdoc">Возвращает путь к файлу конфигурации.</div></div>
+<div class="ttc" id="aclassutility_1_1IConfig_html_a59b9286e5eae61edf891ac66f0fe96f3"><div class="ttname"><a href="classutility_1_1IConfig.html#a59b9286e5eae61edf891ac66f0fe96f3">utility::IConfig::updateConfig</a></div><div class="ttdeci">virtual void updateConfig()=0</div><div class="ttdoc">Обновляет данные конфигурации.</div></div>
+<div class="ttc" id="aclassutility_1_1IConfig_html_a5d2703c7fb18af84d178800896f76249"><div class="ttname"><a href="classutility_1_1IConfig.html#a5d2703c7fb18af84d178800896f76249">utility::IConfig::isUpdated</a></div><div class="ttdeci">virtual bool isUpdated()=0</div><div class="ttdoc">Проверяет, была ли конфигурация обновлена.</div></div>
+<div class="ttc" id="aclassutility_1_1IConfig_html_a621fd9e0531a4b9c2c7eae58f2100fa5"><div class="ttname"><a href="classutility_1_1IConfig.html#a621fd9e0531a4b9c2c7eae58f2100fa5">utility::IConfig::getAmountOfOperators</a></div><div class="ttdeci">virtual int getAmountOfOperators()=0</div><div class="ttdoc">Возвращает количество операторов из конфигурации.</div></div>
+<div class="ttc" id="aclassutility_1_1IConfig_html_a6488d783a2fa88ad8da383782870aa06"><div class="ttname"><a href="classutility_1_1IConfig.html#a6488d783a2fa88ad8da383782870aa06">utility::IConfig::setManager</a></div><div class="ttdeci">virtual void setManager(std::shared_ptr&lt; IManager &gt; manager)=0</div><div class="ttdoc">Устанавливает менеджера для обработки конфигурационных изменений.</div></div>
+<div class="ttc" id="aclassutility_1_1IConfig_html_a7a879701159649c2f0312da3f9441a1e"><div class="ttname"><a href="classutility_1_1IConfig.html#a7a879701159649c2f0312da3f9441a1e">utility::IConfig::notify</a></div><div class="ttdeci">virtual void notify()=0</div><div class="ttdoc">Уведомляет менеджера о необходимости обновления конфигурации.</div></div>
+<div class="ttc" id="aclassutility_1_1IConfig_html_a94a6af46e974ec56e4278a18247e2186"><div class="ttname"><a href="classutility_1_1IConfig.html#a94a6af46e974ec56e4278a18247e2186">utility::IConfig::updateWithRequest</a></div><div class="ttdeci">virtual void updateWithRequest()=0</div><div class="ttdoc">Принимает запрос на обновление конфигурации.</div></div>
+<div class="ttc" id="aclassutility_1_1IConfig_html_aa9098951ac6bbb8943cc3f0c8d9091e6"><div class="ttname"><a href="classutility_1_1IConfig.html#aa9098951ac6bbb8943cc3f0c8d9091e6">utility::IConfig::normalizeRMinRMax</a></div><div class="ttdeci">virtual void normalizeRMinRMax()=0</div><div class="ttdoc">Нормализует RMin и RMax.</div></div>
+<div class="ttc" id="aclassutility_1_1IConfig_html_ab1880e1c349ac8d5335df0960c35046e"><div class="ttname"><a href="classutility_1_1IConfig.html#ab1880e1c349ac8d5335df0960c35046e">utility::IConfig::normalizeSizeOfQueue</a></div><div class="ttdeci">virtual void normalizeSizeOfQueue()=0</div><div class="ttdoc">Нормализует SizeOfQueue.</div></div>
+<div class="ttc" id="aclassutility_1_1IConfig_html_ac4daacb8dcd69c89cc58fa4c923ef3c1"><div class="ttname"><a href="classutility_1_1IConfig.html#ac4daacb8dcd69c89cc58fa4c923ef3c1">utility::IConfig::normalizeData</a></div><div class="ttdeci">virtual void normalizeData()=0</div><div class="ttdoc">Нормализует данные</div></div>
+<div class="ttc" id="aclassutility_1_1IConfig_html_ad3a281237bb48f66c7043b20c9ee44e7"><div class="ttname"><a href="classutility_1_1IConfig.html#ad3a281237bb48f66c7043b20c9ee44e7">utility::IConfig::normalizeAmountOfOperators</a></div><div class="ttdeci">virtual void normalizeAmountOfOperators()=0</div><div class="ttdoc">Нормализует AmountOfOperators.</div></div>
+<div class="ttc" id="aclassutility_1_1IConfig_html_aea75170ec34e65e31218404e0467bec5"><div class="ttname"><a href="classutility_1_1IConfig.html#aea75170ec34e65e31218404e0467bec5">utility::IConfig::IConfig</a></div><div class="ttdeci">IConfig(const std::filesystem::path &amp;path, std::shared_ptr&lt; spdlog::logger &gt;)</div><div class="ttdoc">Конструктор класса IConfig.</div><div class="ttdef"><b>Definition</b> interfaces.hpp:30</div></div>
+<div class="ttc" id="aclassutility_1_1IConfig_html_af7544df7029afabbbab63124a9e48f57"><div class="ttname"><a href="classutility_1_1IConfig.html#af7544df7029afabbbab63124a9e48f57">utility::IConfig::getSizeOfQueue</a></div><div class="ttdeci">virtual int getSizeOfQueue()=0</div><div class="ttdoc">Возвращает размер очереди из конфигурации.</div></div>
+<div class="ttc" id="aclassutility_1_1IConfig_html_afc8b85185ab384624e63dcb6c124cfbf"><div class="ttname"><a href="classutility_1_1IConfig.html#afc8b85185ab384624e63dcb6c124cfbf">utility::IConfig::setLogger</a></div><div class="ttdeci">virtual void setLogger(std::shared_ptr&lt; spdlog::logger &gt; logger)=0</div><div class="ttdoc">Устанавливает асинхронный логгер.</div></div>
+<div class="ttc" id="acommonStructures_8hpp_html"><div class="ttname"><a href="commonStructures_8hpp.html">commonStructures.hpp</a></div><div class="ttdoc">Содержит общие структуры и типы данных, а также функции необходимые для работы с этими структурами и ...</div></div>
+<div class="ttc" id="ajsonParser_8hpp_html"><div class="ttname"><a href="jsonParser_8hpp.html">jsonParser.hpp</a></div><div class="ttdoc">Содержит объявление класса JsonParser, предназначенного для парсинга и обработки JSON данных.</div></div>
+<div class="ttc" id="anamespaceTP_html"><div class="ttname"><a href="namespaceTP.html">TP</a></div><div class="ttdoc">Пространство имен TP, содержащее объявление типа CallID, а также объявление и определение классов Tas...</div></div>
+<div class="ttc" id="anamespaceTP_html_a34116505f865df276a6696f975e74036"><div class="ttname"><a href="namespaceTP.html#a34116505f865df276a6696f975e74036">TP::CallID</a></div><div class="ttdeci">unsigned long long CallID</div><div class="ttdef"><b>Definition</b> commonStructures.hpp:20</div></div>
+<div class="ttc" id="anamespaceutility_html"><div class="ttname"><a href="namespaceutility.html">utility</a></div><div class="ttdoc">Пространство имен utility, содержащее функционал для работы с конфигами.</div><div class="ttdef"><b>Definition</b> commonStructures.hpp:37</div></div>
+<div class="ttc" id="arecorder_8hpp_html"><div class="ttname"><a href="recorder_8hpp.html">recorder.hpp</a></div><div class="ttdoc">Содержит объявления интерфейса IRecorder, и его реализации FileRecorder.</div></div>
+<div class="ttc" id="astructCDR_html"><div class="ttname"><a href="structCDR.html">CDR</a></div><div class="ttdoc">Структура CDR (Call Detail Record), представляющая запись о вызове.</div><div class="ttdef"><b>Definition</b> commonStructures.hpp:58</div></div>
+<div class="ttc" id="astructResult_html"><div class="ttname"><a href="structResult.html">Result</a></div><div class="ttdoc">Структура Result представляет результат обработки вызова.</div><div class="ttdef"><b>Definition</b> commonStructures.hpp:75</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

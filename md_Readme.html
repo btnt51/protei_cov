@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: # Protei_cov</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title"># Protei_cov</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>Это курсовой проект в рамках подготовки к прохождению стажировкии в НТЦ Протей. Необходимо реализовать настраиваемый сервер - центр обработки вызовов, который будет реагировать на http запросы, которые в свою очередь эмулируют "входящий вызов". <br  />
+ Для каждого такого запроса необходимо генерировать уникальный идентификатор (CallID), который используется в журналах вызывов (<a class="el" href="structCDR.html" title="Структура CDR (Call Detail Record), представляющая запись о вызове.">CDR</a>).</p>
+<hr  />
+<h1><a class="anchor" id="autotoc_md1"></a>
+Используемые технологи:</h1>
+<p>Логгер: SPDLOG с автоматическим скачиванием и сборкой при сборке основного проекта.</p>
+<p>Тесты: GTests с автоматическим скачиванием и сборкой при сборке тестов.</p>
+<p>Сеть: Boost</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Общепринятая терминология в рамках проекта</h1>
+<ul>
+<li>ЦОВ - Центр Обработки Вызовов</li>
+<li>Абонент А, он же CgPN - вызывающий абонент, инициатор вызова</li>
+<li>Абонент Б, он же CdPN - вызываемый абонент</li>
+<li>ПАК - программно-аппаратный комплекс</li>
+<li>РМО - рабочее место оператора, ПАК, который обычно состоит из компьютера, установленного на него специального ПО, а также оборудование для обработки медиа (гарнитура + веб-камера)</li>
+<li>Call - вызов, обычно голосовой вызов</li>
+<li>Call ID - идентификатор вызова, как правило строка, уникальное значение, желательно чтобы это было значение сохраняющее свойство уникальности в течении длительного периода времени и для всего комплекса ПО</li>
+<li>Release - отбой, завершение вызова</li>
+<li>Release Cause - причина отбоя, причина завершения обработки вызова. Есть на самом деле стандарты, где описываются все стандартные предусмотренные причины отбоя, например Q.850</li>
+<li><a class="el" href="structCDR.html" title="Структура CDR (Call Detail Record), представляющая запись о вызове.">CDR</a> - Call Detailed Record, информационная запись в журнале по факту предоставления услуги. Обычно это текстовый файл, журнал, имеет фиксированное количество полей разделенных каким-то символом (у нас чаще всего это точка с запятой “;”)</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Как пользоваться программой:</h1>
+<p>Можно скачать последнюю версию программы из github releases, предоставляется две версии:</p><ul>
+<li>Для Debian based дистрибутивов на x64</li>
+<li>Для Debian based диструбитивов на arm64</li>
+</ul>
+<p>Также можно склонировать репозиторий себе на персональный компьютер и собрать вручную, для этого требуется установленный cmake не ниже версии 3.12 и любой компилятор (тестировалось, собиралось и соибрается gcc 13.2). Далее представлена команда для сборки, но со сборкой тестов, чтобы не билдить тесты необходимо изменить команду -D WITH_TESTS=ON. По-умолчанию, CMake ищет spdlog и boost в вашей системе, если их нет в системе, cmake сам все скачает и может скачать в двух вариантах - тяжелое (весь буст) или легкий, только конкретные библиотеки. Для второго варианта в аргументах cmake нужно указать -D LIGHTWEIGHTBABY=ON. </p><div class="fragment"><div class="line">git clone https://github.com/btnt51/protei_cov.git</div>
+<div class="line">cd protei_cov</div>
+<div class="line">mkdir build &amp;&amp; cd build</div>
+<div class="line">cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -D WITH_TESTS=ON -D LIGHTWEIGHTBABY=NO ..</div>
+</div><!-- fragment --><p> Можно запускать по-умолчанию: </p><div class="fragment"><div class="line">./protei_cov</div>
+</div><!-- fragment --><p>Можно указать порт (стандартный порт 8080) и путь до файла (стандартный путь до файла ./base.json) </p><div class="fragment"><div class="line">./protei_cov &lt;порт&gt; &lt;путь_до_файла&gt;</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
+Нагрузочное тестирование</h1>
+<p>Можно произвести нагрузочное тестирование для этого необходимо склонировать репозиторий и иметь установленный python3 в системе. Необходимо в двух терминалах запустить тест и программу</p>
+<p>Первый терминал с тестом. В нем можно указать размер отправленной пачки сообщений в моменте, по-умолчанию отправится всё что есть, например &ndash;num_connections 300, а также режим - автоматический (&ndash;automatic) или ручной (не надо ничего указывать) </p><div class="fragment"><div class="line">cd protei_cov</div>
+<div class="line">python3 tools/load.py &lt;аргументы&gt;</div>
+</div><!-- fragment --><p> Во втором терминале необходимо запустить на дефолтном порту. </p><div class="fragment"><div class="line">./protei_cov 8080</div>
+</div><!-- fragment --><p>Теперь можно наблюдать за работой сервера под нагрузкой.</p>
+<h1><a class="anchor" id="autotoc_md5"></a>
+Обновление конфигурации</h1>
+<p>Сервер умеет обновлять конфигурацию во время своей работы, для этого он использует путь до .json файла, который был указан при запуске сервера. Этот файл можно менять руками, перечитывание файла происходит каждую минуту, при условии, что файл был изменен (проверятся последнее время записи в файл).</p>
+<p>А также можно принудительно заставить сервер обновиться. Для этого требуется отправить http get запрос, на соответствующий url /update (например вы запускаете локально сервер на порту 8080, тогда требуется отправить запрос на адрес localhost:8080/update). </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

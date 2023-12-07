@@ -1,0 +1,11 @@
+<map id="utility::IConfig" name="utility::IConfig">
+<area shape="rect" id="Node000001" title="Абстрактный интерфейс для работы с конфигурацией." alt="" coords="117,5,215,31"/>
+<area shape="rect" id="Node000002" href="$classMockConfig.html" title=" " alt="" coords="5,79,95,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,42,71,81,68,76,132,37"/>
+<area shape="rect" id="Node000003" href="$classutility_1_1Config.html" title="Класс Config представляет собой реализацию интерфейса IConfig." alt="" coords="119,79,213,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="169,46,169,79,163,79,163,46"/>
+<area shape="rect" id="Node000004" href="$classutility_1_1ThreadSafeConfig.html" title="Класс ThreadSafeConfig представляет собой потокобезопасную реализацию интерфейса IConfig." alt="" coords="237,79,397,105"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="206,36,292,76,290,81,204,40"/>
+<area shape="rect" id="Node000005" href="$classMockThreadSafeConfig.html" title=" " alt="" coords="239,153,395,178"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="319,120,319,152,314,152,314,120"/>
+</map>

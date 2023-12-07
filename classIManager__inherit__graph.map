@@ -1,0 +1,7 @@
+<map id="IManager" name="IManager">
+<area shape="rect" id="Node000001" title="Абстрактный интерфейс для управления задачами в тредпуле." alt="" coords="59,5,135,31"/>
+<area shape="rect" id="Node000002" href="$classManager.html" title="Класс управляющей тредпулом (центром обратки вызовов)" alt="" coords="5,79,77,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,45,53,80,48,77,76,41"/>
+<area shape="rect" id="Node000003" href="$classMockManager.html" title=" " alt="" coords="101,79,205,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="118,41,146,77,141,80,113,45"/>
+</map>

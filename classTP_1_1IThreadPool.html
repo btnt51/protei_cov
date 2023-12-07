@@ -1,0 +1,493 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Класс TP::IThreadPool</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespaceTP.html">TP</a></li><li class="navelem"><a class="el" href="classTP_1_1IThreadPool.html">IThreadPool</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="classTP_1_1IThreadPool-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс TP::IThreadPool<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Абстрактный интерфейс для управления пулом потоков.  
+ <a href="classTP_1_1IThreadPool.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="interfaces_8hpp_source.html">interfaces.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Граф наследования:TP::IThreadPool:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classTP_1_1IThreadPool__inherit__graph.png" border="0" usemap="#aTP_1_1IThreadPool_inherit__map" alt="Inheritance graph"/></div>
+<map name="aTP_1_1IThreadPool_inherit__map" id="aTP_1_1IThreadPool_inherit__map">
+<area shape="rect" title="Абстрактный интерфейс для управления пулом потоков." alt="" coords="77,5,192,31"/>
+<area shape="rect" href="classMockThreadPool.html" title=" " alt="" coords="5,79,125,105"/>
+<area shape="poly" title=" " alt="" coords="114,44,79,80,75,77,111,40"/>
+<area shape="rect" href="classTP_1_1ThreadPool.html" title="Класс, реализующий пул потоков." alt="" coords="149,79,259,105"/>
+<area shape="poly" title=" " alt="" coords="158,40,194,77,190,80,154,44"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a6dc749a7d0fc1015e80d76a8d2499ca7" id="r_a6dc749a7d0fc1015e80d76a8d2499ca7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTP_1_1IThreadPool.html#a6dc749a7d0fc1015e80d76a8d2499ca7">IThreadPool</a> (unsigned amountOfThreads, unsigned sizeOfQueue)</td></tr>
+<tr class="memdesc:a6dc749a7d0fc1015e80d76a8d2499ca7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор класса <a class="el" href="classTP_1_1IThreadPool.html" title="Абстрактный интерфейс для управления пулом потоков.">IThreadPool</a>.  <br /></td></tr>
+<tr class="separator:a6dc749a7d0fc1015e80d76a8d2499ca7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e43458ac754959d3f4d7c628903827b" id="r_a1e43458ac754959d3f4d7c628903827b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTP_1_1IThreadPool.html#a1e43458ac754959d3f4d7c628903827b">~IThreadPool</a> ()</td></tr>
+<tr class="memdesc:a1e43458ac754959d3f4d7c628903827b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Виртуальный деструктор класса <a class="el" href="classTP_1_1IThreadPool.html" title="Абстрактный интерфейс для управления пулом потоков.">IThreadPool</a>.  <br /></td></tr>
+<tr class="separator:a1e43458ac754959d3f4d7c628903827b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab08f87de85c761f6f5702b04142c196c" id="r_ab08f87de85c761f6f5702b04142c196c"><td class="memItemLeft" align="right" valign="top">virtual std::pair&lt; <a class="el" href="namespaceTP.html#a34116505f865df276a6696f975e74036">CallID</a>, std::future&lt; <a class="el" href="structResult.html">Result</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTP_1_1IThreadPool.html#ab08f87de85c761f6f5702b04142c196c">add_task</a> (std::shared_ptr&lt; <a class="el" href="classTP_1_1ITask.html">ITask</a> &gt; task)=0</td></tr>
+<tr class="memdesc:ab08f87de85c761f6f5702b04142c196c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавляет задачу в пул потоков.  <br /></td></tr>
+<tr class="separator:ab08f87de85c761f6f5702b04142c196c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bb528b4acf525834e0e55fada9aafab" id="r_a5bb528b4acf525834e0e55fada9aafab"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTP_1_1IThreadPool.html#a5bb528b4acf525834e0e55fada9aafab">stop</a> ()=0</td></tr>
+<tr class="memdesc:a5bb528b4acf525834e0e55fada9aafab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Останавливает выполнение задач в пуле потоков.  <br /></td></tr>
+<tr class="separator:a5bb528b4acf525834e0e55fada9aafab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f25c807fda7429db5477fbe5146ea61" id="r_a1f25c807fda7429db5477fbe5146ea61"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTP_1_1IThreadPool.html#a1f25c807fda7429db5477fbe5146ea61">start</a> ()=0</td></tr>
+<tr class="memdesc:a1f25c807fda7429db5477fbe5146ea61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запускает выполнение задач в пуле потоков.  <br /></td></tr>
+<tr class="separator:a1f25c807fda7429db5477fbe5146ea61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d9de8f7e02730671b6d9c02c287c775" id="r_a9d9de8f7e02730671b6d9c02c287c775"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTP_1_1IThreadPool.html#a9d9de8f7e02730671b6d9c02c287c775">transferObjects</a> (const std::shared_ptr&lt; <a class="el" href="classTP_1_1IThreadPool.html">IThreadPool</a> &gt; &amp;oldThreadPool)=0</td></tr>
+<tr class="memdesc:a9d9de8f7e02730671b6d9c02c287c775"><td class="mdescLeft">&#160;</td><td class="mdescRight">Переносит очередь задач из старого пула потоков в текущий.  <br /></td></tr>
+<tr class="separator:a9d9de8f7e02730671b6d9c02c287c775"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fda0674c7a2d2c59ff916b6e3b19ad6" id="r_a7fda0674c7a2d2c59ff916b6e3b19ad6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTP_1_1IThreadPool.html#a7fda0674c7a2d2c59ff916b6e3b19ad6">setTaskQueue</a> (std::shared_ptr&lt; <a class="el" href="classTP_1_1IQueue.html">IQueue</a> &gt; <a class="el" href="classTP_1_1IThreadPool.html#afae4b08f4efc851a5d720cc1570e044c">task_queue</a>)=0</td></tr>
+<tr class="memdesc:a7fda0674c7a2d2c59ff916b6e3b19ad6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка новой очереди задачи  <br /></td></tr>
+<tr class="separator:a7fda0674c7a2d2c59ff916b6e3b19ad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0816a41b6e9f2da01944f73c858c27ae" id="r_a0816a41b6e9f2da01944f73c858c27ae"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTP_1_1IThreadPool.html#a0816a41b6e9f2da01944f73c858c27ae">setLogger</a> (std::shared_ptr&lt; spdlog::logger &gt; logger)=0</td></tr>
+<tr class="memdesc:a0816a41b6e9f2da01944f73c858c27ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает асинхронный логгер.  <br /></td></tr>
+<tr class="separator:a0816a41b6e9f2da01944f73c858c27ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8ac7dadedb2890b307a7cec98860c18" id="r_af8ac7dadedb2890b307a7cec98860c18"><td class="memItemLeft" align="right" valign="top">virtual std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTP_1_1IThreadPool.html#af8ac7dadedb2890b307a7cec98860c18">getSize</a> ()=0</td></tr>
+<tr class="memdesc:af8ac7dadedb2890b307a7cec98860c18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает текущие количество потоков.  <br /></td></tr>
+<tr class="separator:af8ac7dadedb2890b307a7cec98860c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:a8df846140a56d3ff699d3c7ddeeed52f" id="r_a8df846140a56d3ff699d3c7ddeeed52f"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTP_1_1IThreadPool.html#a8df846140a56d3ff699d3c7ddeeed52f">task_queue_mutex</a></td></tr>
+<tr class="memdesc:a8df846140a56d3ff699d3c7ddeeed52f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Мьютекс для защиты доступа к очереди задач.  <br /></td></tr>
+<tr class="separator:a8df846140a56d3ff699d3c7ddeeed52f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afae4b08f4efc851a5d720cc1570e044c" id="r_afae4b08f4efc851a5d720cc1570e044c"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classTP_1_1IQueue.html">IQueue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTP_1_1IThreadPool.html#afae4b08f4efc851a5d720cc1570e044c">task_queue</a></td></tr>
+<tr class="memdesc:afae4b08f4efc851a5d720cc1570e044c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Очередь задач в формате пар (задача, идентификатор вызова).  <br /></td></tr>
+<tr class="separator:afae4b08f4efc851a5d720cc1570e044c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Абстрактный интерфейс для управления пулом потоков. </p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a6dc749a7d0fc1015e80d76a8d2499ca7" name="a6dc749a7d0fc1015e80d76a8d2499ca7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dc749a7d0fc1015e80d76a8d2499ca7">&#9670;&#160;</a></span>IThreadPool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TP::IThreadPool::IThreadPool </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>amountOfThreads</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>sizeOfQueue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Конструктор класса <a class="el" href="classTP_1_1IThreadPool.html" title="Абстрактный интерфейс для управления пулом потоков.">IThreadPool</a>. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">amountOfThreads</td><td>Количество потоков в пуле. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1e43458ac754959d3f4d7c628903827b" name="a1e43458ac754959d3f4d7c628903827b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e43458ac754959d3f4d7c628903827b">&#9670;&#160;</a></span>~IThreadPool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual TP::IThreadPool::~IThreadPool </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Виртуальный деструктор класса <a class="el" href="classTP_1_1IThreadPool.html" title="Абстрактный интерфейс для управления пулом потоков.">IThreadPool</a>. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="ab08f87de85c761f6f5702b04142c196c" name="ab08f87de85c761f6f5702b04142c196c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab08f87de85c761f6f5702b04142c196c">&#9670;&#160;</a></span>add_task()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::pair&lt; <a class="el" href="namespaceTP.html#a34116505f865df276a6696f975e74036">CallID</a>, std::future&lt; <a class="el" href="structResult.html">Result</a> &gt; &gt; TP::IThreadPool::add_task </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classTP_1_1ITask.html">ITask</a> &gt;&#160;</td>
+          <td class="paramname"><em>task</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Добавляет задачу в пул потоков. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">task</td><td>Задача для выполнения в потоке. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Пара, содержащая уникальный идентификатор вызова и будущий результат выполнения задачи. </dd></dl>
+
+<p>Замещается в <a class="el" href="classTP_1_1ThreadPool.html#a23782dbde31946872ec29132710b2391">TP::ThreadPool</a>.</p>
+
+</div>
+</div>
+<a id="af8ac7dadedb2890b307a7cec98860c18" name="af8ac7dadedb2890b307a7cec98860c18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8ac7dadedb2890b307a7cec98860c18">&#9670;&#160;</a></span>getSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::size_t TP::IThreadPool::getSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает текущие количество потоков. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Количество потоков. </dd></dl>
+
+<p>Замещается в <a class="el" href="classTP_1_1ThreadPool.html#a39912aaaf939472406a4846e55a54ee2">TP::ThreadPool</a>.</p>
+
+</div>
+</div>
+<a id="a0816a41b6e9f2da01944f73c858c27ae" name="a0816a41b6e9f2da01944f73c858c27ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0816a41b6e9f2da01944f73c858c27ae">&#9670;&#160;</a></span>setLogger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void TP::IThreadPool::setLogger </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
+          <td class="paramname"><em>logger</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Устанавливает асинхронный логгер. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>Указатель на объект логгера. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещается в <a class="el" href="classTP_1_1ThreadPool.html#ad077d6c9448536659a2f75dc6cc967c9">TP::ThreadPool</a>.</p>
+
+</div>
+</div>
+<a id="a7fda0674c7a2d2c59ff916b6e3b19ad6" name="a7fda0674c7a2d2c59ff916b6e3b19ad6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fda0674c7a2d2c59ff916b6e3b19ad6">&#9670;&#160;</a></span>setTaskQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void TP::IThreadPool::setTaskQueue </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classTP_1_1IQueue.html">IQueue</a> &gt;&#160;</td>
+          <td class="paramname"><em>task_queue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Установка новой очереди задачи </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">task_queue</td><td>новая очередь задач </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещается в <a class="el" href="classTP_1_1ThreadPool.html#a12d46b769fa6919f8664db16013900d2">TP::ThreadPool</a>.</p>
+
+</div>
+</div>
+<a id="a1f25c807fda7429db5477fbe5146ea61" name="a1f25c807fda7429db5477fbe5146ea61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f25c807fda7429db5477fbe5146ea61">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void TP::IThreadPool::start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Запускает выполнение задач в пуле потоков. </p>
+
+<p>Замещается в <a class="el" href="classTP_1_1ThreadPool.html#a550ecae4008fe2e1f432608eb8a35fa9">TP::ThreadPool</a>.</p>
+
+</div>
+</div>
+<a id="a5bb528b4acf525834e0e55fada9aafab" name="a5bb528b4acf525834e0e55fada9aafab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bb528b4acf525834e0e55fada9aafab">&#9670;&#160;</a></span>stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void TP::IThreadPool::stop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Останавливает выполнение задач в пуле потоков. </p>
+
+<p>Замещается в <a class="el" href="classTP_1_1ThreadPool.html#a73d31433b40c14d309f224aa899364c9">TP::ThreadPool</a>.</p>
+
+</div>
+</div>
+<a id="a9d9de8f7e02730671b6d9c02c287c775" name="a9d9de8f7e02730671b6d9c02c287c775"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d9de8f7e02730671b6d9c02c287c775">&#9670;&#160;</a></span>transferObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void TP::IThreadPool::transferObjects </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="classTP_1_1IThreadPool.html">IThreadPool</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>oldThreadPool</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Переносит очередь задач из старого пула потоков в текущий. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">oldThreadPool</td><td>Указатель на старый пул потоков. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещается в <a class="el" href="classTP_1_1ThreadPool.html#a426299445bb844340f570988b3f8645c">TP::ThreadPool</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="afae4b08f4efc851a5d720cc1570e044c" name="afae4b08f4efc851a5d720cc1570e044c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afae4b08f4efc851a5d720cc1570e044c">&#9670;&#160;</a></span>task_queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="classTP_1_1IQueue.html">IQueue</a>&gt; TP::IThreadPool::task_queue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Очередь задач в формате пар (задача, идентификатор вызова). </p>
+
+</div>
+</div>
+<a id="a8df846140a56d3ff699d3c7ddeeed52f" name="a8df846140a56d3ff699d3c7ddeeed52f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8df846140a56d3ff699d3c7ddeeed52f">&#9670;&#160;</a></span>task_queue_mutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex TP::IThreadPool::task_queue_mutex</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Мьютекс для защиты доступа к очереди задач. </p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>include/<a class="el" href="interfaces_8hpp_source.html">interfaces.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

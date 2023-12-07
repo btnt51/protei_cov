@@ -1,0 +1,11 @@
+<map id="Иерархия классов. Графический вид." name="Иерархия классов. Графический вид.">
+<area shape="rect" id="Node000000" href="$classutility_1_1IConfig.html" title="Абстрактный интерфейс для работы с конфигурацией." alt="" coords="5,55,103,80"/>
+<area shape="rect" id="Node000001" href="$classMockConfig.html" title=" " alt="" coords="186,5,276,31"/>
+<area shape="poly" id="edge14_Node000000_Node000001" title=" " alt="" coords="117,47,185,28,186,33,118,53"/>
+<area shape="rect" id="Node000002" href="$classutility_1_1Config.html" title="Класс Config представляет собой реализацию интерфейса IConfig." alt="" coords="184,55,278,80"/>
+<area shape="poly" id="edge15_Node000000_Node000002" title=" " alt="" coords="118,65,184,65,184,70,118,70"/>
+<area shape="rect" id="Node000003" href="$classutility_1_1ThreadSafeConfig.html" title="Класс ThreadSafeConfig представляет собой потокобезопасную реализацию интерфейса IConfig." alt="" coords="151,104,311,130"/>
+<area shape="poly" id="edge16_Node000000_Node000003" title=" " alt="" coords="118,82,183,101,181,106,117,88"/>
+<area shape="rect" id="Node000004" href="$classMockThreadSafeConfig.html" title=" " alt="" coords="359,104,515,130"/>
+<area shape="poly" id="edge17_Node000003_Node000004" title=" " alt="" coords="326,114,358,114,358,120,326,120"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="utility::ThreadSafeConfig::normalizeData" name="utility::ThreadSafeConfig::normalizeData">
+<area shape="rect" id="Node000001" title="Нормализует данные" alt="" coords="5,71,166,111"/>
+<area shape="rect" id="Node000002" href="$classutility_1_1ThreadSafeConfig.html#a02a0d9852d2b8a28cafa274faac322a3" title="Нормализует AmountOfOperators." alt="" coords="214,5,412,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,68,224,48,226,53,159,73"/>
+<area shape="rect" id="Node000003" href="$classutility_1_1ThreadSafeConfig.html#aea8423dbf3174bb136874b7ad1a9b9c0" title="Нормализует RMin и RMax." alt="" coords="233,71,393,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="166,88,217,88,217,94,166,94"/>
+<area shape="rect" id="Node000004" href="$classutility_1_1ThreadSafeConfig.html#a1ef29031cf05705c75227ef6df340bf1" title="Нормализует SizeOfQueue." alt="" coords="233,136,393,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="159,109,226,129,224,134,158,114"/>
+</map>

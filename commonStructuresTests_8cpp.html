@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Файл tests/commonStructuresTests.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_59425e443f801f1f2fd8bbe4959a3ccf.html">tests</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">Файл commonStructuresTests.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="commonStructures_8hpp_source.html">commonStructures.hpp</a>&quot;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;gtest/gtest.h&gt;</code><br />
+<code>#include &lt;regex&gt;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Граф включаемых заголовочных файлов для commonStructuresTests.cpp:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="commonStructuresTests_8cpp__incl.png" border="0" usemap="#atests_2commonStructuresTests_8cpp" alt=""/></div>
+<map name="atests_2commonStructuresTests_8cpp" id="atests_2commonStructuresTests_8cpp">
+<area shape="rect" title=" " alt="" coords="293,5,514,31"/>
+<area shape="rect" href="commonStructures_8hpp.html" title="Содержит общие структуры и типы данных, а также функции необходимые для работы с этими структурами и ..." alt="" coords="157,79,312,105"/>
+<area shape="poly" title=" " alt="" coords="376,34,278,75,276,70,374,29"/>
+<area shape="rect" title=" " alt="" coords="344,153,410,178"/>
+<area shape="poly" title=" " alt="" coords="402,32,390,80,382,138,377,137,385,78,397,31"/>
+<area shape="rect" title=" " alt="" coords="400,79,493,105"/>
+<area shape="poly" title=" " alt="" coords="413,30,433,64,429,67,408,33"/>
+<area shape="rect" title=" " alt="" coords="517,79,570,105"/>
+<area shape="poly" title=" " alt="" coords="428,29,507,69,505,74,426,34"/>
+<area shape="rect" title=" " alt="" coords="5,153,66,178"/>
+<area shape="poly" title=" " alt="" coords="201,108,81,151,79,146,200,103"/>
+<area shape="rect" title=" " alt="" coords="90,153,147,178"/>
+<area shape="poly" title=" " alt="" coords="216,107,152,147,149,142,213,103"/>
+<area shape="rect" title=" " alt="" coords="171,153,242,178"/>
+<area shape="poly" title=" " alt="" coords="232,106,219,139,214,137,227,104"/>
+<area shape="poly" title=" " alt="" coords="260,103,340,143,338,148,257,108"/>
+<area shape="rect" title=" " alt="" coords="266,153,320,178"/>
+<area shape="poly" title=" " alt="" coords="246,103,275,139,271,142,242,107"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:aa4192c428cd64ab19df8b810f2c76957" id="r_aa4192c428cd64ab19df8b810f2c76957"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commonStructuresTests_8cpp.html#aa4192c428cd64ab19df8b810f2c76957">TEST</a> (CommonStructures, ReturnsCorrectStdStringForCallStatus)</td></tr>
+<tr class="separator:aa4192c428cd64ab19df8b810f2c76957"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5690cb8d6dfe69e6579578446ac967b" id="r_ad5690cb8d6dfe69e6579578446ac967b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commonStructuresTests_8cpp.html#ad5690cb8d6dfe69e6579578446ac967b">TEST</a> (CommonStructures, ReturnsCorrectFormattedTimeString)</td></tr>
+<tr class="separator:ad5690cb8d6dfe69e6579578446ac967b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa21e5680bc9c16a14844e65092407de2" id="r_aa21e5680bc9c16a14844e65092407de2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commonStructuresTests_8cpp.html#aa21e5680bc9c16a14844e65092407de2">TEST</a> (CommonStructures, CorrectlyWritesCDRToOfstream)</td></tr>
+<tr class="separator:aa21e5680bc9c16a14844e65092407de2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ec3a57250261445a7806bb284dddbdb" id="r_a3ec3a57250261445a7806bb284dddbdb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commonStructuresTests_8cpp.html#a3ec3a57250261445a7806bb284dddbdb">TEST</a> (CommonStructures, CorrectlyWritesCDRToOfstreamWhenTimeout)</td></tr>
+<tr class="separator:a3ec3a57250261445a7806bb284dddbdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Функции</h2>
+<a id="aa21e5680bc9c16a14844e65092407de2" name="aa21e5680bc9c16a14844e65092407de2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa21e5680bc9c16a14844e65092407de2">&#9670;&#160;</a></span>TEST() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">CommonStructures&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CorrectlyWritesCDRToOfstream&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3ec3a57250261445a7806bb284dddbdb" name="a3ec3a57250261445a7806bb284dddbdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ec3a57250261445a7806bb284dddbdb">&#9670;&#160;</a></span>TEST() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">CommonStructures&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CorrectlyWritesCDRToOfstreamWhenTimeout&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad5690cb8d6dfe69e6579578446ac967b" name="ad5690cb8d6dfe69e6579578446ac967b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5690cb8d6dfe69e6579578446ac967b">&#9670;&#160;</a></span>TEST() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">CommonStructures&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ReturnsCorrectFormattedTimeString&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Граф вызовов:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="commonStructuresTests_8cpp_ad5690cb8d6dfe69e6579578446ac967b_cgraph.png" border="0" usemap="#acommonStructuresTests_8cpp_ad5690cb8d6dfe69e6579578446ac967b_cgraph" alt=""/></div>
+<map name="acommonStructuresTests_8cpp_ad5690cb8d6dfe69e6579578446ac967b_cgraph" id="acommonStructuresTests_8cpp_ad5690cb8d6dfe69e6579578446ac967b_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,60,31"/>
+<area shape="rect" href="namespaceutility.html#ad080784ad6a87d560346756996b0684d" title="Подготавливает строковое представление времени из временной точки системных часов,..." alt="" coords="108,5,237,31"/>
+<area shape="poly" title=" " alt="" coords="60,16,92,16,92,21,60,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa4192c428cd64ab19df8b810f2c76957" name="aa4192c428cd64ab19df8b810f2c76957"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4192c428cd64ab19df8b810f2c76957">&#9670;&#160;</a></span>TEST() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">CommonStructures&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ReturnsCorrectStdStringForCallStatus&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Граф вызовов:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="commonStructuresTests_8cpp_aa4192c428cd64ab19df8b810f2c76957_cgraph.png" border="0" usemap="#acommonStructuresTests_8cpp_aa4192c428cd64ab19df8b810f2c76957_cgraph" alt=""/></div>
+<map name="acommonStructuresTests_8cpp_aa4192c428cd64ab19df8b810f2c76957_cgraph" id="acommonStructuresTests_8cpp_aa4192c428cd64ab19df8b810f2c76957_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,60,31"/>
+<area shape="rect" href="namespaceutility.html#a660ff49bca6bc1ffea8f0c436c398864" title="Преобразует перечисление CallStatus в строковое представление." alt="" coords="108,5,215,31"/>
+<area shape="poly" title=" " alt="" coords="60,16,92,16,92,21,60,21"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

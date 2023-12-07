@@ -1,0 +1,20 @@
+<map id="include/recorder.hpp" name="include/recorder.hpp">
+<area shape="rect" id="Node000001" title="Содержит объявления интерфейса IRecorder, и его реализации FileRecorder." alt="" coords="332,5,470,31"/>
+<area shape="rect" id="Node000002" href="$commonStructures_8hpp.html" title="Содержит общие структуры и типы данных, а также функции необходимые для работы с этими структурами и ..." alt="" coords="157,79,312,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="374,34,278,75,275,70,372,29"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="344,153,410,178"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="400,32,390,79,382,138,377,137,385,79,395,31"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="400,79,479,105"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="410,30,428,64,423,66,405,32"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="504,79,615,105"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="429,29,520,70,518,75,427,34"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,153,66,178"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="201,108,81,151,79,146,200,103"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="90,153,147,178"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="216,107,152,147,149,142,213,103"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="171,153,242,178"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="232,106,219,139,214,137,227,104"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="260,103,340,143,338,148,257,108"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="266,153,320,178"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="246,103,275,139,271,142,242,107"/>
+</map>

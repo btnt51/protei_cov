@@ -1,0 +1,555 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Класс MockQueue</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="classMockQueue-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс MockQueue</div></div>
+</div><!--header-->
+<div class="contents">
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Граф наследования:MockQueue:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockQueue__inherit__graph.png" border="0" usemap="#aMockQueue_inherit__map" alt="Inheritance graph"/></div>
+<map name="aMockQueue_inherit__map" id="aMockQueue_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,79,97,105"/>
+<area shape="rect" href="classTP_1_1IQueue.html" title="Интерфейс IQueue представляет общие методы для работы с очередью задач." alt="" coords="8,5,94,31"/>
+<area shape="poly" title=" " alt="" coords="54,46,54,79,48,79,48,46"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">см. легенду</a>]</span></center></div>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Граф связей класса MockQueue:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockQueue__coll__graph.png" border="0" usemap="#aMockQueue_coll__map" alt="Collaboration graph"/></div>
+<map name="aMockQueue_coll__map" id="aMockQueue_coll__map">
+<area shape="rect" title=" " alt="" coords="5,79,97,105"/>
+<area shape="rect" href="classTP_1_1IQueue.html" title="Интерфейс IQueue представляет общие методы для работы с очередью задач." alt="" coords="8,5,94,31"/>
+<area shape="poly" title=" " alt="" coords="54,46,54,79,48,79,48,46"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a095e34c33b157e506f18acbb28c4728c" id="r_a095e34c33b157e506f18acbb28c4728c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockQueue.html#a095e34c33b157e506f18acbb28c4728c">MockQueue</a> (int size)</td></tr>
+<tr class="separator:a095e34c33b157e506f18acbb28c4728c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bf6a7177099a451143718e8822c03bb" id="r_a3bf6a7177099a451143718e8822c03bb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockQueue.html#a3bf6a7177099a451143718e8822c03bb">MOCK_METHOD</a> ((std::pair&lt; std::shared_ptr&lt; <a class="el" href="classTP_1_1ITask.html">TP::ITask</a> &gt;, <a class="el" href="namespaceTP.html#a34116505f865df276a6696f975e74036">TP::CallID</a> &gt; &amp;), <a class="el" href="classTP_1_1IQueue.html#a4de048f35493c7cfa01b1cf6b6ebf642">back</a>,(),(override))</td></tr>
+<tr class="separator:a3bf6a7177099a451143718e8822c03bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8be2c6512ec8719daa3ceecf7584b274" id="r_a8be2c6512ec8719daa3ceecf7584b274"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockQueue.html#a8be2c6512ec8719daa3ceecf7584b274">MOCK_METHOD</a> ((std::pair&lt; std::shared_ptr&lt; <a class="el" href="classTP_1_1ITask.html">TP::ITask</a> &gt;, <a class="el" href="namespaceTP.html#a34116505f865df276a6696f975e74036">TP::CallID</a> &gt; &amp;), <a class="el" href="classTP_1_1IQueue.html#ab27bfedef69b4b9dd075049d4ccef013">front</a>,(),(override))</td></tr>
+<tr class="separator:a8be2c6512ec8719daa3ceecf7584b274"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a0f657b9b99869d5c955f1e4a77f94b" id="r_a4a0f657b9b99869d5c955f1e4a77f94b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockQueue.html#a4a0f657b9b99869d5c955f1e4a77f94b">MOCK_METHOD</a> (bool, <a class="el" href="classTP_1_1IQueue.html#ac31a57a7db9ab873a6e456cab8d06df5">empty</a>,(),(const, override))</td></tr>
+<tr class="separator:a4a0f657b9b99869d5c955f1e4a77f94b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a950fc90198407e2c5b354b11d8fd91da" id="r_a950fc90198407e2c5b354b11d8fd91da"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockQueue.html#a950fc90198407e2c5b354b11d8fd91da">MOCK_METHOD</a> (bool, <a class="el" href="classTP_1_1IQueue.html#ada95e23a75a07c75493708a047948807">push</a>,((std::pair&lt; std::shared_ptr&lt; <a class="el" href="classTP_1_1ITask.html">TP::ITask</a> &gt;, <a class="el" href="namespaceTP.html#a34116505f865df276a6696f975e74036">TP::CallID</a> &gt; &amp;&amp;taskPair)),(override))</td></tr>
+<tr class="separator:a950fc90198407e2c5b354b11d8fd91da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fe49ce05d64ad7aeb0cba1333c6a8d0" id="r_a6fe49ce05d64ad7aeb0cba1333c6a8d0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockQueue.html#a6fe49ce05d64ad7aeb0cba1333c6a8d0">MOCK_METHOD</a> (void, <a class="el" href="classTP_1_1IQueue.html#ae5472ec9666372cec2924b01e009f834">pop</a>,(),(override))</td></tr>
+<tr class="separator:a6fe49ce05d64ad7aeb0cba1333c6a8d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bdacbef317af7cae0c4a960f703a380" id="r_a4bdacbef317af7cae0c4a960f703a380"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockQueue.html#a4bdacbef317af7cae0c4a960f703a380">MOCK_METHOD</a> (void, <a class="el" href="classTP_1_1IQueue.html#a64d733e9c314634719a64dd9d425aa9a">update</a>,(int size),(override))</td></tr>
+<tr class="separator:a4bdacbef317af7cae0c4a960f703a380"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abeb3a1c71b465ab024a83d971f4659ed" id="r_abeb3a1c71b465ab024a83d971f4659ed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockQueue.html#abeb3a1c71b465ab024a83d971f4659ed">MOCK_METHOD</a> (void, <a class="el" href="classTP_1_1IQueue.html#a00e27b1ecd90212b4ca97192a0b271f0">setLogger</a>,((std::shared_ptr&lt; spdlog::logger &gt;)),(override))</td></tr>
+<tr class="separator:abeb3a1c71b465ab024a83d971f4659ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3394433d458b84aca554a0d175743555" id="r_a3394433d458b84aca554a0d175743555"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockQueue.html#a3394433d458b84aca554a0d175743555">MOCK_METHOD</a> (void, <a class="el" href="classTP_1_1IQueue.html#aca91803ab2cebe8ab1fc8cc27207f2e6">setRecorders</a>,((std::vector&lt; std::shared_ptr&lt; <a class="el" href="classIRecorder.html">IRecorder</a> &gt; &gt; recorders)),(override))</td></tr>
+<tr class="separator:a3394433d458b84aca554a0d175743555"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab144f54f0647d6e637883ffd790b4eea" id="r_ab144f54f0647d6e637883ffd790b4eea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMockQueue.html#ab144f54f0647d6e637883ffd790b4eea">MOCK_METHOD</a> (void, <a class="el" href="classTP_1_1IQueue.html#a12aeaeacc2a109295910da628511f64a">writeCDR</a>,(const <a class="el" href="structCDR.html">CDR</a> &amp;cdr),(override))</td></tr>
+<tr class="separator:ab144f54f0647d6e637883ffd790b4eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classTP_1_1IQueue"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classTP_1_1IQueue')"><img src="closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="classTP_1_1IQueue.html">TP::IQueue</a></td></tr>
+<tr class="memitem:ad059ca86fde968f322c2a25ae810e090 inherit pub_methods_classTP_1_1IQueue" id="r_ad059ca86fde968f322c2a25ae810e090"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTP_1_1IQueue.html#ad059ca86fde968f322c2a25ae810e090">IQueue</a> (int size)</td></tr>
+<tr class="memdesc:ad059ca86fde968f322c2a25ae810e090 inherit pub_methods_classTP_1_1IQueue"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор интерфейса <a class="el" href="classTP_1_1IQueue.html" title="Интерфейс IQueue представляет общие методы для работы с очередью задач.">IQueue</a>.  <br /></td></tr>
+<tr class="separator:ad059ca86fde968f322c2a25ae810e090 inherit pub_methods_classTP_1_1IQueue"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4de048f35493c7cfa01b1cf6b6ebf642 inherit pub_methods_classTP_1_1IQueue" id="r_a4de048f35493c7cfa01b1cf6b6ebf642"><td class="memItemLeft" align="right" valign="top">virtual std::pair&lt; std::shared_ptr&lt; <a class="el" href="classTP_1_1ITask.html">ITask</a> &gt;, <a class="el" href="namespaceTP.html#a34116505f865df276a6696f975e74036">CallID</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTP_1_1IQueue.html#a4de048f35493c7cfa01b1cf6b6ebf642">back</a> ()=0</td></tr>
+<tr class="memdesc:a4de048f35493c7cfa01b1cf6b6ebf642 inherit pub_methods_classTP_1_1IQueue"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает ссылку на задачу в конце очереди.  <br /></td></tr>
+<tr class="separator:a4de048f35493c7cfa01b1cf6b6ebf642 inherit pub_methods_classTP_1_1IQueue"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab27bfedef69b4b9dd075049d4ccef013 inherit pub_methods_classTP_1_1IQueue" id="r_ab27bfedef69b4b9dd075049d4ccef013"><td class="memItemLeft" align="right" valign="top">virtual std::pair&lt; std::shared_ptr&lt; <a class="el" href="classTP_1_1ITask.html">ITask</a> &gt;, <a class="el" href="namespaceTP.html#a34116505f865df276a6696f975e74036">CallID</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTP_1_1IQueue.html#ab27bfedef69b4b9dd075049d4ccef013">front</a> ()=0</td></tr>
+<tr class="memdesc:ab27bfedef69b4b9dd075049d4ccef013 inherit pub_methods_classTP_1_1IQueue"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает ссылку на задачу в начале очереди.  <br /></td></tr>
+<tr class="separator:ab27bfedef69b4b9dd075049d4ccef013 inherit pub_methods_classTP_1_1IQueue"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac31a57a7db9ab873a6e456cab8d06df5 inherit pub_methods_classTP_1_1IQueue" id="r_ac31a57a7db9ab873a6e456cab8d06df5"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTP_1_1IQueue.html#ac31a57a7db9ab873a6e456cab8d06df5">empty</a> () const =0</td></tr>
+<tr class="memdesc:ac31a57a7db9ab873a6e456cab8d06df5 inherit pub_methods_classTP_1_1IQueue"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет, является ли очередь пустой.  <br /></td></tr>
+<tr class="separator:ac31a57a7db9ab873a6e456cab8d06df5 inherit pub_methods_classTP_1_1IQueue"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada95e23a75a07c75493708a047948807 inherit pub_methods_classTP_1_1IQueue" id="r_ada95e23a75a07c75493708a047948807"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTP_1_1IQueue.html#ada95e23a75a07c75493708a047948807">push</a> (std::pair&lt; std::shared_ptr&lt; <a class="el" href="classTP_1_1ITask.html">ITask</a> &gt;, <a class="el" href="namespaceTP.html#a34116505f865df276a6696f975e74036">CallID</a> &gt; &amp;&amp;taskPair)=0</td></tr>
+<tr class="memdesc:ada95e23a75a07c75493708a047948807 inherit pub_methods_classTP_1_1IQueue"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавляет задачу в конец очереди.  <br /></td></tr>
+<tr class="separator:ada95e23a75a07c75493708a047948807 inherit pub_methods_classTP_1_1IQueue"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5472ec9666372cec2924b01e009f834 inherit pub_methods_classTP_1_1IQueue" id="r_ae5472ec9666372cec2924b01e009f834"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTP_1_1IQueue.html#ae5472ec9666372cec2924b01e009f834">pop</a> ()=0</td></tr>
+<tr class="memdesc:ae5472ec9666372cec2924b01e009f834 inherit pub_methods_classTP_1_1IQueue"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаляет задачу из начала очереди.  <br /></td></tr>
+<tr class="separator:ae5472ec9666372cec2924b01e009f834 inherit pub_methods_classTP_1_1IQueue"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64d733e9c314634719a64dd9d425aa9a inherit pub_methods_classTP_1_1IQueue" id="r_a64d733e9c314634719a64dd9d425aa9a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTP_1_1IQueue.html#a64d733e9c314634719a64dd9d425aa9a">update</a> (int size)=0</td></tr>
+<tr class="memdesc:a64d733e9c314634719a64dd9d425aa9a inherit pub_methods_classTP_1_1IQueue"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обновляет максимальный размер очереди.  <br /></td></tr>
+<tr class="separator:a64d733e9c314634719a64dd9d425aa9a inherit pub_methods_classTP_1_1IQueue"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00e27b1ecd90212b4ca97192a0b271f0 inherit pub_methods_classTP_1_1IQueue" id="r_a00e27b1ecd90212b4ca97192a0b271f0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTP_1_1IQueue.html#a00e27b1ecd90212b4ca97192a0b271f0">setLogger</a> (std::shared_ptr&lt; spdlog::logger &gt; logger)=0</td></tr>
+<tr class="memdesc:a00e27b1ecd90212b4ca97192a0b271f0 inherit pub_methods_classTP_1_1IQueue"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает асинхронный логгер.  <br /></td></tr>
+<tr class="separator:a00e27b1ecd90212b4ca97192a0b271f0 inherit pub_methods_classTP_1_1IQueue"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca91803ab2cebe8ab1fc8cc27207f2e6 inherit pub_methods_classTP_1_1IQueue" id="r_aca91803ab2cebe8ab1fc8cc27207f2e6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTP_1_1IQueue.html#aca91803ab2cebe8ab1fc8cc27207f2e6">setRecorders</a> (std::vector&lt; std::shared_ptr&lt; <a class="el" href="classIRecorder.html">IRecorder</a> &gt; &gt; recorders)=0</td></tr>
+<tr class="memdesc:aca91803ab2cebe8ab1fc8cc27207f2e6 inherit pub_methods_classTP_1_1IQueue"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка вектора разных объектов для записи cdr.  <br /></td></tr>
+<tr class="separator:aca91803ab2cebe8ab1fc8cc27207f2e6 inherit pub_methods_classTP_1_1IQueue"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12aeaeacc2a109295910da628511f64a inherit pub_methods_classTP_1_1IQueue" id="r_a12aeaeacc2a109295910da628511f64a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTP_1_1IQueue.html#a12aeaeacc2a109295910da628511f64a">writeCDR</a> (const <a class="el" href="structCDR.html">CDR</a> &amp;cdr)=0</td></tr>
+<tr class="memdesc:a12aeaeacc2a109295910da628511f64a inherit pub_methods_classTP_1_1IQueue"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запись <a class="el" href="structCDR.html" title="Структура CDR (Call Detail Record), представляющая запись о вызове.">CDR</a> при помощи IRecorders объектов.  <br /></td></tr>
+<tr class="separator:a12aeaeacc2a109295910da628511f64a inherit pub_methods_classTP_1_1IQueue"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a095e34c33b157e506f18acbb28c4728c" name="a095e34c33b157e506f18acbb28c4728c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a095e34c33b157e506f18acbb28c4728c">&#9670;&#160;</a></span>MockQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockQueue::MockQueue </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a3bf6a7177099a451143718e8822c03bb" name="a3bf6a7177099a451143718e8822c03bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bf6a7177099a451143718e8822c03bb">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[1/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockQueue::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">(std::pair&lt; std::shared_ptr&lt; <a class="el" href="classTP_1_1ITask.html">TP::ITask</a> &gt;, <a class="el" href="namespaceTP.html#a34116505f865df276a6696f975e74036">TP::CallID</a> &gt; &amp;)&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classTP_1_1IQueue.html#a4de048f35493c7cfa01b1cf6b6ebf642">back</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">()&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8be2c6512ec8719daa3ceecf7584b274" name="a8be2c6512ec8719daa3ceecf7584b274"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8be2c6512ec8719daa3ceecf7584b274">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[2/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockQueue::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">(std::pair&lt; std::shared_ptr&lt; <a class="el" href="classTP_1_1ITask.html">TP::ITask</a> &gt;, <a class="el" href="namespaceTP.html#a34116505f865df276a6696f975e74036">TP::CallID</a> &gt; &amp;)&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classTP_1_1IQueue.html#ab27bfedef69b4b9dd075049d4ccef013">front</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">()&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4a0f657b9b99869d5c955f1e4a77f94b" name="a4a0f657b9b99869d5c955f1e4a77f94b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a0f657b9b99869d5c955f1e4a77f94b">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[3/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockQueue::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classTP_1_1IQueue.html#ac31a57a7db9ab873a6e456cab8d06df5">empty</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">()&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(const, override)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a950fc90198407e2c5b354b11d8fd91da" name="a950fc90198407e2c5b354b11d8fd91da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a950fc90198407e2c5b354b11d8fd91da">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[4/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockQueue::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classTP_1_1IQueue.html#ada95e23a75a07c75493708a047948807">push</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">((std::pair&lt; std::shared_ptr&lt; <a class="el" href="classTP_1_1ITask.html">TP::ITask</a> &gt;, <a class="el" href="namespaceTP.html#a34116505f865df276a6696f975e74036">TP::CallID</a> &gt; &amp;&amp;taskPair))&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6fe49ce05d64ad7aeb0cba1333c6a8d0" name="a6fe49ce05d64ad7aeb0cba1333c6a8d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fe49ce05d64ad7aeb0cba1333c6a8d0">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[5/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockQueue::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classTP_1_1IQueue.html#ae5472ec9666372cec2924b01e009f834">pop</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">()&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abeb3a1c71b465ab024a83d971f4659ed" name="abeb3a1c71b465ab024a83d971f4659ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abeb3a1c71b465ab024a83d971f4659ed">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[6/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockQueue::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classTP_1_1IQueue.html#a00e27b1ecd90212b4ca97192a0b271f0">setLogger</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">((std::shared_ptr&lt; spdlog::logger &gt;))&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3394433d458b84aca554a0d175743555" name="a3394433d458b84aca554a0d175743555"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3394433d458b84aca554a0d175743555">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[7/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockQueue::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classTP_1_1IQueue.html#aca91803ab2cebe8ab1fc8cc27207f2e6">setRecorders</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">((std::vector&lt; std::shared_ptr&lt; <a class="el" href="classIRecorder.html">IRecorder</a> &gt; &gt; recorders))&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4bdacbef317af7cae0c4a960f703a380" name="a4bdacbef317af7cae0c4a960f703a380"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bdacbef317af7cae0c4a960f703a380">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[8/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockQueue::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classTP_1_1IQueue.html#a64d733e9c314634719a64dd9d425aa9a">update</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(int size)&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab144f54f0647d6e637883ffd790b4eea" name="ab144f54f0647d6e637883ffd790b4eea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab144f54f0647d6e637883ffd790b4eea">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[9/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockQueue::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classTP_1_1IQueue.html#a12aeaeacc2a109295910da628511f64a">writeCDR</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(const <a class="el" href="structCDR.html">CDR</a> &amp;cdr)&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>tests/<a class="el" href="managerTests_8cpp.html">managerTests.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

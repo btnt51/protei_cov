@@ -1,0 +1,9 @@
+<map id="Иерархия классов. Графический вид." name="Иерархия классов. Графический вид.">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,5,135,46"/>
+<area shape="rect" id="Node000001" href="$classManager.html" title="Класс управляющей тредпулом (центром обратки вызовов)" alt="" coords="199,17,270,43"/>
+<area shape="poly" id="edge2_Node000000_Node000001" title=" " alt="" coords="151,25,198,26,198,31,150,30"/>
+<area shape="rect" id="Node000002" href="$classIManager.html" title="Абстрактный интерфейс для управления задачами в тредпуле." alt="" coords="32,70,108,96"/>
+<area shape="poly" id="edge3_Node000002_Node000001" title=" " alt="" coords="122,64,197,39,199,44,123,69"/>
+<area shape="rect" id="Node000003" href="$classMockManager.html" title=" " alt="" coords="183,70,286,96"/>
+<area shape="poly" id="edge4_Node000002_Node000003" title=" " alt="" coords="123,80,182,80,182,86,123,86"/>
+</map>

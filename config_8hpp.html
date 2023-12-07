@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Файл include/config.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a> &#124;
+<a href="#namespaces">Пространства имен</a>  </div>
+  <div class="headertitle"><div class="title">Файл config.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Содержит объявления классов Config и ThreadSafeConfig, которые реализуют интерфейс IThreadPool.  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &lt;filesystem&gt;</code><br />
+<code>#include &lt;thread&gt;</code><br />
+<code>#include &lt;chrono&gt;</code><br />
+<code>#include &quot;<a class="el" href="interfaces_8hpp_source.html">interfaces.hpp</a>&quot;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Граф включаемых заголовочных файлов для config.hpp:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="config_8hpp__incl.png" border="0" usemap="#ainclude_2config_8hpp" alt=""/></div>
+<map name="ainclude_2config_8hpp" id="ainclude_2config_8hpp">
+<area shape="rect" title="Содержит объявления классов Config и ThreadSafeConfig, которые реализуют интерфейс IThreadPool." alt="" coords="611,5,735,31"/>
+<area shape="rect" title=" " alt="" coords="453,234,533,260"/>
+<area shape="poly" title=" " alt="" coords="611,33,519,52,415,79,366,96,324,114,291,133,270,154,245,196,247,200,261,200,326,200,377,207,442,224,448,226,446,231,440,229,376,212,326,205,261,205,244,204,240,196,266,151,287,129,321,109,364,91,413,74,518,47,610,28"/>
+<area shape="rect" title=" " alt="" coords="786,315,843,341"/>
+<area shape="poly" title=" " alt="" coords="692,30,748,78,779,112,803,152,817,190,822,231,821,300,816,300,817,231,811,191,799,154,774,116,744,82,688,34"/>
+<area shape="rect" title=" " alt="" coords="868,315,929,341"/>
+<area shape="poly" title=" " alt="" coords="703,29,740,49,777,77,801,103,822,132,856,193,880,252,894,299,889,301,875,254,851,196,818,135,797,106,774,81,737,54,700,34"/>
+<area shape="rect" href="interfaces_8hpp.html" title="Содержит интерфейсы IConfig, ITask, IQueue, IThreadPool, IManager." alt="" coords="439,79,542,105"/>
+<area shape="poly" title=" " alt="" coords="643,34,536,75,534,71,641,29"/>
+<area shape="poly" title=" " alt="" coords="439,99,377,106,316,120,294,131,279,143,275,158,283,177,299,195,316,205,333,211,351,213,393,215,442,224,447,226,446,231,440,229,392,220,351,219,332,216,314,210,296,199,279,180,270,159,275,141,291,126,315,115,376,101,438,93"/>
+<area shape="rect" title=" " alt="" coords="293,153,347,178"/>
+<area shape="poly" title=" " alt="" coords="462,108,362,149,360,145,460,103"/>
+<area shape="rect" title=" " alt="" coords="371,153,439,178"/>
+<area shape="poly" title=" " alt="" coords="478,107,432,145,429,141,474,103"/>
+<area shape="rect" title=" " alt="" coords="462,153,519,178"/>
+<area shape="poly" title=" " alt="" coords="493,105,493,137,488,137,488,105"/>
+<area shape="rect" title=" " alt="" coords="659,153,767,178"/>
+<area shape="poly" title=" " alt="" coords="529,103,662,145,660,150,527,108"/>
+<area shape="rect" href="commonStructures_8hpp.html" title="Содержит общие структуры и типы данных, а также функции необходимые для работы с этими структурами и ..." alt="" coords="645,234,800,260"/>
+<area shape="poly" title=" " alt="" coords="542,94,607,100,679,110,742,127,766,138,782,151,789,171,783,191,769,210,753,226,749,222,765,206,778,188,783,171,778,154,763,142,740,132,677,116,606,105,542,99"/>
+<area shape="rect" href="jsonParser_8hpp.html" title="Содержит объявление класса JsonParser, предназначенного для парсинга и обработки JSON данных." alt="" coords="61,153,168,178"/>
+<area shape="poly" title=" " alt="" coords="439,106,183,154,182,149,438,100"/>
+<area shape="rect" href="recorder_8hpp.html" title="Содержит объявления интерфейса IRecorder, и его реализации FileRecorder." alt="" coords="543,153,635,178"/>
+<area shape="poly" title=" " alt="" coords="509,103,562,141,559,146,506,107"/>
+<area shape="poly" title=" " alt="" coords="738,258,791,303,787,307,735,262"/>
+<area shape="poly" title=" " alt="" coords="751,258,859,306,857,311,748,263"/>
+<area shape="rect" title=" " alt="" coords="687,315,758,341"/>
+<area shape="poly" title=" " alt="" coords="725,260,725,299,720,299,720,260"/>
+<area shape="rect" title=" " alt="" coords="578,315,643,341"/>
+<area shape="poly" title=" " alt="" coords="707,262,641,308,638,304,704,258"/>
+<area shape="rect" title=" " alt="" coords="233,315,286,341"/>
+<area shape="poly" title=" " alt="" coords="652,263,302,322,301,317,651,257"/>
+<area shape="poly" title=" " alt="" coords="169,173,316,198,442,224,449,226,447,231,440,229,315,203,168,178"/>
+<area shape="poly" title=" " alt="" coords="76,181,42,200,27,212,15,228,8,247,10,256,15,265,28,276,48,286,101,301,163,313,218,320,217,325,162,318,100,307,46,291,25,280,11,269,5,258,3,247,11,225,23,209,39,195,74,177"/>
+<area shape="rect" title=" " alt="" coords="26,234,67,260"/>
+<area shape="poly" title=" " alt="" coords="106,181,69,224,65,220,102,177"/>
+<area shape="rect" title=" " alt="" coords="91,234,138,260"/>
+<area shape="poly" title=" " alt="" coords="117,179,117,218,112,218,112,179"/>
+<area shape="rect" title=" " alt="" coords="162,226,294,267"/>
+<area shape="poly" title=" " alt="" coords="133,177,189,215,186,220,130,181"/>
+<area shape="rect" title=" " alt="" coords="317,234,429,260"/>
+<area shape="poly" title=" " alt="" coords="155,176,319,226,318,231,153,181"/>
+<area shape="poly" title=" " alt="" coords="576,181,521,226,518,222,573,177"/>
+<area shape="poly" title=" " alt="" coords="611,176,690,223,688,228,608,181"/>
+<area shape="poly" title=" " alt="" coords="593,178,609,299,604,300,588,179"/>
+<area shape="poly" title=" " alt="" coords="557,181,421,231,420,226,555,176"/>
+</map>
+</div>
+</div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Граф файлов, в которые включается этот файл:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="config_8hpp__dep__incl.png" border="0" usemap="#ainclude_2config_8hppdep" alt=""/></div>
+<map name="ainclude_2config_8hppdep" id="ainclude_2config_8hppdep">
+<area shape="rect" title="Содержит объявления классов Config и ThreadSafeConfig, которые реализуют интерфейс IThreadPool." alt="" coords="366,5,490,31"/>
+<area shape="rect" href="builder_8hpp.html" title="Содержит объявление класса ManagerBuilder, частично реализующий паттерн Строитель." alt="" coords="225,79,353,105"/>
+<area shape="poly" title=" " alt="" coords="392,41,314,81,311,76,389,36"/>
+<area shape="rect" href="config_8cpp.html" title="Содержит определение классов Config и ThreadSafeConfig, которые реализуют интерфейс IThreadPool." alt="" coords="377,79,478,105"/>
+<area shape="poly" title=" " alt="" coords="430,46,430,79,425,79,425,46"/>
+<area shape="rect" href="configTests_8cpp.html" title=" " alt="" coords="503,79,648,105"/>
+<area shape="poly" title=" " alt="" coords="468,36,552,76,549,81,465,41"/>
+<area shape="rect" href="httpServer_8hpp.html" title="Содержит объявление класса HttpServer." alt="" coords="62,153,212,178"/>
+<area shape="poly" title=" " alt="" coords="251,114,164,154,162,150,248,109"/>
+<area shape="rect" href="builder_8cpp.html" title=" " alt="" coords="236,153,342,178"/>
+<area shape="poly" title=" " alt="" coords="292,120,292,152,286,152,286,120"/>
+<area shape="rect" href="builderTests_8cpp.html" title=" " alt="" coords="366,153,516,178"/>
+<area shape="poly" title=" " alt="" coords="330,109,416,150,414,154,327,114"/>
+<area shape="rect" href="httpServer_8cpp.html" title="Содержит определение класса HttpServer." alt="" coords="5,226,133,252"/>
+<area shape="poly" title=" " alt="" coords="117,191,82,228,79,224,113,188"/>
+<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="157,226,253,252"/>
+<area shape="poly" title=" " alt="" coords="161,188,195,224,192,228,157,191"/>
+</map>
+</div>
+</div>
+<p><a href="config_8hpp_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1Config.html">utility::Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Класс <a class="el" href="classutility_1_1Config.html" title="Класс Config представляет собой реализацию интерфейса IConfig.">Config</a> представляет собой реализацию интерфейса <a class="el" href="classutility_1_1IConfig.html" title="Абстрактный интерфейс для работы с конфигурацией.">IConfig</a>.  <a href="classutility_1_1Config.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutility_1_1ThreadSafeConfig.html">utility::ThreadSafeConfig</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Класс <a class="el" href="classutility_1_1ThreadSafeConfig.html" title="Класс ThreadSafeConfig представляет собой потокобезопасную реализацию интерфейса IConfig.">ThreadSafeConfig</a> представляет собой потокобезопасную реализацию интерфейса <a class="el" href="classutility_1_1IConfig.html" title="Абстрактный интерфейс для работы с конфигурацией.">IConfig</a>.  <a href="classutility_1_1ThreadSafeConfig.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Пространства имен</h2></td></tr>
+<tr class="memitem:namespaceutility" id="r_namespaceutility"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceutility.html">utility</a></td></tr>
+<tr class="memdesc:namespaceutility"><td class="mdescLeft">&#160;</td><td class="mdescRight">Пространство имен utility, содержащее функционал для работы с конфигами. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Содержит объявления классов Config и ThreadSafeConfig, которые реализуют интерфейс IThreadPool. </p>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

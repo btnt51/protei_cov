@@ -1,0 +1,58 @@
+<map id="include/jsonParser.hpp" name="include/jsonParser.hpp">
+<area shape="rect" id="Node000001" title="Содержит объявление класса JsonParser, предназначенного для парсинга и обработки JSON данных." alt="" coords="617,5,770,31"/>
+<area shape="rect" id="Node000002" href="$interfaces_8hpp.html" title="Содержит интерфейсы IConfig, ITask, IQueue, IThreadPool, IManager." alt="" coords="457,79,604,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="653,40,559,81,557,76,651,35"/>
+<area shape="rect" id="Node000022" href="$jsonParser_8cpp.html" title="Содержит определение класса JsonParser." alt="" coords="629,79,758,105"/>
+<area shape="poly" id="edge32_Node000001_Node000022" title=" " alt="" coords="696,46,696,79,691,79,691,46"/>
+<area shape="rect" id="Node000023" href="$jsonParserTests_8cpp.html" title=" " alt="" coords="783,79,956,105"/>
+<area shape="poly" id="edge33_Node000001_Node000023" title=" " alt="" coords="738,35,840,76,838,81,736,40"/>
+<area shape="rect" id="Node000003" href="$config_8hpp.html" title="Содержит объявления классов Config и ThreadSafeConfig, которые реализуют интерфейс IThreadPool." alt="" coords="161,153,285,178"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="464,111,276,155,274,149,463,106"/>
+<area shape="rect" id="Node000011" href="$configTests_8cpp.html" title=" " alt="" coords="131,226,277,252"/>
+<area shape="poly" id="edge30_Node000002_Node000011" title=" " alt="" coords="491,114,233,228,230,223,489,109"/>
+<area shape="rect" id="Node000012" href="$manager_8hpp.html" title="Содержит объявление класса Manager, который реализует интерфейс IManager." alt="" coords="461,153,601,178"/>
+<area shape="poly" id="edge11_Node000002_Node000012" title=" " alt="" coords="533,120,533,152,528,152,528,120"/>
+<area shape="rect" id="Node000014" href="$managerTests_8cpp.html" title=" " alt="" coords="454,226,615,252"/>
+<area shape="poly" id="edge31_Node000002_Node000014" title=" " alt="" coords="491,115,471,128,455,143,447,160,450,177,461,192,474,205,505,223,502,228,471,209,457,196,446,179,442,159,451,140,468,124,488,110"/>
+<area shape="rect" id="Node000015" href="$queue_8hpp.html" title="Содержит объявление класса Queue, который реализует интерфейс IQueue." alt="" coords="943,153,1068,178"/>
+<area shape="poly" id="edge15_Node000002_Node000015" title=" " alt="" coords="620,104,930,150,943,152,942,157,929,155,620,109"/>
+<area shape="rect" id="Node000019" href="$task_8hpp.html" title="Содержит объявления класса Task, который реализует интерфейс ITask." alt="" coords="802,153,918,178"/>
+<area shape="poly" id="edge19_Node000002_Node000019" title=" " alt="" coords="602,106,805,149,803,155,601,111"/>
+<area shape="rect" id="Node000021" href="$threadpool_8hpp.html" title="Содержит объявления структуры Thread и класса ThreadPool, который реализует интерфейс IThreadPool." alt="" coords="625,153,775,178"/>
+<area shape="poly" id="edge23_Node000002_Node000021" title=" " alt="" coords="575,109,672,150,670,155,572,114"/>
+<area shape="rect" id="Node000004" href="$builder_8hpp.html" title="Содержит объявление класса ManagerBuilder, частично реализующий паттерн Строитель." alt="" coords="301,226,430,252"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="262,183,342,223,340,228,259,188"/>
+<area shape="rect" id="Node000010" href="$config_8cpp.html" title="Содержит определение классов Config и ThreadSafeConfig, которые реализуют интерфейс IThreadPool." alt="" coords="5,226,107,252"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="182,187,85,228,83,223,179,182"/>
+<area shape="poly" id="edge10_Node000003_Node000011" title=" " alt="" coords="218,194,210,227,205,225,213,192"/>
+<area shape="rect" id="Node000005" href="$httpServer_8hpp.html" title="Содержит объявление класса HttpServer." alt="" coords="138,300,289,326"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="327,261,240,302,238,297,325,257"/>
+<area shape="rect" id="Node000008" href="$builder_8cpp.html" title=" " alt="" coords="313,300,418,326"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="368,267,368,300,363,300,363,267"/>
+<area shape="rect" id="Node000009" href="$builderTests_8cpp.html" title=" " alt="" coords="443,300,592,326"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="406,257,493,297,490,302,404,261"/>
+<area shape="rect" id="Node000006" href="$httpServer_8cpp.html" title="Содержит определение класса HttpServer." alt="" coords="82,374,209,399"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="193,339,159,375,155,371,190,335"/>
+<area shape="rect" id="Node000007" href="$main_8cpp.html" title=" " alt="" coords="234,374,329,399"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="237,335,272,371,268,375,233,339"/>
+<area shape="poly" id="edge12_Node000012_Node000004" title=" " alt="" coords="490,187,395,228,392,223,488,182"/>
+<area shape="rect" id="Node000013" href="$manager_8cpp.html" title="Содержит определение класса Manager, который реализует интерфейс IManager." alt="" coords="640,226,757,252"/>
+<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="574,182,671,223,669,228,572,187"/>
+<area shape="poly" id="edge14_Node000012_Node000014" title=" " alt="" coords="535,194,537,226,531,226,530,194"/>
+<area shape="rect" id="Node000016" href="$queue_8cpp.html" title=" " alt="" coords="1221,226,1323,252"/>
+<area shape="poly" id="edge16_Node000015_Node000016" title=" " alt="" coords="1066,180,1227,223,1226,228,1064,185"/>
+<area shape="rect" id="Node000017" href="$threadpool_8cpp.html" title="Содержит определение класса ThreadPool, который реализует интерфейс IThreadPool." alt="" coords="782,226,909,252"/>
+<area shape="poly" id="edge17_Node000015_Node000017" title=" " alt="" coords="966,187,874,228,872,223,963,183"/>
+<area shape="rect" id="Node000018" href="$queueTests_8cpp.html" title=" " alt="" coords="934,226,1080,252"/>
+<area shape="poly" id="edge18_Node000015_Node000018" title=" " alt="" coords="1009,194,1009,226,1004,226,1003,194"/>
+<area shape="poly" id="edge20_Node000019_Node000013" title=" " alt="" coords="820,187,727,228,725,223,818,183"/>
+<area shape="poly" id="edge22_Node000019_Node000018" title=" " alt="" coords="900,183,983,223,981,228,897,188"/>
+<area shape="rect" id="Node000020" href="$task_8cpp.html" title="Содержит определение класса Task, который реализует интерфейс ITask." alt="" coords="1105,226,1197,252"/>
+<area shape="poly" id="edge21_Node000019_Node000020" title=" " alt="" coords="925,180,1105,224,1103,229,923,185"/>
+<area shape="poly" id="edge24_Node000021_Node000004" title=" " alt="" coords="629,185,423,228,422,223,628,179"/>
+<area shape="poly" id="edge27_Node000021_Node000011" title=" " alt="" coords="610,182,278,230,277,225,609,177"/>
+<area shape="poly" id="edge25_Node000021_Node000013" title=" " alt="" coords="702,194,702,226,696,226,697,194"/>
+<area shape="poly" id="edge28_Node000021_Node000014" title=" " alt="" coords="659,187,564,228,562,223,657,182"/>
+<area shape="poly" id="edge26_Node000021_Node000017" title=" " alt="" coords="739,183,822,223,819,228,737,188"/>
+<area shape="poly" id="edge29_Node000021_Node000018" title=" " alt="" coords="768,180,955,223,954,228,767,185"/>
+</map>

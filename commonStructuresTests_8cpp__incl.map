@@ -1,0 +1,20 @@
+<map id="tests/commonStructuresTests.cpp" name="tests/commonStructuresTests.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="293,5,514,31"/>
+<area shape="rect" id="Node000002" href="$commonStructures_8hpp.html" title="Содержит общие структуры и типы данных, а также функции необходимые для работы с этими структурами и ..." alt="" coords="157,79,312,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="376,34,278,75,276,70,374,29"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="344,153,410,178"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="402,32,390,80,382,138,377,137,385,78,397,31"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="400,79,493,105"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="413,30,433,64,429,67,408,33"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="517,79,570,105"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="428,29,507,69,505,74,426,34"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,153,66,178"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="201,108,81,151,79,146,200,103"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="90,153,147,178"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="216,107,152,147,149,142,213,103"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="171,153,242,178"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="232,106,219,139,214,137,227,104"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="260,103,340,143,338,148,257,108"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="266,153,320,178"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="246,103,275,139,271,142,242,107"/>
+</map>

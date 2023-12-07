@@ -1,0 +1,7 @@
+<map id="Manager::setNewThreadPool" name="Manager::setNewThreadPool">
+<area shape="rect" id="Node000001" title="Установка нового тредпула, с ожиданием выполнения всех задач в работе в старом тредпуле,..." alt="" coords="5,31,194,56"/>
+<area shape="rect" id="Node000002" href="$classManager.html#ae17a5e9a4a414c487bc922e13e2a524f" title="Запуск тредпула." alt="" coords="242,5,411,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,30,226,27,226,32,194,36"/>
+<area shape="rect" id="Node000003" href="$classManager.html#abb1acb15aeb308ea0cb6a0574d71217f" title="Остановка тредпула." alt="" coords="242,55,411,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="194,51,227,54,226,60,194,56"/>
+</map>

@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Исходный файл include/commonStructures.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">commonStructures.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="commonStructures_8hpp.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PROTEI_COV_COMMONNSTRUCTURE_HPP</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PROTEI_COV_COMMONNSTRUCTURE_HPP</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;thread&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceTP.html">TP</a> {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="namespaceTP.html#a34116505f865df276a6696f975e74036">   20</a></span><span class="keyword">using </span><a class="code hl_typedef" href="namespaceTP.html#a34116505f865df276a6696f975e74036">CallID</a> = <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> long;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="commonStructures_8hpp.html#a6345adb90c060772fc680a395d9120fe">   28</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="commonStructures_8hpp.html#a6345adb90c060772fc680a395d9120fe">CallStatus</a> : <span class="keywordtype">int</span> {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_enumvalue" href="commonStructures_8hpp.html#a6345adb90c060772fc680a395d9120feac7bece6685d4556fcb8dfdcd72d720f5">Awaiting</a>,   </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_enumvalue" href="commonStructures_8hpp.html#a6345adb90c060772fc680a395d9120fea07ca5050e697392c9ed47e6453f1453f">Completed</a>,  </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_enumvalue" href="commonStructures_8hpp.html#a6345adb90c060772fc680a395d9120feaff87d8b8f25360b80a23fc058dd2c1fe">Duplication</a>, </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_enumvalue" href="commonStructures_8hpp.html#a6345adb90c060772fc680a395d9120fea6e710553e743259cd47e52f15fa71051">Overloaded</a>, </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_enumvalue" href="commonStructures_8hpp.html#a6345adb90c060772fc680a395d9120fead37b1f6c0512e2118cee17fea015b699">Rejected</a>,   </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_enumvalue" href="commonStructures_8hpp.html#a6345adb90c060772fc680a395d9120feac85a251cc457840f1e032f1b733e9398">Timeout</a> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>};</div>
+</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="namespaceutility.html">   37</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceutility.html">utility</a> {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>std::string <a class="code hl_function" href="namespaceutility.html#a660ff49bca6bc1ffea8f0c436c398864">to_string</a>(<span class="keyword">const</span> <a class="code hl_enumeration" href="commonStructures_8hpp.html#a6345adb90c060772fc680a395d9120fe">CallStatus</a>&amp; status);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="namespaceutility.html#ad080784ad6a87d560346756996b0684d">   51</a></span>std::string <a class="code hl_function" href="namespaceutility.html#ad080784ad6a87d560346756996b0684d">prepareTime</a>(<span class="keyword">const</span> std::chrono::system_clock::time_point&amp; timeP);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}</div>
+</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="foldopen" id="foldopen00058" data-start="{" data-end="};">
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="structCDR.html">   58</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structCDR.html">CDR</a> {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="structCDR.html#ad3c84befc211d837de2bddfdba965efc">   59</a></span>    std::chrono::system_clock::time_point <a class="code hl_variable" href="structCDR.html#ad3c84befc211d837de2bddfdba965efc">startTime</a>;                 </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="structCDR.html#a9a1563eb2f3b40db277da7c26a5374ab">   60</a></span>    std::chrono::system_clock::time_point <a class="code hl_variable" href="structCDR.html#a9a1563eb2f3b40db277da7c26a5374ab">endTime</a>;                   </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="structCDR.html#aacc97783df21d8c921c29c0454cd3466">   61</a></span>    <a class="code hl_typedef" href="namespaceTP.html#a34116505f865df276a6696f975e74036">TP::CallID</a> <a class="code hl_variable" href="structCDR.html#aacc97783df21d8c921c29c0454cd3466">callID</a>;                    </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="structCDR.html#a7c324d357b8db5d79d74490dd88e406a">   62</a></span>    <a class="code hl_enumeration" href="commonStructures_8hpp.html#a6345adb90c060772fc680a395d9120fe">CallStatus</a> <a class="code hl_variable" href="structCDR.html#a7c324d357b8db5d79d74490dd88e406a">status</a>;                    </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="structCDR.html#a1a2a7c7bfe2ca638fdefb1c8d742858a">   64</a></span>    std::chrono::system_clock::time_point <a class="code hl_variable" href="structCDR.html#a1a2a7c7bfe2ca638fdefb1c8d742858a">operatorCallTime</a>;      </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="structCDR.html#ab274e95bffec94da9766100de173d886">   65</a></span>    std::size_t <a class="code hl_variable" href="structCDR.html#ab274e95bffec94da9766100de173d886">operatorID</a>;           </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="structCDR.html#a39afa0f9108fc9145f9a802aad9e14ba">   66</a></span>    std::chrono::duration&lt;int&gt; <a class="code hl_variable" href="structCDR.html#a39afa0f9108fc9145f9a802aad9e14ba">callDuration</a>; </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="structCDR.html#ac2ba2a2727a652ef866735ea1d4be453">   67</a></span>    std::string_view <a class="code hl_variable" href="structCDR.html#ac2ba2a2727a652ef866735ea1d4be453">number</a>;                     </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>};</div>
+</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>std::ofstream&amp; <a class="code hl_function" href="commonStructures_8hpp.html#a70f6a0209a482f9543ad1f1fbddb6e5c">operator&lt;&lt;</a>(std::ofstream&amp; out, <span class="keyword">const</span> <a class="code hl_struct" href="structCDR.html">CDR</a>&amp; cdr);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="foldopen" id="foldopen00075" data-start="{" data-end="};">
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="structResult.html">   75</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structResult.html">Result</a> {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="structResult.html#a060f5a05fe189e97ff2257208a321df3">   76</a></span>    <a class="code hl_enumeration" href="commonStructures_8hpp.html#a6345adb90c060772fc680a395d9120fe">CallStatus</a> <a class="code hl_variable" href="structResult.html#a060f5a05fe189e97ff2257208a321df3">status</a>; </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="structResult.html#ac2dba7d11d9a6384360ecaf8e1671c58">   77</a></span>    std::chrono::duration&lt;int&gt; <a class="code hl_variable" href="structResult.html#ac2dba7d11d9a6384360ecaf8e1671c58">callDuration</a>; </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="structResult.html#acfffc98a4246c5254a6ef846b9cc6b9a">   78</a></span>    <a class="code hl_typedef" href="namespaceTP.html#a34116505f865df276a6696f975e74036">TP::CallID</a> <a class="code hl_variable" href="structResult.html#acfffc98a4246c5254a6ef846b9cc6b9a">callID</a>; </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>};</div>
+</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="acommonStructures_8hpp_html_a6345adb90c060772fc680a395d9120fe"><div class="ttname"><a href="commonStructures_8hpp.html#a6345adb90c060772fc680a395d9120fe">CallStatus</a></div><div class="ttdeci">CallStatus</div><div class="ttdoc">Перечисление, представляющее возможные статусы вызова.</div><div class="ttdef"><b>Definition</b> commonStructures.hpp:28</div></div>
+<div class="ttc" id="acommonStructures_8hpp_html_a6345adb90c060772fc680a395d9120fea07ca5050e697392c9ed47e6453f1453f"><div class="ttname"><a href="commonStructures_8hpp.html#a6345adb90c060772fc680a395d9120fea07ca5050e697392c9ed47e6453f1453f">CallStatus::Completed</a></div><div class="ttdeci">@ Completed</div><div class="ttdoc">Вызов успешно завершен.</div></div>
+<div class="ttc" id="acommonStructures_8hpp_html_a6345adb90c060772fc680a395d9120fea6e710553e743259cd47e52f15fa71051"><div class="ttname"><a href="commonStructures_8hpp.html#a6345adb90c060772fc680a395d9120fea6e710553e743259cd47e52f15fa71051">CallStatus::Overloaded</a></div><div class="ttdeci">@ Overloaded</div><div class="ttdoc">Очередь перегружена.</div></div>
+<div class="ttc" id="acommonStructures_8hpp_html_a6345adb90c060772fc680a395d9120feac7bece6685d4556fcb8dfdcd72d720f5"><div class="ttname"><a href="commonStructures_8hpp.html#a6345adb90c060772fc680a395d9120feac7bece6685d4556fcb8dfdcd72d720f5">CallStatus::Awaiting</a></div><div class="ttdeci">@ Awaiting</div><div class="ttdoc">Ожидание обработки вызова.</div></div>
+<div class="ttc" id="acommonStructures_8hpp_html_a6345adb90c060772fc680a395d9120feac85a251cc457840f1e032f1b733e9398"><div class="ttname"><a href="commonStructures_8hpp.html#a6345adb90c060772fc680a395d9120feac85a251cc457840f1e032f1b733e9398">CallStatus::Timeout</a></div><div class="ttdeci">@ Timeout</div><div class="ttdoc">Вызов не был обслужен.</div></div>
+<div class="ttc" id="acommonStructures_8hpp_html_a6345adb90c060772fc680a395d9120fead37b1f6c0512e2118cee17fea015b699"><div class="ttname"><a href="commonStructures_8hpp.html#a6345adb90c060772fc680a395d9120fead37b1f6c0512e2118cee17fea015b699">CallStatus::Rejected</a></div><div class="ttdeci">@ Rejected</div><div class="ttdoc">Вызов отклонен.</div></div>
+<div class="ttc" id="acommonStructures_8hpp_html_a6345adb90c060772fc680a395d9120feaff87d8b8f25360b80a23fc058dd2c1fe"><div class="ttname"><a href="commonStructures_8hpp.html#a6345adb90c060772fc680a395d9120feaff87d8b8f25360b80a23fc058dd2c1fe">CallStatus::Duplication</a></div><div class="ttdeci">@ Duplication</div><div class="ttdoc">Повторный вызов.</div></div>
+<div class="ttc" id="acommonStructures_8hpp_html_a70f6a0209a482f9543ad1f1fbddb6e5c"><div class="ttname"><a href="commonStructures_8hpp.html#a70f6a0209a482f9543ad1f1fbddb6e5c">operator&lt;&lt;</a></div><div class="ttdeci">std::ofstream &amp; operator&lt;&lt;(std::ofstream &amp;out, const CDR &amp;cdr)</div><div class="ttdef"><b>Definition</b> commonStructures.cpp:48</div></div>
+<div class="ttc" id="anamespaceTP_html"><div class="ttname"><a href="namespaceTP.html">TP</a></div><div class="ttdoc">Пространство имен TP, содержащее объявление типа CallID, а также объявление и определение классов Tas...</div></div>
+<div class="ttc" id="anamespaceTP_html_a34116505f865df276a6696f975e74036"><div class="ttname"><a href="namespaceTP.html#a34116505f865df276a6696f975e74036">TP::CallID</a></div><div class="ttdeci">unsigned long long CallID</div><div class="ttdef"><b>Definition</b> commonStructures.hpp:20</div></div>
+<div class="ttc" id="anamespaceutility_html"><div class="ttname"><a href="namespaceutility.html">utility</a></div><div class="ttdoc">Пространство имен utility, содержащее функционал для работы с конфигами.</div><div class="ttdef"><b>Definition</b> commonStructures.hpp:37</div></div>
+<div class="ttc" id="anamespaceutility_html_a660ff49bca6bc1ffea8f0c436c398864"><div class="ttname"><a href="namespaceutility.html#a660ff49bca6bc1ffea8f0c436c398864">utility::to_string</a></div><div class="ttdeci">std::string to_string(const CallStatus &amp;status)</div><div class="ttdoc">Преобразует перечисление CallStatus в строковое представление.</div><div class="ttdef"><b>Definition</b> commonStructures.cpp:10</div></div>
+<div class="ttc" id="anamespaceutility_html_ad080784ad6a87d560346756996b0684d"><div class="ttname"><a href="namespaceutility.html#ad080784ad6a87d560346756996b0684d">utility::prepareTime</a></div><div class="ttdeci">std::string prepareTime(const std::chrono::system_clock::time_point &amp;timeP)</div><div class="ttdoc">Подготавливает строковое представление времени из временной точки системных часов,...</div></div>
+<div class="ttc" id="astructCDR_html"><div class="ttname"><a href="structCDR.html">CDR</a></div><div class="ttdoc">Структура CDR (Call Detail Record), представляющая запись о вызове.</div><div class="ttdef"><b>Definition</b> commonStructures.hpp:58</div></div>
+<div class="ttc" id="astructCDR_html_a1a2a7c7bfe2ca638fdefb1c8d742858a"><div class="ttname"><a href="structCDR.html#a1a2a7c7bfe2ca638fdefb1c8d742858a">CDR::operatorCallTime</a></div><div class="ttdeci">std::chrono::system_clock::time_point operatorCallTime</div><div class="ttdoc">Время, когда оператор начал обрабатывать вызов.</div><div class="ttdef"><b>Definition</b> commonStructures.hpp:64</div></div>
+<div class="ttc" id="astructCDR_html_a39afa0f9108fc9145f9a802aad9e14ba"><div class="ttname"><a href="structCDR.html#a39afa0f9108fc9145f9a802aad9e14ba">CDR::callDuration</a></div><div class="ttdeci">std::chrono::duration&lt; int &gt; callDuration</div><div class="ttdoc">Продолжительность вызова в секундах.</div><div class="ttdef"><b>Definition</b> commonStructures.hpp:66</div></div>
+<div class="ttc" id="astructCDR_html_a7c324d357b8db5d79d74490dd88e406a"><div class="ttname"><a href="structCDR.html#a7c324d357b8db5d79d74490dd88e406a">CDR::status</a></div><div class="ttdeci">CallStatus status</div><div class="ttdef"><b>Definition</b> commonStructures.hpp:62</div></div>
+<div class="ttc" id="astructCDR_html_a9a1563eb2f3b40db277da7c26a5374ab"><div class="ttname"><a href="structCDR.html#a9a1563eb2f3b40db277da7c26a5374ab">CDR::endTime</a></div><div class="ttdeci">std::chrono::system_clock::time_point endTime</div><div class="ttdoc">Время окончания вызова.</div><div class="ttdef"><b>Definition</b> commonStructures.hpp:60</div></div>
+<div class="ttc" id="astructCDR_html_aacc97783df21d8c921c29c0454cd3466"><div class="ttname"><a href="structCDR.html#aacc97783df21d8c921c29c0454cd3466">CDR::callID</a></div><div class="ttdeci">TP::CallID callID</div><div class="ttdoc">Уникальный идентификатор вызова.</div><div class="ttdef"><b>Definition</b> commonStructures.hpp:61</div></div>
+<div class="ttc" id="astructCDR_html_ab274e95bffec94da9766100de173d886"><div class="ttname"><a href="structCDR.html#ab274e95bffec94da9766100de173d886">CDR::operatorID</a></div><div class="ttdeci">std::size_t operatorID</div><div class="ttdoc">Идентификатор потока оператора, обработавшего вызов.</div><div class="ttdef"><b>Definition</b> commonStructures.hpp:65</div></div>
+<div class="ttc" id="astructCDR_html_ac2ba2a2727a652ef866735ea1d4be453"><div class="ttname"><a href="structCDR.html#ac2ba2a2727a652ef866735ea1d4be453">CDR::number</a></div><div class="ttdeci">std::string_view number</div><div class="ttdoc">Номер вызова.</div><div class="ttdef"><b>Definition</b> commonStructures.hpp:67</div></div>
+<div class="ttc" id="astructCDR_html_ad3c84befc211d837de2bddfdba965efc"><div class="ttname"><a href="structCDR.html#ad3c84befc211d837de2bddfdba965efc">CDR::startTime</a></div><div class="ttdeci">std::chrono::system_clock::time_point startTime</div><div class="ttdoc">Время начала вызова.</div><div class="ttdef"><b>Definition</b> commonStructures.hpp:59</div></div>
+<div class="ttc" id="astructResult_html"><div class="ttname"><a href="structResult.html">Result</a></div><div class="ttdoc">Структура Result представляет результат обработки вызова.</div><div class="ttdef"><b>Definition</b> commonStructures.hpp:75</div></div>
+<div class="ttc" id="astructResult_html_a060f5a05fe189e97ff2257208a321df3"><div class="ttname"><a href="structResult.html#a060f5a05fe189e97ff2257208a321df3">Result::status</a></div><div class="ttdeci">CallStatus status</div><div class="ttdoc">Статус вызова.</div><div class="ttdef"><b>Definition</b> commonStructures.hpp:76</div></div>
+<div class="ttc" id="astructResult_html_ac2dba7d11d9a6384360ecaf8e1671c58"><div class="ttname"><a href="structResult.html#ac2dba7d11d9a6384360ecaf8e1671c58">Result::callDuration</a></div><div class="ttdeci">std::chrono::duration&lt; int &gt; callDuration</div><div class="ttdoc">Продолжительность вызова в секундах.</div><div class="ttdef"><b>Definition</b> commonStructures.hpp:77</div></div>
+<div class="ttc" id="astructResult_html_acfffc98a4246c5254a6ef846b9cc6b9a"><div class="ttname"><a href="structResult.html#acfffc98a4246c5254a6ef846b9cc6b9a">Result::callID</a></div><div class="ttdeci">TP::CallID callID</div><div class="ttdoc">Уникальный идентификатор вызова.</div><div class="ttdef"><b>Definition</b> commonStructures.hpp:78</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

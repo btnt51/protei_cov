@@ -1,0 +1,15 @@
+<map id="utility::Config::updateWithRequest" name="utility::Config::updateWithRequest">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,47,170,87"/>
+<area shape="rect" id="Node000002" href="$classutility_1_1Config.html#a1b0248504b32187c1ecd8de012574109" title="Уведомляет менеджера о необходимости обновления конфигурации." alt="" coords="240,29,370,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,55,224,48,224,54,170,60"/>
+<area shape="rect" id="Node000003" href="$classutility_1_1Config.html#a720edee38947ba903538734e1ea2c6e7" title="Обновляет данные конфигурации." alt="" coords="218,78,392,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="170,73,202,77,202,82,170,79"/>
+<area shape="rect" id="Node000004" href="$classutility_1_1Config.html#a770ff9dfb5eaa905b0e6c7aad1fdc27e" title="Нормализует данные" alt="" coords="440,78,621,104"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="392,88,425,88,425,94,392,94"/>
+<area shape="rect" id="Node000005" href="$classutility_1_1Config.html#ae1fe4b908c4b20bac4c39eed632130d3" title="Нормализует AmountOfOperators." alt="" coords="669,5,824,46"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="575,75,662,48,663,54,576,80"/>
+<area shape="rect" id="Node000006" href="$classutility_1_1Config.html#a5da0542aca31039e3bb4410854bf1858" title="Нормализует RMin и RMax." alt="" coords="669,71,824,111"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="622,88,654,88,654,94,622,94"/>
+<area shape="rect" id="Node000007" href="$classutility_1_1Config.html#a179a8a38c3a38497999d2e6c9cda738c" title="Нормализует SizeOfQueue." alt="" coords="669,136,824,177"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="576,102,663,128,662,134,575,107"/>
+</map>
