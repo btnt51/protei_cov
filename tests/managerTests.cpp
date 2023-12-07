@@ -43,7 +43,6 @@ public:
     MOCK_METHOD(void, stop, (), (override));
     MOCK_METHOD(void, start, (), (override));
     MOCK_METHOD(void, transferObjects, (const std::shared_ptr<TP::IThreadPool>& oldThreadPool), (override));
-    MOCK_METHOD(void, writeCDR, (CDR& cdr), (override));
     MOCK_METHOD(void, setTaskQueue, (std::shared_ptr<TP::IQueue> task_queue), (override));
     MOCK_METHOD(void, setLogger, ((std::shared_ptr<spdlog::logger>)), (override));
     MOCK_METHOD((std::size_t), getSize, (), (override));
@@ -57,7 +56,6 @@ protected:
         mockQueue = std::make_shared<MockQueue>(4);
         mockThreadPool->setTaskQueue(mockQueue);
         manager = std::make_shared<Manager>(mockConfig, mockThreadPool);
-        //mockConfig->setManager(manager);
     }
 
     void TearDown() override {
