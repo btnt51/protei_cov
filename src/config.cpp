@@ -172,7 +172,7 @@ void ThreadSafeConfig::updateConfigThread() {
             std::this_thread::sleep_for(std::chrono::seconds(60));
             std::time_t currentWriteTime = lastTime(path_);
 
-            if (currentWriteTime >= lastWriteTime) {
+            if (currentWriteTime > lastWriteTime) {
                 if(logger_)
                     logger_->debug("Updating configuration from with regular checking");
                 {
