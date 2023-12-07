@@ -8,7 +8,8 @@
 
 /**
  * @file recorder.hpp
- * @brief Содержит объявления интерфейса IRecorder и его конкретной реализации FileRecorder.
+ * @brief Содержит объявления интерфейса IRecorder,
+ * и его реализации FileRecorder.
  */
 
 /**

@@ -4,8 +4,9 @@
 #include "interfaces.hpp"
 
 /**
- * @file TAsk.hpp
- * @brief Содержит объявления класса Task, который реализует интерфейс ITask
+ * @file task.hpp
+ * @brief Содержит объявления класса Task,
+ * который реализует интерфейс ITask
  */
 
 namespace TP {
