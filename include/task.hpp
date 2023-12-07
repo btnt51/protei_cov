@@ -2,9 +2,13 @@
 #define PROTEI_COV_TASK_HPP
 #include "commonStructures.hpp"
 #include "interfaces.hpp"
-namespace TP {
-class ThreadPool;
 
+/**
+ * @file TAsk.hpp
+ * @brief Содержит объявления класса Task, который реализует интерфейс ITask
+ */
+
+namespace TP {
 /**
  * @class Task
  * @brief Класс задачи – вызова, который обрабаытывает поток (оператор)

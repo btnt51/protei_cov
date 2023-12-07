@@ -7,6 +7,12 @@
 #include "commonStructures.hpp"
 #include "interfaces.hpp"
 #include "recorder.hpp"
+
+/**
+ * @file queue.hpp
+ * @brief Содержит объявление класса Queue, который реализует интерфейс IQueue.
+ */
+
 namespace TP {
 /**
  * @brief Класс Queue представляет собой реализацию интерфейса IQueue.
@@ -107,9 +113,9 @@ private:
 
     std::vector<std::pair<std::shared_ptr<ITask>, CallID>> queue_; ///< Вектор для хранения задач в очереди.
     std::size_t sizeOfQueue; ///< Максимальный размер очереди.
-    std::shared_ptr<spdlog::logger> logger_; ///< указатель на асинхронный логгер
-    std::vector<std::shared_ptr<IRecorder>> recorders_;
-    std::mutex cdrMutex_;
+    std::shared_ptr<spdlog::logger> logger_; ///< Указатель на асинхронный логгер.
+    std::vector<std::shared_ptr<IRecorder>> recorders_;///< Вектор писателей CDR.
+    std::mutex cdrMutex_; ///< Мьютекс для записи CDR при помощи писателей
 };
 }
 #endif // PROTEI_COV_QUEUE_HPP

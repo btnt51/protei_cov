@@ -1,6 +1,10 @@
 #ifndef PROTEI_COV_THREADPOOL_HPP
 #define PROTEI_COV_THREADPOOL_HPP
-
+/**
+ * @file threadpool.hpp
+ * @brief Содержит объявления структуры Thread и класса ThreadPool,
+ * который реализует интерфейс IThreadPool
+ */
 #include <atomic>
 #include <condition_variable>
 #include <queue>
@@ -15,22 +19,22 @@
 
 /**
  * @namespace TP
- * @breif Базовое простраснтво имён
+ * @breif Базовое пространство имён
  */
 namespace TP {
 /**
- * @struct Operator
- * @brief Структура, представляющая оператора ЦОВ.
+ * @struct Thread
+ * @brief Структура-обертка над std::thread.
  */
-struct Operator {
-    std::thread _thread; ///< Поток оператора.
-    std::atomic<bool> is_working; ///< Флаг, указывающий, работает ли оператор.
+struct Thread {
+    std::thread _thread; ///< Поток.
+    std::atomic<bool> is_working; ///< Флаг, указывающий, обрабатывает ли поток задачу.
 };
 
 
 /**
  * @class ThreadPool
- * @brief Класс, реализующий пул потоков (операторов).
+ * @brief Класс, реализующий пул потоков.
  *
  * @copydoc TP::IThreadPool
  */
@@ -110,7 +114,7 @@ private:
     /**
      * @brief Вектор операторов в пуле потоков.
      */
-    std::vector<Operator*> threads; ///< Вектор операторов.
+    std::vector<Thread*> threads; ///< Вектор операторов.
 
 
     /**
@@ -140,7 +144,7 @@ private:
      * @brief Обработка вызова в потоке оператора.
      * @param pOperator Указатель на оператора, обрабатывающего вызов.
      */
-    void run(Operator* pOperator);
+    void run(Thread* pOperator);
 
     /**
      * @brief Обрабатывает и подготовляет задачу из очереди пула потоков, к выполнению.

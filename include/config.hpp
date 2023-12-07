@@ -1,4 +1,3 @@
-
 #ifndef PROTEI_COV_CONFIG_HPP
 #define PROTEI_COV_CONFIG_HPP
 #include <filesystem>
@@ -6,6 +5,12 @@
 #include <chrono>
 
 #include "interfaces.hpp"
+
+/**
+ * @file config.hpp
+ * @brief Содержит объявления классов Config и ThreadSafeConfig,
+ * которые реализуют интерфейс IThreadPool
+ */
 
 namespace utility {
 

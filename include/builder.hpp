@@ -4,6 +4,11 @@
 #include "config.hpp"
 #include "threadpool.hpp"
 
+/**
+ * @file builder.hpp
+ * @brief Содержит объявление класса ManagerBuilder,
+ * частично реализующий паттерн Строитель.
+ */
 class ManagerBuilder {
 public:
     /**
@@ -42,9 +47,9 @@ public:
      */
     std::shared_ptr<Manager> Construct(const std::filesystem::path& pathToConfig);
 private:
-    std::shared_ptr<spdlog::logger> logger; ///< указатель на асинхронный логгер
-    std::shared_ptr<utility::ThreadSafeConfig> config; ///< указатель на конфиг
-    std::vector<std::shared_ptr<IRecorder>> recorders; ///< вектор указателей на писателей
+    std::shared_ptr<spdlog::logger> logger; ///< Указатель на асинхронный логгер.
+    std::shared_ptr<utility::ThreadSafeConfig> config; ///< Указатель на конфиг.
+    std::vector<std::shared_ptr<IRecorder>> recorders; ///< Вектор указателей на писателей.
 };
 
 #endif // PROTEI_COV_BUILDER_HPP

@@ -1,4 +1,3 @@
-
 #ifndef PROTEI_COV_INTERFACES_HPP
 #define PROTEI_COV_INTERFACES_HPP
 #include <filesystem>
@@ -10,6 +9,12 @@
 #include "commonStructures.hpp"
 #include "jsonParser.hpp"
 #include "recorder.hpp"
+
+/**
+ * @file interfaces.hpp
+ * @brief Содержит интерфейсы IConfig, ITask,
+ * IQueue, IThreadPool, IManager.
+ */
 
 class IManager;
 namespace utility {
@@ -91,7 +96,6 @@ public:
 
 
 namespace TP {
-class IThreadPool;
 class ITask {
 public:
     /**

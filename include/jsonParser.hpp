@@ -1,8 +1,9 @@
 #ifndef PROTEI_COV_JSONPARSER_HPP
 #define PROTEI_COV_JSONPARSER_HPP
 /**
- * \file jsonParser.hpp
- * \brief Содержит объявление класса JsonParser, предназначенного для парсинга и обработки JSON данных.
+ * @file jsonParser.hpp
+ * @brief Содержит объявление класса JsonParser,
+ * предназначенного для парсинга и обработки JSON данных.
  */
 #include <any>
 #include <filesystem>
