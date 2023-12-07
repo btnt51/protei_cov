@@ -52,7 +52,7 @@ void HttpServer::handleHttpRequest(tcp::socket socket) {
         }
     } catch (const beast::system_error& e) {
         if (logger_)
-            logger_->critical("Boost.Beast Error: {} , Code: {}", e.what(), e.code().to_string());
+            logger_->critical("Boost.Beast Error: {} , Code: {}", e.what(), e.code().message());
     } catch (const std::exception& e) {
         if (logger_)
             logger_->critical("Error: {}", e.what());

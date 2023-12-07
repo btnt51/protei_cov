@@ -41,7 +41,7 @@ def automatic_mode(nums, host, port, num_connections):
 
 def main():
     parser = argparse.ArgumentParser(description='Concurrent HTTP requests script')
-    parser.add_argument('--num_connections', type=int, default=None, help='Number of concurrent connections')
+    parser.add_argument('--num_connections', type=int, default=7, help='Number of concurrent connections')
     parser.add_argument('--automatic', action='store_true', help='Enable automatic mode')
     args = parser.parse_args()
 
