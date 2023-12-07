@@ -13,9 +13,18 @@ using namespace utility;
 Config::Config(const std::filesystem::path &path, std::shared_ptr<spdlog::logger> logger) : IConfig(path, logger),
     logger_(logger) {
     parser = std::make_shared<JsonParser>(logger);
-    this->path_ = makeNormalPath(path);
-    parser->parse(path_);
-    data_ = parser->outputConfig();
+    try {
+        this->path_ = makeNormalPath(path);
+        parser->parse(path_);
+        data_ = parser->outputConfig();
+    } catch(const std::exception &e) {
+        if(logger_)
+            logger_->error("There was thrown an exception while constructing config: {}", e.what());
+        data_["RMin"] = 10;
+        data_["RMax"] = 15;
+        data_["AmountOfOperators"] = 2;
+        data_["SizeOfQueue"] = 15;
+    }
 }
 
 std::pair<int, int> Config::getMinMax() {
@@ -42,6 +51,7 @@ bool Config::isUpdated() {
 void Config::updateConfig() {
     parser->parse(path_);
     data_ = parser->outputConfig();
+    normalizeData();
 }
 
 void Config::updateWithRequest() {
@@ -70,12 +80,79 @@ void Config::setLogger(std::shared_ptr<spdlog::logger> logger) {
     this->logger_ = logger;
 }
 
+void Config::normalizeData() {
+    if(logger_)
+        logger_->info("Normalizing data");
+
+    normalizeRMinRMax();
+    normalizeAmountOfOperators();
+    normalizeSizeOfQueue();
+}
+
+void Config::normalizeRMinRMax() {
+    if(logger_)
+        logger_->info("Normalizing RMin RMax");
+
+    if(data_["RMin"] >= 100)
+        data_["RMin"] = 100;
+    if(data_["RMax"] >= 140)
+        data_["RMax"] = 140;
+    if(data_["RMin"] <= 4)
+        data_["RMin"] = 4;
+    if(data_["RMax"] <= 5)
+        data_["RMax"] = 5;
+    if(data_["RMin"] > data_["RMax"])
+        std::swap(data_["RMin"], data_["RMax"]);
+
+    if(logger_) {
+        logger_->debug("RMin: {} RMax: {} after normalizing", data_["RMin"], data_["RMax"]);
+    }
+}
+
+
+void Config::normalizeAmountOfOperators() {
+    if(logger_)
+        logger_->info("Normalizing AmountOfOperators");
+    if(data_["AmountOfOperators"] >= 80)
+        data_["AmountOfOperators"] = 80;
+    if(data_["AmountOfOperators"] <= 2)
+        data_["AmountOfOperators"] = 2;
+
+    if(logger_) {
+        logger_->debug("AmountOfOperators: {} after normalizing", data_["AmountOfOperators"]);
+    }
+}
+
+
+void Config::normalizeSizeOfQueue() {
+    if(logger_)
+        logger_->info("Normalizing SizeOfQueue");
+
+    if(data_["SizeOfQueue"] >= 350)
+        data_["SizeOfQueue"] = 350;
+    if(data_["SizeOfQueue"] <= 15)
+        data_["SizeOfQueue"] = 15;
+
+    if(logger_) {
+        logger_->debug("SizeOfQueue: {} after normalizing", data_["SizeOfQueue"]);
+    }
+}
+
 ThreadSafeConfig::ThreadSafeConfig(const std::filesystem::path &path, std::shared_ptr<spdlog::logger> logger) :
     IConfig(path, logger), logger_(logger)  {
     parser = std::make_shared<JsonParser>(logger);
-    this->path_ = makeNormalPath(path);
-    parser->parse(path_);
-    data_ = parser->outputConfig();
+    try {
+        this->path_ = makeNormalPath(path);
+        parser->parse(path_);
+        data_ = parser->outputConfig();
+    } catch(const std::exception &e) {
+        if(logger_)
+            logger_->error("There was thrown an exception while constructing config: {}", e.what());
+        data_["RMin"] = 10;
+        data_["RMax"] = 15;
+        data_["AmountOfOperators"] = 2;
+        data_["SizeOfQueue"] = 15;
+    }
     stopThread = false;
     updated = false;
 }
@@ -123,6 +200,7 @@ void ThreadSafeConfig::updateConfig() {
             logger_->info("New configuration {}", parser->output());
         }
         data_ = parser->outputConfig();
+        normalizeData();
         updated = true;
     } catch (const std::exception& e) {
         if(logger_)
@@ -224,4 +302,62 @@ bool ThreadSafeConfig::isMonitoring() const {
 void ThreadSafeConfig::setLogger(std::shared_ptr<spdlog::logger> logger) {
     this->logger_ = logger;
     logger_->info("Logger set for ThreadSafeConfig");
+}
+
+void ThreadSafeConfig::normalizeData() {
+    if(logger_)
+        logger_->info("Normalizing data");
+
+    normalizeRMinRMax();
+    normalizeAmountOfOperators();
+    normalizeSizeOfQueue();
+}
+
+void ThreadSafeConfig::normalizeRMinRMax() {
+    if(logger_)
+        logger_->info("Normalizing RMin RMax");
+
+    if(data_["RMin"] >= 100)
+        data_["RMin"] = 100;
+    if(data_["RMax"] >= 140)
+        data_["RMax"] = 140;
+    if(data_["RMin"] <= 4)
+        data_["RMin"] = 4;
+    if(data_["RMax"] <= 5)
+        data_["RMax"] = 5;
+    if(data_["RMin"] > data_["RMax"])
+        std::swap(data_["RMin"], data_["RMax"]);
+
+    if(logger_) {
+        logger_->debug("RMin: {} RMax: {} after normalizing", data_["RMin"], data_["RMax"]);
+    }
+}
+
+
+void ThreadSafeConfig::normalizeAmountOfOperators() {
+    if(logger_)
+        logger_->info("Normalizing AmountOfOperators");
+    if(data_["AmountOfOperators"] >= 80)
+        data_["AmountOfOperators"] = 80;
+    if(data_["AmountOfOperators"] <= 2)
+        data_["AmountOfOperators"] = 2;
+
+    if(logger_) {
+        logger_->debug("AmountOfOperators: {} after normalizing", data_["AmountOfOperators"]);
+    }
+}
+
+
+void ThreadSafeConfig::normalizeSizeOfQueue() {
+    if(logger_)
+        logger_->info("Normalizing SizeOfQueue");
+
+    if(data_["SizeOfQueue"] >= 350)
+        data_["SizeOfQueue"] = 350;
+    if(data_["SizeOfQueue"] <= 15)
+        data_["SizeOfQueue"] = 15;
+
+    if(logger_) {
+        logger_->debug("SizeOfQueue: {} after normalizing", data_["SizeOfQueue"]);
+    }
 }

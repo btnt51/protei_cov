@@ -76,6 +76,26 @@ public:
      */
     void setLogger(std::shared_ptr<spdlog::logger> logger) override;
 
+    /**
+     * @brief Нормализует данные
+     */
+    void normalizeData() override;
+
+    /**
+      * @brief Нормализует RMin и RMax
+     */
+    void normalizeRMinRMax() override;
+
+    /**
+      * @brief Нормализует AmountOfOperators
+     */
+    void normalizeAmountOfOperators() override;
+
+    /**
+      * @brief Нормализует SizeOfQueue
+     */
+    void normalizeSizeOfQueue() override;
+
 private:
     /**
      * @brief Приводит путь к нормальному виду для корректной обработки.
@@ -173,6 +193,26 @@ public:
      * @return true, если мониторинг выполняется, в противном случае - false.
      */
     bool isMonitoring() const;
+
+    /**
+     * @brief Нормализует данные
+     */
+    void normalizeData() override;
+
+    /**
+      * @brief Нормализует RMin и RMax
+     */
+    void normalizeRMinRMax() override;
+
+    /**
+      * @brief Нормализует AmountOfOperators
+     */
+    void normalizeAmountOfOperators() override;
+
+    /**
+      * @brief Нормализует SizeOfQueue
+     */
+    void normalizeSizeOfQueue() override;
 
 private:
     /**

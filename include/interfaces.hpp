@@ -90,6 +90,26 @@ public:
      * @param logger Указатель на объект логгера.
      */
     virtual void setLogger(std::shared_ptr<spdlog::logger> logger) = 0;
+
+    /**
+     * @brief Нормализует данные
+     */
+     virtual void normalizeData() = 0;
+
+     /**
+      * @brief Нормализует RMin и RMax
+      */
+     virtual void normalizeRMinRMax() = 0;
+
+     /**
+      * @brief Нормализует AmountOfOperators
+      */
+     virtual void normalizeAmountOfOperators() = 0;
+
+     /**
+      * @brief Нормализует SizeOfQueue
+     */
+     virtual void normalizeSizeOfQueue() = 0;
 };
 
 }
