@@ -32,6 +32,10 @@ public:
     MOCK_METHOD(void, setManager, (std::shared_ptr<IManager> manager), (override));
     MOCK_METHOD(void, setLogger, ((std::shared_ptr<spdlog::logger>)), (override));
     MOCK_METHOD(void, updateWithRequest, (), (override));
+    MOCK_METHOD(void, normalizeData,(), (override));
+    MOCK_METHOD(void, normalizeRMinRMax,(), (override));
+    MOCK_METHOD(void, normalizeAmountOfOperators,(), (override));
+    MOCK_METHOD(void, normalizeSizeOfQueue,(), (override));
 };
 
 // Mock для IThreadPool

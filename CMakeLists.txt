@@ -66,6 +66,18 @@ if(WITH_TESTS)
             ${CMAKE_CURRENT_SOURCE_DIR}/tests/base.json
             ${CMAKE_CURRENT_BINARY_DIR}/
     )
+    add_custom_command(
+            TARGET test  POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy
+            ${CMAKE_CURRENT_SOURCE_DIR}/tests/lowerBorder.json
+            ${CMAKE_CURRENT_BINARY_DIR}/
+    )
+    add_custom_command(
+            TARGET test  POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy
+            ${CMAKE_CURRENT_SOURCE_DIR}/tests/upperBorder.json
+            ${CMAKE_CURRENT_BINARY_DIR}/
+    )
 
     include(GoogleTest)
     gtest_discover_tests(test)
