@@ -17,6 +17,7 @@ Config::Config(const std::filesystem::path &path, std::shared_ptr<spdlog::logger
         this->path_ = makeNormalPath(path);
         parser->parse(path_);
         data_ = parser->outputConfig();
+        notToUpdate = false;
     } catch(const std::exception &e) {
         if(logger_)
             logger_->error("There was thrown an exception while constructing config: {}", e.what());
@@ -24,6 +25,7 @@ Config::Config(const std::filesystem::path &path, std::shared_ptr<spdlog::logger
         data_["RMax"] = 15;
         data_["AmountOfOperators"] = 2;
         data_["SizeOfQueue"] = 15;
+        notToUpdate = true;
     }
 }
 
@@ -55,6 +57,11 @@ void Config::updateConfig() {
 }
 
 void Config::updateWithRequest() {
+    if(notToUpdate) {
+        if (logger_)
+            logger_->info("Could not run update thread because set flag not to update");
+        return;
+    }
     updateConfig();
     notify();
 }
@@ -145,6 +152,7 @@ ThreadSafeConfig::ThreadSafeConfig(const std::filesystem::path &path, std::share
         this->path_ = makeNormalPath(path);
         parser->parse(path_);
         data_ = parser->outputConfig();
+        notToUpdate = false;
     } catch(const std::exception &e) {
         if(logger_)
             logger_->error("There was thrown an exception while constructing config: {}", e.what());
@@ -152,6 +160,7 @@ ThreadSafeConfig::ThreadSafeConfig(const std::filesystem::path &path, std::share
         data_["RMax"] = 15;
         data_["AmountOfOperators"] = 2;
         data_["SizeOfQueue"] = 15;
+        notToUpdate = true;
     }
     stopThread = false;
     updated = false;
@@ -252,6 +261,7 @@ std::time_t lastTime(const std::filesystem::path &filePath) {
 
 void ThreadSafeConfig::updateConfigThread() {
     try {
+
         lastWriteTime = lastTime(path_);
         while (!stopThread) {
             std::this_thread::sleep_for(std::chrono::seconds(60));
@@ -277,6 +287,11 @@ void ThreadSafeConfig::updateConfigThread() {
 }
 
 void ThreadSafeConfig::updateWithRequest() {
+    if(notToUpdate) {
+        if (logger_)
+            logger_->info("Could not run update thread because set flag not to update");
+        return;
+    }
     if(logger_)
         logger_->debug("Updating configuration from with request");
     {
@@ -290,7 +305,12 @@ void ThreadSafeConfig::updateWithRequest() {
 void ThreadSafeConfig::RunMonitoring() {
     if(logger_)
         logger_->info("Starting configuration update monitoring thread");
-    updateThread = std::thread(&ThreadSafeConfig::updateConfigThread, this);
+    if(notToUpdate) {
+        if(logger_)
+            logger_->info("Could not run update thread because set flag not to update");
+    } else {
+        updateThread = std::thread(&ThreadSafeConfig::updateConfigThread, this);
+    }
 }
 
 bool ThreadSafeConfig::isMonitoring() const {

@@ -185,6 +185,14 @@ TEST_F(ThreadSafeConfigTest, ProcessRequestToUpdate) {
     ASSERT_TRUE(config->isUpdated());
 }
 
+TEST_F(ThreadSafeConfigTest, RunMonitoringStartsThreadAfterBrokenFile) {
+    auto configUpdateThread = std::make_shared<MockThreadSafeConfig>("broken.json", nullptr);
+    configUpdateThread->setManager(mockManager);
+    configUpdateThread->RunMonitoring();
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+    ASSERT_FALSE(configUpdateThread->isMonitoring());
+}
+
 TEST_F(ThreadSafeConfigTest, RunMonitoringStartsThread) {
     auto configUpdateThread = std::make_shared<MockThreadSafeConfig>("base.json", nullptr);
     configUpdateThread->setManager(mockManager);
