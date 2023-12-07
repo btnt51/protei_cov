@@ -46,11 +46,6 @@ public:
     void addPromise(std::shared_ptr<std::promise<Result>> promise);
 
     /**
-     * @brief Отправляет CDR на запись.
-     */
-    void sendCDR();
-
-    /**
      * @brief Функция получения номер звонящего
      * @return возвращает number_
      */

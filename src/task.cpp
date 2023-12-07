@@ -85,7 +85,8 @@ void Task::logCallDetails() {
 }
 
 Result Task::createResultObject() const {
-    logger_->info("Filling result variable");
+    if(logger_)
+        logger_->info("Filling result variable");
     Result r;
     r.status = cdr.status;
     r.callDuration = cdr.callDuration;
@@ -103,7 +104,6 @@ Result Task::doTask() {
         logCallDetails();
 
         logger_->info("Writing CDR for task with number: {}", cdr.number);
-        sendCDR();
 
         return createResultObject();
     } catch (const std::exception& e) {

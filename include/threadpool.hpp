@@ -25,7 +25,6 @@ namespace TP {
 struct Operator {
     std::thread _thread; ///< Поток оператора.
     std::atomic<bool> is_working; ///< Флаг, указывающий, работает ли оператор.
-    int operatorID; ///< ID оператора.
 };
 
 
@@ -35,7 +34,7 @@ struct Operator {
  *
  * @copydoc TP::IThreadPool
  */
-class ThreadPool : public TP::IThreadPool, public std::enable_shared_from_this<ThreadPool> {
+class ThreadPool : public TP::IThreadPool {
 public:
     /**
      * @brief Конструктор.
@@ -78,14 +77,6 @@ public:
     void transferObjects(const std::shared_ptr<IThreadPool>& oldThreadPool) override;
 
     /**
-     * @brief Создание записи.
-     * @param cdr CDR запись.
-     *
-     * @copydoc TP::IThreadPool::writeCDR
-     */
-    void writeCDR(CDR& cdr) override;
-
-    /**
      * @brief Установка новой очереди задачи
      * @param task_queue новая очередь задач
      *
@@ -102,19 +93,12 @@ public:
     void setLogger(std::shared_ptr<spdlog::logger> logger);
 
     /**
-     * @brief Установка вектора разных объектов для записи cdr.
-     * @param recorders массив разных объектов для записи cdr
+     * @brief Возвращает текущие количество потоков.
+     * @return Количество потоков.
+     * @copydoc TP::IThreadPool::getSize
      */
-    void setRecorders(std::vector<std::shared_ptr<IRecorder>> recorders);
-
     std::size_t getSize() override;
 private:
-    /**
-     * @brief Мьютексы для управления доступом к различным ресурсам в пуле потоков.
-     */
-   // std::mutex task_queue_mutex; ///< Мьютекс для очереди задач.
-    std::mutex cdr_mutex; ///< Мьютекс для операций с CDR (Call Detail Record).
-
     /**
      * @brief Условные переменные для управления задачами в пуле потоков.
      */

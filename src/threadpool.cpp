@@ -41,6 +41,7 @@ void ThreadPool::run(Operator* pOperator) {
             lock.unlock();
             try {
                 auto res = task->doTask();
+                task_queue->writeCDR(task->cdr);
                 if(logger_)
                     logger_->info("Task with CallID: " + std::to_string(callID) + " was successfully completed");
                 task->promise_->set_value(res);
@@ -96,7 +97,6 @@ void ThreadPool::transferObjects(const std::shared_ptr<IThreadPool>& oldThreadPo
         logger_->info("Transfering code task queue");
     if(this != oldThreadPool.get()) {
         this->task_queue = oldThreadPool->task_queue;
-        this->recorders_ = oldThreadPool->recorders_;
     }
 }
 
@@ -112,7 +112,6 @@ std::pair<CallID, std::future<Result>> ThreadPool::add_task(std::shared_ptr<ITas
 
     if(task_queue) {
         if(task_queue->push(std::make_pair(task, callID))) {
-            task_queue->back().first->pool_ = shared_from_this();
             tasks_access.notify_one();
         }
     } else {
@@ -122,12 +121,6 @@ std::pair<CallID, std::future<Result>> ThreadPool::add_task(std::shared_ptr<ITas
     return std::make_pair(callID, std::move(future));
 }
 
-
-void ThreadPool::writeCDR(CDR& cdr) {
-    std::lock_guard<std::mutex> lg(cdr_mutex);
-    for (auto& recorder: recorders_)
-        recorder->makeRecord(cdr);
-}
 
 ThreadPool::~ThreadPool() {
     {
@@ -166,10 +159,6 @@ void ThreadPool::setLogger(std::shared_ptr<spdlog::logger> logger) {
     }
 }
 
-void ThreadPool::setRecorders(std::vector<std::shared_ptr<IRecorder>> recorders) {
-    recorders_ = recorders;
-    this->task_queue->setRecorders(recorders);
-}
 
 std::size_t ThreadPool::getSize() {
     return threads.size();

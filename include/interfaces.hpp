@@ -127,24 +127,12 @@ public:
     virtual void addPromise(std::shared_ptr<std::promise<Result>> promise) = 0;
 
     /**
-     * @brief Отправляет CDR на запись.
-     */
-    virtual void sendCDR() = 0;
-
-    /**
      * @brief Функция получения номер звонящего
      * @return возвращает number_
      */
     virtual std::string_view getNumber() = 0;
 
-    /// @brief Дружественный класс.
-    friend class IThreadPool;
-
     std::shared_ptr<std::promise<Result>> promise_;///< Промис с результатом.
-
-
-    std::shared_ptr<IThreadPool> pool_;///< Пул потоков.
-
 
     CDR cdr;///< CDR звонка
 
@@ -256,11 +244,6 @@ public:
      */
     virtual void transferObjects(const std::shared_ptr<IThreadPool>& oldThreadPool) = 0;
 
-    /**
-     * @brief Запись CDR при помощи IRecorders объектов.
-     * @param cdr CDR запись.
-     */
-    virtual void writeCDR(CDR& cdr) = 0;
 
     /**
      * @brief Установка новой очереди задачи
@@ -274,6 +257,10 @@ public:
      */
     virtual void setLogger(std::shared_ptr<spdlog::logger> logger) = 0;
 
+    /**
+     * @brief Возвращает текущие количество потоков.
+     * @return Количество потоков.
+     */
     virtual std::size_t getSize() = 0;
 
     /// Мьютекс для защиты доступа к очереди задач.
@@ -281,11 +268,6 @@ public:
 
     /// Очередь задач в формате пар (задача, идентификатор вызова).
     std::shared_ptr<IQueue> task_queue;
-
-    /**
-     * @brief Вектор средств записи в пуле потоков.
-     */
-    std::vector<std::shared_ptr<IRecorder>> recorders_; ///< Вектор средств записи.
 };
 }
 
