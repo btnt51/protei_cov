@@ -4,6 +4,12 @@
 #include <spdlog/sinks/basic_file_sink.h>
 #include <spdlog/sinks/ansicolor_sink.h>
 
+/**
+ * @file builder.hpp
+ * @brief Содержит определение класса ManagerBuilder,
+ * частично реализующий паттерн Строитель.
+ */
+
 std::shared_ptr<spdlog::logger> ManagerBuilder::BuildLogger() {
     auto file_sink = std::make_shared<spdlog::sinks::basic_file_sink_mt>("logfile.txt", true);
 
@@ -56,7 +62,6 @@ std::shared_ptr<TP::ThreadPool> ManagerBuilder::BuildThreadPool() {
         auto pool = std::make_shared<TP::ThreadPool>(config->getAmountOfOperators(), config->getSizeOfQueue());
         logger->info("Built thread pool");
         pool->setLogger(logger);
-        pool->setRecorders(recorders);
         return pool;
     } catch (std::exception& e) {
         logger->critical("Critical error building thread pool: {}", e.what());

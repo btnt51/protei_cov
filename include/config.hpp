@@ -1,4 +1,3 @@
-
 #ifndef PROTEI_COV_CONFIG_HPP
 #define PROTEI_COV_CONFIG_HPP
 #include <filesystem>
@@ -6,6 +5,12 @@
 #include <chrono>
 
 #include "interfaces.hpp"
+
+/**
+ * @file config.hpp
+ * @brief Содержит объявления классов Config и ThreadSafeConfig,
+ * которые реализуют интерфейс IThreadPool
+ */
 
 namespace utility {
 
@@ -71,6 +76,26 @@ public:
      */
     void setLogger(std::shared_ptr<spdlog::logger> logger) override;
 
+    /**
+     * @brief Нормализует данные
+     */
+    void normalizeData() override;
+
+    /**
+      * @brief Нормализует RMin и RMax
+     */
+    void normalizeRMinRMax() override;
+
+    /**
+      * @brief Нормализует AmountOfOperators
+     */
+    void normalizeAmountOfOperators() override;
+
+    /**
+      * @brief Нормализует SizeOfQueue
+     */
+    void normalizeSizeOfQueue() override;
+
 private:
     /**
      * @brief Приводит путь к нормальному виду для корректной обработки.
@@ -84,6 +109,7 @@ private:
     std::map<std::string, int> data_; ///< Данные конфигурации.
     std::shared_ptr<IManager> manager; ///< Указатель на объект менеджера для обработки изменений конфигурации.
     std::shared_ptr<spdlog::logger> logger_; ///< указатель на асинхронный логгер
+    bool notToUpdate;///< флаг на случай, если файл конфигурации сломан, отключает обновление из конфига
 };
 
 /**
@@ -169,6 +195,26 @@ public:
      */
     bool isMonitoring() const;
 
+    /**
+     * @brief Нормализует данные
+     */
+    void normalizeData() override;
+
+    /**
+      * @brief Нормализует RMin и RMax
+     */
+    void normalizeRMinRMax() override;
+
+    /**
+      * @brief Нормализует AmountOfOperators
+     */
+    void normalizeAmountOfOperators() override;
+
+    /**
+      * @brief Нормализует SizeOfQueue
+     */
+    void normalizeSizeOfQueue() override;
+
 private:
     /**
      * @brief Приводит путь к нормальному виду для корректной обработки.
@@ -187,6 +233,7 @@ private:
     std::time_t lastWriteTime; ///< Время последнего изменения файла конфигурации.
     std::shared_ptr<IManager> manager; ///< Указатель на объект менеджера для обработки изменений конфигурации.
     std::shared_ptr<spdlog::logger> logger_; ///< указатель на асинхронный логгер
+    bool notToUpdate;///< флаг на случай, если файл конфигурации сломан, отключает обновление из конфига
 };
 
 }

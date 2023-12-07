@@ -1,6 +1,10 @@
 #ifndef PROTEI_COV_THREADPOOL_HPP
 #define PROTEI_COV_THREADPOOL_HPP
-
+/**
+ * @file threadpool.hpp
+ * @brief Содержит объявления структуры Thread и класса ThreadPool,
+ * который реализует интерфейс IThreadPool
+ */
 #include <atomic>
 #include <condition_variable>
 #include <queue>
@@ -10,112 +14,31 @@
 #include <future>
 #include <tuple>
 
-#include "commonStructures.hpp"
 #include "interfaces.hpp"
 #include "recorder.hpp"
 
 /**
  * @namespace TP
- * @breif Базовое простраснтво имён
+ * @breif Базовое пространство имён
  */
 namespace TP {
-class ThreadPool;
-
 /**
- * @class Task
- * @brief Класс задачи – вызова, который обрабаытывает поток (оператор)
+ * @struct Thread
+ * @brief Структура-обертка над std::thread.
  */
-class Task : public ITask {
-public:
-    /**
-     * @brief конструктор
-     * @param RMin нижняя граница времени
-     * @param RMax верхняя граница времени
-     * @param number номер звонящего
-     * @param time время создания задачи
-     */
-    Task(int RMin, int RMax, std::string_view number, const std::chrono::system_clock::time_point& startTime, std::shared_ptr<spdlog::logger> logger);
-
-
-    /// @brief Обработка вызова.
-    Result doTask();
-
-    /**
-     * @brief Установка ID вызова.
-     * @param id ID вызова.
-     */
-    void setCallID(CallID& id);
-
-    /**
-     * @brief Установка ID потока.
-     * @param id ID потока.
-     */
-    void setThreadID(std::size_t& id);
-
-    /**
-     * @brief Функция добавления promise в задачу
-     * @param promise промис для уведомления о выполнения задачи
-     */
-    void addPromise(std::shared_ptr<std::promise<Result>> promise);
-
-    /**
-     * @brief Отправляет CDR на запись.
-     */
-    void sendCDR();
-
-    /**
-     * @brief Функция получения номер звонящего
-     * @return возвращает number_
-     */
-    std::string_view getNumber();
-
-private:
-    /// @brief ID вызова.
-    CallID taskId_{};
-    /// @brief Верхняя граница.
-    int RMin_;
-    /// @brief Нижняя граница.
-    int RMax_;
-    /// @brief Номер вызова
-    std::string_view number_;
-    /// @brief Итоговый статус звонка.
-    CallStatus status_;
-    std::shared_ptr<spdlog::logger> logger_;
-
-
-    /**
-     * @brief Получение ID вызова.
-     * @return ID вызова.
-     */
-    [[nodiscard]] CallID getCallID() const;
-
-    /**
-     * @brief Определение длительности заглушки.
-     * @return Длительность заглушки.
-     */
-    std::chrono::seconds getDuration();
-
-
-};
-
-/**
- * @struct Operator
- * @brief Структура, представляющая оператора ЦОВ.
- */
-struct Operator {
-    std::thread _thread; ///< Поток оператора.
-    std::atomic<bool> is_working; ///< Флаг, указывающий, работает ли оператор.
-    int operatorID; ///< ID оператора.
+struct Thread {
+    std::thread _thread; ///< Поток.
+    std::atomic<bool> is_working; ///< Флаг, указывающий, обрабатывает ли поток задачу.
 };
 
 
 /**
  * @class ThreadPool
- * @brief Класс, реализующий пул потоков (операторов).
+ * @brief Класс, реализующий пул потоков.
  *
  * @copydoc TP::IThreadPool
  */
-class ThreadPool : public TP::IThreadPool, public std::enable_shared_from_this<ThreadPool> {
+class ThreadPool : public TP::IThreadPool {
 public:
     /**
      * @brief Конструктор.
@@ -158,14 +81,6 @@ public:
     void transferObjects(const std::shared_ptr<IThreadPool>& oldThreadPool) override;
 
     /**
-     * @brief Создание записи.
-     * @param cdr CDR запись.
-     *
-     * @copydoc TP::IThreadPool::writeCDR
-     */
-    void writeCDR(CDR& cdr) override;
-
-    /**
      * @brief Установка новой очереди задачи
      * @param task_queue новая очередь задач
      *
@@ -182,17 +97,14 @@ public:
     void setLogger(std::shared_ptr<spdlog::logger> logger);
 
     /**
-     * @brief Установка вектора разных объектов для записи cdr.
-     * @param recorders массив разных объектов для записи cdr
+     * @brief Возвращает текущие количество потоков.
+     * @return Количество потоков.
+     * @copydoc TP::IThreadPool::getSize
      */
-    void setRecorders(std::vector<std::shared_ptr<IRecorder>> recorders);
-private:
-    /**
-     * @brief Мьютексы для управления доступом к различным ресурсам в пуле потоков.
-     */
-   // std::mutex task_queue_mutex; ///< Мьютекс для очереди задач.
-    std::mutex cdr_mutex; ///< Мьютекс для операций с CDR (Call Detail Record).
+    std::size_t getSize() override;
 
+
+private:
     /**
      * @brief Условные переменные для управления задачами в пуле потоков.
      */
@@ -202,13 +114,12 @@ private:
     /**
      * @brief Вектор операторов в пуле потоков.
      */
-    std::vector<Operator*> threads; ///< Вектор операторов.
+    std::vector<Thread*> threads; ///< Вектор операторов.
 
 
     /**
      * @brief Массив выполненных задач в виде хэш-таблицы.
      */
-    std::unordered_map<CallID, std::shared_ptr<Task>> completed_tasks; ///< Хэш-таблица выполненных задач.
     unsigned long long completed_task_count; ///< Количество выполненных задач.
 
     /**
@@ -233,7 +144,12 @@ private:
      * @brief Обработка вызова в потоке оператора.
      * @param pOperator Указатель на оператора, обрабатывающего вызов.
      */
-    void run(Operator* pOperator);
+    void run(Thread* pOperator);
+
+    /**
+     * @brief Обрабатывает и подготовляет задачу из очереди пула потоков, к выполнению.
+     */
+    std::pair<std::shared_ptr<ITask>, CallID> processTask();
 
     /**
      * @brief Проверка, разрешен ли запуск нового потока в пуле.
@@ -247,7 +163,12 @@ private:
      */
     CallID generateCallID(long long number);
 
-
+    /**
+     * @brief Выполняет задачу и обрабатывает результат.
+     * @param task Указатель на задачу для выполнения.
+     * @param callID Идентификатор вызова задачи.
+     */
+    void executeTask(std::shared_ptr<ITask>& task, CallID callID);
 };
 } // namespace TP
 

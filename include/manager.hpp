@@ -3,6 +3,11 @@
 #include "interfaces.hpp"
 #include <shared_mutex>
 /**
+ * @file manager.hpp
+ * @brief Содержит объявление класса Manager, который реализует интерфейс IManager.
+ */
+
+/**
  * @class Manager
  * @brief Класс управляющей тредпулом (центром обратки вызовов)
  *
@@ -82,11 +87,9 @@ public:
 private:
     std::shared_mutex updateMtx; ///< Мьютекс для обеспечения безопасного доступа к обновлению.
 
-    /// @brief Верхняя граница.
-    int RMin_;
+    int RMin_; ///< Верхняя граница.
 
-    /// @brief Нижняя граница.
-    int RMax_;
+    int RMax_;  ///< Нижняя граница.
 
     std::shared_ptr<utility::IConfig> config_; ///< Указатель на объект конфигурации.
     std::shared_ptr<TP::IThreadPool> threadPool_; ///< Указатель на объект тредпула.

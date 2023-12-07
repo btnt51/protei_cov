@@ -9,10 +9,14 @@ project(${PROJECT_NAME} VERSION ${PROJECT_VESRION})
 
 set(SOURCES src/jsonParser.cpp src/config.cpp src/threadpool.cpp src/manager.cpp
             src/queue.cpp src/builder.cpp src/recorder.cpp
-        src/commonStructures.cpp)
+        src/commonStructures.cpp
+        src/task.cpp
+        src/httpServer.cpp)
 set(HEADERS include/config.hpp include/commonStructures.hpp
         include/jsonParser.hpp include/recorder.hpp include/threadpool.hpp
-        include/manager.hpp include/interfaces.hpp include/queue.hpp include/builder.hpp)
+        include/manager.hpp include/interfaces.hpp include/queue.hpp include/builder.hpp
+        include/task.hpp
+        include/httpServer.hpp)
 
 add_executable(${PROJECT_NAME} src/main.cpp ${SOURCES} ${HEADERS})
 target_include_directories(${PROJECT_NAME} PUBLIC include)
@@ -57,14 +61,34 @@ if(WITH_TESTS)
     target_compile_features(test PUBLIC cxx_std_20)
     target_link_libraries(test GTest::GTest ${LinkLibraries})
     target_include_directories(test PRIVATE include)
-    message("base.json file was moved")
     add_custom_command(
             TARGET test  POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy
             ${CMAKE_CURRENT_SOURCE_DIR}/tests/base.json
             ${CMAKE_CURRENT_BINARY_DIR}/
     )
-
+    message("base.json file was moved")
+    add_custom_command(
+            TARGET test  POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy
+            ${CMAKE_CURRENT_SOURCE_DIR}/tests/lowerBorder.json
+            ${CMAKE_CURRENT_BINARY_DIR}/
+    )
+    message("lowerBorder.json file was moved")
+    add_custom_command(
+            TARGET test  POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy
+            ${CMAKE_CURRENT_SOURCE_DIR}/tests/upperBorder.json
+            ${CMAKE_CURRENT_BINARY_DIR}/
+    )
+    message("upperBorder.json file was moved")
+    add_custom_command(
+            TARGET test  POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy
+            ${CMAKE_CURRENT_SOURCE_DIR}/tests/broken.json
+            ${CMAKE_CURRENT_BINARY_DIR}/
+    )
+    message("broken.json file was moved")
     include(GoogleTest)
     gtest_discover_tests(test)
 endif()

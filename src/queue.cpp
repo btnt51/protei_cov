@@ -1,5 +1,11 @@
 #include "queue.hpp"
 
+/**
+ * @file queue.hpp
+ * @brief Содержит определение класса Queue,
+ * который реализует интерфейс IQueue.
+ */
+
 using namespace TP;
 
 Queue::Queue(int size) :
@@ -25,53 +31,69 @@ bool Queue::empty() const {
     return queue_.empty();
 }
 
-bool Queue::push(std::pair<std::shared_ptr<ITask>, CallID>&& taskPair) {
-    if(queue_.size() >= sizeOfQueue) {
+void Queue::handleOverloadedTask(const std::pair<std::shared_ptr<ITask>, CallID>& taskPair) {
+    Result r;
+    auto task = taskPair.first;  // Shared ownership
+    processCDR(task, false);
+
+    r.callDuration = std::chrono::seconds{0};
+    r.callID = taskPair.second;
+    r.status = CallStatus::Overloaded;
+
+    if (logger_)
+        logger_->warn("Queue is overloaded. Current queue size: {} while max size {}. Task with CallID {} rejected.",
+                      queue_.size(), sizeOfQueue, r.callID);
+
+    task->promise_->set_value(r);
+}
+
+void Queue::handleTask(std::pair<std::shared_ptr<ITask>, CallID>& taskPair) {
+    auto it = std::find_if(queue_.begin(), queue_.end(),
+                           [taskNumber = taskPair.first->getNumber()](const auto& queuedTask) {
+                               return queuedTask.first->getNumber() == taskNumber;
+                           });
+
+    if (it != queue_.end()) {
         Result r;
-        taskPair.first->cdr.status = CallStatus::Overloaded;
-        taskPair.first->cdr.operatorID = 0;
-        taskPair.first->cdr.callDuration = std::chrono::seconds{0};
-        taskPair.first->cdr.endTime;
-        taskPair.first->cdr.operatorCallTime;
-        writeCDR(taskPair.first->cdr);
+        auto task = it->first;
+        processCDR(task, true);
+
         r.callDuration = std::chrono::seconds{0};
-        r.callID = taskPair.second;
-        r.status = CallStatus::Overloaded;
-        if(logger_)
-            logger_->warn("Queue is overloaded. Сurrent queue size: {} while max size {}. Task with CallID {} rejected.",
-                          queue_.size(), sizeOfQueue, r.callID);
-        taskPair.first->promise_->set_value(r);
-        return false;
-    } else {
-        for(auto it = queue_.begin(); it != queue_.end(); it++) {
-            if(it->first->getNumber() == taskPair.first->getNumber()) {
-                Result r;
-                it->first->cdr.status = CallStatus::Duplication;
-                it->first->cdr.operatorID = 0;
-                it->first->cdr.callDuration = std::chrono::seconds{0};
-                it->first->cdr.endTime;
-                it->first->cdr.operatorCallTime;
-                writeCDR(it->first->cdr);
-                r.callDuration = std::chrono::seconds{0};
-                r.callID = it->second;
-                r.status = CallStatus::Duplication;
-                it->first->promise_->set_value(r);
-                std::rotate(it, it + 1, queue_.end());
-                queue_.pop_back();
+        r.callID = it->second;
+        r.status = CallStatus::Duplication;
 
-                if(logger_)
-                    logger_->warn("Duplicate task with CallID {}. Removed from the queue.", r.callID);
+        task->promise_->set_value(r);
+        queue_.erase(it);
 
-                break;
-            }
-        }
-        if(logger_)
-            logger_->info("Task with CallID {}. Was added to the queue", taskPair.second);
-        queue_.push_back(taskPair);
-        if(logger_)
-            logger_->info("Current queue size {}", queue_.size());
-        return true;
+        if (logger_)
+            logger_->warn("Duplicate task with CallID {}. Removed from the queue.", r.callID);
     }
+
+    if (logger_)
+        logger_->info("Task with CallID {}. Was added to the queue", taskPair.second);
+
+    queue_.emplace_back(std::move(taskPair));
+
+    if (logger_)
+        logger_->info("Current queue size {}", queue_.size());
+}
+
+void Queue::processCDR(std::shared_ptr<ITask> task, bool isDuplication) {
+    task->cdr.status = isDuplication ? CallStatus::Duplication : CallStatus::Overloaded;
+    task->cdr.operatorID = 0;
+    task->cdr.callDuration = std::chrono::seconds{0};
+    task->cdr.endTime = task->cdr.operatorCallTime = std::chrono::system_clock::now();
+    writeCDR(task->cdr);
+}
+
+bool Queue::push(std::pair<std::shared_ptr<ITask>, CallID>&& taskPair) {
+    if (queue_.size() >= sizeOfQueue) {
+        handleOverloadedTask(taskPair);
+        return false;
+    }
+
+    handleTask(taskPair);
+    return true;
 }
 
 void Queue::pop() {
@@ -93,7 +115,7 @@ void Queue::setRecorders(std::vector<std::shared_ptr<IRecorder>> recorders) {
     recorders_ = recorders;
 }
 
-void Queue::writeCDR(const CDR& cdr) {
+void Queue::writeCDR(const CDR& cdr){
     std::lock_guard<std::mutex> lock(cdrMutex_);
     for(const auto& recorder: recorders_)
         recorder->makeRecord(cdr);

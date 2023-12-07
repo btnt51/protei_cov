@@ -1,6 +1,14 @@
 #include "manager.hpp"
 #include "threadpool.hpp"
+#include "task.hpp"
 #include <iostream>
+
+/**
+ * @file manager.cpp
+ * @brief Содержит определение класса Manager,
+ * который реализует интерфейс IManager.
+ */
+
 
 Manager::Manager(std::shared_ptr<utility::IConfig> conf, std::shared_ptr<TP::IThreadPool> pool)  :
     IManager(conf, pool), config_(conf), threadPool_(pool) {
@@ -11,10 +19,12 @@ Manager::Manager(std::shared_ptr<utility::IConfig> conf, std::shared_ptr<TP::ITh
 std::pair<TP::CallID, std::future<Result>> Manager::addTask(std::string_view number) {
     std::shared_lock<std::shared_mutex> lc(updateMtx);
     auto now = std::chrono::system_clock::now();
+
     if (logger_) {
         logger_->debug("Create task with number: " + std::string{number} + " with RMin_ " + std::to_string(RMin_) +
                        " RMax_ " + std::to_string(RMax_));
     }
+
     auto task = std::make_shared<TP::Task>(RMin_, RMax_, number, now, logger_);
     return threadPool_->add_task(task);
 }
@@ -23,12 +33,19 @@ std::pair<TP::CallID, std::future<Result>> Manager::addTask(std::string_view num
 void Manager::update() {
     std::unique_lock<std::shared_mutex> lc(updateMtx);
     std::tie(this->RMin_, this->RMax_) = config_->getMinMax();
+
     if(logger_)
         logger_->debug("Debug message for update: New RMin_ " + std::to_string(RMin_) + " RMax_ " + std::to_string(RMax_));
+
     threadPool_->task_queue->update(config_->getSizeOfQueue());
-    auto newThreadPool = std::make_shared<TP::ThreadPool>(config_->getAmountOfOperators(), config_->getSizeOfQueue());
-    newThreadPool->setLogger(logger_);
-    setNewThreadPool(newThreadPool);
+    if(static_cast<std::size_t>(config_->getAmountOfOperators()) != threadPool_->getSize()) {
+        auto newThreadPool = std::make_shared<TP::ThreadPool>(config_->getAmountOfOperators(),
+                                                              config_->getSizeOfQueue());
+        newThreadPool->setLogger(logger_);
+        setNewThreadPool(newThreadPool);
+    }
+    if(logger_)
+        logger_->info("All was updated");
 }
 
 bool Manager::processRequestForUpdate() {

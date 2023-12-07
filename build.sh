@@ -22,5 +22,5 @@ else
 fi
 
 if [ -n "$6" ] && [ "$6" != "test" ]; then
-  cmake -E tar cfv ./$6.zip --format=7zip ./$5
+  cmake -E tar cfv ./$6.zip --format=7zip ./$5 ./base.json
 fi

@@ -45,7 +45,7 @@ def main():
     parser.add_argument('--automatic', action='store_true', help='Enable automatic mode')
     args = parser.parse_args()
 
-    nums = [str(x) for x in range(140)]
+    nums = [str(x) for x in range(2500)]
     host = "localhost"
     port = 8080
 

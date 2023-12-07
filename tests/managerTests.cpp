@@ -32,6 +32,10 @@ public:
     MOCK_METHOD(void, setManager, (std::shared_ptr<IManager> manager), (override));
     MOCK_METHOD(void, setLogger, ((std::shared_ptr<spdlog::logger>)), (override));
     MOCK_METHOD(void, updateWithRequest, (), (override));
+    MOCK_METHOD(void, normalizeData,(), (override));
+    MOCK_METHOD(void, normalizeRMinRMax,(), (override));
+    MOCK_METHOD(void, normalizeAmountOfOperators,(), (override));
+    MOCK_METHOD(void, normalizeSizeOfQueue,(), (override));
 };
 
 // Mock для IThreadPool
@@ -43,9 +47,9 @@ public:
     MOCK_METHOD(void, stop, (), (override));
     MOCK_METHOD(void, start, (), (override));
     MOCK_METHOD(void, transferObjects, (const std::shared_ptr<TP::IThreadPool>& oldThreadPool), (override));
-    MOCK_METHOD(void, writeCDR, (CDR& cdr), (override));
     MOCK_METHOD(void, setTaskQueue, (std::shared_ptr<TP::IQueue> task_queue), (override));
     MOCK_METHOD(void, setLogger, ((std::shared_ptr<spdlog::logger>)), (override));
+    MOCK_METHOD((std::size_t), getSize, (), (override));
 };
 
 class ManagerTest : public testing::Test {
@@ -56,7 +60,6 @@ protected:
         mockQueue = std::make_shared<MockQueue>(4);
         mockThreadPool->setTaskQueue(mockQueue);
         manager = std::make_shared<Manager>(mockConfig, mockThreadPool);
-        //mockConfig->setManager(manager);
     }
 
     void TearDown() override {
@@ -102,12 +105,26 @@ TEST_F(ManagerTest, AddTaskTest) {
     manager->addTask("test_num");
 }
 
-TEST_F(ManagerTest, UpdateFunction) {
+TEST_F(ManagerTest, UpdateFunctionWhenThreadPoolSizeAreSame) {
     EXPECT_CALL(*mockConfig, getMinMax()).WillOnce(::testing::Return(std::make_pair(10,20)));
     EXPECT_CALL(*mockConfig, getAmountOfOperators()).WillOnce(::testing::Return(2));
+    EXPECT_CALL(*mockConfig, getSizeOfQueue()).Times(1).WillRepeatedly(::testing::Return(4));
+    EXPECT_CALL(*mockQueue, empty()).Times(::testing::AnyNumber()).WillRepeatedly(::testing::Return(true));
+    EXPECT_CALL(*mockQueue, update(::testing::_)).Times(1);
+
+    auto threadPool = std::make_shared<TP::ThreadPool>(2, 4);
+    manager->setNewThreadPool(threadPool);
+    threadPool->setTaskQueue(mockQueue);
+    manager->update();
+}
+
+TEST_F(ManagerTest, UpdateFunctionWhenThreadPoolSizeAreNotSame) {
+    EXPECT_CALL(*mockConfig, getMinMax()).WillOnce(::testing::Return(std::make_pair(10,20)));
+    EXPECT_CALL(*mockConfig, getAmountOfOperators()).Times(2).WillRepeatedly(::testing::Return(3));
     EXPECT_CALL(*mockConfig, getSizeOfQueue()).Times(2).WillRepeatedly(::testing::Return(4));
     EXPECT_CALL(*mockQueue, empty()).Times(::testing::AnyNumber()).WillRepeatedly(::testing::Return(true));
     EXPECT_CALL(*mockQueue, update(::testing::_)).Times(1);
+
     auto threadPool = std::make_shared<TP::ThreadPool>(2, 4);
     manager->setNewThreadPool(threadPool);
     threadPool->setTaskQueue(mockQueue);

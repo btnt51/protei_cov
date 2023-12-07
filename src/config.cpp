@@ -1,14 +1,32 @@
 #include "config.hpp"
 #include <iostream>
 
+/**
+ * @file config.cpp
+ * @brief Содержит определение классов Config и ThreadSafeConfig,
+ * которые реализуют интерфейс IThreadPool
+ */
+
+
 using namespace utility;
 
 Config::Config(const std::filesystem::path &path, std::shared_ptr<spdlog::logger> logger) : IConfig(path, logger),
     logger_(logger) {
     parser = std::make_shared<JsonParser>(logger);
-    this->path_ = makeNormalPath(path);
-    parser->parse(path_);
-    data_ = parser->outputConfig();
+    try {
+        this->path_ = makeNormalPath(path);
+        parser->parse(path_);
+        data_ = parser->outputConfig();
+        notToUpdate = false;
+    } catch(const std::exception &e) {
+        if(logger_)
+            logger_->error("There was thrown an exception while constructing config: {}", e.what());
+        data_["RMin"] = 10;
+        data_["RMax"] = 15;
+        data_["AmountOfOperators"] = 2;
+        data_["SizeOfQueue"] = 15;
+        notToUpdate = true;
+    }
 }
 
 std::pair<int, int> Config::getMinMax() {
@@ -35,9 +53,15 @@ bool Config::isUpdated() {
 void Config::updateConfig() {
     parser->parse(path_);
     data_ = parser->outputConfig();
+    normalizeData();
 }
 
 void Config::updateWithRequest() {
+    if(notToUpdate) {
+        if (logger_)
+            logger_->info("Could not run update thread because set flag not to update");
+        return;
+    }
     updateConfig();
     notify();
 }
@@ -63,12 +87,81 @@ void Config::setLogger(std::shared_ptr<spdlog::logger> logger) {
     this->logger_ = logger;
 }
 
+void Config::normalizeData() {
+    if(logger_)
+        logger_->info("Normalizing data");
+
+    normalizeRMinRMax();
+    normalizeAmountOfOperators();
+    normalizeSizeOfQueue();
+}
+
+void Config::normalizeRMinRMax() {
+    if(logger_)
+        logger_->info("Normalizing RMin RMax");
+
+    if(data_["RMin"] >= 100)
+        data_["RMin"] = 100;
+    if(data_["RMax"] >= 140)
+        data_["RMax"] = 140;
+    if(data_["RMin"] <= 4)
+        data_["RMin"] = 4;
+    if(data_["RMax"] <= 5)
+        data_["RMax"] = 5;
+    if(data_["RMin"] > data_["RMax"])
+        std::swap(data_["RMin"], data_["RMax"]);
+
+    if(logger_) {
+        logger_->debug("RMin: {} RMax: {} after normalizing", data_["RMin"], data_["RMax"]);
+    }
+}
+
+
+void Config::normalizeAmountOfOperators() {
+    if(logger_)
+        logger_->info("Normalizing AmountOfOperators");
+    if(data_["AmountOfOperators"] >= 80)
+        data_["AmountOfOperators"] = 80;
+    if(data_["AmountOfOperators"] <= 2)
+        data_["AmountOfOperators"] = 2;
+
+    if(logger_) {
+        logger_->debug("AmountOfOperators: {} after normalizing", data_["AmountOfOperators"]);
+    }
+}
+
+
+void Config::normalizeSizeOfQueue() {
+    if(logger_)
+        logger_->info("Normalizing SizeOfQueue");
+
+    if(data_["SizeOfQueue"] >= 350)
+        data_["SizeOfQueue"] = 350;
+    if(data_["SizeOfQueue"] <= 15)
+        data_["SizeOfQueue"] = 15;
+
+    if(logger_) {
+        logger_->debug("SizeOfQueue: {} after normalizing", data_["SizeOfQueue"]);
+    }
+}
+
 ThreadSafeConfig::ThreadSafeConfig(const std::filesystem::path &path, std::shared_ptr<spdlog::logger> logger) :
     IConfig(path, logger), logger_(logger)  {
     parser = std::make_shared<JsonParser>(logger);
-    this->path_ = makeNormalPath(path);
-    parser->parse(path_);
-    data_ = parser->outputConfig();
+    try {
+        this->path_ = makeNormalPath(path);
+        parser->parse(path_);
+        data_ = parser->outputConfig();
+        notToUpdate = false;
+    } catch(const std::exception &e) {
+        if(logger_)
+            logger_->error("There was thrown an exception while constructing config: {}", e.what());
+        data_["RMin"] = 10;
+        data_["RMax"] = 15;
+        data_["AmountOfOperators"] = 2;
+        data_["SizeOfQueue"] = 15;
+        notToUpdate = true;
+    }
     stopThread = false;
     updated = false;
 }
@@ -116,6 +209,7 @@ void ThreadSafeConfig::updateConfig() {
             logger_->info("New configuration {}", parser->output());
         }
         data_ = parser->outputConfig();
+        normalizeData();
         updated = true;
     } catch (const std::exception& e) {
         if(logger_)
@@ -167,12 +261,15 @@ std::time_t lastTime(const std::filesystem::path &filePath) {
 
 void ThreadSafeConfig::updateConfigThread() {
     try {
+
         lastWriteTime = lastTime(path_);
         while (!stopThread) {
             std::this_thread::sleep_for(std::chrono::seconds(60));
             std::time_t currentWriteTime = lastTime(path_);
 
-            if (currentWriteTime >= lastWriteTime) {
+            if (currentWriteTime > lastWriteTime) {
+                if(logger_)
+                    logger_->debug("Updating configuration from with regular checking");
                 {
                     std::lock_guard<std::mutex> lock(configMutex);
                     updateConfig();
@@ -190,6 +287,13 @@ void ThreadSafeConfig::updateConfigThread() {
 }
 
 void ThreadSafeConfig::updateWithRequest() {
+    if(notToUpdate) {
+        if (logger_)
+            logger_->info("Could not run update thread because set flag not to update");
+        return;
+    }
+    if(logger_)
+        logger_->debug("Updating configuration from with request");
     {
         std::lock_guard<std::mutex> lock(configMutex);
         updateConfig();
@@ -201,7 +305,12 @@ void ThreadSafeConfig::updateWithRequest() {
 void ThreadSafeConfig::RunMonitoring() {
     if(logger_)
         logger_->info("Starting configuration update monitoring thread");
-    updateThread = std::thread(&ThreadSafeConfig::updateConfigThread, this);
+    if(notToUpdate) {
+        if(logger_)
+            logger_->info("Could not run update thread because set flag not to update");
+    } else {
+        updateThread = std::thread(&ThreadSafeConfig::updateConfigThread, this);
+    }
 }
 
 bool ThreadSafeConfig::isMonitoring() const {
@@ -213,4 +322,62 @@ bool ThreadSafeConfig::isMonitoring() const {
 void ThreadSafeConfig::setLogger(std::shared_ptr<spdlog::logger> logger) {
     this->logger_ = logger;
     logger_->info("Logger set for ThreadSafeConfig");
+}
+
+void ThreadSafeConfig::normalizeData() {
+    if(logger_)
+        logger_->info("Normalizing data");
+
+    normalizeRMinRMax();
+    normalizeAmountOfOperators();
+    normalizeSizeOfQueue();
+}
+
+void ThreadSafeConfig::normalizeRMinRMax() {
+    if(logger_)
+        logger_->info("Normalizing RMin RMax");
+
+    if(data_["RMin"] >= 100)
+        data_["RMin"] = 100;
+    if(data_["RMax"] >= 140)
+        data_["RMax"] = 140;
+    if(data_["RMin"] <= 4)
+        data_["RMin"] = 4;
+    if(data_["RMax"] <= 5)
+        data_["RMax"] = 5;
+    if(data_["RMin"] > data_["RMax"])
+        std::swap(data_["RMin"], data_["RMax"]);
+
+    if(logger_) {
+        logger_->debug("RMin: {} RMax: {} after normalizing", data_["RMin"], data_["RMax"]);
+    }
+}
+
+
+void ThreadSafeConfig::normalizeAmountOfOperators() {
+    if(logger_)
+        logger_->info("Normalizing AmountOfOperators");
+    if(data_["AmountOfOperators"] >= 80)
+        data_["AmountOfOperators"] = 80;
+    if(data_["AmountOfOperators"] <= 2)
+        data_["AmountOfOperators"] = 2;
+
+    if(logger_) {
+        logger_->debug("AmountOfOperators: {} after normalizing", data_["AmountOfOperators"]);
+    }
+}
+
+
+void ThreadSafeConfig::normalizeSizeOfQueue() {
+    if(logger_)
+        logger_->info("Normalizing SizeOfQueue");
+
+    if(data_["SizeOfQueue"] >= 350)
+        data_["SizeOfQueue"] = 350;
+    if(data_["SizeOfQueue"] <= 15)
+        data_["SizeOfQueue"] = 15;
+
+    if(logger_) {
+        logger_->debug("SizeOfQueue: {} after normalizing", data_["SizeOfQueue"]);
+    }
 }
