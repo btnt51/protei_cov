@@ -11,13 +11,11 @@ set(SOURCES src/jsonParser.cpp src/config.cpp src/threadpool.cpp src/manager.cpp
             src/queue.cpp src/builder.cpp src/recorder.cpp
         src/commonStructures.cpp
         src/task.cpp
-        src/httpServer.cpp
-        include/httpServer.hpp)
+        src/httpServer.cpp)
 set(HEADERS include/config.hpp include/commonStructures.hpp
         include/jsonParser.hpp include/recorder.hpp include/threadpool.hpp
         include/manager.hpp include/interfaces.hpp include/queue.hpp include/builder.hpp
         include/task.hpp
-        src/httpServer.cpp
         include/httpServer.hpp)
 
 add_executable(${PROJECT_NAME} src/main.cpp ${SOURCES} ${HEADERS})

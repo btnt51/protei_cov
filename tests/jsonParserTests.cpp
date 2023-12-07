@@ -23,7 +23,7 @@ TEST_F(JsonParserTest, ParseTest) {
 
 TEST_F(JsonParserTest, OutputTest) {
     jsonParser_->parse("base.json");
-    EXPECT_EQ(jsonParser_->output(), "RMin: 10\nRMax: 15\nAmountOfOperators: 5\nSizeOfQueue: 7\n");
+    EXPECT_EQ(jsonParser_->output(), "RMin: 10\nRMax: 15\nAmountOfOperators: 5\nSizeOfQueue: 15\n");
 }
 
 TEST_F(JsonParserTest, OutputConfigTest) {
@@ -32,7 +32,7 @@ TEST_F(JsonParserTest, OutputConfigTest) {
         {"RMin", 10},
         {"RMax", 15},
         {"AmountOfOperators", 5},
-        {"SizeOfQueue", 7}
+        {"SizeOfQueue", 15}
     };
     EXPECT_EQ(jsonParser_->outputConfig(), expectedConfig);
 }
