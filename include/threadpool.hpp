@@ -158,6 +158,12 @@ private:
      * @return Уникальный CallID.
      */
     CallID generateCallID(long long number);
+
+    /**
+     * @brief Выполняет задачу и обрабатывает результат.
+     * @param task Указатель на задачу для выполнения.
+     * @param callID Идентификатор вызова задачи.
+     */
     void executeTask(std::shared_ptr<ITask>& task, CallID callID);
 };
 } // namespace TP
