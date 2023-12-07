@@ -2,6 +2,11 @@
 
 #include "task.hpp"
 
+/**
+ * @file task.cpp
+ * @brief Содержит определение класса Task, который реализует интерфейс ITask
+ */
+
 using namespace TP;
 using std::string_literals::operator""s;
 

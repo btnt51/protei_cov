@@ -1,5 +1,10 @@
 #include "commonStructures.hpp"
 
+/** @file commonStructures.cpp
+ *  @brief Содержит определение функций необходимых для работы
+ *  с CallStatus и CDR.
+ */
+
 namespace utility {
 using std::string_literals::operator""s;
 std::string to_string(const CallStatus& status) {

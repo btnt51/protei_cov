@@ -5,6 +5,11 @@
 #include <string>
 #include <boost/property_tree/json_parser.hpp>
 
+/**
+ * @file jsonParser.cpp
+ * @brief Содержит определение класса JsonParser.
+ */
+
 using namespace utility;
 
 JsonParser::JsonParser(std::shared_ptr<spdlog::logger> logger) : logger_(logger) {}

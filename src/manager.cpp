@@ -3,6 +3,13 @@
 #include "task.hpp"
 #include <iostream>
 
+/**
+ * @file manager.cpp
+ * @brief Содержит определение класса Manager,
+ * который реализует интерфейс IManager.
+ */
+
+
 Manager::Manager(std::shared_ptr<utility::IConfig> conf, std::shared_ptr<TP::IThreadPool> pool)  :
     IManager(conf, pool), config_(conf), threadPool_(pool) {
     std::tie(RMin_, RMax_) = config_->getMinMax();

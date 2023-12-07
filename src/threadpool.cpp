@@ -4,6 +4,11 @@
 #include <iostream>
 #include <random>
 
+/**
+ * @file threadpool.cpp
+ * @brief Содержит определение класса ThreadPool,
+ * который реализует интерфейс IThreadPool
+ */
 using namespace TP;
 
 ThreadPool::ThreadPool(unsigned amountOfThreads, unsigned sizeOfQueue):

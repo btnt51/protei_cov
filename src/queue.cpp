@@ -1,5 +1,11 @@
 #include "queue.hpp"
 
+/**
+ * @file queue.hpp
+ * @brief Содержит определение класса Queue,
+ * который реализует интерфейс IQueue.
+ */
+
 using namespace TP;
 
 Queue::Queue(int size) :

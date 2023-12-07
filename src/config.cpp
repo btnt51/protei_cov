@@ -1,6 +1,13 @@
 #include "config.hpp"
 #include <iostream>
 
+/**
+ * @file config.cpp
+ * @brief Содержит определение классов Config и ThreadSafeConfig,
+ * которые реализуют интерфейс IThreadPool
+ */
+
+
 using namespace utility;
 
 Config::Config(const std::filesystem::path &path, std::shared_ptr<spdlog::logger> logger) : IConfig(path, logger),

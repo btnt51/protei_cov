@@ -1,5 +1,10 @@
 #include "recorder.hpp"
 
+/**
+ * @file recorder.cpp
+ * @brief Содержит определение FileRecorder.
+ */
+
 FileRecorder::FileRecorder(const std::filesystem::path& path) {
     file = std::ofstream (path, std::ios::out|std::ios::app);
     std::string newL(136, '#');
