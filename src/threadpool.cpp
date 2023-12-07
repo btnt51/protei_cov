@@ -39,18 +39,7 @@ void ThreadPool::run(Operator* pOperator) {
             // TODO: тут должно быть лог сообщение
             auto[task, callID] = processTask();
             lock.unlock();
-            try {
-                auto res = task->doTask();
-                task_queue->writeCDR(task->cdr);
-                if(logger_)
-                    logger_->info("Task with CallID: " + std::to_string(callID) + " was successfully completed");
-                task->promise_->set_value(res);
-            } catch (...) {
-                if(logger_)
-                    logger_->error("Task with CallID: " + std::to_string(callID) +
-                                   " was terminated with an exception thrown");
-                task->promise_->set_exception(std::current_exception());
-            }
+            executeTask(task, callID);
 
             if (waitForCompletion && task_queue->empty()) {
                 break;
@@ -59,6 +48,21 @@ void ThreadPool::run(Operator* pOperator) {
             completed_task_count++;
         }
         wait_access.notify_all();
+    }
+}
+
+void ThreadPool::executeTask(std::shared_ptr<ITask>& task, CallID callID) {
+    try {
+        auto res = task->doTask();
+        task_queue->writeCDR(task->cdr);
+        if(logger_)
+            logger_->info("Task with CallID: " + std::to_string(callID) + " was successfully completed");
+        task->promise_->set_value(res);
+    } catch (...) {
+        if(logger_)
+            logger_->error("Task with CallID: " + std::to_string(callID) +
+                           " was terminated with an exception thrown");
+        task->promise_->set_exception(std::current_exception());
     }
 }
 

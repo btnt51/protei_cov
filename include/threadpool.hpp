@@ -158,6 +158,7 @@ private:
      * @return Уникальный CallID.
      */
     CallID generateCallID(long long number);
+    void executeTask(std::shared_ptr<ITask>& task, CallID callID);
 };
 } // namespace TP
 
