@@ -114,10 +114,16 @@ TEST_F(ThreadSafeConfigTest, IsUpdatedWithUpdate) {
 
 
 TEST_F(ThreadSafeConfigTest, RunMonitoringStartsThread) {
-    EXPECT_CALL(*mockManager, update()).Times(1);
     auto configUpdateThread = std::make_shared<MockThreadSafeConfig>("base.json", nullptr);
     configUpdateThread->setManager(mockManager);
     configUpdateThread->RunMonitoring();
     std::this_thread::sleep_for(std::chrono::seconds(1));
     ASSERT_TRUE(configUpdateThread->isMonitoring());
+}
+
+TEST_F(ThreadSafeConfigTest, ProcessRequestToUpdate) {
+    EXPECT_CALL(*mockManager, update()).Times(1);
+    config->updateWithRequest();
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+    ASSERT_TRUE(config->isUpdated());
 }
