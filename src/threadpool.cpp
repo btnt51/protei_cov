@@ -13,7 +13,7 @@ ThreadPool::ThreadPool(unsigned amountOfThreads, unsigned sizeOfQueue):
     task_queue = std::make_shared<Queue>(sizeOfQueue);
     completed_task_count = 0;
     for (unsigned int i = 0; i < amountOfThreads; i++) {
-        auto* th = new Operator;
+        auto* th = new Thread;
         th->_thread = std::thread{&ThreadPool::run, this, th};
         th->is_working = false;
         threads.push_back(th);
@@ -28,7 +28,7 @@ bool ThreadPool::run_allowed() const {
     return false;
 }
 
-void ThreadPool::run(Operator* pOperator) {
+void ThreadPool::run(Thread* pOperator) {
     while (!stopped) {
         std::unique_lock<std::mutex> lock(task_queue_mutex);
 
