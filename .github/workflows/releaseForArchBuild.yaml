@@ -1,0 +1,33 @@
+name: 'Minor release for arm64'
+
+on:
+  push:
+    branches:
+      - "master"
+jobs:
+  buildOnUbuntuArm64:
+    runs-on: [self-hosted, linux, ARM64]
+    name: Build on ubuntu22.04-aarch64
+    environment: env
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Prepare build.sh
+        run: chmod +x build.sh
+      - name: Test
+        run: |
+          ./build.sh ${{ github.run_number }} Debug ON ON test test /usr/bin/g++-13 5
+          cd build
+          ./test
+      - name: Build executable
+        run: |
+          ./build.sh ${{ github.run_number }} Release OFF ON protei_cov protei_cov-0.0.43-ubuntu22.04-arm64 /usr/bin/g++-13 5
+      - name: Release app
+        uses: softprops/action-gh-release@v1
+        with:
+          files: build/protei_cov-0.0.43-ubuntu22.04-arm64.zip
+          tag_name: 43
+          name: Release 43
+          token: ${{ secrets.ACTION_TOKEN }}
+
