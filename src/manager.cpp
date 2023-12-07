@@ -37,6 +37,8 @@ void Manager::update() {
         newThreadPool->setLogger(logger_);
         setNewThreadPool(newThreadPool);
     }
+    if(logger_)
+        logger_->info("All was updated");
 }
 
 bool Manager::processRequestForUpdate() {
