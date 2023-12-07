@@ -56,7 +56,6 @@ std::shared_ptr<TP::ThreadPool> ManagerBuilder::BuildThreadPool() {
         auto pool = std::make_shared<TP::ThreadPool>(config->getAmountOfOperators(), config->getSizeOfQueue());
         logger->info("Built thread pool");
         pool->setLogger(logger);
-        pool->setRecorders(recorders);
         return pool;
     } catch (std::exception& e) {
         logger->critical("Critical error building thread pool: {}", e.what());

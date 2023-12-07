@@ -98,6 +98,8 @@ public:
      * @copydoc TP::IThreadPool::getSize
      */
     std::size_t getSize() override;
+
+
 private:
     /**
      * @brief Условные переменные для управления задачами в пуле потоков.

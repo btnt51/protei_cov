@@ -13,7 +13,6 @@ Task::Task(int RMin, int RMax, std::string_view number, const std::chrono::syste
     }
     cdr.startTime = startTime;
     cdr.number = number;
-    pool_ = nullptr;
     promise_ = std::make_shared<std::promise<Result>>();
 }
 
@@ -34,11 +33,6 @@ void Task::addPromise(std::shared_ptr<std::promise<Result>> t) {
     logger_->debug("Added promise for Task");
 }
 
-
-void Task::sendCDR() {
-    if(pool_)
-        pool_->writeCDR(cdr);
-}
 
 CallID Task::getCallID() const {
     return this->taskId_;
