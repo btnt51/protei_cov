@@ -5,7 +5,7 @@ int main(int argc, const char* argv[]) {
     short unsigned port = 8080;
     std::filesystem::path pathToFile = "base.json";
     if(argc == 2) {
-        if(!strcmp(argv[1], "test")) {
+        if(not strcmp(argv[1], "test")) {
             std::cout << "Normal test run!" << std::endl;
             return 0;
         }
