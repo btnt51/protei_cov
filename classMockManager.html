@@ -1,0 +1,577 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Класс MockManager</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('classMockManager.html','','classMockManager-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Класс MockManager</div></div>
+</div><!--header-->
+<div class="contents">
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф наследования:MockManager:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockManager__inherit__graph.png" border="0" usemap="#aMockManager_inherit__map" loading="lazy" alt="Inheritance graph"/></div>
+<map name="aMockManager_inherit__map" id="aMockManager_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,79,109,105"/>
+<area shape="rect" href="classIManager.html" title="Абстрактный интерфейс для управления задачами в тредпуле." alt="" coords="19,5,95,31"/>
+<area shape="poly" title=" " alt="" coords="60,46,60,79,54,79,54,46"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">см. легенду</a>]</span></center></div>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф связей класса MockManager:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockManager__coll__graph.png" border="0" usemap="#aMockManager_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<map name="aMockManager_coll__map" id="aMockManager_coll__map">
+<area shape="rect" title=" " alt="" coords="5,79,109,105"/>
+<area shape="rect" href="classIManager.html" title="Абстрактный интерфейс для управления задачами в тредпуле." alt="" coords="19,5,95,31"/>
+<area shape="poly" title=" " alt="" coords="60,46,60,79,54,79,54,46"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:afa4419727ca8541ed352cb546258b9b1" id="r_afa4419727ca8541ed352cb546258b9b1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#afa4419727ca8541ed352cb546258b9b1">MockManager</a> (std::shared_ptr&lt; <a class="el" href="classutility_1_1IConfig.html">utility::IConfig</a> &gt; conf, std::shared_ptr&lt; <a class="el" href="classTP_1_1IThreadPool.html">TP::IThreadPool</a> &gt; pool)</td></tr>
+<tr class="memitem:ad97ca43cdb0079d646380a7ad0b2eabb" id="r_ad97ca43cdb0079d646380a7ad0b2eabb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad97ca43cdb0079d646380a7ad0b2eabb">MOCK_METHOD</a> ((std::pair&lt; <a class="el" href="namespaceTP.html#ae4420f548e2f0128ec3da1fbffe40d4b">TP::CallID</a>, std::future&lt; <a class="el" href="structResult.html">Result</a> &gt; &gt;), <a class="el" href="classIManager.html#af1c8a1a0114136794a0bf5ac319f3ef0">addTask</a>,(std::string_view number),(override))</td></tr>
+<tr class="memitem:a38a0b6e74a2ad4f2a378315484c01f11" id="r_a38a0b6e74a2ad4f2a378315484c01f11"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a38a0b6e74a2ad4f2a378315484c01f11">MOCK_METHOD</a> (void, <a class="el" href="classIManager.html#aba072620232a796598a2678d23a6844c">startThreadPool</a>,(),(override))</td></tr>
+<tr class="memitem:a2bfc4ca9ccb8469d314825fda0f1b18a" id="r_a2bfc4ca9ccb8469d314825fda0f1b18a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2bfc4ca9ccb8469d314825fda0f1b18a">MOCK_METHOD</a> (void, <a class="el" href="classIManager.html#a07822b6443a45f47a3606f2d2006c786">stopThreadPool</a>,(),(override))</td></tr>
+<tr class="memitem:a8491fa6d05dfe63e17c63da049e5e6b8" id="r_a8491fa6d05dfe63e17c63da049e5e6b8"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8491fa6d05dfe63e17c63da049e5e6b8">MOCK_METHOD</a> (void, <a class="el" href="classIManager.html#ae0b45cdbf4f7c66627449b2454f4d410">setNewConfig</a>,(std::shared_ptr&lt; <a class="el" href="classutility_1_1IConfig.html">utility::IConfig</a> &gt; config),(override))</td></tr>
+<tr class="memitem:a133b332cd97f52e1a7e43b8777989753" id="r_a133b332cd97f52e1a7e43b8777989753"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a133b332cd97f52e1a7e43b8777989753">MOCK_METHOD</a> (void, <a class="el" href="classIManager.html#a43008df0bcd0472ea470928f4c5f82fc">setNewThreadPool</a>,(std::shared_ptr&lt; <a class="el" href="classTP_1_1IThreadPool.html">TP::IThreadPool</a> &gt; pool),(override))</td></tr>
+<tr class="memitem:acd260be6413455c274d14da27d375b7a" id="r_acd260be6413455c274d14da27d375b7a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acd260be6413455c274d14da27d375b7a">MOCK_METHOD</a> (void, <a class="el" href="classIManager.html#acb9dce4f3f8c8073a0f8b04344570ab1">setLogger</a>,((std::shared_ptr&lt; spdlog::logger &gt; logger)),(override))</td></tr>
+<tr class="memitem:a9d7dd2c10f33c0a48bff9c4b73462e63" id="r_a9d7dd2c10f33c0a48bff9c4b73462e63"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9d7dd2c10f33c0a48bff9c4b73462e63">MOCK_METHOD</a> (void, <a class="el" href="classIManager.html#a4806f9452c7a662c2cd3889dc66bfeed">update</a>,(),(override))</td></tr>
+<tr class="memitem:acc34b34398003e33e60d603068fc60b4" id="r_acc34b34398003e33e60d603068fc60b4"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acc34b34398003e33e60d603068fc60b4">MOCK_METHOD</a> (bool, <a class="el" href="classIManager.html#ad6b4043ee49d5b4d42d56ce642c79693">processRequestForUpdate</a>,(),(override))</td></tr>
+<tr class="inherit_header pub_methods_classIManager"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classIManager')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Открытые члены унаследованные от <a class="el" href="classIManager.html">IManager</a></td></tr>
+<tr class="memitem:a202714648a0d1845f9bc12c684f63031 inherit pub_methods_classIManager" id="r_a202714648a0d1845f9bc12c684f63031"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="classIManager.html#a202714648a0d1845f9bc12c684f63031">~IManager</a> ()=default</td></tr>
+<tr class="memitem:ab3259fda11c2b79af28712d7fc3ffe87 inherit pub_methods_classIManager" id="r_ab3259fda11c2b79af28712d7fc3ffe87"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="classIManager.html#ab3259fda11c2b79af28712d7fc3ffe87">IManager</a> (std::shared_ptr&lt; <a class="el" href="classutility_1_1IConfig.html">utility::IConfig</a> &gt; conf, std::shared_ptr&lt; <a class="el" href="classTP_1_1IThreadPool.html">TP::IThreadPool</a> &gt; pool)</td></tr>
+<tr class="memdesc:ab3259fda11c2b79af28712d7fc3ffe87 inherit pub_methods_classIManager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор класса <a class="el" href="classIManager.html" title="Абстрактный интерфейс для управления задачами в тредпуле.">IManager</a>.  <br /></td></tr>
+<tr class="memitem:af1c8a1a0114136794a0bf5ac319f3ef0 inherit pub_methods_classIManager" id="r_af1c8a1a0114136794a0bf5ac319f3ef0"><td class="memItemLeft">virtual std::pair&lt; <a class="el" href="namespaceTP.html#ae4420f548e2f0128ec3da1fbffe40d4b">TP::CallID</a>, std::future&lt; <a class="el" href="structResult.html">Result</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="classIManager.html#af1c8a1a0114136794a0bf5ac319f3ef0">addTask</a> (std::string_view number)=0</td></tr>
+<tr class="memdesc:af1c8a1a0114136794a0bf5ac319f3ef0 inherit pub_methods_classIManager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавляет задачу в тредпул.  <br /></td></tr>
+<tr class="memitem:aba072620232a796598a2678d23a6844c inherit pub_methods_classIManager" id="r_aba072620232a796598a2678d23a6844c"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="classIManager.html#aba072620232a796598a2678d23a6844c">startThreadPool</a> ()=0</td></tr>
+<tr class="memdesc:aba072620232a796598a2678d23a6844c inherit pub_methods_classIManager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запускает выполнение задач в тредпуле.  <br /></td></tr>
+<tr class="memitem:a07822b6443a45f47a3606f2d2006c786 inherit pub_methods_classIManager" id="r_a07822b6443a45f47a3606f2d2006c786"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="classIManager.html#a07822b6443a45f47a3606f2d2006c786">stopThreadPool</a> ()=0</td></tr>
+<tr class="memdesc:a07822b6443a45f47a3606f2d2006c786 inherit pub_methods_classIManager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Останавливает выполнение задач в тредпуле.  <br /></td></tr>
+<tr class="memitem:ae0b45cdbf4f7c66627449b2454f4d410 inherit pub_methods_classIManager" id="r_ae0b45cdbf4f7c66627449b2454f4d410"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="classIManager.html#ae0b45cdbf4f7c66627449b2454f4d410">setNewConfig</a> (std::shared_ptr&lt; <a class="el" href="classutility_1_1IConfig.html">utility::IConfig</a> &gt; config)=0</td></tr>
+<tr class="memdesc:ae0b45cdbf4f7c66627449b2454f4d410 inherit pub_methods_classIManager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает новую конфигурацию для менеджера.  <br /></td></tr>
+<tr class="memitem:a43008df0bcd0472ea470928f4c5f82fc inherit pub_methods_classIManager" id="r_a43008df0bcd0472ea470928f4c5f82fc"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="classIManager.html#a43008df0bcd0472ea470928f4c5f82fc">setNewThreadPool</a> (std::shared_ptr&lt; <a class="el" href="classTP_1_1IThreadPool.html">TP::IThreadPool</a> &gt; pool)=0</td></tr>
+<tr class="memdesc:a43008df0bcd0472ea470928f4c5f82fc inherit pub_methods_classIManager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает новый тредпул для менеджера.  <br /></td></tr>
+<tr class="memitem:a4806f9452c7a662c2cd3889dc66bfeed inherit pub_methods_classIManager" id="r_a4806f9452c7a662c2cd3889dc66bfeed"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="classIManager.html#a4806f9452c7a662c2cd3889dc66bfeed">update</a> ()=0</td></tr>
+<tr class="memdesc:a4806f9452c7a662c2cd3889dc66bfeed inherit pub_methods_classIManager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выполняет обновление состояния менеджера.  <br /></td></tr>
+<tr class="memitem:acb9dce4f3f8c8073a0f8b04344570ab1 inherit pub_methods_classIManager" id="r_acb9dce4f3f8c8073a0f8b04344570ab1"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="classIManager.html#acb9dce4f3f8c8073a0f8b04344570ab1">setLogger</a> (std::shared_ptr&lt; spdlog::logger &gt; logger)=0</td></tr>
+<tr class="memdesc:acb9dce4f3f8c8073a0f8b04344570ab1 inherit pub_methods_classIManager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает асинхронный логгер.  <br /></td></tr>
+<tr class="memitem:ad6b4043ee49d5b4d42d56ce642c79693 inherit pub_methods_classIManager" id="r_ad6b4043ee49d5b4d42d56ce642c79693"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="classIManager.html#ad6b4043ee49d5b4d42d56ce642c79693">processRequestForUpdate</a> ()=0</td></tr>
+<tr class="memdesc:ad6b4043ee49d5b4d42d56ce642c79693 inherit pub_methods_classIManager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обрабатывает запрос на обновление конфигурации  <br /></td></tr>
+</table>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Конструктор(ы)</h2>
+<a id="afa4419727ca8541ed352cb546258b9b1" name="afa4419727ca8541ed352cb546258b9b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa4419727ca8541ed352cb546258b9b1">&#9670;&#160;</a></span>MockManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockManager::MockManager </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classutility_1_1IConfig.html">utility::IConfig</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>conf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classTP_1_1IThreadPool.html">TP::IThreadPool</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>pool</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockManager_afa4419727ca8541ed352cb546258b9b1_cgraph.png" border="0" usemap="#aclassMockManager_afa4419727ca8541ed352cb546258b9b1_cgraph" loading="lazy" alt=""/></div>
+<map name="aclassMockManager_afa4419727ca8541ed352cb546258b9b1_cgraph" id="aclassMockManager_afa4419727ca8541ed352cb546258b9b1_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,197,31"/>
+<area shape="rect" href="classIManager.html#ab3259fda11c2b79af28712d7fc3ffe87" title="Конструктор класса IManager." alt="" coords="245,5,380,31"/>
+<area shape="poly" title=" " alt="" coords="197,16,229,16,229,21,197,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="ad97ca43cdb0079d646380a7ad0b2eabb" name="ad97ca43cdb0079d646380a7ad0b2eabb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad97ca43cdb0079d646380a7ad0b2eabb">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[1/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockManager::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">(std::pair&lt; <a class="el" href="namespaceTP.html#ae4420f548e2f0128ec3da1fbffe40d4b">TP::CallID</a>, std::future&lt; <a class="el" href="structResult.html">Result</a> &gt; &gt;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classIManager.html#af1c8a1a0114136794a0bf5ac319f3ef0">addTask</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(std::string_view number)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockManager_ad97ca43cdb0079d646380a7ad0b2eabb_cgraph.png" border="0" usemap="#aclassMockManager_ad97ca43cdb0079d646380a7ad0b2eabb_cgraph" loading="lazy" alt=""/></div>
+<map name="aclassMockManager_ad97ca43cdb0079d646380a7ad0b2eabb_cgraph" id="aclassMockManager_ad97ca43cdb0079d646380a7ad0b2eabb_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,217,31"/>
+<area shape="rect" href="classIManager.html#af1c8a1a0114136794a0bf5ac319f3ef0" title="Добавляет задачу в тредпул." alt="" coords="265,5,396,31"/>
+<area shape="poly" title=" " alt="" coords="217,16,249,16,249,21,217,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="acc34b34398003e33e60d603068fc60b4" name="acc34b34398003e33e60d603068fc60b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc34b34398003e33e60d603068fc60b4">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[2/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockManager::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classIManager.html#ad6b4043ee49d5b4d42d56ce642c79693">processRequestForUpdate</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">()</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockManager_acc34b34398003e33e60d603068fc60b4_cgraph.png" border="0" usemap="#aclassMockManager_acc34b34398003e33e60d603068fc60b4_cgraph" loading="lazy" alt=""/></div>
+<map name="aclassMockManager_acc34b34398003e33e60d603068fc60b4_cgraph" id="aclassMockManager_acc34b34398003e33e60d603068fc60b4_cgraph">
+<area shape="rect" title=" " alt="" coords="5,13,217,38"/>
+<area shape="rect" href="classIManager.html#ad6b4043ee49d5b4d42d56ce642c79693" title="Обрабатывает запрос на обновление конфигурации" alt="" coords="265,5,440,46"/>
+<area shape="poly" title=" " alt="" coords="217,23,249,23,249,28,217,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="acd260be6413455c274d14da27d375b7a" name="acd260be6413455c274d14da27d375b7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd260be6413455c274d14da27d375b7a">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[3/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockManager::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classIManager.html#acb9dce4f3f8c8073a0f8b04344570ab1">setLogger</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">((std::shared_ptr&lt; spdlog::logger &gt; logger))</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockManager_acd260be6413455c274d14da27d375b7a_cgraph.png" border="0" usemap="#aclassMockManager_acd260be6413455c274d14da27d375b7a_cgraph" loading="lazy" alt=""/></div>
+<map name="aclassMockManager_acd260be6413455c274d14da27d375b7a_cgraph" id="aclassMockManager_acd260be6413455c274d14da27d375b7a_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,217,31"/>
+<area shape="rect" href="classIManager.html#acb9dce4f3f8c8073a0f8b04344570ab1" title="Устанавливает асинхронный логгер." alt="" coords="265,5,404,31"/>
+<area shape="poly" title=" " alt="" coords="217,16,249,16,249,21,217,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8491fa6d05dfe63e17c63da049e5e6b8" name="a8491fa6d05dfe63e17c63da049e5e6b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8491fa6d05dfe63e17c63da049e5e6b8">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[4/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockManager::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classIManager.html#ae0b45cdbf4f7c66627449b2454f4d410">setNewConfig</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(std::shared_ptr&lt; <a class="el" href="classutility_1_1IConfig.html">utility::IConfig</a> &gt; config)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockManager_a8491fa6d05dfe63e17c63da049e5e6b8_cgraph.png" border="0" usemap="#aclassMockManager_a8491fa6d05dfe63e17c63da049e5e6b8_cgraph" loading="lazy" alt=""/></div>
+<map name="aclassMockManager_a8491fa6d05dfe63e17c63da049e5e6b8_cgraph" id="aclassMockManager_a8491fa6d05dfe63e17c63da049e5e6b8_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,217,31"/>
+<area shape="rect" href="classIManager.html#ae0b45cdbf4f7c66627449b2454f4d410" title="Устанавливает новую конфигурацию для менеджера." alt="" coords="265,5,427,31"/>
+<area shape="poly" title=" " alt="" coords="217,16,249,16,249,21,217,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a133b332cd97f52e1a7e43b8777989753" name="a133b332cd97f52e1a7e43b8777989753"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a133b332cd97f52e1a7e43b8777989753">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[5/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockManager::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classIManager.html#a43008df0bcd0472ea470928f4c5f82fc">setNewThreadPool</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(std::shared_ptr&lt; <a class="el" href="classTP_1_1IThreadPool.html">TP::IThreadPool</a> &gt; pool)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockManager_a133b332cd97f52e1a7e43b8777989753_cgraph.png" border="0" usemap="#aclassMockManager_a133b332cd97f52e1a7e43b8777989753_cgraph" loading="lazy" alt=""/></div>
+<map name="aclassMockManager_a133b332cd97f52e1a7e43b8777989753_cgraph" id="aclassMockManager_a133b332cd97f52e1a7e43b8777989753_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,217,31"/>
+<area shape="rect" href="classIManager.html#a43008df0bcd0472ea470928f4c5f82fc" title="Устанавливает новый тредпул для менеджера." alt="" coords="265,5,457,31"/>
+<area shape="poly" title=" " alt="" coords="217,16,249,16,249,21,217,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a38a0b6e74a2ad4f2a378315484c01f11" name="a38a0b6e74a2ad4f2a378315484c01f11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38a0b6e74a2ad4f2a378315484c01f11">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[6/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockManager::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classIManager.html#aba072620232a796598a2678d23a6844c">startThreadPool</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">()</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockManager_a38a0b6e74a2ad4f2a378315484c01f11_cgraph.png" border="0" usemap="#aclassMockManager_a38a0b6e74a2ad4f2a378315484c01f11_cgraph" loading="lazy" alt=""/></div>
+<map name="aclassMockManager_a38a0b6e74a2ad4f2a378315484c01f11_cgraph" id="aclassMockManager_a38a0b6e74a2ad4f2a378315484c01f11_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,217,31"/>
+<area shape="rect" href="classIManager.html#aba072620232a796598a2678d23a6844c" title="Запускает выполнение задач в тредпуле." alt="" coords="265,5,438,31"/>
+<area shape="poly" title=" " alt="" coords="217,16,249,16,249,21,217,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a2bfc4ca9ccb8469d314825fda0f1b18a" name="a2bfc4ca9ccb8469d314825fda0f1b18a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bfc4ca9ccb8469d314825fda0f1b18a">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[7/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockManager::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classIManager.html#a07822b6443a45f47a3606f2d2006c786">stopThreadPool</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">()</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockManager_a2bfc4ca9ccb8469d314825fda0f1b18a_cgraph.png" border="0" usemap="#aclassMockManager_a2bfc4ca9ccb8469d314825fda0f1b18a_cgraph" loading="lazy" alt=""/></div>
+<map name="aclassMockManager_a2bfc4ca9ccb8469d314825fda0f1b18a_cgraph" id="aclassMockManager_a2bfc4ca9ccb8469d314825fda0f1b18a_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,217,31"/>
+<area shape="rect" href="classIManager.html#a07822b6443a45f47a3606f2d2006c786" title="Останавливает выполнение задач в тредпуле." alt="" coords="265,5,437,31"/>
+<area shape="poly" title=" " alt="" coords="217,16,249,16,249,21,217,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a9d7dd2c10f33c0a48bff9c4b73462e63" name="a9d7dd2c10f33c0a48bff9c4b73462e63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d7dd2c10f33c0a48bff9c4b73462e63">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[8/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockManager::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classIManager.html#a4806f9452c7a662c2cd3889dc66bfeed">update</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">()</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockManager_a9d7dd2c10f33c0a48bff9c4b73462e63_cgraph.png" border="0" usemap="#aclassMockManager_a9d7dd2c10f33c0a48bff9c4b73462e63_cgraph" loading="lazy" alt=""/></div>
+<map name="aclassMockManager_a9d7dd2c10f33c0a48bff9c4b73462e63_cgraph" id="aclassMockManager_a9d7dd2c10f33c0a48bff9c4b73462e63_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,217,31"/>
+<area shape="rect" href="classIManager.html#a4806f9452c7a662c2cd3889dc66bfeed" title="Выполняет обновление состояния менеджера." alt="" coords="265,5,385,31"/>
+<area shape="poly" title=" " alt="" coords="217,16,249,16,249,21,217,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>tests/<a class="el" href="configTests_8cpp.html">configTests.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="classMockManager.html">MockManager</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

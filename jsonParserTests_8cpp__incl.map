@@ -1,0 +1,19 @@
+<map id="tests/jsonParserTests.cpp" name="tests/jsonParserTests.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="253,5,426,31"/>
+<area shape="rect" id="Node000002" href="$jsonParser_8hpp.html" title="Содержит объявление класса JsonParser, предназначенного для парсинга и обработки JSON данных." alt="" coords="151,79,259,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="318,34,242,74,240,69,316,29"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="283,79,396,105"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="342,31,342,63,337,63,337,31"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="421,79,514,105"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="363,29,434,69,431,73,360,34"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,160,85,186"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="182,108,84,156,82,151,179,103"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="108,160,155,186"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="196,107,155,150,151,147,192,103"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="178,160,232,186"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="208,105,208,144,202,144,202,105"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="256,153,388,193"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="224,103,282,142,279,146,221,107"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="412,160,523,186"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="246,103,414,153,412,158,245,108"/>
+</map>

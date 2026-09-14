@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Файл protei_cov_core/include/queue.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('queue_8hpp.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Файл queue.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Содержит объявление класса Queue, который реализует интерфейс IQueue.  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;queue&gt;</code><br />
+<code>#include &lt;tuple&gt;</code><br />
+<code>#include &quot;<a class="el" href="recorder_8hpp_source.html">recorder.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="commonStructures_8hpp_source.html">commonStructures.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="interfaces_8hpp_source.html">interfaces.hpp</a>&quot;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф включаемых заголовочных файлов для queue.hpp:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="queue_8hpp__incl.png" border="0" usemap="#aprotei__cov__core_2include_2queue_8hpp" loading="lazy" alt=""/></div>
+<map name="aprotei__cov__core_2include_2queue_8hpp" id="aprotei__cov__core_2include_2queue_8hpp">
+<area shape="rect" title="Содержит объявление класса Queue, который реализует интерфейс IQueue." alt="" coords="72,5,231,46"/>
+<area shape="rect" title=" " alt="" coords="35,168,103,193"/>
+<area shape="poly" title=" " alt="" coords="128,48,106,70,87,95,77,124,73,153,67,152,72,123,83,93,102,66,124,45"/>
+<area shape="rect" title=" " alt="" coords="126,168,182,193"/>
+<area shape="poly" title=" " alt="" coords="157,46,161,94,161,120,159,152,154,152,156,120,156,94,151,47"/>
+<area shape="rect" title=" " alt="" coords="96,94,146,120"/>
+<area shape="poly" title=" " alt="" coords="147,47,134,80,129,78,142,45"/>
+<area shape="rect" href="recorder_8hpp.html" title="Содержит объявления интерфейса IRecorder, и его реализации FileRecorder." alt="" coords="258,168,350,193"/>
+<area shape="poly" title=" " alt="" coords="173,44,283,155,279,158,169,48"/>
+<area shape="rect" href="commonStructures_8hpp.html" title="Содержит общие структуры и типы данных, а также функции необходимые для работы с этими структурами и ..." alt="" coords="61,249,216,274"/>
+<area shape="poly" title=" " alt="" coords="124,49,97,70,68,98,43,131,26,169,23,181,26,192,37,207,52,220,85,240,83,245,49,225,33,211,21,194,18,181,21,167,39,128,64,94,93,66,121,44"/>
+<area shape="rect" href="interfaces_8hpp.html" title="Содержит интерфейсы IConfig, ITask, IQueue, IThreadPool, IManager." alt="" coords="271,94,374,120"/>
+<area shape="poly" title=" " alt="" coords="195,44,284,85,281,90,193,49"/>
+<area shape="rect" title=" " alt="" coords="291,249,370,274"/>
+<area shape="poly" title=" " alt="" coords="310,193,324,233,319,235,305,195"/>
+<area shape="rect" title=" " alt="" coords="214,330,279,356"/>
+<area shape="poly" title=" " alt="" coords="301,195,281,242,256,316,251,315,276,240,296,193"/>
+<area shape="rect" title=" " alt="" coords="395,249,506,274"/>
+<area shape="poly" title=" " alt="" coords="327,191,416,239,413,243,325,196"/>
+<area shape="poly" title=" " alt="" coords="279,196,179,244,176,239,277,192"/>
+<area shape="poly" title=" " alt="" coords="156,273,219,318,216,323,153,277"/>
+<area shape="rect" title=" " alt="" coords="116,330,176,356"/>
+<area shape="poly" title=" " alt="" coords="142,275,146,314,141,315,137,275"/>
+<area shape="rect" title=" " alt="" coords="485,330,538,356"/>
+<area shape="poly" title=" " alt="" coords="196,272,470,330,469,335,195,278"/>
+<area shape="rect" title=" " alt="" coords="5,330,93,356"/>
+<area shape="poly" title=" " alt="" coords="127,277,76,321,72,317,123,273"/>
+<area shape="poly" title=" " alt="" coords="280,123,118,168,117,163,279,118"/>
+<area shape="poly" title=" " alt="" coords="295,123,198,164,196,159,293,118"/>
+<area shape="poly" title=" " alt="" coords="322,121,313,153,308,152,317,119"/>
+<area shape="poly" title=" " alt="" coords="336,119,352,140,365,167,367,186,364,204,350,237,345,235,359,203,362,186,360,168,347,143,332,122"/>
+<area shape="poly" title=" " alt="" coords="308,122,247,170,164,241,161,237,243,166,304,118"/>
+<area shape="rect" title=" " alt="" coords="556,168,611,193"/>
+<area shape="poly" title=" " alt="" coords="369,118,542,165,541,170,367,123"/>
+<area shape="rect" title=" " alt="" coords="635,168,743,193"/>
+<area shape="poly" title=" " alt="" coords="375,116,620,163,619,168,374,121"/>
+<area shape="rect" href="jsonParser_8hpp.html" title="Содержит объявление класса JsonParser, предназначенного для парсинга и обработки JSON данных." alt="" coords="425,168,532,193"/>
+<area shape="poly" title=" " alt="" coords="350,118,439,158,437,163,348,123"/>
+<area shape="poly" title=" " alt="" coords="457,196,367,244,365,239,455,191"/>
+<area shape="poly" title=" " alt="" coords="477,195,462,235,457,233,472,193"/>
+<area shape="poly" title=" " alt="" coords="533,188,617,209,654,223,676,240,685,262,677,283,651,309,619,326,585,336,554,342,553,336,584,331,617,321,648,304,672,281,680,262,672,243,651,227,616,214,532,193"/>
+<area shape="rect" title=" " alt="" coords="736,249,783,274"/>
+<area shape="poly" title=" " alt="" coords="533,190,621,210,719,239,723,240,721,245,717,244,620,215,532,195"/>
+<area shape="rect" title=" " alt="" coords="530,241,662,282"/>
+<area shape="poly" title=" " alt="" coords="498,192,556,230,553,235,495,196"/>
+</map>
+</div>
+</div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф файлов, в которые включается этот файл:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="queue_8hpp__dep__incl.png" border="0" usemap="#aprotei__cov__core_2include_2queue_8hppdep" loading="lazy" alt=""/></div>
+<map name="aprotei__cov__core_2include_2queue_8hppdep" id="aprotei__cov__core_2include_2queue_8hppdep">
+<area shape="rect" title="Содержит объявление класса Queue, который реализует интерфейс IQueue." alt="" coords="154,5,312,46"/>
+<area shape="rect" href="queue_8cpp.html" title=" " alt="" coords="5,94,141,135"/>
+<area shape="poly" title=" " alt="" coords="185,56,110,96,108,91,182,51"/>
+<area shape="rect" href="threadpool_8cpp.html" title="Содержит определение класса ThreadPool, который реализует интерфейс IThreadPool." alt="" coords="165,94,301,135"/>
+<area shape="poly" title=" " alt="" coords="236,62,236,94,230,94,230,62"/>
+<area shape="rect" href="queueTests_8cpp.html" title=" " alt="" coords="325,102,472,127"/>
+<area shape="poly" title=" " alt="" coords="285,51,376,99,374,103,283,56"/>
+</map>
+</div>
+</div>
+<p><a href="queue_8hpp_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:TP_3A_3AQueue" id="r_TP_3A_3AQueue"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="classTP_1_1Queue.html">TP::Queue</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Класс <a class="el" href="classTP_1_1Queue.html" title="Класс Queue представляет собой реализацию интерфейса IQueue.">Queue</a> представляет собой реализацию интерфейса <a class="el" href="classTP_1_1IQueue.html" title="Интерфейс IQueue представляет общие методы для работы с очередью задач.">IQueue</a>.  <a href="classTP_1_1Queue.html#details">Подробнее...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+Пространства имен</h2></td></tr>
+<tr class="memitem:TP" id="r_TP"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="namespaceTP.html">TP</a></td></tr>
+<tr class="memdesc:namespaceTP"><td class="mdescLeft">&#160;</td><td class="mdescRight">Пространство имен <a class="el" href="namespaceTP.html" title="Пространство имен TP, содержащее объявление типа CallID, а также объявление и определение классов Tas...">TP</a>, содержащее объявление типа <a class="el" href="namespaceTP.html#ae4420f548e2f0128ec3da1fbffe40d4b">CallID</a>, а также объявление и определение классов <a class="el" href="classTP_1_1Task.html" title="Класс задачи – вызова, который обрабаытывает поток (оператор).">Task</a>, Operator, <a class="el" href="classTP_1_1ThreadPool.html" title="Класс, реализующий пул потоков.">ThreadPool</a>. <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Содержит объявление класса Queue, который реализует интерфейс IQueue. </p>
+<p>Содержит определение класса <a class="el" href="classTP_1_1Queue.html" title="Класс Queue представляет собой реализацию интерфейса IQueue.">Queue</a>, который реализует интерфейс <a class="el" href="classTP_1_1IQueue.html" title="Интерфейс IQueue представляет общие методы для работы с очередью задач.">IQueue</a>.</p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_5a6d656ff4e45d1fe42c1b081d9ad0bd.html">protei_cov_core</a></li><li class="navelem"><a href="dir_867e023415a28ebb35e9c3c4c387abea.html">include</a></li><li class="navelem"><a href="queue_8hpp.html">queue.hpp</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

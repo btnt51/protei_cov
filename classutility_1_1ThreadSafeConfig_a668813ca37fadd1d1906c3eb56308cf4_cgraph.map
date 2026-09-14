@@ -1,0 +1,17 @@
+<map id="utility::ThreadSafeConfig::RunMonitoring" name="utility::ThreadSafeConfig::RunMonitoring">
+<area shape="rect" id="Node000001" title="Запускает мониторинг конфигурации в отдельном потоке." alt="" coords="5,39,166,79"/>
+<area shape="rect" id="Node000002" href="$classutility_1_1ThreadSafeConfig.html#a5070a8a0860e1ffde18c830ebeebfffb" title=" " alt="" coords="214,39,374,79"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,56,198,56,198,62,166,62"/>
+<area shape="rect" id="Node000003" href="$classutility_1_1ThreadSafeConfig.html#a50283a3faf9e924ff79b94eb50a75702" title="Уведомляет менеджера о необходимости обновления конфигурации." alt="" coords="422,5,582,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="374,44,406,38,407,44,375,49"/>
+<area shape="rect" id="Node000004" href="$classutility_1_1ThreadSafeConfig.html#adecfe991e19064ad2a0ed48bf2962c90" title="Обновляет данные конфигурации." alt="" coords="422,71,582,111"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="375,69,407,74,406,79,374,74"/>
+<area shape="rect" id="Node000005" href="$classutility_1_1ThreadSafeConfig.html#aa64fdedf90eba0c7394b8443854cd024" title="Нормализует данные" alt="" coords="630,71,791,111"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="582,88,615,88,615,94,582,94"/>
+<area shape="rect" id="Node000006" href="$classutility_1_1ThreadSafeConfig.html#a02a0d9852d2b8a28cafa274faac322a3" title="Нормализует AmountOfOperators." alt="" coords="839,5,1037,46"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="783,68,849,48,851,53,784,73"/>
+<area shape="rect" id="Node000007" href="$classutility_1_1ThreadSafeConfig.html#aea8423dbf3174bb136874b7ad1a9b9c0" title="Нормализует RMin и RMax." alt="" coords="858,71,1018,111"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="791,88,842,88,842,94,791,94"/>
+<area shape="rect" id="Node000008" href="$classutility_1_1ThreadSafeConfig.html#a1ef29031cf05705c75227ef6df340bf1" title="Нормализует SizeOfQueue." alt="" coords="858,136,1018,177"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="784,109,851,129,849,134,783,114"/>
+</map>

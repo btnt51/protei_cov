@@ -1,0 +1,672 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Файл tests/configTests.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('configTests_8cpp.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Файл configTests.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="config_8hpp_source.html">config.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="threadpool_8hpp_source.html">threadpool.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="interfaces_8hpp_source.html">interfaces.hpp</a>&quot;</code><br />
+<code>#include &lt;gmock/gmock.h&gt;</code><br />
+<code>#include &lt;gtest/gtest.h&gt;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф включаемых заголовочных файлов для configTests.cpp:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="configTests_8cpp__incl.png" border="0" usemap="#atests_2configTests_8cpp" loading="lazy" alt=""/></div>
+<map name="atests_2configTests_8cpp" id="atests_2configTests_8cpp">
+<area shape="rect" title=" " alt="" coords="723,5,869,31"/>
+<area shape="rect" href="config_8hpp.html" title="Содержит объявления классов Config и ThreadSafeConfig, которые реализуют интерфейс IThreadPool." alt="" coords="342,79,421,105"/>
+<area shape="poly" title=" " alt="" coords="726,34,436,84,436,78,725,29"/>
+<area shape="rect" href="interfaces_8hpp.html" title="Содержит интерфейсы IConfig, ITask, IQueue, IThreadPool, IManager." alt="" coords="330,153,432,178"/>
+<area shape="poly" title=" " alt="" coords="762,34,431,150,430,145,760,29"/>
+<area shape="rect" href="threadpool_8hpp.html" title="Содержит объявления структуры Thread и класса ThreadPool, который реализует интерфейс IThreadPool." alt="" coords="743,79,849,105"/>
+<area shape="poly" title=" " alt="" coords="799,31,799,63,793,63,793,31"/>
+<area shape="rect" title=" " alt="" coords="873,79,986,105"/>
+<area shape="poly" title=" " alt="" coords="820,29,894,69,892,74,817,34"/>
+<area shape="rect" title=" " alt="" coords="1011,79,1104,105"/>
+<area shape="poly" title=" " alt="" coords="841,29,999,72,998,77,840,34"/>
+<area shape="rect" title=" " alt="" coords="438,308,517,333"/>
+<area shape="poly" title=" " alt="" coords="364,107,340,127,321,154,310,181,306,204,308,226,320,250,361,269,433,299,431,304,358,274,317,254,303,227,300,204,305,179,316,151,336,123,360,103"/>
+<area shape="rect" title=" " alt="" coords="457,153,514,178"/>
+<area shape="poly" title=" " alt="" coords="400,103,457,141,454,146,397,107"/>
+<area shape="rect" title=" " alt="" coords="184,389,245,414"/>
+<area shape="poly" title=" " alt="" coords="342,104,267,125,174,163,128,190,84,221,45,258,14,301,8,322,14,339,29,354,52,366,110,384,170,393,169,399,109,389,50,371,26,358,9,342,3,322,10,299,41,255,80,217,125,185,172,159,265,120,340,99"/>
+<area shape="poly" title=" " alt="" coords="384,105,384,137,379,137,379,105"/>
+<area shape="poly" title=" " alt="" coords="433,176,499,197,527,210,545,225,551,245,544,266,529,284,510,300,507,296,525,281,539,263,545,245,540,228,524,215,498,202,432,182"/>
+<area shape="rect" title=" " alt="" coords="878,226,932,252"/>
+<area shape="poly" title=" " alt="" coords="433,174,446,176,681,208,863,230,863,236,681,214,445,181,432,179"/>
+<area shape="rect" title=" " alt="" coords="330,226,398,252"/>
+<area shape="poly" title=" " alt="" coords="381,179,373,212,368,211,376,178"/>
+<area shape="rect" title=" " alt="" coords="1010,226,1067,252"/>
+<area shape="poly" title=" " alt="" coords="433,174,446,176,585,193,695,202,944,224,995,230,995,235,944,229,694,207,585,198,445,181,432,179"/>
+<area shape="rect" title=" " alt="" coords="422,226,530,252"/>
+<area shape="poly" title=" " alt="" coords="399,177,449,215,446,219,396,181"/>
+<area shape="rect" href="jsonParser_8hpp.html" title="Содержит объявление класса JsonParser, предназначенного для парсинга и обработки JSON данных." alt="" coords="149,226,256,252"/>
+<area shape="poly" title=" " alt="" coords="352,181,248,223,246,218,350,176"/>
+<area shape="rect" href="commonStructures_8hpp.html" title="Содержит общие структуры и типы данных, а также функции необходимые для работы с этими структурами и ..." alt="" coords="541,308,696,333"/>
+<area shape="poly" title=" " alt="" coords="432,176,508,198,542,211,566,224,594,257,612,292,607,294,589,260,562,228,540,216,507,203,431,182"/>
+<area shape="rect" href="recorder_8hpp.html" title="Содержит объявления интерфейса IRecorder, и его реализации FileRecorder." alt="" coords="656,226,749,252"/>
+<area shape="poly" title=" " alt="" coords="433,176,642,222,641,227,432,181"/>
+<area shape="poly" title=" " alt="" coords="254,250,426,297,432,300,431,305,424,303,252,255"/>
+<area shape="rect" title=" " alt="" coords="181,308,227,333"/>
+<area shape="poly" title=" " alt="" coords="205,252,206,292,201,292,200,252"/>
+<area shape="rect" title=" " alt="" coords="367,389,420,414"/>
+<area shape="poly" title=" " alt="" coords="213,250,245,292,291,339,323,361,355,379,352,384,320,365,288,343,241,295,208,254"/>
+<area shape="rect" title=" " alt="" coords="24,300,157,341"/>
+<area shape="poly" title=" " alt="" coords="187,255,132,293,129,289,184,250"/>
+<area shape="rect" title=" " alt="" coords="302,308,413,333"/>
+<area shape="poly" title=" " alt="" coords="228,250,322,298,319,303,225,255"/>
+<area shape="poly" title=" " alt="" coords="563,336,530,343,260,395,259,389,529,338,562,331"/>
+<area shape="poly" title=" " alt="" coords="585,336,436,388,434,383,583,331"/>
+<area shape="rect" title=" " alt="" coords="693,389,758,414"/>
+<area shape="poly" title=" " alt="" coords="636,331,698,377,695,381,633,336"/>
+<area shape="rect" title=" " alt="" coords="575,389,662,414"/>
+<area shape="poly" title=" " alt="" coords="621,334,621,373,616,373,616,334"/>
+<area shape="poly" title=" " alt="" coords="668,255,530,303,525,304,524,299,528,297,666,250"/>
+<area shape="poly" title=" " alt="" coords="656,252,426,303,415,305,413,300,425,297,655,247"/>
+<area shape="poly" title=" " alt="" coords="692,254,644,299,640,295,688,250"/>
+<area shape="poly" title=" " alt="" coords="707,252,724,373,719,373,702,253"/>
+<area shape="poly" title=" " alt="" coords="744,107,530,155,529,150,742,101"/>
+<area shape="poly" title=" " alt="" coords="743,105,448,155,447,150,743,99"/>
+<area shape="poly" title=" " alt="" coords="849,100,931,120,966,134,989,151,994,161,994,172,986,190,968,207,947,221,944,216,965,203,981,187,989,171,989,163,985,154,964,139,930,125,848,105"/>
+<area shape="poly" title=" " alt="" coords="850,100,941,121,982,135,1010,151,1029,180,1038,211,1033,212,1024,182,1006,155,980,140,940,126,848,105"/>
+<area shape="poly" title=" " alt="" coords="850,102,919,123,949,136,967,151,973,166,967,180,954,191,934,201,882,217,822,228,764,235,764,230,821,223,881,212,932,196,951,187,963,177,968,166,963,154,946,141,918,128,848,107"/>
+<area shape="rect" title=" " alt="" coords="1130,153,1190,178"/>
+<area shape="poly" title=" " alt="" coords="849,100,1111,150,1115,151,1114,156,1110,155,848,105"/>
+<area shape="rect" title=" " alt="" coords="539,153,664,178"/>
+<area shape="poly" title=" " alt="" coords="764,108,650,149,648,144,762,103"/>
+<area shape="rect" title=" " alt="" coords="687,153,798,178"/>
+<area shape="poly" title=" " alt="" coords="789,106,763,142,759,138,785,103"/>
+<area shape="rect" title=" " alt="" coords="822,153,879,178"/>
+<area shape="poly" title=" " alt="" coords="807,103,834,139,830,142,803,107"/>
+<area shape="rect" title=" " alt="" coords="903,153,953,178"/>
+<area shape="poly" title=" " alt="" coords="820,103,894,143,891,147,817,108"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:MockManager" id="r_MockManager"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="classMockManager.html">MockManager</a></td></tr>
+<tr class="memitem:MockThreadSafeConfig" id="r_MockThreadSafeConfig"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="classMockThreadSafeConfig.html">MockThreadSafeConfig</a></td></tr>
+<tr class="memitem:ThreadSafeConfigTest" id="r_ThreadSafeConfigTest"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:a9fc76163fa0c389cc4ee8780de511bd0" id="r_a9fc76163fa0c389cc4ee8780de511bd0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9fc76163fa0c389cc4ee8780de511bd0">TEST_F</a> (<a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a>, GetMinMax)</td></tr>
+<tr class="memitem:ab12eda28d6994fd00e590a49cbd44715" id="r_ab12eda28d6994fd00e590a49cbd44715"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab12eda28d6994fd00e590a49cbd44715">TEST_F</a> (<a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a>, GetAmountOfOperators)</td></tr>
+<tr class="memitem:a3410770acec36b064bd2da4335fcbbfc" id="r_a3410770acec36b064bd2da4335fcbbfc"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3410770acec36b064bd2da4335fcbbfc">TEST_F</a> (<a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a>, GetSizeOfQueue)</td></tr>
+<tr class="memitem:a694f3f33e023c65e74df97c5db13e61a" id="r_a694f3f33e023c65e74df97c5db13e61a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a694f3f33e023c65e74df97c5db13e61a">TEST_F</a> (<a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a>, Notify)</td></tr>
+<tr class="memitem:ac50bc11bf4c428c908357ebfd7dcbbe8" id="r_ac50bc11bf4c428c908357ebfd7dcbbe8"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac50bc11bf4c428c908357ebfd7dcbbe8">TEST_F</a> (<a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a>, GetPath)</td></tr>
+<tr class="memitem:ac0115f173d068ae9040e05f453baf7f2" id="r_ac0115f173d068ae9040e05f453baf7f2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac0115f173d068ae9040e05f453baf7f2">TEST_F</a> (<a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a>, GetMinMaxUpdate)</td></tr>
+<tr class="memitem:a5ae50a01650d6b3eb3a56eecc1bb237d" id="r_a5ae50a01650d6b3eb3a56eecc1bb237d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5ae50a01650d6b3eb3a56eecc1bb237d">TEST_F</a> (<a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a>, GetAmountOfOperatorsUpdate)</td></tr>
+<tr class="memitem:a4f7279277bc9dc4a301b21a5fbe094e3" id="r_a4f7279277bc9dc4a301b21a5fbe094e3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4f7279277bc9dc4a301b21a5fbe094e3">TEST_F</a> (<a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a>, GetSizeOfQueueUpdate)</td></tr>
+<tr class="memitem:a2a6a1a0adfd03b63bdb9d25d0d0bfe2c" id="r_a2a6a1a0adfd03b63bdb9d25d0d0bfe2c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2a6a1a0adfd03b63bdb9d25d0d0bfe2c">TEST_F</a> (<a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a>, IsUpdatedWithoutUpdate)</td></tr>
+<tr class="memitem:ac41a591de73264d2fa047ea38215608f" id="r_ac41a591de73264d2fa047ea38215608f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac41a591de73264d2fa047ea38215608f">TEST_F</a> (<a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a>, IsUpdatedWithUpdate)</td></tr>
+<tr class="memitem:a8e68387965623c8e967441658fb1d234" id="r_a8e68387965623c8e967441658fb1d234"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8e68387965623c8e967441658fb1d234">TEST_F</a> (<a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a>, GetMinMaxUpdateTestUpperBorder)</td></tr>
+<tr class="memitem:a082698c8871442c879277d6e9f1a90e3" id="r_a082698c8871442c879277d6e9f1a90e3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a082698c8871442c879277d6e9f1a90e3">TEST_F</a> (<a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a>, GetAmountOfOperatorsUpdateTestUpperBorder)</td></tr>
+<tr class="memitem:aa2a9aa29ac39eb05567ae3d5eb068f1c" id="r_aa2a9aa29ac39eb05567ae3d5eb068f1c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa2a9aa29ac39eb05567ae3d5eb068f1c">TEST_F</a> (<a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a>, GetSizeOfQueueUpdateTestUpperBorder)</td></tr>
+<tr class="memitem:a5fd32c5626ad4d9af92aa7fadecb4a3c" id="r_a5fd32c5626ad4d9af92aa7fadecb4a3c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5fd32c5626ad4d9af92aa7fadecb4a3c">TEST_F</a> (<a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a>, GetMinMaxUpdateTestLowereBorder)</td></tr>
+<tr class="memitem:aa0a7987bcfe449cabed445c1306f9844" id="r_aa0a7987bcfe449cabed445c1306f9844"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa0a7987bcfe449cabed445c1306f9844">TEST_F</a> (<a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a>, GetAmountOfOperatorsUpdateTestLowereBorder)</td></tr>
+<tr class="memitem:a87195569d8b3cf1f09376667ebba0aab" id="r_a87195569d8b3cf1f09376667ebba0aab"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a87195569d8b3cf1f09376667ebba0aab">TEST_F</a> (<a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a>, GetSizeOfQueueUpdateTestLowereBorder)</td></tr>
+<tr class="memitem:ac3db4232e705eb3ae499042d18b15c9b" id="r_ac3db4232e705eb3ae499042d18b15c9b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac3db4232e705eb3ae499042d18b15c9b">TEST_F</a> (<a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a>, DefaultDataWithBrokenFile)</td></tr>
+<tr class="memitem:ae9c242b0e8e763637a7b09e350ed4c8e" id="r_ae9c242b0e8e763637a7b09e350ed4c8e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae9c242b0e8e763637a7b09e350ed4c8e">TEST_F</a> (<a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a>, ProcessRequestToUpdate)</td></tr>
+<tr class="memitem:a57f543fba88161380b2d4214b61f0c16" id="r_a57f543fba88161380b2d4214b61f0c16"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a57f543fba88161380b2d4214b61f0c16">TEST_F</a> (<a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a>, RunMonitoringStartsThreadAfterBrokenFile)</td></tr>
+<tr class="memitem:a1acbc6b18083d877e472ae718e0a8262" id="r_a1acbc6b18083d877e472ae718e0a8262"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1acbc6b18083d877e472ae718e0a8262">TEST_F</a> (<a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a>, RunMonitoringStartsThread)</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Функции</h2>
+<a id="ac3db4232e705eb3ae499042d18b15c9b" name="ac3db4232e705eb3ae499042d18b15c9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3db4232e705eb3ae499042d18b15c9b">&#9670;&#160;</a></span>TEST_F() <span class="overload">[1/20]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DefaultDataWithBrokenFile</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab12eda28d6994fd00e590a49cbd44715" name="ab12eda28d6994fd00e590a49cbd44715"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab12eda28d6994fd00e590a49cbd44715">&#9670;&#160;</a></span>TEST_F() <span class="overload">[2/20]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GetAmountOfOperators</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5ae50a01650d6b3eb3a56eecc1bb237d" name="a5ae50a01650d6b3eb3a56eecc1bb237d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ae50a01650d6b3eb3a56eecc1bb237d">&#9670;&#160;</a></span>TEST_F() <span class="overload">[3/20]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GetAmountOfOperatorsUpdate</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa0a7987bcfe449cabed445c1306f9844" name="aa0a7987bcfe449cabed445c1306f9844"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0a7987bcfe449cabed445c1306f9844">&#9670;&#160;</a></span>TEST_F() <span class="overload">[4/20]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GetAmountOfOperatorsUpdateTestLowereBorder</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a082698c8871442c879277d6e9f1a90e3" name="a082698c8871442c879277d6e9f1a90e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a082698c8871442c879277d6e9f1a90e3">&#9670;&#160;</a></span>TEST_F() <span class="overload">[5/20]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GetAmountOfOperatorsUpdateTestUpperBorder</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9fc76163fa0c389cc4ee8780de511bd0" name="a9fc76163fa0c389cc4ee8780de511bd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fc76163fa0c389cc4ee8780de511bd0">&#9670;&#160;</a></span>TEST_F() <span class="overload">[6/20]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GetMinMax</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac0115f173d068ae9040e05f453baf7f2" name="ac0115f173d068ae9040e05f453baf7f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0115f173d068ae9040e05f453baf7f2">&#9670;&#160;</a></span>TEST_F() <span class="overload">[7/20]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GetMinMaxUpdate</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5fd32c5626ad4d9af92aa7fadecb4a3c" name="a5fd32c5626ad4d9af92aa7fadecb4a3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fd32c5626ad4d9af92aa7fadecb4a3c">&#9670;&#160;</a></span>TEST_F() <span class="overload">[8/20]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GetMinMaxUpdateTestLowereBorder</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8e68387965623c8e967441658fb1d234" name="a8e68387965623c8e967441658fb1d234"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e68387965623c8e967441658fb1d234">&#9670;&#160;</a></span>TEST_F() <span class="overload">[9/20]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GetMinMaxUpdateTestUpperBorder</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac50bc11bf4c428c908357ebfd7dcbbe8" name="ac50bc11bf4c428c908357ebfd7dcbbe8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac50bc11bf4c428c908357ebfd7dcbbe8">&#9670;&#160;</a></span>TEST_F() <span class="overload">[10/20]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GetPath</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3410770acec36b064bd2da4335fcbbfc" name="a3410770acec36b064bd2da4335fcbbfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3410770acec36b064bd2da4335fcbbfc">&#9670;&#160;</a></span>TEST_F() <span class="overload">[11/20]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GetSizeOfQueue</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4f7279277bc9dc4a301b21a5fbe094e3" name="a4f7279277bc9dc4a301b21a5fbe094e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f7279277bc9dc4a301b21a5fbe094e3">&#9670;&#160;</a></span>TEST_F() <span class="overload">[12/20]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GetSizeOfQueueUpdate</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a87195569d8b3cf1f09376667ebba0aab" name="a87195569d8b3cf1f09376667ebba0aab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87195569d8b3cf1f09376667ebba0aab">&#9670;&#160;</a></span>TEST_F() <span class="overload">[13/20]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GetSizeOfQueueUpdateTestLowereBorder</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa2a9aa29ac39eb05567ae3d5eb068f1c" name="aa2a9aa29ac39eb05567ae3d5eb068f1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2a9aa29ac39eb05567ae3d5eb068f1c">&#9670;&#160;</a></span>TEST_F() <span class="overload">[14/20]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GetSizeOfQueueUpdateTestUpperBorder</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2a6a1a0adfd03b63bdb9d25d0d0bfe2c" name="a2a6a1a0adfd03b63bdb9d25d0d0bfe2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a6a1a0adfd03b63bdb9d25d0d0bfe2c">&#9670;&#160;</a></span>TEST_F() <span class="overload">[15/20]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IsUpdatedWithoutUpdate</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac41a591de73264d2fa047ea38215608f" name="ac41a591de73264d2fa047ea38215608f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac41a591de73264d2fa047ea38215608f">&#9670;&#160;</a></span>TEST_F() <span class="overload">[16/20]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IsUpdatedWithUpdate</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a694f3f33e023c65e74df97c5db13e61a" name="a694f3f33e023c65e74df97c5db13e61a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a694f3f33e023c65e74df97c5db13e61a">&#9670;&#160;</a></span>TEST_F() <span class="overload">[17/20]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Notify</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae9c242b0e8e763637a7b09e350ed4c8e" name="ae9c242b0e8e763637a7b09e350ed4c8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9c242b0e8e763637a7b09e350ed4c8e">&#9670;&#160;</a></span>TEST_F() <span class="overload">[18/20]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ProcessRequestToUpdate</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1acbc6b18083d877e472ae718e0a8262" name="a1acbc6b18083d877e472ae718e0a8262"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1acbc6b18083d877e472ae718e0a8262">&#9670;&#160;</a></span>TEST_F() <span class="overload">[19/20]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">RunMonitoringStartsThread</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a57f543fba88161380b2d4214b61f0c16" name="a57f543fba88161380b2d4214b61f0c16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57f543fba88161380b2d4214b61f0c16">&#9670;&#160;</a></span>TEST_F() <span class="overload">[20/20]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_F </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classThreadSafeConfigTest.html">ThreadSafeConfigTest</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">RunMonitoringStartsThreadAfterBrokenFile</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_59425e443f801f1f2fd8bbe4959a3ccf.html">tests</a></li><li class="navelem"><a href="configTests_8cpp.html">configTests.cpp</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

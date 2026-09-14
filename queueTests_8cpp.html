@@ -1,0 +1,436 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Файл tests/queueTests.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('queueTests_8cpp.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Файл queueTests.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="queue_8hpp_source.html">queue.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="task_8hpp_source.html">task.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="threadpool_8hpp_source.html">threadpool.hpp</a>&quot;</code><br />
+<code>#include &lt;gtest/gtest.h&gt;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф включаемых заголовочных файлов для queueTests.cpp:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="queueTests_8cpp__incl.png" border="0" usemap="#atests_2queueTests_8cpp" loading="lazy" alt=""/></div>
+<map name="atests_2queueTests_8cpp" id="atests_2queueTests_8cpp">
+<area shape="rect" title=" " alt="" coords="461,5,607,31"/>
+<area shape="rect" href="queue_8hpp.html" title="Содержит объявление класса Queue, который реализует интерфейс IQueue." alt="" coords="373,79,453,105"/>
+<area shape="poly" title=" " alt="" coords="515,34,448,73,445,68,512,29"/>
+<area shape="rect" href="task_8hpp.html" title="Содержит объявления класса Task, который реализует интерфейс ITask." alt="" coords="278,79,348,105"/>
+<area shape="poly" title=" " alt="" coords="497,34,363,77,362,72,496,29"/>
+<area shape="rect" href="threadpool_8hpp.html" title="Содержит объявления структуры Thread и класса ThreadPool, который реализует интерфейс IThreadPool." alt="" coords="631,79,736,105"/>
+<area shape="poly" title=" " alt="" coords="561,29,646,70,643,74,558,34"/>
+<area shape="rect" title=" " alt="" coords="761,79,854,105"/>
+<area shape="poly" title=" " alt="" coords="581,29,747,72,746,77,580,34"/>
+<area shape="rect" title=" " alt="" coords="98,226,165,252"/>
+<area shape="poly" title=" " alt="" coords="375,108,319,128,258,155,205,187,160,219,157,215,202,183,256,150,317,123,373,103"/>
+<area shape="rect" title=" " alt="" coords="671,226,728,252"/>
+<area shape="poly" title=" " alt="" coords="422,104,447,140,465,159,486,176,529,198,566,207,606,213,657,223,656,228,605,218,565,213,527,203,483,181,462,163,443,143,417,107"/>
+<area shape="rect" title=" " alt="" coords="496,153,546,178"/>
+<area shape="poly" title=" " alt="" coords="433,103,491,141,488,146,430,107"/>
+<area shape="rect" href="recorder_8hpp.html" title="Содержит объявления интерфейса IRecorder, и его реализации FileRecorder." alt="" coords="555,226,647,252"/>
+<area shape="poly" title=" " alt="" coords="416,105,422,140,430,160,441,177,463,194,488,208,540,226,538,231,485,213,460,199,438,180,425,162,417,142,411,106"/>
+<area shape="rect" href="commonStructures_8hpp.html" title="Содержит общие структуры и типы данных, а также функции необходимые для работы с этими структурами и ..." alt="" coords="6,308,161,333"/>
+<area shape="poly" title=" " alt="" coords="373,104,296,124,210,155,139,181,112,197,88,228,82,243,79,259,80,292,75,292,74,259,77,241,84,225,109,193,137,176,208,150,295,119,372,99"/>
+<area shape="rect" href="interfaces_8hpp.html" title="Содержит интерфейсы IConfig, ITask, IQueue, IThreadPool, IManager." alt="" coords="268,153,371,178"/>
+<area shape="poly" title=" " alt="" coords="399,107,349,145,346,141,395,103"/>
+<area shape="rect" title=" " alt="" coords="464,308,543,333"/>
+<area shape="poly" title=" " alt="" coords="588,254,532,300,528,296,584,250"/>
+<area shape="rect" title=" " alt="" coords="531,389,596,414"/>
+<area shape="poly" title=" " alt="" coords="635,250,667,269,682,283,694,299,701,321,694,342,677,361,657,376,612,394,610,389,654,371,674,357,689,339,696,321,689,301,678,286,664,274,633,255"/>
+<area shape="rect" title=" " alt="" coords="568,308,679,333"/>
+<area shape="poly" title=" " alt="" coords="607,252,618,292,613,293,602,253"/>
+<area shape="poly" title=" " alt="" coords="555,249,387,270,175,303,154,307,153,301,174,297,386,265,554,243"/>
+<area shape="poly" title=" " alt="" coords="140,331,175,338,364,369,516,391,515,396,363,374,174,343,139,336"/>
+<area shape="rect" title=" " alt="" coords="5,389,66,414"/>
+<area shape="poly" title=" " alt="" coords="78,335,53,377,48,374,74,332"/>
+<area shape="rect" title=" " alt="" coords="300,389,353,414"/>
+<area shape="poly" title=" " alt="" coords="122,331,285,384,284,389,120,336"/>
+<area shape="rect" title=" " alt="" coords="89,389,176,414"/>
+<area shape="poly" title=" " alt="" coords="93,332,120,374,115,377,89,335"/>
+<area shape="poly" title=" " alt="" coords="289,181,179,223,177,218,287,176"/>
+<area shape="poly" title=" " alt="" coords="372,171,498,192,657,223,656,228,497,197,371,177"/>
+<area shape="poly" title=" " alt="" coords="368,176,540,220,539,225,367,181"/>
+<area shape="poly" title=" " alt="" coords="372,176,443,197,474,210,493,225,503,240,508,258,510,292,504,292,503,259,498,243,490,228,471,215,441,202,370,181"/>
+<area shape="poly" title=" " alt="" coords="302,181,116,301,113,297,300,177"/>
+<area shape="rect" title=" " alt="" coords="846,226,900,252"/>
+<area shape="poly" title=" " alt="" coords="371,171,831,230,830,235,371,176"/>
+<area shape="rect" title=" " alt="" coords="240,226,348,252"/>
+<area shape="poly" title=" " alt="" coords="318,179,306,213,301,211,313,178"/>
+<area shape="rect" href="jsonParser_8hpp.html" title="Содержит объявление класса JsonParser, предназначенного для парсинга и обработки JSON данных." alt="" coords="372,226,480,252"/>
+<area shape="poly" title=" " alt="" coords="339,177,397,215,394,220,336,181"/>
+<area shape="poly" title=" " alt="" coords="440,251,483,295,479,298,436,254"/>
+<area shape="poly" title=" " alt="" coords="458,250,580,299,578,304,456,255"/>
+<area shape="poly" title=" " alt="" coords="428,253,422,294,415,319,403,342,384,364,362,382,359,378,381,360,399,339,410,317,417,293,423,252"/>
+<area shape="rect" title=" " alt="" coords="186,308,232,333"/>
+<area shape="poly" title=" " alt="" coords="382,255,316,275,245,302,244,303,242,298,242,298,314,270,380,250"/>
+<area shape="rect" title=" " alt="" coords="256,300,388,341"/>
+<area shape="poly" title=" " alt="" coords="412,255,362,293,358,288,409,250"/>
+<area shape="poly" title=" " alt="" coords="277,98,217,104,146,115,83,132,59,142,44,154,35,170,31,188,35,226,50,263,68,293,64,296,45,265,30,227,26,187,30,168,40,151,56,138,81,127,145,110,216,99,277,93"/>
+<area shape="poly" title=" " alt="" coords="317,105,320,137,314,137,311,105"/>
+<area shape="poly" title=" " alt="" coords="688,105,694,152,700,210,695,211,689,153,683,105"/>
+<area shape="poly" title=" " alt="" coords="657,108,561,150,559,145,655,103"/>
+<area shape="poly" title=" " alt="" coords="662,107,635,127,613,154,603,182,601,211,596,211,598,181,608,151,631,123,659,103"/>
+<area shape="poly" title=" " alt="" coords="631,106,386,154,385,149,630,101"/>
+<area shape="poly" title=" " alt="" coords="737,100,875,127,932,141,960,151,966,161,967,172,957,190,938,207,916,221,913,217,935,203,953,187,961,171,961,163,956,155,931,146,873,133,736,106"/>
+<area shape="rect" title=" " alt="" coords="1021,153,1082,178"/>
+<area shape="poly" title=" " alt="" coords="737,100,1003,150,1007,151,1006,156,1002,155,736,105"/>
+<area shape="rect" title=" " alt="" coords="1106,153,1232,178"/>
+<area shape="poly" title=" " alt="" coords="737,100,749,102,919,126,1091,150,1090,155,918,132,748,107,736,105"/>
+<area shape="rect" title=" " alt="" coords="622,153,679,178"/>
+<area shape="poly" title=" " alt="" coords="680,106,665,140,660,137,676,104"/>
+<area shape="rect" title=" " alt="" coords="754,153,864,178"/>
+<area shape="poly" title=" " alt="" coords="706,103,776,142,773,147,703,108"/>
+<area shape="rect" title=" " alt="" coords="888,153,946,178"/>
+<area shape="poly" title=" " alt="" coords="724,103,874,148,873,154,722,108"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:a838e5a2e00a354fc0290dc28d342f8d8" id="r_a838e5a2e00a354fc0290dc28d342f8d8"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a838e5a2e00a354fc0290dc28d342f8d8">TEST</a> (QueueTest, Push)</td></tr>
+<tr class="memitem:a3bc9c718aceccf03105492e678e30d6c" id="r_a3bc9c718aceccf03105492e678e30d6c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3bc9c718aceccf03105492e678e30d6c">TEST</a> (QueueTest, FrontBack)</td></tr>
+<tr class="memitem:a9e3c15310b89a7114e32b732babad0ca" id="r_a9e3c15310b89a7114e32b732babad0ca"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9e3c15310b89a7114e32b732babad0ca">TEST</a> (QueueTest, Pop)</td></tr>
+<tr class="memitem:ac5c1ffd1fc152900dda057ff0328c071" id="r_ac5c1ffd1fc152900dda057ff0328c071"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac5c1ffd1fc152900dda057ff0328c071">TEST</a> (QueueTest, Empty)</td></tr>
+<tr class="memitem:aac3bacd925eec2bd79c52a7e9789fdd9" id="r_aac3bacd925eec2bd79c52a7e9789fdd9"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aac3bacd925eec2bd79c52a7e9789fdd9">TEST</a> (QueueTest, NotEmpty)</td></tr>
+<tr class="memitem:a62c6c5efea7b083ef389f9780aec09aa" id="r_a62c6c5efea7b083ef389f9780aec09aa"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a62c6c5efea7b083ef389f9780aec09aa">TEST</a> (QueueTest, Duplication)</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Функции</h2>
+<a id="a62c6c5efea7b083ef389f9780aec09aa" name="a62c6c5efea7b083ef389f9780aec09aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62c6c5efea7b083ef389f9780aec09aa">&#9670;&#160;</a></span>TEST() <span class="overload">[1/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">QueueTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Duplication</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="queueTests_8cpp_a62c6c5efea7b083ef389f9780aec09aa_cgraph.png" border="0" usemap="#aqueueTests_8cpp_a62c6c5efea7b083ef389f9780aec09aa_cgraph" loading="lazy" alt=""/></div>
+<map name="aqueueTests_8cpp_a62c6c5efea7b083ef389f9780aec09aa_cgraph" id="aqueueTests_8cpp_a62c6c5efea7b083ef389f9780aec09aa_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,60,31"/>
+<area shape="rect" href="classTP_1_1Queue.html#a31899fb351fc35a44a4c7e59be458678" title="Добавляет задачу в конец очереди." alt="" coords="108,5,224,31"/>
+<area shape="poly" title=" " alt="" coords="60,16,92,16,92,21,60,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac5c1ffd1fc152900dda057ff0328c071" name="ac5c1ffd1fc152900dda057ff0328c071"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5c1ffd1fc152900dda057ff0328c071">&#9670;&#160;</a></span>TEST() <span class="overload">[2/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">QueueTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Empty</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="queueTests_8cpp_ac5c1ffd1fc152900dda057ff0328c071_cgraph.png" border="0" usemap="#aqueueTests_8cpp_ac5c1ffd1fc152900dda057ff0328c071_cgraph" loading="lazy" alt=""/></div>
+<map name="aqueueTests_8cpp_ac5c1ffd1fc152900dda057ff0328c071_cgraph" id="aqueueTests_8cpp_ac5c1ffd1fc152900dda057ff0328c071_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,60,31"/>
+<area shape="rect" href="classTP_1_1Queue.html#afdf953409a503746d94143653af45483" title="Проверяет, является ли очередь пустой." alt="" coords="108,5,231,31"/>
+<area shape="poly" title=" " alt="" coords="60,16,92,16,92,21,60,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3bc9c718aceccf03105492e678e30d6c" name="a3bc9c718aceccf03105492e678e30d6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bc9c718aceccf03105492e678e30d6c">&#9670;&#160;</a></span>TEST() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">QueueTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FrontBack</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="queueTests_8cpp_a3bc9c718aceccf03105492e678e30d6c_cgraph.png" border="0" usemap="#aqueueTests_8cpp_a3bc9c718aceccf03105492e678e30d6c_cgraph" loading="lazy" alt=""/></div>
+<map name="aqueueTests_8cpp_a3bc9c718aceccf03105492e678e30d6c_cgraph" id="aqueueTests_8cpp_a3bc9c718aceccf03105492e678e30d6c_cgraph">
+<area shape="rect" title=" " alt="" coords="5,55,60,80"/>
+<area shape="rect" href="classTP_1_1Queue.html#a65853feac151da98676290658f83326e" title="Возвращает ссылку на задачу в конце очереди." alt="" coords="108,5,224,31"/>
+<area shape="poly" title=" " alt="" coords="59,55,114,34,116,39,61,60"/>
+<area shape="rect" href="classTP_1_1Queue.html#aa07a74a2c1d552986007a7b3a510e161" title="Возвращает ссылку на задачу в начале очереди." alt="" coords="109,55,223,80"/>
+<area shape="poly" title=" " alt="" coords="60,65,93,65,93,70,60,70"/>
+<area shape="rect" href="classTP_1_1Queue.html#a31899fb351fc35a44a4c7e59be458678" title="Добавляет задачу в конец очереди." alt="" coords="108,104,224,130"/>
+<area shape="poly" title=" " alt="" coords="61,75,116,96,114,101,59,80"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aac3bacd925eec2bd79c52a7e9789fdd9" name="aac3bacd925eec2bd79c52a7e9789fdd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac3bacd925eec2bd79c52a7e9789fdd9">&#9670;&#160;</a></span>TEST() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">QueueTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">NotEmpty</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="queueTests_8cpp_aac3bacd925eec2bd79c52a7e9789fdd9_cgraph.png" border="0" usemap="#aqueueTests_8cpp_aac3bacd925eec2bd79c52a7e9789fdd9_cgraph" loading="lazy" alt=""/></div>
+<map name="aqueueTests_8cpp_aac3bacd925eec2bd79c52a7e9789fdd9_cgraph" id="aqueueTests_8cpp_aac3bacd925eec2bd79c52a7e9789fdd9_cgraph">
+<area shape="rect" title=" " alt="" coords="5,31,60,56"/>
+<area shape="rect" href="classTP_1_1Queue.html#afdf953409a503746d94143653af45483" title="Проверяет, является ли очередь пустой." alt="" coords="108,5,231,31"/>
+<area shape="poly" title=" " alt="" coords="59,36,92,30,93,35,60,41"/>
+<area shape="rect" href="classTP_1_1Queue.html#a31899fb351fc35a44a4c7e59be458678" title="Добавляет задачу в конец очереди." alt="" coords="111,55,228,80"/>
+<area shape="poly" title=" " alt="" coords="60,46,96,52,95,57,59,51"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a9e3c15310b89a7114e32b732babad0ca" name="a9e3c15310b89a7114e32b732babad0ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e3c15310b89a7114e32b732babad0ca">&#9670;&#160;</a></span>TEST() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">QueueTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Pop</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="queueTests_8cpp_a9e3c15310b89a7114e32b732babad0ca_cgraph.png" border="0" usemap="#aqueueTests_8cpp_a9e3c15310b89a7114e32b732babad0ca_cgraph" loading="lazy" alt=""/></div>
+<map name="aqueueTests_8cpp_a9e3c15310b89a7114e32b732babad0ca_cgraph" id="aqueueTests_8cpp_a9e3c15310b89a7114e32b732babad0ca_cgraph">
+<area shape="rect" title=" " alt="" coords="5,55,60,80"/>
+<area shape="rect" href="classTP_1_1Queue.html#aa07a74a2c1d552986007a7b3a510e161" title="Возвращает ссылку на задачу в начале очереди." alt="" coords="109,5,223,31"/>
+<area shape="poly" title=" " alt="" coords="59,55,114,34,116,39,61,60"/>
+<area shape="rect" href="classTP_1_1Queue.html#a0f62128e7ff8ec170d8d1e3bb3b61b34" title="Удаляет задачу из начала очереди." alt="" coords="111,55,220,80"/>
+<area shape="poly" title=" " alt="" coords="60,65,95,65,95,70,60,70"/>
+<area shape="rect" href="classTP_1_1Queue.html#a31899fb351fc35a44a4c7e59be458678" title="Добавляет задачу в конец очереди." alt="" coords="108,104,224,130"/>
+<area shape="poly" title=" " alt="" coords="61,75,116,96,114,101,59,80"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a838e5a2e00a354fc0290dc28d342f8d8" name="a838e5a2e00a354fc0290dc28d342f8d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a838e5a2e00a354fc0290dc28d342f8d8">&#9670;&#160;</a></span>TEST() <span class="overload">[6/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">QueueTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Push</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="queueTests_8cpp_a838e5a2e00a354fc0290dc28d342f8d8_cgraph.png" border="0" usemap="#aqueueTests_8cpp_a838e5a2e00a354fc0290dc28d342f8d8_cgraph" loading="lazy" alt=""/></div>
+<map name="aqueueTests_8cpp_a838e5a2e00a354fc0290dc28d342f8d8_cgraph" id="aqueueTests_8cpp_a838e5a2e00a354fc0290dc28d342f8d8_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,60,31"/>
+<area shape="rect" href="classTP_1_1Queue.html#a31899fb351fc35a44a4c7e59be458678" title="Добавляет задачу в конец очереди." alt="" coords="108,5,224,31"/>
+<area shape="poly" title=" " alt="" coords="60,16,92,16,92,21,60,21"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_59425e443f801f1f2fd8bbe4959a3ccf.html">tests</a></li><li class="navelem"><a href="queueTests_8cpp.html">queueTests.cpp</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

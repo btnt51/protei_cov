@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Файл protei_cov_core/src/task.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('task_8cpp.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Файл task.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Содержит определение класса <a class="el" href="classTP_1_1Task.html" title="Класс задачи – вызова, который обрабаытывает поток (оператор).">Task</a>, который реализует интерфейс <a class="el" href="classTP_1_1ITask.html">ITask</a>.  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &lt;random&gt;</code><br />
+<code>#include &quot;<a class="el" href="task_8hpp_source.html">task.hpp</a>&quot;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф включаемых заголовочных файлов для task.cpp:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="task_8cpp__incl.png" border="0" usemap="#aprotei__cov__core_2src_2task_8cpp" loading="lazy" alt=""/></div>
+<map name="aprotei__cov__core_2src_2task_8cpp" id="aprotei__cov__core_2src_2task_8cpp">
+<area shape="rect" title="Содержит определение класса Task, который реализует интерфейс ITask." alt="" coords="15,5,150,46"/>
+<area shape="rect" title=" " alt="" coords="5,94,70,120"/>
+<area shape="poly" title=" " alt="" coords="74,48,54,82,50,79,69,45"/>
+<area shape="rect" href="task_8hpp.html" title="Содержит объявления класса Task, который реализует интерфейс ITask." alt="" coords="94,94,165,120"/>
+<area shape="poly" title=" " alt="" coords="97,45,117,79,112,82,92,48"/>
+<area shape="rect" href="commonStructures_8hpp.html" title="Содержит общие структуры и типы данных, а также функции необходимые для работы с этими структурами и ..." alt="" coords="188,322,343,348"/>
+<area shape="poly" title=" " alt="" coords="117,122,87,149,58,187,47,207,41,227,42,247,50,265,75,290,105,308,139,320,173,327,172,333,137,325,103,313,72,294,46,269,36,248,36,226,42,205,53,184,84,146,113,118"/>
+<area shape="rect" href="interfaces_8hpp.html" title="Содержит интерфейсы IConfig, ITask, IQueue, IThreadPool, IManager." alt="" coords="221,168,323,193"/>
+<area shape="poly" title=" " alt="" coords="155,118,235,158,233,163,153,123"/>
+<area shape="rect" title=" " alt="" coords="142,404,202,429"/>
+<area shape="poly" title=" " alt="" coords="253,351,200,395,196,391,250,347"/>
+<area shape="rect" title=" " alt="" coords="344,404,409,429"/>
+<area shape="poly" title=" " alt="" coords="284,346,348,392,345,396,281,351"/>
+<area shape="rect" title=" " alt="" coords="536,404,590,429"/>
+<area shape="poly" title=" " alt="" coords="312,346,522,402,520,407,311,351"/>
+<area shape="rect" title=" " alt="" coords="226,404,313,429"/>
+<area shape="poly" title=" " alt="" coords="269,348,271,388,265,388,263,349"/>
+<area shape="poly" title=" " alt="" coords="221,192,129,212,89,226,65,243,57,258,58,271,66,283,80,293,122,310,173,321,172,326,121,315,77,298,62,286,53,273,52,257,61,240,86,222,127,207,220,187"/>
+<area shape="rect" title=" " alt="" coords="554,322,633,348"/>
+<area shape="poly" title=" " alt="" coords="324,184,458,203,521,218,546,228,563,239,576,254,585,272,594,307,589,308,580,274,572,257,560,243,543,233,519,223,457,208,323,189"/>
+<area shape="rect" title=" " alt="" coords="74,241,129,267"/>
+<area shape="poly" title=" " alt="" coords="244,196,144,238,142,233,242,191"/>
+<area shape="rect" title=" " alt="" coords="153,241,220,267"/>
+<area shape="poly" title=" " alt="" coords="259,196,214,233,211,229,256,192"/>
+<area shape="rect" title=" " alt="" coords="244,241,300,267"/>
+<area shape="poly" title=" " alt="" coords="275,194,275,226,270,226,270,194"/>
+<area shape="rect" title=" " alt="" coords="325,241,433,267"/>
+<area shape="poly" title=" " alt="" coords="292,192,349,230,347,235,289,196"/>
+<area shape="rect" href="jsonParser_8hpp.html" title="Содержит объявление класса JsonParser, предназначенного для парсинга и обработки JSON данных." alt="" coords="624,241,731,267"/>
+<area shape="poly" title=" " alt="" coords="324,188,609,238,608,243,323,194"/>
+<area shape="rect" href="recorder_8hpp.html" title="Содержит объявления интерфейса IRecorder, и его реализации FileRecorder." alt="" coords="457,241,549,267"/>
+<area shape="poly" title=" " alt="" coords="312,191,450,234,449,239,311,196"/>
+<area shape="poly" title=" " alt="" coords="679,268,670,309,661,334,648,357,626,380,602,398,599,393,623,376,643,354,656,332,665,308,674,267"/>
+<area shape="poly" title=" " alt="" coords="667,269,619,314,615,310,663,265"/>
+<area shape="rect" title=" " alt="" coords="708,322,754,348"/>
+<area shape="poly" title=" " alt="" coords="688,266,716,308,712,311,683,269"/>
+<area shape="rect" title=" " alt="" coords="778,315,910,356"/>
+<area shape="poly" title=" " alt="" coords="704,265,790,306,788,310,702,270"/>
+<area shape="rect" title=" " alt="" coords="418,322,529,348"/>
+<area shape="poly" title=" " alt="" coords="647,270,520,319,518,314,645,265"/>
+<area shape="poly" title=" " alt="" coords="467,270,317,320,316,315,465,265"/>
+<area shape="poly" title=" " alt="" coords="473,270,438,289,408,317,390,352,381,389,376,388,385,351,403,313,435,284,470,265"/>
+<area shape="poly" title=" " alt="" coords="518,265,570,310,567,314,515,269"/>
+<area shape="poly" title=" " alt="" coords="501,268,486,309,481,307,496,266"/>
+</map>
+</div>
+</div><a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Содержит определение класса <a class="el" href="classTP_1_1Task.html" title="Класс задачи – вызова, который обрабаытывает поток (оператор).">Task</a>, который реализует интерфейс <a class="el" href="classTP_1_1ITask.html">ITask</a>. </p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_5a6d656ff4e45d1fe42c1b081d9ad0bd.html">protei_cov_core</a></li><li class="navelem"><a href="dir_e22ba77754691bdaa77ab2aa98079522.html">src</a></li><li class="navelem"><a href="task_8cpp.html">task.cpp</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<map id="protei_cov_core/src/recorder.cpp" name="protei_cov_core/src/recorder.cpp">
+<area shape="rect" id="Node000001" title="Содержит определение FileRecorder." alt="" coords="101,5,237,46"/>
+<area shape="rect" id="Node000002" href="$recorder_8hpp.html" title="Содержит объявления интерфейса IRecorder, и его реализации FileRecorder." alt="" coords="123,94,215,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,46,172,78,166,78,166,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,168,85,193"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="149,123,80,162,78,157,147,118"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="131,241,196,267"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="166,121,150,168,150,198,156,226,151,227,145,198,145,167,161,119"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="160,168,271,193"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="179,118,202,153,197,156,174,121"/>
+<area shape="rect" id="Node000006" href="$commonStructures_8hpp.html" title="Содержит общие структуры и типы данных, а также функции необходимые для работы с этими структурами и ..." alt="" coords="295,168,451,193"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="204,118,325,160,323,165,203,123"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="338,196,212,239,210,234,337,191"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="262,241,322,267"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="361,196,318,233,315,229,357,192"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="346,241,400,267"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="376,194,376,226,370,226,370,194"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="424,241,511,267"/>
+<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="391,192,441,230,438,234,387,196"/>
+</map>

@@ -1,0 +1,544 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Класс TP::IQueue</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('classTP_1_1IQueue.html','','classTP_1_1IQueue-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Класс TP::IQueue<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Интерфейс <a class="el" href="classTP_1_1IQueue.html" title="Интерфейс IQueue представляет общие методы для работы с очередью задач.">IQueue</a> представляет общие методы для работы с очередью задач.  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="interfaces_8hpp_source.html">interfaces.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф наследования:TP::IQueue:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classTP_1_1IQueue__inherit__graph.png" border="0" usemap="#aTP_1_1IQueue_inherit__map" loading="lazy" alt="Inheritance graph"/></div>
+<map name="aTP_1_1IQueue_inherit__map" id="aTP_1_1IQueue_inherit__map">
+<area shape="rect" title="Интерфейс IQueue представляет общие методы для работы с очередью задач." alt="" coords="62,5,149,31"/>
+<area shape="rect" href="classMockQueue.html" title=" " alt="" coords="5,79,97,105"/>
+<area shape="poly" title=" " alt="" coords="90,45,62,80,58,77,85,41"/>
+<area shape="rect" href="classTP_1_1Queue.html" title="Класс Queue представляет собой реализацию интерфейса IQueue." alt="" coords="120,79,203,105"/>
+<area shape="poly" title=" " alt="" coords="126,41,154,77,150,80,122,45"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:aaeb5910d4364ecbeac34bb432fcc5801" id="r_aaeb5910d4364ecbeac34bb432fcc5801"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="#aaeb5910d4364ecbeac34bb432fcc5801">~IQueue</a> ()=default</td></tr>
+<tr class="memitem:ad059ca86fde968f322c2a25ae810e090" id="r_ad059ca86fde968f322c2a25ae810e090"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad059ca86fde968f322c2a25ae810e090">IQueue</a> (int size)</td></tr>
+<tr class="memdesc:ad059ca86fde968f322c2a25ae810e090"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор интерфейса <a class="el" href="classTP_1_1IQueue.html" title="Интерфейс IQueue представляет общие методы для работы с очередью задач.">IQueue</a>.  <br /></td></tr>
+<tr class="memitem:a4de048f35493c7cfa01b1cf6b6ebf642" id="r_a4de048f35493c7cfa01b1cf6b6ebf642"><td class="memItemLeft">virtual std::pair&lt; std::shared_ptr&lt; <a class="el" href="classTP_1_1ITask.html">ITask</a> &gt;, <a class="el" href="namespaceTP.html#ae4420f548e2f0128ec3da1fbffe40d4b">CallID</a> &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a4de048f35493c7cfa01b1cf6b6ebf642">back</a> ()=0</td></tr>
+<tr class="memdesc:a4de048f35493c7cfa01b1cf6b6ebf642"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает ссылку на задачу в конце очереди.  <br /></td></tr>
+<tr class="memitem:ab27bfedef69b4b9dd075049d4ccef013" id="r_ab27bfedef69b4b9dd075049d4ccef013"><td class="memItemLeft">virtual std::pair&lt; std::shared_ptr&lt; <a class="el" href="classTP_1_1ITask.html">ITask</a> &gt;, <a class="el" href="namespaceTP.html#ae4420f548e2f0128ec3da1fbffe40d4b">CallID</a> &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab27bfedef69b4b9dd075049d4ccef013">front</a> ()=0</td></tr>
+<tr class="memdesc:ab27bfedef69b4b9dd075049d4ccef013"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает ссылку на задачу в начале очереди.  <br /></td></tr>
+<tr class="memitem:ac31a57a7db9ab873a6e456cab8d06df5" id="r_ac31a57a7db9ab873a6e456cab8d06df5"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#ac31a57a7db9ab873a6e456cab8d06df5">empty</a> () const =0</td></tr>
+<tr class="memdesc:ac31a57a7db9ab873a6e456cab8d06df5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет, является ли очередь пустой.  <br /></td></tr>
+<tr class="memitem:ada95e23a75a07c75493708a047948807" id="r_ada95e23a75a07c75493708a047948807"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#ada95e23a75a07c75493708a047948807">push</a> (std::pair&lt; std::shared_ptr&lt; <a class="el" href="classTP_1_1ITask.html">ITask</a> &gt;, <a class="el" href="namespaceTP.html#ae4420f548e2f0128ec3da1fbffe40d4b">CallID</a> &gt; &amp;&amp;taskPair)=0</td></tr>
+<tr class="memdesc:ada95e23a75a07c75493708a047948807"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавляет задачу в конец очереди.  <br /></td></tr>
+<tr class="memitem:ae5472ec9666372cec2924b01e009f834" id="r_ae5472ec9666372cec2924b01e009f834"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#ae5472ec9666372cec2924b01e009f834">pop</a> ()=0</td></tr>
+<tr class="memdesc:ae5472ec9666372cec2924b01e009f834"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаляет задачу из начала очереди.  <br /></td></tr>
+<tr class="memitem:a64d733e9c314634719a64dd9d425aa9a" id="r_a64d733e9c314634719a64dd9d425aa9a"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a64d733e9c314634719a64dd9d425aa9a">update</a> (int size)=0</td></tr>
+<tr class="memdesc:a64d733e9c314634719a64dd9d425aa9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обновляет максимальный размер очереди.  <br /></td></tr>
+<tr class="memitem:a00e27b1ecd90212b4ca97192a0b271f0" id="r_a00e27b1ecd90212b4ca97192a0b271f0"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a00e27b1ecd90212b4ca97192a0b271f0">setLogger</a> (std::shared_ptr&lt; spdlog::logger &gt; logger)=0</td></tr>
+<tr class="memdesc:a00e27b1ecd90212b4ca97192a0b271f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает асинхронный логгер.  <br /></td></tr>
+<tr class="memitem:aca91803ab2cebe8ab1fc8cc27207f2e6" id="r_aca91803ab2cebe8ab1fc8cc27207f2e6"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#aca91803ab2cebe8ab1fc8cc27207f2e6">setRecorders</a> (std::vector&lt; std::shared_ptr&lt; <a class="el" href="classIRecorder.html">IRecorder</a> &gt; &gt; recorders)=0</td></tr>
+<tr class="memdesc:aca91803ab2cebe8ab1fc8cc27207f2e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка вектора разных объектов для записи cdr.  <br /></td></tr>
+<tr class="memitem:a12aeaeacc2a109295910da628511f64a" id="r_a12aeaeacc2a109295910da628511f64a"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a12aeaeacc2a109295910da628511f64a">writeCDR</a> (const <a class="el" href="structCDR.html">CDR</a> &amp;cdr)=0</td></tr>
+<tr class="memdesc:a12aeaeacc2a109295910da628511f64a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запись <a class="el" href="structCDR.html" title="Структура CDR (Call Detail Record), представляющая запись о вызове.">CDR</a> при помощи IRecorders объектов.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Интерфейс <a class="el" href="classTP_1_1IQueue.html" title="Интерфейс IQueue представляет общие методы для работы с очередью задач.">IQueue</a> представляет общие методы для работы с очередью задач. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Конструктор(ы)</h2>
+<a id="aaeb5910d4364ecbeac34bb432fcc5801" name="aaeb5910d4364ecbeac34bb432fcc5801"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaeb5910d4364ecbeac34bb432fcc5801">&#9670;&#160;</a></span>~IQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual TP::IQueue::~IQueue </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad059ca86fde968f322c2a25ae810e090" name="ad059ca86fde968f322c2a25ae810e090"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad059ca86fde968f322c2a25ae810e090">&#9670;&#160;</a></span>IQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TP::IQueue::IQueue </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>size</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Конструктор интерфейса <a class="el" href="classTP_1_1IQueue.html" title="Интерфейс IQueue представляет общие методы для работы с очередью задач.">IQueue</a>. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>Максимальный размер очереди. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="a4de048f35493c7cfa01b1cf6b6ebf642" name="a4de048f35493c7cfa01b1cf6b6ebf642"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4de048f35493c7cfa01b1cf6b6ebf642">&#9670;&#160;</a></span>back()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::pair&lt; std::shared_ptr&lt; <a class="el" href="classTP_1_1ITask.html">ITask</a> &gt;, <a class="el" href="namespaceTP.html#ae4420f548e2f0128ec3da1fbffe40d4b">CallID</a> &gt; &amp; TP::IQueue::back </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает ссылку на задачу в конце очереди. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Ссылка на пару, содержащую задачу и ее уникальный идентификатор вызова. </dd></dl>
+
+<p>Замещается в <a class="el" href="classTP_1_1Queue.html#a65853feac151da98676290658f83326e">TP::Queue</a>.</p>
+
+</div>
+</div>
+<a id="ac31a57a7db9ab873a6e456cab8d06df5" name="ac31a57a7db9ab873a6e456cab8d06df5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac31a57a7db9ab873a6e456cab8d06df5">&#9670;&#160;</a></span>empty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool TP::IQueue::empty </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проверяет, является ли очередь пустой. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>true, если очередь пуста, false в противном случае. </dd></dl>
+
+<p>Замещается в <a class="el" href="classTP_1_1Queue.html#afdf953409a503746d94143653af45483">TP::Queue</a>.</p>
+
+</div>
+</div>
+<a id="ab27bfedef69b4b9dd075049d4ccef013" name="ab27bfedef69b4b9dd075049d4ccef013"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab27bfedef69b4b9dd075049d4ccef013">&#9670;&#160;</a></span>front()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::pair&lt; std::shared_ptr&lt; <a class="el" href="classTP_1_1ITask.html">ITask</a> &gt;, <a class="el" href="namespaceTP.html#ae4420f548e2f0128ec3da1fbffe40d4b">CallID</a> &gt; &amp; TP::IQueue::front </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает ссылку на задачу в начале очереди. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Ссылка на пару, содержащую задачу и ее уникальный идентификатор вызова. </dd></dl>
+
+<p>Замещается в <a class="el" href="classTP_1_1Queue.html#aa07a74a2c1d552986007a7b3a510e161">TP::Queue</a>.</p>
+
+</div>
+</div>
+<a id="ae5472ec9666372cec2924b01e009f834" name="ae5472ec9666372cec2924b01e009f834"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5472ec9666372cec2924b01e009f834">&#9670;&#160;</a></span>pop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void TP::IQueue::pop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Удаляет задачу из начала очереди. </p>
+
+<p>Замещается в <a class="el" href="classTP_1_1Queue.html#a0f62128e7ff8ec170d8d1e3bb3b61b34">TP::Queue</a>.</p>
+
+</div>
+</div>
+<a id="ada95e23a75a07c75493708a047948807" name="ada95e23a75a07c75493708a047948807"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada95e23a75a07c75493708a047948807">&#9670;&#160;</a></span>push()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool TP::IQueue::push </td>
+          <td>(</td>
+          <td class="paramtype">std::pair&lt; std::shared_ptr&lt; <a class="el" href="classTP_1_1ITask.html">ITask</a> &gt;, <a class="el" href="namespaceTP.html#ae4420f548e2f0128ec3da1fbffe40d4b">CallID</a> &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>taskPair</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Добавляет задачу в конец очереди. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">taskPair</td><td>Пара, содержащая задачу и ее уникальный идентификатор вызова. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true, если задача успешно добавлена, false в противном случае. </dd></dl>
+
+<p>Замещается в <a class="el" href="classTP_1_1Queue.html#a31899fb351fc35a44a4c7e59be458678">TP::Queue</a>.</p>
+
+</div>
+</div>
+<a id="a00e27b1ecd90212b4ca97192a0b271f0" name="a00e27b1ecd90212b4ca97192a0b271f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00e27b1ecd90212b4ca97192a0b271f0">&#9670;&#160;</a></span>setLogger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void TP::IQueue::setLogger </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;</td>          <td class="paramname"><span class="paramname"><em>logger</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Устанавливает асинхронный логгер. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>Указатель на объект логгера. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещается в <a class="el" href="classTP_1_1Queue.html#aeefd371815cfea4f6500b74eed28fd27">TP::Queue</a>.</p>
+
+</div>
+</div>
+<a id="aca91803ab2cebe8ab1fc8cc27207f2e6" name="aca91803ab2cebe8ab1fc8cc27207f2e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca91803ab2cebe8ab1fc8cc27207f2e6">&#9670;&#160;</a></span>setRecorders()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void TP::IQueue::setRecorders </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::shared_ptr&lt; <a class="el" href="classIRecorder.html">IRecorder</a> &gt; &gt;</td>          <td class="paramname"><span class="paramname"><em>recorders</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Установка вектора разных объектов для записи cdr. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">recorders</td><td>массив разных объектов для записи cdr </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещается в <a class="el" href="classTP_1_1Queue.html#a8be04782f4dc5508bab9b88706db8ff5">TP::Queue</a>.</p>
+
+</div>
+</div>
+<a id="a64d733e9c314634719a64dd9d425aa9a" name="a64d733e9c314634719a64dd9d425aa9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64d733e9c314634719a64dd9d425aa9a">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void TP::IQueue::update </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>size</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Обновляет максимальный размер очереди. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>Новый размер очереди. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещается в <a class="el" href="classTP_1_1Queue.html#a988cb188976cf1eb7d5d41716c0be293">TP::Queue</a>.</p>
+
+</div>
+</div>
+<a id="a12aeaeacc2a109295910da628511f64a" name="a12aeaeacc2a109295910da628511f64a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12aeaeacc2a109295910da628511f64a">&#9670;&#160;</a></span>writeCDR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void TP::IQueue::writeCDR </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structCDR.html">CDR</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cdr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Запись <a class="el" href="structCDR.html" title="Структура CDR (Call Detail Record), представляющая запись о вызове.">CDR</a> при помощи IRecorders объектов. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cdr</td><td><a class="el" href="structCDR.html" title="Структура CDR (Call Detail Record), представляющая запись о вызове.">CDR</a> запись. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещается в <a class="el" href="classTP_1_1Queue.html#a12f0c63bbd534905278f9ce7697042b5">TP::Queue</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>protei_cov_core/include/<a class="el" href="interfaces_8hpp_source.html">interfaces.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespaceTP.html">TP</a></li><li class="navelem"><a href="classTP_1_1IQueue.html">IQueue</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

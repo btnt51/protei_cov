@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: # Protei_cov</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('md_Readme.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title"># Protei_cov </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>Это курсовой проект в рамках подготовки к прохождению стажировкии в НТЦ Протей. Необходимо реализовать настраиваемый сервер - центр обработки вызовов, который будет реагировать на http запросы, которые в свою очередь эмулируют "входящий вызов". <br  />
+ Для каждого такого запроса необходимо генерировать уникальный идентификатор (CallID), который используется в журналах вызывов (<a class="el" href="structCDR.html" title="Структура CDR (Call Detail Record), представляющая запись о вызове.">CDR</a>).</p>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
+Используемые технологи:</h1>
+<p>Логгер: SPDLOG с автоматическим скачиванием и сборкой при сборке основного проекта.</p>
+<p>Тесты: GTests с автоматическим скачиванием и сборкой при сборке тестов.</p>
+<p>Сеть: Boost</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+Общепринятая терминология в рамках проекта</h1>
+<ul>
+<li>ЦОВ - Центр Обработки Вызовов</li>
+<li>Абонент А, он же CgPN - вызывающий абонент, инициатор вызова</li>
+<li>Абонент Б, он же CdPN - вызываемый абонент</li>
+<li>ПАК - программно-аппаратный комплекс</li>
+<li>РМО - рабочее место оператора, ПАК, который обычно состоит из компьютера, установленного на него специального ПО, а также оборудование для обработки медиа (гарнитура + веб-камера)</li>
+<li>Call - вызов, обычно голосовой вызов</li>
+<li>Call ID - идентификатор вызова, как правило строка, уникальное значение, желательно чтобы это было значение сохраняющее свойство уникальности в течении длительного периода времени и для всего комплекса ПО</li>
+<li>Release - отбой, завершение вызова</li>
+<li>Release Cause - причина отбоя, причина завершения обработки вызова. Есть на самом деле стандарты, где описываются все стандартные предусмотренные причины отбоя, например Q.850</li>
+<li><a class="el" href="structCDR.html" title="Структура CDR (Call Detail Record), представляющая запись о вызове.">CDR</a> - Call Detailed Record, информационная запись в журнале по факту предоставления услуги. Обычно это текстовый файл, журнал, имеет фиксированное количество полей разделенных каким-то символом (у нас чаще всего это точка с запятой “;”)</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+Сборка и запуск</h1>
+<p>Нужны CMake 3.24+, Git, компилятор с C++20, Boost 1.83+ (заголовки и CMake config). Для тестов также нужен Python 3. spdlog 1.15.3 со встроенным fmt и GoogleTest 1.13.0 скачиваются CMake при первой конфигурации; требуется доступ к GitHub. Системный fmt/spdlog не используется, бинарные библиотеки Boost не нужны.</p>
+<p>Ubuntu 24.04:</p>
+<div class="fragment"><div class="line">sudo apt-get update</div>
+<div class="line">sudo apt-get install -y cmake ninja-build g++-13 clang-18 libboost1.83-dev git python3</div>
+</div><!-- fragment --><p>Если Boost установлен вне стандартных путей, передайте <span class="tt">-DBoost_ROOT=/path/to/boost</span>. Предупреждения собственного кода считаются ошибками; для диагностики это можно отключить через <span class="tt">-DWARNINGS_AS_ERRORS=OFF</span>. Проверки выполняются с включённой опцией.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+Нагрузочное тестирование</h1>
+<p>Можно произвести нагрузочное тестирование для этого необходимо склонировать репозиторий и иметь установленный python3 в системе. Необходимо в двух терминалах запустить тест и программу</p>
+<p>Первый терминал с тестом. В нем можно указать размер отправленной пачки сообщений в моменте, по-умолчанию отправится всё что есть, например &ndash;num_connections 300, а также режим - автоматический (&ndash;automatic) или ручной (не надо ничего указывать) </p><div class="fragment"><div class="line">cd protei_cov</div>
+<div class="line">python3 tools/load.py &lt;аргументы&gt;</div>
+</div><!-- fragment --><p> Во втором терминале необходимо запустить на дефолтном порту. </p><div class="fragment"><div class="line">./protei_cov 8080</div>
+</div><!-- fragment --><p>Теперь можно наблюдать за работой сервера под нагрузкой.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+Обновление конфигурации</h1>
+<p>Сервер умеет обновлять конфигурацию во время своей работы, для этого он использует путь до .json файла, который был указан при запуске сервера. Этот файл можно менять руками, перечитывание файла происходит каждую минуту, при условии, что файл был изменен (проверятся последнее время записи в файл).</p>
+<p>А также можно принудительно заставить сервер обновиться. Для этого требуется отправить http get запрос, на соответствующий url /update (например вы запускаете локально сервер на порту 8080, тогда требуется отправить запрос на адрес localhost:8080/update). </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

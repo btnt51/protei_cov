@@ -1,0 +1,19 @@
+<map id="protei_cov_core/include/config.hpp" name="protei_cov_core/include/config.hpp">
+<area shape="rect" id="Node000001" title="Содержит объявления классов Config и ThreadSafeConfig, которые реализуют интерфейс IThreadPool." alt="" coords="395,5,554,46"/>
+<area shape="rect" id="Node000002" href="$builder_8hpp.html" title="Содержит объявление класса ManagerBuilder, частично реализующий паттерн Строитель." alt="" coords="224,94,383,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="423,56,343,96,341,91,421,51"/>
+<area shape="rect" id="Node000008" href="$config_8cpp.html" title="Содержит определение классов Config и ThreadSafeConfig, которые реализуют интерфейс IThreadPool." alt="" coords="407,94,542,135"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="477,62,477,94,472,94,472,62"/>
+<area shape="rect" id="Node000009" href="$configTests_8cpp.html" title=" " alt="" coords="566,102,711,127"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="526,51,617,99,614,103,524,56"/>
+<area shape="rect" id="Node000003" href="$httpServer_8hpp.html" title="Содержит объявление класса HttpServer." alt="" coords="62,190,212,216"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="254,145,162,192,159,187,251,140"/>
+<area shape="rect" id="Node000006" href="$builder_8cpp.html" title=" " alt="" coords="236,183,371,223"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="306,150,306,182,301,182,301,150"/>
+<area shape="rect" id="Node000007" href="$builderTests_8cpp.html" title=" " alt="" coords="396,190,545,216"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="356,140,448,187,446,192,354,145"/>
+<area shape="rect" id="Node000004" href="$httpServer_8cpp.html" title="Содержит определение класса HttpServer." alt="" coords="5,271,133,297"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="119,229,81,273,77,269,115,226"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html" title=" " alt="" coords="157,271,253,297"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="159,226,197,269,193,273,155,229"/>
+</map>

@@ -1,0 +1,25 @@
+<map id="protei_cov_core/src/jsonParser.cpp" name="protei_cov_core/src/jsonParser.cpp">
+<area shape="rect" id="Node000001" title="Содержит определение класса JsonParser." alt="" coords="184,5,319,46"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,102,71,127"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,49,83,96,80,98,78,93,81,92,200,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="94,102,163,127"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="225,49,159,95,156,90,222,44"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="107,190,161,216"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="241,48,153,179,148,176,236,45"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="420,102,472,127"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="300,44,408,92,409,92,407,97,406,96,298,49"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="185,183,318,223"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="254,46,254,167,249,167,249,46"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="496,94,628,135"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="320,43,482,88,480,93,319,48"/>
+<area shape="rect" id="Node000008" href="$jsonParser_8hpp.html" title="Содержит объявление класса JsonParser, предназначенного для парсинга и обработки JSON данных." alt="" coords="288,102,396,127"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="274,45,320,89,317,93,270,48"/>
+<area shape="poly" id="edge10_Node000008_Node000004" title=" " alt="" coords="310,130,174,185,173,186,171,181,172,180,308,125"/>
+<area shape="poly" id="edge11_Node000008_Node000006" title=" " alt="" coords="331,130,285,174,281,170,328,126"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="341,190,420,216"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="350,127,372,175,367,177,345,129"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="444,190,490,216"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="361,125,439,179,436,183,358,130"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="514,190,626,216"/>
+<area shape="poly" id="edge12_Node000008_Node000011" title=" " alt="" coords="375,125,525,182,523,187,373,130"/>
+</map>

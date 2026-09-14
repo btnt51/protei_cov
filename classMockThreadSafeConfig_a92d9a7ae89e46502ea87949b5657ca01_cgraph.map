@@ -1,0 +1,17 @@
+<map id="MockThreadSafeConfig::MOCK_METHOD" name="MockThreadSafeConfig::MOCK_METHOD">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,39,162,79"/>
+<area shape="rect" id="Node000002" href="$classutility_1_1ThreadSafeConfig.html#a5070a8a0860e1ffde18c830ebeebfffb" title=" " alt="" coords="210,39,370,79"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,56,194,56,194,62,162,62"/>
+<area shape="rect" id="Node000003" href="$classutility_1_1ThreadSafeConfig.html#a50283a3faf9e924ff79b94eb50a75702" title="Уведомляет менеджера о необходимости обновления конфигурации." alt="" coords="418,5,578,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="370,44,402,38,403,44,371,49"/>
+<area shape="rect" id="Node000004" href="$classutility_1_1ThreadSafeConfig.html#adecfe991e19064ad2a0ed48bf2962c90" title="Обновляет данные конфигурации." alt="" coords="418,71,578,111"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="371,69,403,74,402,79,370,74"/>
+<area shape="rect" id="Node000005" href="$classutility_1_1ThreadSafeConfig.html#aa64fdedf90eba0c7394b8443854cd024" title="Нормализует данные" alt="" coords="626,71,787,111"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="578,88,611,88,611,94,578,94"/>
+<area shape="rect" id="Node000006" href="$classutility_1_1ThreadSafeConfig.html#a02a0d9852d2b8a28cafa274faac322a3" title="Нормализует AmountOfOperators." alt="" coords="835,5,1033,46"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="779,68,845,48,847,53,780,73"/>
+<area shape="rect" id="Node000007" href="$classutility_1_1ThreadSafeConfig.html#aea8423dbf3174bb136874b7ad1a9b9c0" title="Нормализует RMin и RMax." alt="" coords="854,71,1014,111"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="787,88,838,88,838,94,787,94"/>
+<area shape="rect" id="Node000008" href="$classutility_1_1ThreadSafeConfig.html#a1ef29031cf05705c75227ef6df340bf1" title="Нормализует SizeOfQueue." alt="" coords="854,136,1014,177"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="780,109,847,129,845,134,779,114"/>
+</map>

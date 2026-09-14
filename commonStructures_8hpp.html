@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Файл protei_cov_core/include/commonStructures.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('commonStructures_8hpp.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Файл commonStructures.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Содержит общие структуры и типы данных, а также функции необходимые для работы с этими структурами и типами данных.  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &lt;chrono&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;string_view&gt;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф включаемых заголовочных файлов для commonStructures.hpp:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="commonStructures_8hpp__incl.png" border="0" usemap="#aprotei__cov__core_2include_2commonStructures_8hpp" loading="lazy" alt=""/></div>
+<map name="aprotei__cov__core_2include_2commonStructures_8hpp" id="aprotei__cov__core_2include_2commonStructures_8hpp">
+<area shape="rect" title="Содержит общие структуры и типы данных, а также функции необходимые для работы с этими структурами и ..." alt="" coords="84,5,243,46"/>
+<area shape="rect" title=" " alt="" coords="5,94,66,120"/>
+<area shape="poly" title=" " alt="" coords="133,49,69,88,66,83,130,44"/>
+<area shape="rect" title=" " alt="" coords="90,94,155,120"/>
+<area shape="poly" title=" " alt="" coords="156,48,138,81,133,79,151,45"/>
+<area shape="rect" title=" " alt="" coords="180,94,233,120"/>
+<area shape="poly" title=" " alt="" coords="176,45,195,79,190,81,172,48"/>
+<area shape="rect" title=" " alt="" coords="257,94,344,120"/>
+<area shape="poly" title=" " alt="" coords="199,44,268,84,266,88,196,49"/>
+</map>
+</div>
+</div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф файлов, в которые включается этот файл:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="commonStructures_8hpp__dep__incl.png" border="0" usemap="#aprotei__cov__core_2include_2commonStructures_8hppdep" loading="lazy" alt=""/></div>
+<map name="aprotei__cov__core_2include_2commonStructures_8hppdep" id="aprotei__cov__core_2include_2commonStructures_8hppdep">
+<area shape="rect" title="Содержит общие структуры и типы данных, а также функции необходимые для работы с этими структурами и ..." alt="" coords="882,5,1042,46"/>
+<area shape="rect" href="interfaces_8hpp.html" title="Содержит интерфейсы IConfig, ITask, IQueue, IThreadPool, IManager." alt="" coords="480,183,638,223"/>
+<area shape="poly" title=" " alt="" coords="868,50,800,70,731,96,651,141,587,184,584,180,648,136,729,92,798,65,867,45"/>
+<area shape="rect" href="queue_8hpp.html" title="Содержит объявление класса Queue, который реализует интерфейс IQueue." alt="" coords="1028,271,1186,312"/>
+<area shape="poly" title=" " alt="" coords="979,59,1015,133,1059,210,1097,270,1092,272,1055,212,1010,136,974,61"/>
+<area shape="rect" href="task_8hpp.html" title="Содержит объявления класса Task, который реализует интерфейс ITask." alt="" coords="846,271,1004,312"/>
+<area shape="poly" title=" " alt="" coords="960,62,930,271,925,271,955,61"/>
+<area shape="rect" href="recorder_8hpp.html" title="Содержит объявления интерфейса IRecorder, и его реализации FileRecorder." alt="" coords="742,94,900,135"/>
+<area shape="poly" title=" " alt="" coords="919,56,854,96,851,91,916,52"/>
+<area shape="rect" href="commonStructures_8cpp.html" title="Содержит определение функций необходимых для работы с CallStatus и CDR." alt="" coords="1025,94,1184,135"/>
+<area shape="poly" title=" " alt="" coords="1008,52,1074,91,1071,96,1006,56"/>
+<area shape="rect" href="commonStructuresTests_8cpp.html" title=" " alt="" coords="1209,102,1430,127"/>
+<area shape="poly" title=" " alt="" coords="1057,47,1270,98,1269,104,1056,52"/>
+<area shape="rect" href="config_8hpp.html" title="Содержит объявления классов Config и ThreadSafeConfig, которые реализуют интерфейс IThreadPool." alt="" coords="202,271,360,312"/>
+<area shape="poly" title=" " alt="" coords="482,231,345,273,343,268,481,226"/>
+<area shape="rect" href="configTests_8cpp.html" title=" " alt="" coords="5,368,151,393"/>
+<area shape="poly" title=" " alt="" coords="465,209,402,215,331,227,259,246,191,274,158,295,129,321,89,369,85,365,125,318,155,291,189,269,258,241,330,222,401,210,464,204"/>
+<area shape="rect" href="manager_8hpp.html" title="Содержит объявление класса Manager, который реализует интерфейс IManager." alt="" coords="480,271,638,312"/>
+<area shape="poly" title=" " alt="" coords="562,239,562,271,557,271,557,239"/>
+<area shape="rect" href="managerTests_8cpp.html" title=" " alt="" coords="516,368,677,393"/>
+<area shape="poly" title=" " alt="" coords="507,234,486,251,471,273,465,292,471,311,486,329,505,344,549,365,547,369,503,349,482,333,466,313,459,292,466,270,482,248,503,230"/>
+<area shape="poly" title=" " alt="" coords="654,221,756,236,836,245,916,254,1016,269,1028,271,1027,276,1015,274,915,259,836,250,755,241,653,226"/>
+<area shape="poly" title=" " alt="" coords="654,224,846,269,845,274,653,229"/>
+<area shape="rect" href="threadpool_8hpp.html" title="Содержит объявления структуры Thread и класса ThreadPool, который реализует интерфейс IThreadPool." alt="" coords="663,271,821,312"/>
+<area shape="poly" title=" " alt="" coords="615,228,702,268,700,273,613,233"/>
+<area shape="rect" href="builder_8hpp.html" title="Содержит объявление класса ManagerBuilder, частично реализующий паттерн Строитель." alt="" coords="334,360,492,401"/>
+<area shape="poly" title=" " alt="" coords="325,319,384,357,381,362,322,323"/>
+<area shape="rect" href="config_8cpp.html" title="Содержит определение классов Config и ThreadSafeConfig, которые реализуют интерфейс IThreadPool." alt="" coords="174,360,310,401"/>
+<area shape="poly" title=" " alt="" coords="268,328,253,361,248,358,263,325"/>
+<area shape="poly" title=" " alt="" coords="222,321,107,369,105,365,220,316"/>
+<area shape="rect" href="httpServer_8hpp.html" title="Содержит объявление класса HttpServer." alt="" coords="171,456,321,482"/>
+<area shape="poly" title=" " alt="" coords="363,411,271,458,268,453,360,406"/>
+<area shape="rect" href="builder_8cpp.html" title=" " alt="" coords="345,449,480,489"/>
+<area shape="poly" title=" " alt="" coords="415,416,415,448,410,448,410,416"/>
+<area shape="rect" href="builderTests_8cpp.html" title=" " alt="" coords="505,456,654,482"/>
+<area shape="poly" title=" " alt="" coords="465,406,557,453,555,458,463,411"/>
+<area shape="rect" href="httpServer_8cpp.html" title="Содержит определение класса HttpServer." alt="" coords="114,537,242,563"/>
+<area shape="poly" title=" " alt="" coords="228,495,190,539,186,535,224,492"/>
+<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="266,537,362,563"/>
+<area shape="poly" title=" " alt="" coords="268,492,306,535,302,539,264,495"/>
+<area shape="poly" title=" " alt="" coords="514,322,447,362,444,357,512,318"/>
+<area shape="rect" href="manager_8cpp.html" title="Содержит определение класса Manager, который реализует интерфейс IManager." alt="" coords="701,360,836,401"/>
+<area shape="poly" title=" " alt="" coords="622,316,722,357,720,362,620,321"/>
+<area shape="poly" title=" " alt="" coords="576,325,594,366,589,368,571,327"/>
+<area shape="rect" href="queue_8cpp.html" title=" " alt="" coords="1352,360,1487,401"/>
+<area shape="poly" title=" " alt="" coords="1194,314,1352,358,1350,363,1192,319"/>
+<area shape="rect" href="threadpool_8cpp.html" title="Содержит определение класса ThreadPool, который реализует интерфейс IThreadPool." alt="" coords="1032,360,1167,401"/>
+<area shape="poly" title=" " alt="" coords="1107,328,1104,360,1098,359,1101,327"/>
+<area shape="rect" href="queueTests_8cpp.html" title=" " alt="" coords="861,368,1007,393"/>
+<area shape="poly" title=" " alt="" coords="1056,322,959,369,957,365,1053,317"/>
+<area shape="poly" title=" " alt="" coords="877,322,805,362,803,357,875,317"/>
+<area shape="poly" title=" " alt="" coords="931,327,935,367,930,368,926,328"/>
+<area shape="rect" href="task_8cpp.html" title="Содержит определение класса Task, который реализует интерфейс ITask." alt="" coords="1192,360,1327,401"/>
+<area shape="poly" title=" " alt="" coords="1017,314,1192,359,1191,364,1015,319"/>
+<area shape="poly" title=" " alt="" coords="653,319,488,362,487,357,652,314"/>
+<area shape="poly" title=" " alt="" coords="648,315,510,331,403,338,297,345,162,363,127,370,126,364,162,357,296,340,403,333,510,326,647,310"/>
+<area shape="poly" title=" " alt="" coords="755,326,765,359,760,360,750,328"/>
+<area shape="poly" title=" " alt="" coords="697,322,618,369,616,365,695,318"/>
+<area shape="poly" title=" " alt="" coords="837,313,1032,360,1031,365,836,318"/>
+<area shape="poly" title=" " alt="" coords="800,316,908,365,906,369,798,321"/>
+<area shape="poly" title=" " alt="" coords="748,142,620,185,618,180,746,137"/>
+<area shape="poly" title=" " alt="" coords="858,142,910,181,970,221,1063,269,1061,273,967,226,907,186,855,147"/>
+<area shape="poly" title=" " alt="" coords="826,150,823,187,812,224,794,251,771,273,768,269,790,248,808,222,818,186,820,150"/>
+<area shape="rect" href="recorder_8cpp.html" title="Содержит определение FileRecorder." alt="" coords="662,183,798,223"/>
+<area shape="poly" title=" " alt="" coords="791,147,752,184,749,180,788,143"/>
+</map>
+</div>
+</div>
+<p><a href="commonStructures_8hpp_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:CDR" id="r_CDR"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structCDR.html">CDR</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура <a class="el" href="structCDR.html" title="Структура CDR (Call Detail Record), представляющая запись о вызове.">CDR</a> (Call Detail Record), представляющая запись о вызове.  <a href="structCDR.html#details">Подробнее...</a><br /></td></tr>
+<tr class="memitem:Result" id="r_Result"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structResult.html">Result</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура <a class="el" href="structResult.html" title="Структура Result представляет результат обработки вызова.">Result</a> представляет результат обработки вызова.  <a href="structResult.html#details">Подробнее...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+Пространства имен</h2></td></tr>
+<tr class="memitem:TP" id="r_TP"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="namespaceTP.html">TP</a></td></tr>
+<tr class="memdesc:namespaceTP"><td class="mdescLeft">&#160;</td><td class="mdescRight">Пространство имен <a class="el" href="namespaceTP.html" title="Пространство имен TP, содержащее объявление типа CallID, а также объявление и определение классов Tas...">TP</a>, содержащее объявление типа <a class="el" href="namespaceTP.html#ae4420f548e2f0128ec3da1fbffe40d4b">CallID</a>, а также объявление и определение классов <a class="el" href="classTP_1_1Task.html" title="Класс задачи – вызова, который обрабаытывает поток (оператор).">Task</a>, Operator, <a class="el" href="classTP_1_1ThreadPool.html" title="Класс, реализующий пул потоков.">ThreadPool</a>. <br /></td></tr>
+<tr class="memitem:utility" id="r_utility"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="namespaceutility.html">utility</a></td></tr>
+<tr class="memdesc:namespaceutility"><td class="mdescLeft">&#160;</td><td class="mdescRight">Пространство имен utility, содержащее функционал для работы с конфигами. <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Определения типов</h2></td></tr>
+<tr class="memitem:ae4420f548e2f0128ec3da1fbffe40d4b" id="r_ae4420f548e2f0128ec3da1fbffe40d4b"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="namespaceTP.html#ae4420f548e2f0128ec3da1fbffe40d4b">TP::CallID</a> = unsigned long long</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Перечисления</h2></td></tr>
+<tr class="memitem:a6345adb90c060772fc680a395d9120fe" id="r_a6345adb90c060772fc680a395d9120fe"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a6345adb90c060772fc680a395d9120fe">CallStatus</a> : int { <br />
+&#160;&#160;<a class="el" href="#a6345adb90c060772fc680a395d9120feac7bece6685d4556fcb8dfdcd72d720f5">Awaiting</a>
+, <a class="el" href="#a6345adb90c060772fc680a395d9120fea07ca5050e697392c9ed47e6453f1453f">Completed</a>
+, <a class="el" href="#a6345adb90c060772fc680a395d9120feaff87d8b8f25360b80a23fc058dd2c1fe">Duplication</a>
+, <a class="el" href="#a6345adb90c060772fc680a395d9120fea6e710553e743259cd47e52f15fa71051">Overloaded</a>
+, <br />
+&#160;&#160;<a class="el" href="#a6345adb90c060772fc680a395d9120fead37b1f6c0512e2118cee17fea015b699">Rejected</a>
+, <a class="el" href="#a6345adb90c060772fc680a395d9120feac85a251cc457840f1e032f1b733e9398">Timeout</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a6345adb90c060772fc680a395d9120fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Перечисление, представляющее возможные статусы вызова.  <a href="#a6345adb90c060772fc680a395d9120fe">Подробнее...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:a660ff49bca6bc1ffea8f0c436c398864" id="r_a660ff49bca6bc1ffea8f0c436c398864"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="namespaceutility.html#a660ff49bca6bc1ffea8f0c436c398864">utility::to_string</a> (const <a class="el" href="#a6345adb90c060772fc680a395d9120fe">CallStatus</a> &amp;status)</td></tr>
+<tr class="memdesc:a660ff49bca6bc1ffea8f0c436c398864"><td class="mdescLeft">&#160;</td><td class="mdescRight">Преобразует перечисление <a class="el" href="#a6345adb90c060772fc680a395d9120fe" title="Перечисление, представляющее возможные статусы вызова.">CallStatus</a> в строковое представление.  <br /></td></tr>
+<tr class="memitem:ad080784ad6a87d560346756996b0684d" id="r_ad080784ad6a87d560346756996b0684d"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="namespaceutility.html#ad080784ad6a87d560346756996b0684d">utility::prepareTime</a> (const std::chrono::system_clock::time_point &amp;timeP)</td></tr>
+<tr class="memdesc:ad080784ad6a87d560346756996b0684d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Подготавливает строковое представление времени из временной точки системных часов, если timeP – пустое представление (конструктор по-умолчанию), вернется пустая строка.  <br /></td></tr>
+<tr class="memitem:a70f6a0209a482f9543ad1f1fbddb6e5c" id="r_a70f6a0209a482f9543ad1f1fbddb6e5c"><td class="memItemLeft">std::ofstream &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a70f6a0209a482f9543ad1f1fbddb6e5c">operator&lt;&lt;</a> (std::ofstream &amp;out, const <a class="el" href="structCDR.html">CDR</a> &amp;cdr)</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Содержит общие структуры и типы данных, а также функции необходимые для работы с этими структурами и типами данных. </p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Перечисления</h2>
+<a id="a6345adb90c060772fc680a395d9120fe" name="a6345adb90c060772fc680a395d9120fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6345adb90c060772fc680a395d9120fe">&#9670;&#160;</a></span>CallStatus</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a6345adb90c060772fc680a395d9120fe">CallStatus</a> : int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Перечисление, представляющее возможные статусы вызова. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a6345adb90c060772fc680a395d9120feac7bece6685d4556fcb8dfdcd72d720f5" name="a6345adb90c060772fc680a395d9120feac7bece6685d4556fcb8dfdcd72d720f5"></a>Awaiting&#160;</td><td class="fielddoc"><p>Ожидание обработки вызова. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6345adb90c060772fc680a395d9120fea07ca5050e697392c9ed47e6453f1453f" name="a6345adb90c060772fc680a395d9120fea07ca5050e697392c9ed47e6453f1453f"></a>Completed&#160;</td><td class="fielddoc"><p>Вызов успешно завершен. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6345adb90c060772fc680a395d9120feaff87d8b8f25360b80a23fc058dd2c1fe" name="a6345adb90c060772fc680a395d9120feaff87d8b8f25360b80a23fc058dd2c1fe"></a>Duplication&#160;</td><td class="fielddoc"><p>Повторный вызов. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6345adb90c060772fc680a395d9120fea6e710553e743259cd47e52f15fa71051" name="a6345adb90c060772fc680a395d9120fea6e710553e743259cd47e52f15fa71051"></a>Overloaded&#160;</td><td class="fielddoc"><p>Очередь перегружена. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6345adb90c060772fc680a395d9120fead37b1f6c0512e2118cee17fea015b699" name="a6345adb90c060772fc680a395d9120fead37b1f6c0512e2118cee17fea015b699"></a>Rejected&#160;</td><td class="fielddoc"><p>Вызов отклонен. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6345adb90c060772fc680a395d9120feac85a251cc457840f1e032f1b733e9398" name="a6345adb90c060772fc680a395d9120feac85a251cc457840f1e032f1b733e9398"></a>Timeout&#160;</td><td class="fielddoc"><p>Вызов не был обслужен. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Функции</h2>
+<a id="a70f6a0209a482f9543ad1f1fbddb6e5c" name="a70f6a0209a482f9543ad1f1fbddb6e5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70f6a0209a482f9543ad1f1fbddb6e5c">&#9670;&#160;</a></span>operator&lt;&lt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ofstream &amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ofstream &amp;</td>          <td class="paramname"><span class="paramname"><em>out</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structCDR.html">CDR</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cdr</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="commonStructures_8hpp_a70f6a0209a482f9543ad1f1fbddb6e5c_cgraph.png" border="0" usemap="#acommonStructures_8hpp_a70f6a0209a482f9543ad1f1fbddb6e5c_cgraph" loading="lazy" alt=""/></div>
+<map name="acommonStructures_8hpp_a70f6a0209a482f9543ad1f1fbddb6e5c_cgraph" id="acommonStructures_8hpp_a70f6a0209a482f9543ad1f1fbddb6e5c_cgraph">
+<area shape="rect" title=" " alt="" coords="5,31,90,56"/>
+<area shape="rect" href="namespaceutility.html#ad080784ad6a87d560346756996b0684d" title="Подготавливает строковое представление времени из временной точки системных часов,..." alt="" coords="138,5,267,31"/>
+<area shape="poly" title=" " alt="" coords="90,34,122,29,123,34,90,39"/>
+<area shape="rect" href="namespaceutility.html#a660ff49bca6bc1ffea8f0c436c398864" title="Преобразует перечисление CallStatus в строковое представление." alt="" coords="149,55,256,80"/>
+<area shape="poly" title=" " alt="" coords="90,47,134,54,133,59,90,53"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_5a6d656ff4e45d1fe42c1b081d9ad0bd.html">protei_cov_core</a></li><li class="navelem"><a href="dir_867e023415a28ebb35e9c3c4c387abea.html">include</a></li><li class="navelem"><a href="commonStructures_8hpp.html">commonStructures.hpp</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

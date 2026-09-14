@@ -1,0 +1,81 @@
+<map id="src/main.cpp" name="src/main.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="595,5,691,31"/>
+<area shape="rect" id="Node000002" href="$httpServer_8hpp.html" title="Содержит объявление класса HttpServer." alt="" coords="590,79,696,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="646,31,646,63,640,63,640,31"/>
+<area shape="rect" id="Node000003" href="$builder_8hpp.html" title="Содержит объявление класса ManagerBuilder, частично реализующий паттерн Строитель." alt="" coords="349,153,433,178"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="601,108,448,151,447,146,600,103"/>
+<area shape="rect" id="Node000030" title=" " alt="" coords="457,153,562,178"/>
+<area shape="poly" id="edge43_Node000002_Node000030" title=" " alt="" coords="622,108,547,147,545,143,619,103"/>
+<area shape="rect" id="Node000031" title=" " alt="" coords="586,153,700,178"/>
+<area shape="poly" id="edge44_Node000002_Node000031" title=" " alt="" coords="646,105,646,137,640,137,640,105"/>
+<area shape="rect" id="Node000032" title=" " alt="" coords="723,153,795,178"/>
+<area shape="poly" id="edge45_Node000002_Node000032" title=" " alt="" coords="664,103,728,142,725,147,661,107"/>
+<area shape="rect" id="Node000033" title=" " alt="" coords="819,153,926,178"/>
+<area shape="poly" id="edge46_Node000002_Node000033" title=" " alt="" coords="683,103,820,145,818,150,681,108"/>
+<area shape="rect" id="Node000004" href="$config_8hpp.html" title="Содержит объявления классов Config и ThreadSafeConfig, которые реализуют интерфейс IThreadPool." alt="" coords="181,226,260,252"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="363,181,264,222,262,218,361,176"/>
+<area shape="rect" id="Node000022" href="$manager_8hpp.html" title="Содержит объявление класса Manager, который реализует интерфейс IManager." alt="" coords="343,226,439,252"/>
+<area shape="poly" id="edge29_Node000003_Node000022" title=" " alt="" coords="394,179,394,211,388,211,388,179"/>
+<area shape="rect" id="Node000024" href="$threadpool_8hpp.html" title="Содержит объявления структуры Thread и класса ThreadPool, который реализует интерфейс IThreadPool." alt="" coords="612,226,717,252"/>
+<area shape="poly" id="edge32_Node000003_Node000024" title=" " alt="" coords="434,175,604,219,602,224,432,180"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="37,455,116,480"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="202,255,174,274,141,302,109,336,84,375,76,407,76,439,70,439,71,407,79,373,105,332,137,298,170,270,199,250"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="192,300,249,326"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="223,252,223,284,218,284,218,252"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="185,536,245,562"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="188,255,149,274,111,302,63,348,24,392,13,414,8,436,12,460,26,486,56,514,93,531,133,541,170,545,169,550,132,546,91,536,53,518,22,490,7,462,3,436,8,412,20,389,59,344,108,298,147,270,186,250"/>
+<area shape="rect" id="Node000008" href="$interfaces_8hpp.html" title="Содержит интерфейсы IConfig, ITask, IQueue, IThreadPool, IManager." alt="" coords="273,300,376,326"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="240,250,296,289,293,293,236,255"/>
+<area shape="poly" id="edge8_Node000008_Node000005" title=" " alt="" coords="273,328,169,353,126,365,103,376,93,390,86,406,79,439,74,438,81,404,89,387,100,372,124,360,168,347,272,323"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="717,374,772,399"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="376,321,389,323,544,344,614,354,703,371,702,376,613,359,544,349,388,328,376,326"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="113,374,181,399"/>
+<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="295,329,192,370,190,365,293,324"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="636,374,693,399"/>
+<area shape="poly" id="edge11_Node000008_Node000011" title=" " alt="" coords="376,321,621,370,620,376,375,326"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="205,374,313,399"/>
+<area shape="poly" id="edge12_Node000008_Node000012" title=" " alt="" coords="316,328,282,364,278,360,312,324"/>
+<area shape="rect" id="Node000013" href="$jsonParser_8hpp.html" title="Содержит объявление класса JsonParser, предназначенного для парсинга и обработки JSON данных." alt="" coords="337,374,445,399"/>
+<area shape="poly" id="edge13_Node000008_Node000013" title=" " alt="" coords="337,324,371,360,367,364,333,328"/>
+<area shape="rect" id="Node000018" href="$commonStructures_8hpp.html" title="Содержит общие структуры и типы данных, а также функции необходимые для работы с этими структурами и ..." alt="" coords="552,455,707,480"/>
+<area shape="poly" id="edge19_Node000008_Node000018" title=" " alt="" coords="354,324,458,371,597,445,594,450,455,376,351,329"/>
+<area shape="rect" id="Node000021" href="$recorder_8hpp.html" title="Содержит объявления интерфейса IRecorder, и его реализации FileRecorder." alt="" coords="520,374,612,399"/>
+<area shape="poly" id="edge24_Node000008_Node000021" title=" " alt="" coords="366,324,511,366,510,371,365,329"/>
+<area shape="poly" id="edge14_Node000013_Node000005" title=" " alt="" coords="338,401,240,421,129,450,123,452,121,447,128,445,239,416,337,395"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="140,455,186,480"/>
+<area shape="poly" id="edge15_Node000013_Node000014" title=" " alt="" coords="349,402,205,450,202,451,200,446,203,445,347,397"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="352,536,406,562"/>
+<area shape="poly" id="edge16_Node000013_Node000015" title=" " alt="" coords="349,402,290,424,265,436,251,449,244,468,251,487,268,506,290,520,338,538,336,543,287,525,264,510,246,489,238,468,246,446,262,432,288,419,347,397"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="261,447,393,488"/>
+<area shape="poly" id="edge17_Node000013_Node000016" title=" " alt="" coords="383,401,355,437,350,433,379,398"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="417,455,528,480"/>
+<area shape="poly" id="edge18_Node000013_Node000017" title=" " alt="" coords="405,398,451,442,447,446,402,402"/>
+<area shape="poly" id="edge20_Node000018_Node000007" title=" " alt="" coords="575,484,541,491,261,542,260,537,540,485,573,478"/>
+<area shape="poly" id="edge22_Node000018_Node000015" title=" " alt="" coords="592,484,421,537,420,532,590,479"/>
+<area shape="rect" id="Node000019" title=" " alt="" coords="704,536,769,562"/>
+<area shape="poly" id="edge21_Node000018_Node000019" title=" " alt="" coords="647,479,710,524,706,529,644,483"/>
+<area shape="rect" id="Node000020" title=" " alt="" coords="586,536,673,562"/>
+<area shape="poly" id="edge23_Node000018_Node000020" title=" " alt="" coords="632,481,632,520,627,520,627,481"/>
+<area shape="poly" id="edge25_Node000021_Node000005" title=" " alt="" coords="519,396,315,420,207,435,129,450,121,452,119,447,128,445,206,430,315,415,519,390"/>
+<area shape="poly" id="edge27_Node000021_Node000017" title=" " alt="" coords="553,402,500,447,496,443,550,398"/>
+<area shape="poly" id="edge28_Node000021_Node000018" title=" " alt="" coords="577,398,612,441,608,444,573,401"/>
+<area shape="poly" id="edge26_Node000021_Node000019" title=" " alt="" coords="612,397,676,419,703,432,721,446,732,463,738,483,741,520,736,521,733,484,727,465,717,449,700,437,674,424,610,403"/>
+<area shape="poly" id="edge30_Node000022_Node000008" title=" " alt="" coords="382,254,348,290,344,287,378,250"/>
+<area shape="rect" id="Node000023" title=" " alt="" coords="400,300,502,326"/>
+<area shape="poly" id="edge31_Node000022_Node000023" title=" " alt="" coords="403,251,433,286,429,290,399,254"/>
+<area shape="poly" id="edge36_Node000024_Node000006" title=" " alt="" coords="612,249,460,269,265,302,264,297,459,263,611,244"/>
+<area shape="poly" id="edge41_Node000024_Node000008" title=" " alt="" coords="612,254,391,300,390,295,611,249"/>
+<area shape="poly" id="edge39_Node000024_Node000009" title=" " alt="" coords="673,251,733,359,728,361,669,254"/>
+<area shape="poly" id="edge35_Node000024_Node000011" title=" " alt="" coords="667,252,667,358,662,358,662,252"/>
+<area shape="poly" id="edge42_Node000024_Node000021" title=" " alt="" coords="658,254,584,362,580,359,654,251"/>
+<area shape="rect" id="Node000025" title=" " alt="" coords="753,300,813,326"/>
+<area shape="poly" id="edge33_Node000024_Node000025" title=" " alt="" coords="686,250,751,289,749,294,683,255"/>
+<area shape="rect" id="Node000026" title=" " alt="" coords="838,300,963,326"/>
+<area shape="poly" id="edge34_Node000024_Node000026" title=" " alt="" coords="705,250,846,292,845,298,704,255"/>
+<area shape="rect" id="Node000027" title=" " alt="" coords="987,300,1097,326"/>
+<area shape="poly" id="edge37_Node000024_Node000027" title=" " alt="" coords="718,248,972,296,971,301,717,253"/>
+<area shape="rect" id="Node000028" title=" " alt="" coords="1121,300,1178,326"/>
+<area shape="poly" id="edge38_Node000024_Node000028" title=" " alt="" coords="718,243,887,262,994,277,1106,297,1105,302,994,282,886,267,717,248"/>
+<area shape="rect" id="Node000029" title=" " alt="" coords="526,300,576,326"/>
+<area shape="poly" id="edge40_Node000024_Node000029" title=" " alt="" coords="647,255,585,294,582,289,644,250"/>
+</map>

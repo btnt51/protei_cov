@@ -1,0 +1,541 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Класс MockThreadPool</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('classMockThreadPool.html','','classMockThreadPool-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Класс MockThreadPool</div></div>
+</div><!--header-->
+<div class="contents">
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф наследования:MockThreadPool:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockThreadPool__inherit__graph.png" border="0" usemap="#aMockThreadPool_inherit__map" loading="lazy" alt="Inheritance graph"/></div>
+<map name="aMockThreadPool_inherit__map" id="aMockThreadPool_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,79,125,105"/>
+<area shape="rect" href="classTP_1_1IThreadPool.html" title="Абстрактный интерфейс для управления пулом потоков." alt="" coords="8,5,122,31"/>
+<area shape="poly" title=" " alt="" coords="68,46,68,79,62,79,62,46"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">см. легенду</a>]</span></center></div>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф связей класса MockThreadPool:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockThreadPool__coll__graph.png" border="0" usemap="#aMockThreadPool_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<map name="aMockThreadPool_coll__map" id="aMockThreadPool_coll__map">
+<area shape="rect" title=" " alt="" coords="5,79,125,105"/>
+<area shape="rect" href="classTP_1_1IThreadPool.html" title="Абстрактный интерфейс для управления пулом потоков." alt="" coords="8,5,122,31"/>
+<area shape="poly" title=" " alt="" coords="68,46,68,79,62,79,62,46"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a8af84b9be399e397ea01beb79aaa482e" id="r_a8af84b9be399e397ea01beb79aaa482e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8af84b9be399e397ea01beb79aaa482e">MockThreadPool</a> (unsigned amountOfThreads, unsigned sizeOfQueue)</td></tr>
+<tr class="memitem:a5f70b0953659e4ee230d4cfd31e0e12e" id="r_a5f70b0953659e4ee230d4cfd31e0e12e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5f70b0953659e4ee230d4cfd31e0e12e">MOCK_METHOD</a> ((std::pair&lt; <a class="el" href="namespaceTP.html#ae4420f548e2f0128ec3da1fbffe40d4b">TP::CallID</a>, std::future&lt; <a class="el" href="structResult.html">Result</a> &gt; &gt;), <a class="el" href="classTP_1_1IThreadPool.html#ab08f87de85c761f6f5702b04142c196c">add_task</a>,(std::shared_ptr&lt; <a class="el" href="classTP_1_1ITask.html">TP::ITask</a> &gt; task),(override))</td></tr>
+<tr class="memitem:aba5c9e6958cc1e1e0fedd5dc0536cf71" id="r_aba5c9e6958cc1e1e0fedd5dc0536cf71"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aba5c9e6958cc1e1e0fedd5dc0536cf71">MOCK_METHOD</a> (void, <a class="el" href="classTP_1_1IThreadPool.html#a5bb528b4acf525834e0e55fada9aafab">stop</a>,(),(override))</td></tr>
+<tr class="memitem:aa314c6e916ff598019ec085082db25fb" id="r_aa314c6e916ff598019ec085082db25fb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa314c6e916ff598019ec085082db25fb">MOCK_METHOD</a> (void, <a class="el" href="classTP_1_1IThreadPool.html#a1f25c807fda7429db5477fbe5146ea61">start</a>,(),(override))</td></tr>
+<tr class="memitem:aa62d32be60d8b43cd6c7e070ec94c4e5" id="r_aa62d32be60d8b43cd6c7e070ec94c4e5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa62d32be60d8b43cd6c7e070ec94c4e5">MOCK_METHOD</a> (void, <a class="el" href="classTP_1_1IThreadPool.html#a9d9de8f7e02730671b6d9c02c287c775">transferObjects</a>,(const std::shared_ptr&lt; <a class="el" href="classTP_1_1IThreadPool.html">TP::IThreadPool</a> &gt; &amp;oldThreadPool),(override))</td></tr>
+<tr class="memitem:ac8187b447272550a311b50415d674255" id="r_ac8187b447272550a311b50415d674255"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac8187b447272550a311b50415d674255">MOCK_METHOD</a> (void, <a class="el" href="classTP_1_1IThreadPool.html#a7fda0674c7a2d2c59ff916b6e3b19ad6">setTaskQueue</a>,(std::shared_ptr&lt; <a class="el" href="classTP_1_1IQueue.html">TP::IQueue</a> &gt; <a class="el" href="classTP_1_1IThreadPool.html#afae4b08f4efc851a5d720cc1570e044c">task_queue</a>),(override))</td></tr>
+<tr class="memitem:a0b7fe1afa23665b95dafd734ab6ee3b8" id="r_a0b7fe1afa23665b95dafd734ab6ee3b8"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0b7fe1afa23665b95dafd734ab6ee3b8">MOCK_METHOD</a> (void, <a class="el" href="classTP_1_1IThreadPool.html#a0816a41b6e9f2da01944f73c858c27ae">setLogger</a>,((std::shared_ptr&lt; spdlog::logger &gt;)),(override))</td></tr>
+<tr class="memitem:a3a5c633e5b5352ebd7b1a9a9a8c8dc3b" id="r_a3a5c633e5b5352ebd7b1a9a9a8c8dc3b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3a5c633e5b5352ebd7b1a9a9a8c8dc3b">MOCK_METHOD</a> ((std::size_t), <a class="el" href="classTP_1_1IThreadPool.html#af8ac7dadedb2890b307a7cec98860c18">getSize</a>,(),(override))</td></tr>
+<tr class="inherit_header pub_methods_classTP_1_1IThreadPool"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classTP_1_1IThreadPool')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Открытые члены унаследованные от <a class="el" href="classTP_1_1IThreadPool.html">TP::IThreadPool</a></td></tr>
+<tr class="memitem:a6dc749a7d0fc1015e80d76a8d2499ca7 inherit pub_methods_classTP_1_1IThreadPool" id="r_a6dc749a7d0fc1015e80d76a8d2499ca7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="classTP_1_1IThreadPool.html#a6dc749a7d0fc1015e80d76a8d2499ca7">IThreadPool</a> (unsigned amountOfThreads, unsigned sizeOfQueue)</td></tr>
+<tr class="memdesc:a6dc749a7d0fc1015e80d76a8d2499ca7 inherit pub_methods_classTP_1_1IThreadPool"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор класса <a class="el" href="classTP_1_1IThreadPool.html" title="Абстрактный интерфейс для управления пулом потоков.">IThreadPool</a>.  <br /></td></tr>
+<tr class="memitem:a1e43458ac754959d3f4d7c628903827b inherit pub_methods_classTP_1_1IThreadPool" id="r_a1e43458ac754959d3f4d7c628903827b"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="classTP_1_1IThreadPool.html#a1e43458ac754959d3f4d7c628903827b">~IThreadPool</a> ()</td></tr>
+<tr class="memdesc:a1e43458ac754959d3f4d7c628903827b inherit pub_methods_classTP_1_1IThreadPool"><td class="mdescLeft">&#160;</td><td class="mdescRight">Виртуальный деструктор класса <a class="el" href="classTP_1_1IThreadPool.html" title="Абстрактный интерфейс для управления пулом потоков.">IThreadPool</a>.  <br /></td></tr>
+<tr class="memitem:ab08f87de85c761f6f5702b04142c196c inherit pub_methods_classTP_1_1IThreadPool" id="r_ab08f87de85c761f6f5702b04142c196c"><td class="memItemLeft">virtual std::pair&lt; <a class="el" href="namespaceTP.html#ae4420f548e2f0128ec3da1fbffe40d4b">CallID</a>, std::future&lt; <a class="el" href="structResult.html">Result</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="classTP_1_1IThreadPool.html#ab08f87de85c761f6f5702b04142c196c">add_task</a> (std::shared_ptr&lt; <a class="el" href="classTP_1_1ITask.html">ITask</a> &gt; task)=0</td></tr>
+<tr class="memdesc:ab08f87de85c761f6f5702b04142c196c inherit pub_methods_classTP_1_1IThreadPool"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавляет задачу в пул потоков.  <br /></td></tr>
+<tr class="memitem:a5bb528b4acf525834e0e55fada9aafab inherit pub_methods_classTP_1_1IThreadPool" id="r_a5bb528b4acf525834e0e55fada9aafab"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="classTP_1_1IThreadPool.html#a5bb528b4acf525834e0e55fada9aafab">stop</a> ()=0</td></tr>
+<tr class="memdesc:a5bb528b4acf525834e0e55fada9aafab inherit pub_methods_classTP_1_1IThreadPool"><td class="mdescLeft">&#160;</td><td class="mdescRight">Останавливает выполнение задач в пуле потоков.  <br /></td></tr>
+<tr class="memitem:a1f25c807fda7429db5477fbe5146ea61 inherit pub_methods_classTP_1_1IThreadPool" id="r_a1f25c807fda7429db5477fbe5146ea61"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="classTP_1_1IThreadPool.html#a1f25c807fda7429db5477fbe5146ea61">start</a> ()=0</td></tr>
+<tr class="memdesc:a1f25c807fda7429db5477fbe5146ea61 inherit pub_methods_classTP_1_1IThreadPool"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запускает выполнение задач в пуле потоков.  <br /></td></tr>
+<tr class="memitem:a9d9de8f7e02730671b6d9c02c287c775 inherit pub_methods_classTP_1_1IThreadPool" id="r_a9d9de8f7e02730671b6d9c02c287c775"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="classTP_1_1IThreadPool.html#a9d9de8f7e02730671b6d9c02c287c775">transferObjects</a> (const std::shared_ptr&lt; <a class="el" href="classTP_1_1IThreadPool.html#a6dc749a7d0fc1015e80d76a8d2499ca7">IThreadPool</a> &gt; &amp;oldThreadPool)=0</td></tr>
+<tr class="memdesc:a9d9de8f7e02730671b6d9c02c287c775 inherit pub_methods_classTP_1_1IThreadPool"><td class="mdescLeft">&#160;</td><td class="mdescRight">Переносит очередь задач из старого пула потоков в текущий.  <br /></td></tr>
+<tr class="memitem:a7fda0674c7a2d2c59ff916b6e3b19ad6 inherit pub_methods_classTP_1_1IThreadPool" id="r_a7fda0674c7a2d2c59ff916b6e3b19ad6"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="classTP_1_1IThreadPool.html#a7fda0674c7a2d2c59ff916b6e3b19ad6">setTaskQueue</a> (std::shared_ptr&lt; <a class="el" href="classTP_1_1IQueue.html">IQueue</a> &gt; task_queue)=0</td></tr>
+<tr class="memdesc:a7fda0674c7a2d2c59ff916b6e3b19ad6 inherit pub_methods_classTP_1_1IThreadPool"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка новой очереди задачи  <br /></td></tr>
+<tr class="memitem:a0816a41b6e9f2da01944f73c858c27ae inherit pub_methods_classTP_1_1IThreadPool" id="r_a0816a41b6e9f2da01944f73c858c27ae"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="classTP_1_1IThreadPool.html#a0816a41b6e9f2da01944f73c858c27ae">setLogger</a> (std::shared_ptr&lt; spdlog::logger &gt; logger)=0</td></tr>
+<tr class="memdesc:a0816a41b6e9f2da01944f73c858c27ae inherit pub_methods_classTP_1_1IThreadPool"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает асинхронный логгер.  <br /></td></tr>
+<tr class="memitem:af8ac7dadedb2890b307a7cec98860c18 inherit pub_methods_classTP_1_1IThreadPool" id="r_af8ac7dadedb2890b307a7cec98860c18"><td class="memItemLeft">virtual std::size_t&#160;</td><td class="memItemRight"><a class="el" href="classTP_1_1IThreadPool.html#af8ac7dadedb2890b307a7cec98860c18">getSize</a> ()=0</td></tr>
+<tr class="memdesc:af8ac7dadedb2890b307a7cec98860c18 inherit pub_methods_classTP_1_1IThreadPool"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает текущие количество потоков.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
+Дополнительные унаследованные члены</h2></td></tr>
+<tr class="inherit_header pub_attribs_classTP_1_1IThreadPool"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_attribs_classTP_1_1IThreadPool')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Открытые атрибуты унаследованные от <a class="el" href="classTP_1_1IThreadPool.html">TP::IThreadPool</a></td></tr>
+<tr class="memitem:a8df846140a56d3ff699d3c7ddeeed52f inherit pub_attribs_classTP_1_1IThreadPool" id="r_a8df846140a56d3ff699d3c7ddeeed52f"><td class="memItemLeft">std::mutex&#160;</td><td class="memItemRight"><a class="el" href="classTP_1_1IThreadPool.html#a8df846140a56d3ff699d3c7ddeeed52f">task_queue_mutex</a></td></tr>
+<tr class="memdesc:a8df846140a56d3ff699d3c7ddeeed52f inherit pub_attribs_classTP_1_1IThreadPool"><td class="mdescLeft">&#160;</td><td class="mdescRight">Мьютекс для защиты доступа к очереди задач.  <br /></td></tr>
+<tr class="memitem:afae4b08f4efc851a5d720cc1570e044c inherit pub_attribs_classTP_1_1IThreadPool" id="r_afae4b08f4efc851a5d720cc1570e044c"><td class="memItemLeft">std::shared_ptr&lt; <a class="el" href="classTP_1_1IQueue.html">IQueue</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="classTP_1_1IThreadPool.html#afae4b08f4efc851a5d720cc1570e044c">task_queue</a></td></tr>
+<tr class="memdesc:afae4b08f4efc851a5d720cc1570e044c inherit pub_attribs_classTP_1_1IThreadPool"><td class="mdescLeft">&#160;</td><td class="mdescRight">Очередь задач в формате пар (задача, идентификатор вызова).  <br /></td></tr>
+</table>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Конструктор(ы)</h2>
+<a id="a8af84b9be399e397ea01beb79aaa482e" name="a8af84b9be399e397ea01beb79aaa482e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8af84b9be399e397ea01beb79aaa482e">&#9670;&#160;</a></span>MockThreadPool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockThreadPool::MockThreadPool </td>
+          <td>(</td>
+          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>amountOfThreads</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>sizeOfQueue</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockThreadPool_a8af84b9be399e397ea01beb79aaa482e_cgraph.png" border="0" usemap="#aclassMockThreadPool_a8af84b9be399e397ea01beb79aaa482e_cgraph" loading="lazy" alt=""/></div>
+<map name="aclassMockThreadPool_a8af84b9be399e397ea01beb79aaa482e_cgraph" id="aclassMockThreadPool_a8af84b9be399e397ea01beb79aaa482e_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,229,31"/>
+<area shape="rect" href="classTP_1_1IThreadPool.html#a6dc749a7d0fc1015e80d76a8d2499ca7" title="Конструктор класса IThreadPool." alt="" coords="277,5,467,31"/>
+<area shape="poly" title=" " alt="" coords="229,16,261,16,261,21,229,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="a5f70b0953659e4ee230d4cfd31e0e12e" name="a5f70b0953659e4ee230d4cfd31e0e12e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f70b0953659e4ee230d4cfd31e0e12e">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[1/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockThreadPool::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">(std::pair&lt; <a class="el" href="namespaceTP.html#ae4420f548e2f0128ec3da1fbffe40d4b">TP::CallID</a>, std::future&lt; <a class="el" href="structResult.html">Result</a> &gt; &gt;)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classTP_1_1IThreadPool.html#ab08f87de85c761f6f5702b04142c196c">add_task</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(std::shared_ptr&lt; <a class="el" href="classTP_1_1ITask.html">TP::ITask</a> &gt; task)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockThreadPool_a5f70b0953659e4ee230d4cfd31e0e12e_cgraph.png" border="0" usemap="#aclassMockThreadPool_a5f70b0953659e4ee230d4cfd31e0e12e_cgraph" loading="lazy" alt=""/></div>
+<map name="aclassMockThreadPool_a5f70b0953659e4ee230d4cfd31e0e12e_cgraph" id="aclassMockThreadPool_a5f70b0953659e4ee230d4cfd31e0e12e_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,170,46"/>
+<area shape="rect" href="classTP_1_1IThreadPool.html#ab08f87de85c761f6f5702b04142c196c" title="Добавляет задачу в пул потоков." alt="" coords="218,13,391,38"/>
+<area shape="poly" title=" " alt="" coords="170,23,202,23,202,28,170,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3a5c633e5b5352ebd7b1a9a9a8c8dc3b" name="a3a5c633e5b5352ebd7b1a9a9a8c8dc3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a5c633e5b5352ebd7b1a9a9a8c8dc3b">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[2/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockThreadPool::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">(std::size_t)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classTP_1_1IThreadPool.html#af8ac7dadedb2890b307a7cec98860c18">getSize</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">()</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockThreadPool_a3a5c633e5b5352ebd7b1a9a9a8c8dc3b_cgraph.png" border="0" usemap="#aclassMockThreadPool_a3a5c633e5b5352ebd7b1a9a9a8c8dc3b_cgraph" loading="lazy" alt=""/></div>
+<map name="aclassMockThreadPool_a3a5c633e5b5352ebd7b1a9a9a8c8dc3b_cgraph" id="aclassMockThreadPool_a3a5c633e5b5352ebd7b1a9a9a8c8dc3b_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,170,46"/>
+<area shape="rect" href="classTP_1_1IThreadPool.html#af8ac7dadedb2890b307a7cec98860c18" title="Возвращает текущие количество потоков." alt="" coords="218,13,381,38"/>
+<area shape="poly" title=" " alt="" coords="170,23,202,23,202,28,170,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a0b7fe1afa23665b95dafd734ab6ee3b8" name="a0b7fe1afa23665b95dafd734ab6ee3b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b7fe1afa23665b95dafd734ab6ee3b8">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[3/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockThreadPool::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classTP_1_1IThreadPool.html#a0816a41b6e9f2da01944f73c858c27ae">setLogger</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">((std::shared_ptr&lt; spdlog::logger &gt;))</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockThreadPool_a0b7fe1afa23665b95dafd734ab6ee3b8_cgraph.png" border="0" usemap="#aclassMockThreadPool_a0b7fe1afa23665b95dafd734ab6ee3b8_cgraph" loading="lazy" alt=""/></div>
+<map name="aclassMockThreadPool_a0b7fe1afa23665b95dafd734ab6ee3b8_cgraph" id="aclassMockThreadPool_a0b7fe1afa23665b95dafd734ab6ee3b8_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,170,46"/>
+<area shape="rect" href="classTP_1_1IThreadPool.html#a0816a41b6e9f2da01944f73c858c27ae" title="Устанавливает асинхронный логгер." alt="" coords="218,13,396,38"/>
+<area shape="poly" title=" " alt="" coords="170,23,202,23,202,28,170,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac8187b447272550a311b50415d674255" name="ac8187b447272550a311b50415d674255"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8187b447272550a311b50415d674255">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[4/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockThreadPool::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classTP_1_1IThreadPool.html#a7fda0674c7a2d2c59ff916b6e3b19ad6">setTaskQueue</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(std::shared_ptr&lt; <a class="el" href="classTP_1_1IQueue.html">TP::IQueue</a> &gt; <a class="el" href="classTP_1_1IThreadPool.html#afae4b08f4efc851a5d720cc1570e044c">task_queue</a>)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockThreadPool_ac8187b447272550a311b50415d674255_cgraph.png" border="0" usemap="#aclassMockThreadPool_ac8187b447272550a311b50415d674255_cgraph" loading="lazy" alt=""/></div>
+<map name="aclassMockThreadPool_ac8187b447272550a311b50415d674255_cgraph" id="aclassMockThreadPool_ac8187b447272550a311b50415d674255_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,170,46"/>
+<area shape="rect" href="classTP_1_1IThreadPool.html#a7fda0674c7a2d2c59ff916b6e3b19ad6" title="Установка новой очереди задачи" alt="" coords="218,5,385,46"/>
+<area shape="poly" title=" " alt="" coords="170,23,202,23,202,28,170,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa314c6e916ff598019ec085082db25fb" name="aa314c6e916ff598019ec085082db25fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa314c6e916ff598019ec085082db25fb">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[5/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockThreadPool::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classTP_1_1IThreadPool.html#a1f25c807fda7429db5477fbe5146ea61">start</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">()</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockThreadPool_aa314c6e916ff598019ec085082db25fb_cgraph.png" border="0" usemap="#aclassMockThreadPool_aa314c6e916ff598019ec085082db25fb_cgraph" loading="lazy" alt=""/></div>
+<map name="aclassMockThreadPool_aa314c6e916ff598019ec085082db25fb_cgraph" id="aclassMockThreadPool_aa314c6e916ff598019ec085082db25fb_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,170,46"/>
+<area shape="rect" href="classTP_1_1IThreadPool.html#a1f25c807fda7429db5477fbe5146ea61" title="Запускает выполнение задач в пуле потоков." alt="" coords="218,13,364,38"/>
+<area shape="poly" title=" " alt="" coords="170,23,202,23,202,28,170,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aba5c9e6958cc1e1e0fedd5dc0536cf71" name="aba5c9e6958cc1e1e0fedd5dc0536cf71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba5c9e6958cc1e1e0fedd5dc0536cf71">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[6/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockThreadPool::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classTP_1_1IThreadPool.html#a5bb528b4acf525834e0e55fada9aafab">stop</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">()</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockThreadPool_aba5c9e6958cc1e1e0fedd5dc0536cf71_cgraph.png" border="0" usemap="#aclassMockThreadPool_aba5c9e6958cc1e1e0fedd5dc0536cf71_cgraph" loading="lazy" alt=""/></div>
+<map name="aclassMockThreadPool_aba5c9e6958cc1e1e0fedd5dc0536cf71_cgraph" id="aclassMockThreadPool_aba5c9e6958cc1e1e0fedd5dc0536cf71_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,170,46"/>
+<area shape="rect" href="classTP_1_1IThreadPool.html#a5bb528b4acf525834e0e55fada9aafab" title="Останавливает выполнение задач в пуле потоков." alt="" coords="218,13,363,38"/>
+<area shape="poly" title=" " alt="" coords="170,23,202,23,202,28,170,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa62d32be60d8b43cd6c7e070ec94c4e5" name="aa62d32be60d8b43cd6c7e070ec94c4e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa62d32be60d8b43cd6c7e070ec94c4e5">&#9670;&#160;</a></span>MOCK_METHOD() <span class="overload">[7/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MockThreadPool::MOCK_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classTP_1_1IThreadPool.html#a9d9de8f7e02730671b6d9c02c287c775">transferObjects</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(const std::shared_ptr&lt; <a class="el" href="classTP_1_1IThreadPool.html">TP::IThreadPool</a> &gt; &amp;oldThreadPool)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">(override)</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Граф вызовов:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classMockThreadPool_aa62d32be60d8b43cd6c7e070ec94c4e5_cgraph.png" border="0" usemap="#aclassMockThreadPool_aa62d32be60d8b43cd6c7e070ec94c4e5_cgraph" loading="lazy" alt=""/></div>
+<map name="aclassMockThreadPool_aa62d32be60d8b43cd6c7e070ec94c4e5_cgraph" id="aclassMockThreadPool_aa62d32be60d8b43cd6c7e070ec94c4e5_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,170,46"/>
+<area shape="rect" href="classTP_1_1IThreadPool.html#a9d9de8f7e02730671b6d9c02c287c775" title="Переносит очередь задач из старого пула потоков в текущий." alt="" coords="218,5,382,46"/>
+<area shape="poly" title=" " alt="" coords="170,23,202,23,202,28,170,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>tests/<a class="el" href="managerTests_8cpp.html">managerTests.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="classMockThreadPool.html">MockThreadPool</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

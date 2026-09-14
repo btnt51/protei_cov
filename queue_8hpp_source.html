@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Protei COV: Исходный файл protei_cov_core/include/queue.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Protei COV
+   </div>
+   <div id="projectbrief">Студенческий проект для стажировки в НТЦ Протей</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('queue_8hpp_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">queue.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="queue_8hpp.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PROTEI_COV_QUEUE_HPP</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PROTEI_COV_QUEUE_HPP</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;queue&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;tuple&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="recorder_8hpp.html">recorder.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="commonStructures_8hpp.html">commonStructures.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="interfaces_8hpp.html">interfaces.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceTP.html">TP</a> {</div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classTP_1_1Queue.html">   22</a></span><span class="keyword">class </span><a class="code hl_function" href="classTP_1_1Queue.html#a700a33f52783f25b9ebd25d67ffb504a">Queue</a> : <span class="keyword">public</span> <a class="code hl_function" href="classTP_1_1IQueue.html#ad059ca86fde968f322c2a25ae810e090">IQueue</a> {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="classTP_1_1Queue.html#a700a33f52783f25b9ebd25d67ffb504a">Queue</a>(<span class="keywordtype">int</span> size);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    std::pair&lt;std::shared_ptr&lt;ITask&gt;, <a class="code hl_typedef" href="namespaceTP.html#ae4420f548e2f0128ec3da1fbffe40d4b">CallID</a>&gt;&amp; <a class="code hl_function" href="classTP_1_1Queue.html#a65853feac151da98676290658f83326e">back</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    std::pair&lt;std::shared_ptr&lt;ITask&gt;, <a class="code hl_typedef" href="namespaceTP.html#ae4420f548e2f0128ec3da1fbffe40d4b">CallID</a>&gt;&amp; <a class="code hl_function" href="classTP_1_1Queue.html#aa07a74a2c1d552986007a7b3a510e161">front</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code hl_function" href="classTP_1_1Queue.html#afdf953409a503746d94143653af45483">empty</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code hl_function" href="classTP_1_1Queue.html#a31899fb351fc35a44a4c7e59be458678">push</a>(std::pair&lt;std::shared_ptr&lt;ITask&gt;, <a class="code hl_typedef" href="namespaceTP.html#ae4420f548e2f0128ec3da1fbffe40d4b">CallID</a>&gt;&amp;&amp; taskPair) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1Queue.html#a0f62128e7ff8ec170d8d1e3bb3b61b34">pop</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1Queue.html#a988cb188976cf1eb7d5d41716c0be293">update</a>(<span class="keywordtype">int</span> size) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1Queue.html#aeefd371815cfea4f6500b74eed28fd27">setLogger</a>(std::shared_ptr&lt;spdlog::logger&gt; logger) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1Queue.html#a8be04782f4dc5508bab9b88706db8ff5">setRecorders</a>(std::vector&lt;std::shared_ptr&lt;IRecorder&gt;&gt; recorders) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTP_1_1Queue.html#a12f0c63bbd534905278f9ce7697042b5">writeCDR</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structCDR.html">CDR</a>&amp; cdr) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordtype">void</span> handleOverloadedTask(<span class="keyword">const</span> std::pair&lt;std::shared_ptr&lt;ITask&gt;, <a class="code hl_typedef" href="namespaceTP.html#ae4420f548e2f0128ec3da1fbffe40d4b">CallID</a>&gt;&amp; taskPair);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">void</span> handleTask(std::pair&lt;std::shared_ptr&lt;ITask&gt;, <a class="code hl_typedef" href="namespaceTP.html#ae4420f548e2f0128ec3da1fbffe40d4b">CallID</a>&gt;&amp; taskPair);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">void</span> processCDR(std::shared_ptr&lt;ITask&gt; task, <span class="keywordtype">bool</span> isDuplication);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    std::vector&lt;std::pair&lt;std::shared_ptr&lt;ITask&gt;, <a class="code hl_typedef" href="namespaceTP.html#ae4420f548e2f0128ec3da1fbffe40d4b">CallID</a>&gt;&gt; queue_; </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    std::size_t sizeOfQueue; </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    std::shared_ptr&lt;spdlog::logger&gt; logger_; </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    std::vector&lt;std::shared_ptr&lt;IRecorder&gt;&gt; recorders_;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    std::mutex cdrMutex_; </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>};</div>
+</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>}</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="preprocessor">#endif </span><span class="comment">// PROTEI_COV_QUEUE_HPP</span></div>
+<div class="ttc" id="aclassTP_1_1IQueue_html_ad059ca86fde968f322c2a25ae810e090"><div class="ttname"><a href="classTP_1_1IQueue.html#ad059ca86fde968f322c2a25ae810e090">TP::IQueue::IQueue</a></div><div class="ttdeci">IQueue(int size)</div><div class="ttdoc">Конструктор интерфейса IQueue.</div><div class="ttdef"><b>Определения</b> interfaces.hpp:176</div></div>
+<div class="ttc" id="aclassTP_1_1Queue_html_a0f62128e7ff8ec170d8d1e3bb3b61b34"><div class="ttname"><a href="classTP_1_1Queue.html#a0f62128e7ff8ec170d8d1e3bb3b61b34">TP::Queue::pop</a></div><div class="ttdeci">void pop() override</div><div class="ttdoc">Удаляет задачу из начала очереди.</div><div class="ttdef"><b>Определения</b> queue.cpp:99</div></div>
+<div class="ttc" id="aclassTP_1_1Queue_html_a12f0c63bbd534905278f9ce7697042b5"><div class="ttname"><a href="classTP_1_1Queue.html#a12f0c63bbd534905278f9ce7697042b5">TP::Queue::writeCDR</a></div><div class="ttdeci">void writeCDR(const CDR &amp;cdr) override</div><div class="ttdoc">Запись CDR при помощи IRecorders объектов.</div><div class="ttdef"><b>Определения</b> queue.cpp:118</div></div>
+<div class="ttc" id="aclassTP_1_1Queue_html_a31899fb351fc35a44a4c7e59be458678"><div class="ttname"><a href="classTP_1_1Queue.html#a31899fb351fc35a44a4c7e59be458678">TP::Queue::push</a></div><div class="ttdeci">bool push(std::pair&lt; std::shared_ptr&lt; ITask &gt;, CallID &gt; &amp;&amp;taskPair) override</div><div class="ttdoc">Добавляет задачу в конец очереди.</div><div class="ttdef"><b>Определения</b> queue.cpp:89</div></div>
+<div class="ttc" id="aclassTP_1_1Queue_html_a65853feac151da98676290658f83326e"><div class="ttname"><a href="classTP_1_1Queue.html#a65853feac151da98676290658f83326e">TP::Queue::back</a></div><div class="ttdeci">std::pair&lt; std::shared_ptr&lt; ITask &gt;, CallID &gt; &amp; back() override</div><div class="ttdoc">Возвращает ссылку на задачу в конце очереди.</div><div class="ttdef"><b>Определения</b> queue.cpp:16</div></div>
+<div class="ttc" id="aclassTP_1_1Queue_html_a700a33f52783f25b9ebd25d67ffb504a"><div class="ttname"><a href="classTP_1_1Queue.html#a700a33f52783f25b9ebd25d67ffb504a">TP::Queue::Queue</a></div><div class="ttdeci">Queue(int size)</div><div class="ttdoc">Конструктор класса Queue.</div><div class="ttdef"><b>Определения</b> queue.cpp:11</div></div>
+<div class="ttc" id="aclassTP_1_1Queue_html_a8be04782f4dc5508bab9b88706db8ff5"><div class="ttname"><a href="classTP_1_1Queue.html#a8be04782f4dc5508bab9b88706db8ff5">TP::Queue::setRecorders</a></div><div class="ttdeci">void setRecorders(std::vector&lt; std::shared_ptr&lt; IRecorder &gt; &gt; recorders) override</div><div class="ttdoc">Установка вектора разных объектов для записи cdr.</div><div class="ttdef"><b>Определения</b> queue.cpp:114</div></div>
+<div class="ttc" id="aclassTP_1_1Queue_html_a988cb188976cf1eb7d5d41716c0be293"><div class="ttname"><a href="classTP_1_1Queue.html#a988cb188976cf1eb7d5d41716c0be293">TP::Queue::update</a></div><div class="ttdeci">void update(int size) override</div><div class="ttdoc">Обновляет максимальный размер очереди.</div><div class="ttdef"><b>Определения</b> queue.cpp:105</div></div>
+<div class="ttc" id="aclassTP_1_1Queue_html_aa07a74a2c1d552986007a7b3a510e161"><div class="ttname"><a href="classTP_1_1Queue.html#aa07a74a2c1d552986007a7b3a510e161">TP::Queue::front</a></div><div class="ttdeci">std::pair&lt; std::shared_ptr&lt; ITask &gt;, CallID &gt; &amp; front() override</div><div class="ttdoc">Возвращает ссылку на задачу в начале очереди.</div><div class="ttdef"><b>Определения</b> queue.cpp:22</div></div>
+<div class="ttc" id="aclassTP_1_1Queue_html_aeefd371815cfea4f6500b74eed28fd27"><div class="ttname"><a href="classTP_1_1Queue.html#aeefd371815cfea4f6500b74eed28fd27">TP::Queue::setLogger</a></div><div class="ttdeci">void setLogger(std::shared_ptr&lt; spdlog::logger &gt; logger) override</div><div class="ttdoc">Устанавливает асинхронный логгер.</div><div class="ttdef"><b>Определения</b> queue.cpp:111</div></div>
+<div class="ttc" id="aclassTP_1_1Queue_html_afdf953409a503746d94143653af45483"><div class="ttname"><a href="classTP_1_1Queue.html#afdf953409a503746d94143653af45483">TP::Queue::empty</a></div><div class="ttdeci">bool empty() const override</div><div class="ttdoc">Проверяет, является ли очередь пустой.</div><div class="ttdef"><b>Определения</b> queue.cpp:28</div></div>
+<div class="ttc" id="acommonStructures_8hpp_html"><div class="ttname"><a href="commonStructures_8hpp.html">commonStructures.hpp</a></div><div class="ttdoc">Содержит общие структуры и типы данных, а также функции необходимые для работы с этими структурами и ...</div></div>
+<div class="ttc" id="ainterfaces_8hpp_html"><div class="ttname"><a href="interfaces_8hpp.html">interfaces.hpp</a></div><div class="ttdoc">Содержит интерфейсы IConfig, ITask, IQueue, IThreadPool, IManager.</div></div>
+<div class="ttc" id="anamespaceTP_html"><div class="ttname"><a href="namespaceTP.html">TP</a></div><div class="ttdoc">Пространство имен TP, содержащее объявление типа CallID, а также объявление и определение классов Tas...</div></div>
+<div class="ttc" id="anamespaceTP_html_ae4420f548e2f0128ec3da1fbffe40d4b"><div class="ttname"><a href="namespaceTP.html#ae4420f548e2f0128ec3da1fbffe40d4b">TP::CallID</a></div><div class="ttdeci">unsigned long long CallID</div><div class="ttdef"><b>Определения</b> commonStructures.hpp:19</div></div>
+<div class="ttc" id="arecorder_8hpp_html"><div class="ttname"><a href="recorder_8hpp.html">recorder.hpp</a></div><div class="ttdoc">Содержит объявления интерфейса IRecorder, и его реализации FileRecorder.</div></div>
+<div class="ttc" id="astructCDR_html"><div class="ttname"><a href="structCDR.html">CDR</a></div><div class="ttdoc">Структура CDR (Call Detail Record), представляющая запись о вызове.</div><div class="ttdef"><b>Определения</b> commonStructures.hpp:57</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_5a6d656ff4e45d1fe42c1b081d9ad0bd.html">protei_cov_core</a></li><li class="navelem"><a href="dir_867e023415a28ebb35e9c3c4c387abea.html">include</a></li><li class="navelem"><a href="queue_8hpp.html">queue.hpp</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>
