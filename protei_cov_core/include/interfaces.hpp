@@ -6,8 +6,8 @@
 #include <queue>
 #include <spdlog/logger.h>
 
-#include "commonStructures.hpp"
 #include "jsonParser.hpp"
+#include "commonStructures.hpp"
 #include "recorder.hpp"
 
 /**
@@ -118,6 +118,7 @@ public:
 namespace TP {
 class ITask {
 public:
+    virtual ~ITask() = default;
     /**
      * @brief конструктор
      * @param RMin нижняя граница времени
@@ -167,6 +168,7 @@ public:
  */
 class IQueue {
 public:
+    virtual ~IQueue() = default;
     /**
      * @brief Конструктор интерфейса IQueue.
      * @param size Максимальный размер очереди.
@@ -300,6 +302,7 @@ public:
  */
 class IManager {
 public:
+    virtual ~IManager() = default;
     /**
      * @brief Конструктор класса IManager.
      * @param conf Указатель на объект конфигурации.

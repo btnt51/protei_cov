@@ -1,5 +1,5 @@
-#include "config.hpp"
 #include <iostream>
+#include "config.hpp"
 
 /**
  * @file config.cpp
@@ -145,7 +145,7 @@ void Config::normalizeSizeOfQueue() {
     }
 }
 
-ThreadSafeConfig::ThreadSafeConfig(const std::filesystem::path &path, std::shared_ptr<spdlog::logger> logger) :
+ThreadSafeConfig::ThreadSafeConfig(const std::filesystem::path &path, const std::shared_ptr<spdlog::logger>& logger) :
     IConfig(path, logger), logger_(logger)  {
     parser = std::make_shared<JsonParser>(logger);
     try {
@@ -252,20 +252,14 @@ std::filesystem::path ThreadSafeConfig::makeNormalPath(const std::filesystem::pa
     }
 }
 
-std::time_t lastTime(const std::filesystem::path &filePath) {
-    const auto fileTime = std::filesystem::last_write_time(filePath);
-    const auto systemTime = std::chrono::clock_cast<std::chrono::system_clock>(fileTime);
-    const auto time = std::chrono::system_clock::to_time_t(systemTime);
-    return time;
-}
 
 void ThreadSafeConfig::updateConfigThread() {
     try {
 
-        lastWriteTime = lastTime(path_);
+        lastWriteTime = std::filesystem::last_write_time(path_);
         while (!stopThread) {
             std::this_thread::sleep_for(std::chrono::seconds(60));
-            std::time_t currentWriteTime = lastTime(path_);
+            const auto currentWriteTime = std::filesystem::last_write_time(path_);
 
             if (currentWriteTime > lastWriteTime) {
                 if(logger_)
@@ -299,7 +293,7 @@ void ThreadSafeConfig::updateWithRequest() {
         updateConfig();
     }
     notify();
-    lastWriteTime = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+    lastWriteTime = std::filesystem::last_write_time(path_);
 }
 
 void ThreadSafeConfig::RunMonitoring() {

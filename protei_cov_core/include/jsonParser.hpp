@@ -5,7 +5,6 @@
  * @brief Содержит объявление класса JsonParser,
  * предназначенного для парсинга и обработки JSON данных.
  */
-#include <any>
 #include <filesystem>
 #include <map>
 #include <string>
@@ -41,7 +40,7 @@ public:
      *  @brief Метод для вывода JSON данных в виде строки.
      *  @return Строка, содержащая представление JSON данных.
      */
-    std::string output();
+    std::string output() const;
 
     /**
      * @brief Метод для вывода конфигурационных данных в виде карты (map) строк и целых чисел.

@@ -122,12 +122,12 @@ public:
     /**
      * @copydoc IConfig::IConfig
      */
-    explicit ThreadSafeConfig(const std::filesystem::path& path, std::shared_ptr<spdlog::logger> logger);
+    explicit ThreadSafeConfig(const std::filesystem::path& path, const std::shared_ptr<spdlog::logger>& logger);
 
     /**
      * @copydoc IConfig::~IConfig
      */
-    ~ThreadSafeConfig();
+    ~ThreadSafeConfig() override;
 
     /**
      * @copydoc IConfig::getMinMax
@@ -167,7 +167,7 @@ public:
     /**
      * @copydoc IConfig::updateConfigThread
      */
-    void updateConfigThread();
+    virtual void updateConfigThread();
 
     /**
      * @copydoc IConfig::notify
@@ -230,7 +230,7 @@ private:
     std::mutex configMutex; ///< Мьютекс для защиты доступа к конфигурации.
     bool stopThread; ///< Флаг для остановки потока обновления конфигурации.
     bool updated; ///< Флаг, указывающий на обновление конфигурации.
-    std::time_t lastWriteTime; ///< Время последнего изменения файла конфигурации.
+    std::filesystem::file_time_type lastWriteTime{}; ///< Время последнего изменения файла конфигурации.
     std::shared_ptr<IManager> manager; ///< Указатель на объект менеджера для обработки изменений конфигурации.
     std::shared_ptr<spdlog::logger> logger_; ///< указатель на асинхронный логгер
     bool notToUpdate;///< флаг на случай, если файл конфигурации сломан, отключает обновление из конфига

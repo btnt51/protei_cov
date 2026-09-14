@@ -1,7 +1,7 @@
-#include <gtest/gtest.h>
-#include "threadpool.hpp"
 #include "queue.hpp"
 #include "task.hpp"
+#include "threadpool.hpp"
+#include <gtest/gtest.h>
 
 TEST(QueueTest, Push) {
     TP::Queue queue(3);

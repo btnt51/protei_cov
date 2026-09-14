@@ -1,6 +1,6 @@
-#include <gtest/gtest.h>
-#include <gmock/gmock.h>
 #include "jsonParser.hpp"
+#include <gmock/gmock.h>
+#include <gtest/gtest.h>
 
 class JsonParserTest : public ::testing::Test {
 protected:

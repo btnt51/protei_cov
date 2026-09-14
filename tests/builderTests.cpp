@@ -1,6 +1,6 @@
-#include "builder.hpp"
 #include <gtest/gtest.h>
 #include <spdlog/async.h>
+#include "builder.hpp"
 
 class ManagerBuilderTest : public ::testing::Test {
 protected:

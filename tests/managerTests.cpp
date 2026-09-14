@@ -1,6 +1,6 @@
-#include <gtest/gtest.h>
-#include <gmock/gmock.h>
 #include "manager.hpp"
+#include <gmock/gmock.h>
+#include <gtest/gtest.h>
 
 #include "interfaces.hpp"
 #include "threadpool.hpp"

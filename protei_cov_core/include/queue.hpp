@@ -4,9 +4,9 @@
 #include <queue>
 #include <tuple>
 
+#include "recorder.hpp"
 #include "commonStructures.hpp"
 #include "interfaces.hpp"
-#include "recorder.hpp"
 
 /**
  * @file queue.hpp

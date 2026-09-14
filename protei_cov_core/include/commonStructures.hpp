@@ -1,10 +1,9 @@
 #ifndef PROTEI_COV_COMMONNSTRUCTURE_HPP
 #define PROTEI_COV_COMMONNSTRUCTURE_HPP
 #include <chrono>
-#include <thread>
-#include <iostream>
 #include <fstream>
 #include <string>
+#include <string_view>
 
 /** @file commonStructures.hpp
  *  @brief Содержит общие структуры и типы данных, а также функции

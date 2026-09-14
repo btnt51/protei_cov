@@ -1,8 +1,8 @@
-#include <gtest/gtest.h>
-#include <gmock/gmock.h>
-#include "interfaces.hpp"
 #include "config.hpp"
 #include "threadpool.hpp"
+#include "interfaces.hpp"
+#include <gmock/gmock.h>
+#include <gtest/gtest.h>
 
 class MockManager : public IManager {
 public:

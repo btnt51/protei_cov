@@ -6,7 +6,9 @@ on:
       - closed
 jobs:
   buildOnUbuntuX64:
-    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    runs-on: ubuntu-22.04
     name: Build on ubuntu:latest-x64
     environment: env
 
@@ -30,9 +32,9 @@ jobs:
           export LD_LIBRARY_PATH=${{steps.install-boost.outputs.BOOST_ROOT}}/lib
       - name: Test
         run: |
-          ./build.sh ${{ github.run_number }} Debug ON ON test test /usr/bin/g++-13 3 ${{steps.install-boost.outputs.BOOST_ROOT}}/include ${{steps.install-boost.outputs.BOOST_ROOT}}/lib ${{ steps.install-boost.outputs.BOOST_ROOT }}
+          ./build.sh ${{ github.run_number }} Debug ON ON protei_cov_tests test /usr/bin/g++-13 3 ${{steps.install-boost.outputs.BOOST_ROOT}}/include ${{steps.install-boost.outputs.BOOST_ROOT}}/lib ${{ steps.install-boost.outputs.BOOST_ROOT }}
           cd build
-          ./test
+          ctest --output-on-failure --no-tests=error
       - name: Build executable
         run: |
           ./build.sh ${{ github.run_number }} Release OFF ON protei_cov protei_cov-0.0.${{ github.run_number }}-ubuntu22.04-x64 /usr/bin/g++-13 3 ${{steps.install-boost.outputs.BOOST_ROOT}}/include ${{steps.install-boost.outputs.BOOST_ROOT}}/lib ${{ steps.install-boost.outputs.BOOST_ROOT }}
@@ -47,31 +49,4 @@ jobs:
           files: build/protei_cov-0.0.${{ github.run_number }}-ubuntu22.04-x64.zip
           tag_name: ${{ github.run_number }}
           name: Release ${{ github.run_number }}
-          token: ${{ secrets.ACTION_TOKEN }}
-
-  buildOnUbuntuArm64:
-    runs-on: [self-hosted, linux, ARM64]
-    name: Build on ubuntu22.04-aarch64
-    environment: env
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Prepare build.sh
-        run: chmod +x build.sh
-      - name: Test
-        run: |
-          ./build.sh ${{ github.run_number }} Debug ON ON test test /usr/bin/g++-13 5
-          cd build
-          ./test
-      - name: Build executable
-        run: |
-          ./build.sh ${{ github.run_number }} Release OFF ON protei_cov protei_cov-0.0.${{ github.run_number }}-ubuntu22.04-arm64 /usr/bin/g++-13 5
-      - name: Release app
-        uses: softprops/action-gh-release@v1
-        with:
-          files: build/protei_cov-0.0.${{ github.run_number }}-ubuntu22.04-arm64.zip
-          tag_name: ${{ github.run_number }}
-          name: Release ${{ github.run_number }}
-          token: ${{ secrets.ACTION_TOKEN }}
-
+          token: ${{ secrets.GITHUB_TOKEN }}

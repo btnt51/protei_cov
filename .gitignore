@@ -1,0 +1,7 @@
+/build*/
+/.idea/
+.DS_Store
+*.log
+/logfile.txt
+/cdrFile.txt
+/test_output.txt
