@@ -1,11 +1,10 @@
 #ifndef PROTEI_COV_RECORDER_HPP
 #define PROTEI_COV_RECORDER_HPP
-#include "commonStructures.hpp"
-
 #include <filesystem>
 #include <fstream>
 #include <spdlog/spdlog.h>
 
+#include "commonStructures.hpp"
 /**
  * @file recorder.hpp
  * @brief Содержит объявления интерфейса IRecorder,
@@ -27,14 +26,14 @@ public:
     virtual void setLogger(std::shared_ptr<spdlog::logger> logger) = 0;
 
     /// @brief Виртуальный деструктор интерфейса.
-    virtual ~IRecorder() {}
+    virtual ~IRecorder() = default;
 
     std::mutex writeMutex_;
     std::shared_ptr<spdlog::logger> logger_;
 };
 
 /**
- * @class FileRecoreder
+ * @class FileRecorder
  * @brief Класс-наследник интерфейса IRecorder, реализующий запись данных о вызове в файл.
  */
 class FileRecorder : public IRecorder {

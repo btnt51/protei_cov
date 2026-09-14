@@ -94,7 +94,7 @@ public:
      *
      * @copydoc TP::IThreadPool::setLogger
      */
-    void setLogger(std::shared_ptr<spdlog::logger> logger);
+    void setLogger(std::shared_ptr<spdlog::logger> logger) override;
 
     /**
      * @brief Возвращает текущие количество потоков.

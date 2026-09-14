@@ -1,4 +1,7 @@
 #include "commonStructures.hpp"
+#include <ctime>
+#include <iomanip>
+#include <sstream>
 
 /** @file commonStructures.cpp
  *  @brief Содержит определение функций необходимых для работы
@@ -34,7 +37,12 @@ std::string prepareTime(const time_point& timeP) {
         auto milliseconds_ = std::chrono::duration_cast<milliseconds>(timeSinceEpoch - seconds_);
 
         std::time_t time = system_clock::to_time_t(timeP);
-        std::tm timeInfo = *std::localtime(&time);
+        std::tm timeInfo{};
+#ifdef _WIN32
+        localtime_s(&timeInfo, &time);
+#else
+        localtime_r(&time, &timeInfo);
+#endif
 
         std::ostringstream oss;
         oss << std::put_time(&timeInfo, "%Y-%m-%d %H:%M:%S") << "." << std::setw(3) << std::setfill('0')

@@ -1,10 +1,12 @@
-#include "jsonParser.hpp"
-#include "boost/property_tree/ptree.hpp"
+#include <fstream>
 #include <sstream>
-#include <iostream>
 #include <string>
+#include <utility>
+
+#include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
 
+#include "jsonParser.hpp"
 /**
  * @file jsonParser.cpp
  * @brief Содержит определение класса JsonParser.
@@ -12,7 +14,7 @@
 
 using namespace utility;
 
-JsonParser::JsonParser(std::shared_ptr<spdlog::logger> logger) : logger_(logger) {}
+JsonParser::JsonParser(std::shared_ptr<spdlog::logger> logger) : logger_(std::move(logger)) {}
 
 void JsonParser::parse(const std::filesystem::path& pathToFile) {
     try {
@@ -26,14 +28,14 @@ void JsonParser::parse(const std::filesystem::path& pathToFile) {
     } catch (std::exception& e) {
         if(logger_)
             logger_->critical("Critical error parsing JSON file {}: {}", pathToFile.string(), e.what());
-        throw e;
+        throw;
     }
 }
 
-std::string JsonParser::output() {
+std::string JsonParser::output() const {
     if(logger_)
         logger_->debug("Generating output string from JSON data");
-    std::string res("");
+    std::string res;
     res += "RMin: " + std::to_string(data_.get<int>("RMin")) + "\n";
     res += "RMax: " + std::to_string(data_.get<int>("RMax"))+ "\n";
     res += "AmountOfOperators: " + std::to_string(data_.get<int>("AmountOfOperators"))+ "\n";
@@ -46,10 +48,8 @@ std::map<std::string, int> JsonParser::outputConfig() {
         logger_->debug("Generating output string from JSON data");
     std::map<std::string, int> res;
     try {
-        boost::property_tree::basic_ptree<std::string, std::string>::const_iterator iter = data_.begin(),
-                                                                                    iterEnd = data_.end();
-        for (; iter != iterEnd; ++iter) {
-            res[iter->first] = iter->second.get_value<int>();
+        for (const auto& [name, value] : data_) {
+            res[name] = value.get_value<int>();
         }
     } catch (std::exception& e) {
         if(logger_)
@@ -60,5 +60,5 @@ std::map<std::string, int> JsonParser::outputConfig() {
 }
 
 void JsonParser::setLogger(std::shared_ptr<spdlog::logger> logger) {
-    logger_ = logger;
+    logger_ = std::move(logger);
 }

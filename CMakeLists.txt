@@ -1,117 +1,57 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.24)
+set(PATCH_VERSION "1" CACHE STRING "Patch version")
+project(protei_cov VERSION 0.0.${PATCH_VERSION} LANGUAGES CXX)
 
-set(PATCH_VERSION "1" CACHE INTERNAL "Patch version")
-set(PROJECT_VESRION 0.0.${PATCH_VERSION})
+set(CMAKE_CXX_EXTENSIONS OFF)
+option(WITH_TESTS "Build unit and HTTP smoke tests" ON)
+option(WARNINGS_AS_ERRORS "Treat project warnings as errors" ON)
 
-set(PROJECT_NAME protei_cov)
+function(target_warnings target)
+    if(MSVC)
+        target_compile_options(${target} PRIVATE /W4)
+        if(WARNINGS_AS_ERRORS)
+            target_compile_options(${target} PRIVATE /WX)
+        endif()
+    else()
+        target_compile_options(${target} PRIVATE -Wall -Wextra -Wpedantic)
+        if(WARNINGS_AS_ERRORS)
+            target_compile_options(${target} PRIVATE -Werror)
+        endif()
+    endif()
+endfunction()
 
-project(${PROJECT_NAME} VERSION ${PROJECT_VESRION})
-
-set(SOURCES src/jsonParser.cpp src/config.cpp src/threadpool.cpp src/manager.cpp
-            src/queue.cpp src/builder.cpp src/recorder.cpp
-        src/commonStructures.cpp
-        src/task.cpp
-        src/httpServer.cpp)
-set(HEADERS include/config.hpp include/commonStructures.hpp
-        include/jsonParser.hpp include/recorder.hpp include/threadpool.hpp
-        include/manager.hpp include/interfaces.hpp include/queue.hpp include/builder.hpp
-        include/task.hpp
-        include/httpServer.hpp)
-
-add_executable(${PROJECT_NAME} src/main.cpp ${SOURCES} ${HEADERS})
-target_include_directories(${PROJECT_NAME} PUBLIC include)
-set_target_properties(${PROJECT_NAME} PROPERTIES
-        CXX_STANDARD 20
-        CXX_STANDARD_REQUIRED ON
-        CXX_EXTENSIONS ON
-)
-
-add_custom_command(
-        TARGET ${PROJECT_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy
-        ${CMAKE_CURRENT_SOURCE_DIR}/tests/base.json
-        ${CMAKE_CURRENT_BINARY_DIR}/
-)
-##download libraries and include them
-##
 include(cmake/LibsConfig.cmake)
-DownloadAndUseLibs(LIGHTWEIGHTBABY)
-target_link_libraries(${PROJECT_NAME} PRIVATE ${LinkLibraries})
-target_include_directories(${PROJECT_NAME} PRIVATE ${LinkInclude})
-##
-##end of downloading libraries and including them
-##fetching tests
-##
-add_definitions(-DWITH_TESTS)
-if(WITH_TESTS)
+add_subdirectory(protei_cov_core)
+add_executable(protei_cov src/main.cpp src/httpServer.cpp)
+target_include_directories(protei_cov PRIVATE include)
+target_link_libraries(protei_cov PRIVATE protei_cov_core)
+target_warnings(protei_cov)
+configure_file(tests/base.json base.json COPYONLY)
 
-    FetchContent_Declare(
-            googletest
-            GIT_REPOSITORY https://github.com/google/googletest.git
-            GIT_TAG v1.13.0
+if(WITH_TESTS)
+    enable_testing()
+    FetchContent_Declare(googletest
+        GIT_REPOSITORY https://github.com/google/googletest.git
+        GIT_TAG v1.13.0
+        GIT_SHALLOW TRUE
     )
     FetchContent_MakeAvailable(googletest)
-    add_library(GTest::GTest INTERFACE IMPORTED)
-    target_link_libraries(GTest::GTest INTERFACE gtest_main gmock_main)
-    add_executable(test tests/managerTests.cpp tests/configTests.cpp
-            tests/queueTests.cpp ${SOURCES}
-            tests/builderTests.cpp
-            tests/jsonParserTests.cpp
-            tests/commonStructuresTests.cpp)
-    target_compile_features(test PUBLIC cxx_std_20)
-    target_link_libraries(test GTest::GTest ${LinkLibraries})
-    target_include_directories(test PRIVATE include)
-    add_custom_command(
-            TARGET test  POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy
-            ${CMAKE_CURRENT_SOURCE_DIR}/tests/base.json
-            ${CMAKE_CURRENT_BINARY_DIR}/
+    add_executable(protei_cov_tests
+        tests/managerTests.cpp tests/configTests.cpp tests/queueTests.cpp
+        tests/builderTests.cpp tests/jsonParserTests.cpp tests/commonStructuresTests.cpp
     )
-    message("base.json file was moved")
-    add_custom_command(
-            TARGET test  POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy
-            ${CMAKE_CURRENT_SOURCE_DIR}/tests/lowerBorder.json
-            ${CMAKE_CURRENT_BINARY_DIR}/
-    )
-    message("lowerBorder.json file was moved")
-    add_custom_command(
-            TARGET test  POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy
-            ${CMAKE_CURRENT_SOURCE_DIR}/tests/upperBorder.json
-            ${CMAKE_CURRENT_BINARY_DIR}/
-    )
-    message("upperBorder.json file was moved")
-    add_custom_command(
-            TARGET test  POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy
-            ${CMAKE_CURRENT_SOURCE_DIR}/tests/broken.json
-            ${CMAKE_CURRENT_BINARY_DIR}/
-    )
-    message("broken.json file was moved")
+    target_link_libraries(protei_cov_tests PRIVATE
+        protei_cov_core GTest::gtest_main GTest::gmock)
+    target_warnings(protei_cov_tests)
+    foreach(fixture base lowerBorder upperBorder broken)
+        configure_file(tests/${fixture}.json ${fixture}.json COPYONLY)
+    endforeach()
+    find_package(Python3 REQUIRED COMPONENTS Interpreter)
+    add_test(NAME HttpSmoke COMMAND "${Python3_EXECUTABLE}"
+        "${CMAKE_CURRENT_SOURCE_DIR}/tests/http_smoke.py" "$<TARGET_FILE:protei_cov>")
+    set_tests_properties(HttpSmoke PROPERTIES TIMEOUT 20 RUN_SERIAL TRUE)
     include(GoogleTest)
-    gtest_discover_tests(test)
-endif()
-##
-##end fetching tests
-
-
-if (MSVC)
-    target_compile_options(${PROJECT_NAME} PRIVATE
-        /W4
-    )
-    if(BUILDING_TESTS)
-        target_compile_options(${PROJECT_NAME}_test PRIVATE
-            /W4
-        )
-    endif()
-else ()
-    target_compile_options(${PROJECT_NAME} PRIVATE
-        -Wall -Wextra -pedantic -Werror
-    )
-    if(BUILDING_TESTS)
-        target_compile_options(${PROJECT_NAME}_test PRIVATE
-            -Wall -Wextra -pedantic -Werror
-        )
-    endif()
+    # Tests write shared log/output files; serialize them even with ctest -j.
+    gtest_discover_tests(protei_cov_tests
+        PROPERTIES ENVIRONMENT "TZ=UTC0" RUN_SERIAL TRUE TIMEOUT 15)
 endif()

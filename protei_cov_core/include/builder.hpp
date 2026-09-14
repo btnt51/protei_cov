@@ -1,7 +1,7 @@
 #ifndef PROTEI_COV_BUILDER_HPP
 #define PROTEI_COV_BUILDER_HPP
-#include "manager.hpp"
 #include "config.hpp"
+#include "manager.hpp"
 #include "threadpool.hpp"
 
 /**
