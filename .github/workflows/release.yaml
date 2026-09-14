@@ -6,6 +6,8 @@ on:
       - closed
 jobs:
   buildOnUbuntuX64:
+    permissions:
+      contents: write
     runs-on: ubuntu-22.04
     name: Build on ubuntu:latest-x64
     environment: env
@@ -47,4 +49,4 @@ jobs:
           files: build/protei_cov-0.0.${{ github.run_number }}-ubuntu22.04-x64.zip
           tag_name: ${{ github.run_number }}
           name: Release ${{ github.run_number }}
-          token: ${{ secrets.ACTION_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
