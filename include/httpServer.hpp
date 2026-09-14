@@ -1,10 +1,10 @@
 #ifndef PROTEI_COV_HTTPSERVER_HPP
 #define PROTEI_COV_HTTPSERVER_HPP
+#include "builder.hpp"
 #include <boost/asio.hpp>
 #include <boost/beast.hpp>
 #include <iostream>
 #include <spdlog/async.h>
-#include "builder.hpp"
 
 /**
  * @file httpServer.hpp

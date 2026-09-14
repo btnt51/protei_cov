@@ -37,11 +37,7 @@ TEST(CommonStructures, CorrectlyWritesCDRToOfstream) {
 
     std::ifstream inFile("test_output.txt");
     std::string content((std::istreambuf_iterator<char>(inFile)), std::istreambuf_iterator<char>());
-    std::string expectedContent;
-    if(std::chrono::current_zone()->name() == "Europe/Moscow")
-        expectedContent = "2023-12-05 14:30:45.000;123456789;2134;2023-12-05 14:30:56.000;Completed;2023-12-05 14:30:46.000;12;10s";
-    else
-        expectedContent = "2023-12-05 11:30:45.000;123456789;2134;2023-12-05 11:30:56.000;Completed;2023-12-05 11:30:46.000;12;10s";
+    const std::string expectedContent = "2023-12-05 11:30:45.000;123456789;2134;2023-12-05 11:30:56.000;Completed;2023-12-05 11:30:46.000;12;10s";
     EXPECT_EQ(content, expectedContent);
 
 
@@ -52,7 +48,7 @@ TEST(CommonStructures, CorrectlyWritesCDRToOfstreamWhenTimeout) {
     CDR cdr;
     cdr.startTime = std::chrono::system_clock::from_time_t(std::time_t{1701775845});
     cdr.operatorCallTime = std::chrono::system_clock::from_time_t(std::time_t{1701775846});
-    cdr.endTime;
+    cdr.endTime = {};
     cdr.number = "2134";
     cdr.callDuration = std::chrono::seconds(0);
     cdr.status = CallStatus::Timeout;
@@ -65,11 +61,7 @@ TEST(CommonStructures, CorrectlyWritesCDRToOfstreamWhenTimeout) {
 
     std::ifstream inFile("test_output.txt");
     std::string content((std::istreambuf_iterator<char>(inFile)), std::istreambuf_iterator<char>());
-    std::string expectedContent;
-    if(std::chrono::current_zone()->name() == "Europe/Moscow")
-        expectedContent = "2023-12-05 14:30:45.000;123456789;2134;;Timeout;2023-12-05 14:30:46.000;12;0s";
-    else
-        expectedContent = "2023-12-05 11:30:45.000;123456789;2134;;Timeout;2023-12-05 11:30:46.000;12;0s";
+    const std::string expectedContent = "2023-12-05 11:30:45.000;123456789;2134;;Timeout;2023-12-05 11:30:46.000;12;0s";
 
 
     EXPECT_EQ(content, expectedContent);

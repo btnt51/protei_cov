@@ -8,7 +8,7 @@
 
 using namespace net;
 
-HttpServer::HttpServer(short unsigned port = 8080, std::filesystem::path path = "base.json"):
+HttpServer::HttpServer(short unsigned port, std::filesystem::path path):
     acceptor(io_context, {tcp::v4(), port}) {
     ManagerBuilder managerBuilder;
     manager = managerBuilder.Construct(path);

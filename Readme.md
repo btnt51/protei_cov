@@ -31,32 +31,83 @@ Boost
 - CDR - Call Detailed Record, информационная запись в журнале по факту предоставления услуги. Обычно это текстовый файл, журнал, имеет фиксированное количество полей разделенных каким-то символом (у нас чаще всего это точка с запятой “;”)
 
 
-## Как пользоваться программой:
-Можно скачать последнюю версию программы из github releases, предоставляется две версии:
-- Для Debian based дистрибутивов на x64
-- Для Debian based диструбитивов на arm64
+## Сборка и запуск
 
-Также можно склонировать репозиторий себе на персональный компьютер и собрать вручную, 
-для этого требуется установленный cmake не ниже версии 3.12 и любой компилятор (тестировалось, собиралось и соибрается
-gcc 13.2). Далее представлена команда для сборки, но со сборкой тестов, чтобы не билдить тесты
-необходимо изменить команду -D WITH_TESTS=ON. По-умолчанию, CMake ищет spdlog и boost в вашей системе, 
-если их нет в системе, cmake сам все скачает и может скачать в двух вариантах - тяжелое (весь буст) или легкий,
-только конкретные библиотеки. Для второго варианта в аргументах cmake нужно указать -D LIGHTWEIGHTBABY=ON.
-```shell
-git clone https://github.com/btnt51/protei_cov.git
-cd protei_cov
-mkdir build && cd build
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -D WITH_TESTS=ON -D LIGHTWEIGHTBABY=NO ..
-```
-Можно запускать по-умолчанию:
-```shell
-./protei_cov
+Нужны CMake 3.24+, Git, компилятор с C++20, Boost 1.83+ (заголовки и CMake config).
+Для тестов также нужен Python 3. spdlog 1.15.3 со встроенным fmt и GoogleTest 1.13.0
+скачиваются CMake при первой конфигурации; требуется доступ к GitHub.
+Системный fmt/spdlog не используется, бинарные библиотеки Boost не нужны.
+
+Ubuntu 24.04:
+
+```bash
+sudo apt-get update
+sudo apt-get install -y cmake ninja-build g++-13 clang-18 libboost1.83-dev git python3
 ```
 
-Можно указать порт (стандартный порт 8080) и путь до файла (стандартный путь до файла ./base.json)
-```shell
-./protei_cov <порт> <путь_до_файла>
+macOS: установите Xcode Command Line Tools и `brew install cmake ninja boost gcc python`.
+У Homebrew GCC имя содержит версию: например `g++-16`. `/usr/bin/g++` на macOS — AppleClang.
+
+Каждому компилятору нужен отдельный каталог сборки:
+
+```bash
+cmake -S . -B build-clang -G Ninja -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Debug
+cmake --build build-clang --parallel 2
+ctest --test-dir build-clang --output-on-failure --no-tests=error
+
+# Ubuntu: g++-13; для установленного Homebrew GCC: например g++-16.
+cmake -S . -B build-gcc -G Ninja -DCMAKE_CXX_COMPILER=g++-13 -DCMAKE_BUILD_TYPE=Debug
+cmake --build build-gcc --parallel 2
+ctest --test-dir build-gcc --output-on-failure --no-tests=error
 ```
+
+Если Boost установлен вне стандартных путей, передайте `-DBoost_ROOT=/path/to/boost`.
+Предупреждения собственного кода считаются ошибками; для диагностики это можно отключить
+через `-DPROTEI_WARNINGS_AS_ERRORS=OFF`. Проверки выполняются с включённой опцией.
+
+Цели: `protei_cov_core` — статическая библиотека; `protei_cov` — HTTP-сервер;
+`protei_cov_tests` — модульные тесты. CTest запускает 45 модульных тестов и HTTP smoke-test:
+реальный сервер, ответ 404 на неизвестный маршрут и успешная обработка вызова.
+HTTP-тесту нужен доступ к локальному сокету. Тесты CDR запускаются в UTC; для прямого
+запуска тестового бинарника используйте `TZ=UTC0 ./protei_cov_tests` из каталога сборки.
+Вывод CDR самого сервера остаётся в локальном часовом поясе.
+
+Release без GoogleTest и Python:
+
+```bash
+cmake -S . -B build-release -DCMAKE_BUILD_TYPE=Release -DWITH_TESTS=OFF
+cmake --build build-release --parallel 2
+cd build-release
+./protei_cov 8080 base.json
+```
+
+Без аргументов сервер использует порт 8080 и `base.json` в текущем каталоге.
+Для указания порта передавайте оба аргумента: порт и путь к конфигурации.
+Команда `./protei_cov test` сохранена для старых release workflows и проверяет только
+запуск бинарника; полноценная HTTP-проверка находится в CTest.
+
+`build.sh` сохраняет старые позиционные аргументы для release workflows, останавливается
+при ошибках и создаёт настоящий ZIP. Аргументы старого режима загрузки Boost больше не
+используются. Для выбора каталога задайте `PROTEI_BUILD_DIR`; при смене компилятора
+используйте новый каталог.
+
+В `.gitlab-ci.yml` и `.github/workflows/portable-build.yaml` настроены Linux-сборки
+GCC 13 и Clang 18 с тестами. GitHub workflow дополнительно проверяет AppleClang на macOS.
+GitLab сохраняет JUnit, лог тестов, сервер и пример конфигурации как артефакты.
+
+## Проверка переносимости (13.09.2026)
+
+Локально проверено на macOS arm64, CMake 4.4.0, Boost 1.90.0:
+
+| Компилятор | Debug с `-Werror` | CTest | Release, `WITH_TESTS=OFF` |
+|---|---|---|---|
+| AppleClang 21.0.0 | Собраны ядро, сервер, тесты | 46/46 | Собран, бинарник запускается |
+| GCC 16.1.0 | Собраны ядро, сервер, тесты | 46/46 | Собран, бинарник запускается |
+
+Проверены настоящий ZIP из `build.sh` и остановка скрипта при ошибке configure без
+создания архива. Release проверен в отдельных каталогах без GoogleTest и тестового
+executable. Linux-матрицы GCC 13 / Clang 18 добавлены в CI, но удалённые jobs в рамках
+этой проверки не запускались.
 
 ## Нагрузочное тестирование
 Можно произвести нагрузочное тестирование для этого необходимо склонировать репозиторий и 
